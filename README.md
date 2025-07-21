@@ -4,7 +4,7 @@ This project is part of my Master's thesis focused on resolving dependency confl
 
 ## Approach
 1. Detect changes between library versions (for example with japicmp) 
-2. Extract relevant changes based on use case.
+2. Extract relevant changes based on conflict type.
 3. Pass relevant changes either to an algorithmic or AI-powered approach to fix the broken dependency.
 4. Inject change into broken dependency.
 5. Validate that the dependency now works.
@@ -43,12 +43,14 @@ Furthermore, I add the following prefixes to a given fix based on how confident 
 
 #### 1. Method removed
 Category: tentatively heuristically resolvable
+
 I consider this conflict fixable *most* of the time based on the reasoning that library developers often add alternative methods when removing a method.
 
 Approach: Pass class diff of affected library class where the method got removed to an AI and hope for the best.
 
 #### 2. Method visibility changed
 Category: tentatively heuristically resolvable
+
 I consider this conflict fixable *most* of the time based on the reasoning that library developers often add alternative methods when changing the visiblity of methods.
 
 Approach: Pass class diff of affected library class where the method visibility got changed to an AI and hope for the best.
