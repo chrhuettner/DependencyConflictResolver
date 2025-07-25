@@ -9,7 +9,10 @@ import provider.ChatGPTProvider;
 import provider.ClaudeProvider;
 import provider.OllamaProvider;
 
+import javax.json.JsonWriter;
 import java.io.File;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -19,6 +22,9 @@ public class Main {
             Given code diffs between different versions of a shared dependency and client library code that breaks because of API changes, you suggest minimal, safe code adaptations so the client library works correctly with the target dependency version.
             Focus on clear, maintainable code changes and explain your reasoning if needed.
             """;
+
+    public static String codeStart = "---BEGIN UPDATED java CODE---";
+    public static String codeEnd = "---END UPDATED java CODE---";
 
     static String promptTemplate = """
             You are a software migration assistant.
@@ -42,11 +48,18 @@ public class Main {
             %s
             ```
             
+            
+            4. **Method-similarity** showing similar methods that could be used instead of the broken one:
+            ```similarity
+            %s
+            ```
+            
             ----
             
             Your task:
             - Read both diffs and the broken code snippet.
             - Identify what changed in the method being used.
+            - Consider the method similarity when you are not sure which method to choose.
             - Output the following in the exact format below.
             
             ----
@@ -93,6 +106,23 @@ public class Main {
         AIProvider qwen3_8b = new OllamaProvider("qwen3:8b");
         AIProvider starCoder2_15bProvider = new OllamaProvider("starcoder2:15b");
         AIProvider nomicEmbedTextProvider = new OllamaProvider("nomic-embed-text");
+        AIProvider cogito8bProvider = new OllamaProvider("cogito:8b");
+        AIProvider deepseekR1_7b  = new OllamaProvider("deepseek-r1:7b");
+
+        List<AIProvider> providers = new ArrayList<>();
+
+        //providers.add(chatgptProvider);
+        //providers.add(claudeProvider);
+        //providers.add(codeLama7bProvider);
+        //providers.add(codeLama13bProvider);
+            //providers.add(codeGemma7bProvider);   //Unpromising
+            //providers.add(deepseekCoder6b7Provider);    //Unpromising
+            //providers.add(starCoder2_7bProvider);       //Unpromising
+            //providers.add(deepSeekR1b5);                //Unpromising
+        //providers.add(qwen3_8b);
+            // providers.add(starCoder2_15bProvider);   //Unpromising
+        //providers.add(cogito8bProvider);
+        providers.add(deepseekR1_7b);
 
         String oldVersion = "5.6.15.Final";
         String newVersion = "7.0.4.Final";
@@ -122,8 +152,8 @@ public class Main {
         String gsonClassName = "com.google.gson.JsonParser";
         String gsonName = "Gson";
 
-        String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate);
-        //String prompt = buildPrompt(gsonName, gsonOldVersion, gsonNewVersion, gsonLeft, gsonRight, gsonClassName, gsonMethodName, brokenCodeGson);
+        //String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate);
+        String prompt = buildPrompt(gsonName, gsonOldVersion, gsonNewVersion, gsonLeft, gsonRight, gsonClassName, gsonMethodName, brokenCodeGson);
 
         System.out.println(prompt);
 
@@ -132,7 +162,7 @@ public class Main {
         //System.out.println(result);
 
         //System.out.println(claudeProvider.sendPromptAndReceiveResponse(prompt, systemContext));
-        System.out.println("codeGemma7bProvider");
+        /*System.out.println("codeGemma7bProvider");
         System.out.println(codeGemma7bProvider.sendPromptAndReceiveResponse(prompt, systemContext));
         System.out.println("deepseekCoder6b7Provider");
         System.out.println(deepseekCoder6b7Provider.sendPromptAndReceiveResponse(prompt, systemContext));
@@ -143,14 +173,26 @@ public class Main {
         System.out.println("codeLama7bProvider");
         System.out.println(codeLama7bProvider.sendPromptAndReceiveResponse(prompt, systemContext));
         System.out.println("deepSeekR1b5");
-        System.out.println(deepSeekR1b5.sendPromptAndReceiveResponse(prompt, systemContext));
-        System.out.println("qwen3_8b");
-        System.out.println(qwen3_8b.sendPromptAndReceiveResponse(prompt, systemContext));
-        System.out.println("starCoder2_15bProvider");
-        System.out.println(starCoder2_15bProvider.sendPromptAndReceiveResponse(prompt, systemContext));
+        System.out.println(deepSeekR1b5.sendPromptAndReceiveResponse(prompt, systemContext));*/
+        //System.out.println("qwen3_8b");
+        //System.out.println(qwen3_8b.sendPromptAndReceiveResponse(prompt, systemContext));
+        //System.out.println("starCoder2_15bProvider");
+        //System.out.println(starCoder2_15bProvider.sendPromptAndReceiveResponse(prompt, systemContext));
+
+        //System.out.println("cogito8bProvider");
+        //System.out.println(cogito8bProvider.sendPromptAndReceiveResponse(prompt, systemContext).code());
 
 
         //System.out.println(getJarDiff("testFiles/gson-2.8.0.jar", "testFiles/gson-2.10.1.jar"));
+
+        for (AIProvider provider : providers) {
+            sendAndPrintCode(provider, prompt);
+        }
+    }
+
+    public static void sendAndPrintCode(AIProvider aiProvider, String prompt){
+        System.out.println(aiProvider.getModel());
+        System.out.println(aiProvider.sendPromptAndReceiveResponse(prompt, systemContext).code());
     }
 
     public static String buildPrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName, String brokenMethodName, String brokenCode) {

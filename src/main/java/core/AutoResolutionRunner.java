@@ -73,7 +73,7 @@ public class AutoResolutionRunner {
                 System.out.println("Prompt for " + className + "#" + methodName + ":\n" + prompt + "\n");
 
 
-                String response = providers.get(6).sendPromptAndReceiveResponse(prompt, systemContext);
+                ConflictResolutionResult response = providers.get(6).sendPromptAndReceiveResponse(prompt, systemContext);
 
                 System.out.println(response);
             }

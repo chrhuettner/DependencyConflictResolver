@@ -86,7 +86,7 @@ public class JarDiffUtil {
 
             classChanges.append(buildClassChangeHeader(jApiClass));
             classChanges.append(System.lineSeparator());
-            classChanges.append("Start of changed class methods: ").append(System.lineSeparator());
+            classChanges.append("Class methods: ").append(System.lineSeparator());
 
             for (JApiMethod jApiMethod : jApiClass.getMethods()) {
 
@@ -97,9 +97,9 @@ public class JarDiffUtil {
                     methodChanges.append(System.lineSeparator()).append(System.lineSeparator());
 
                 } else {
-                    if (jApiMethod.getChangeStatus() == JApiChangeStatus.REMOVED) {
-                        continue;
-                    }
+                    //if (jApiMethod.getChangeStatus() == JApiChangeStatus.REMOVED) {
+                    //    continue;
+                    //}
                     similarMethods.add(jApiMethod);
                 }
 
@@ -108,7 +108,7 @@ public class JarDiffUtil {
                 classChanges.append(System.lineSeparator()).append(System.lineSeparator());
             }
 
-            classChanges.append("End of changed class methods.").append(System.lineSeparator());
+            //classChanges.append("End of changed class methods.").append(System.lineSeparator());
         }
 
         return new BuildDiffResult(classChanges.toString(), methodChanges.toString());
@@ -123,11 +123,11 @@ public class JarDiffUtil {
         header.append("Changed class: ")
                 .append(jApiClass.getFullyQualifiedName())
                 .append(", Status: ")
-                .append(jApiClass.getChangeStatus())
-                .append(", Compatibility change: ");
+                .append(jApiClass.getChangeStatus());
+
 
         if (!classCompatibilityChange.isEmpty()) {
-            header.append(classCompatibilityChange);
+            header.append(", Compatibility change: ").append(classCompatibilityChange);
         }
 
         return header.toString();
@@ -230,9 +230,9 @@ public class JarDiffUtil {
 
         similarityResults.sort((t1, t2) -> Double.compare(t2.similarity(), t1.similarity()));
 
-        for (SimilarityResult result : similarityResults) {
+       /* for (SimilarityResult result : similarityResults) {
             System.out.printf("Similarity between '%s' and '%s': %.4f%n", baseWord, getFullMethodSignature(result.method().getNewMethod().get(), result.method().getReturnType().getNewReturnType().toString()), result.similarity());
-        }
+        }*/
 
         return similarityResults;
     }

@@ -2,6 +2,8 @@ package provider;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import core.ConflictResolutionResult;
+import core.Main;
 import okhttp3.*;
 
 import java.io.IOException;
@@ -20,7 +22,7 @@ public abstract class BaseAIProvider implements AIProvider {
     }
 
     @Override
-    public String sendPromptAndReceiveResponse(String prompt, String context) {
+    public ConflictResolutionResult sendPromptAndReceiveResponse(String prompt, String context) {
         String json;
         try {
             json = mapper.writeValueAsString(getPromptWithContext(prompt, context));
@@ -38,7 +40,19 @@ public abstract class BaseAIProvider implements AIProvider {
             if (response.body() == null) {
                 throw new IOException("Empty response");
             }
-            return extractContentFromResponse(response.body().string());
+            String result = extractContentFromResponse(response.body().string());
+            int startIndex = result.indexOf(Main.codeStart);
+            int endIndex = result.indexOf(Main.codeEnd);
+            String code = "";
+
+            if(startIndex != -1 && endIndex != -1){
+                code = result.substring(startIndex+Main.codeStart.length(), endIndex);
+            }else{
+                System.err.println(getModel()+" failed to respond code in expected format!");
+                System.err.println("Full response: " + result);
+            }
+
+            return new ConflictResolutionResult(code, result);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
