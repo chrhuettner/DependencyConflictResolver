@@ -4,6 +4,7 @@ import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
 import japicmp.model.JApiMethod;
+import japicmp.model.JApiParameter;
 import provider.AIProvider;
 import provider.ChatGPTProvider;
 import provider.ClaudeProvider;
@@ -13,6 +14,7 @@ import javax.json.JsonWriter;
 import java.io.File;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -107,7 +109,8 @@ public class Main {
         AIProvider starCoder2_15bProvider = new OllamaProvider("starcoder2:15b");
         AIProvider nomicEmbedTextProvider = new OllamaProvider("nomic-embed-text");
         AIProvider cogito8bProvider = new OllamaProvider("cogito:8b");
-        AIProvider deepseekR1_7b  = new OllamaProvider("deepseek-r1:7b");
+        AIProvider deepseekR1_7b = new OllamaProvider("deepseek-r1:7b");
+        AIProvider gptOss20b = new OllamaProvider("gpt-oss:20b");
 
         List<AIProvider> providers = new ArrayList<>();
 
@@ -115,14 +118,15 @@ public class Main {
         //providers.add(claudeProvider);
         //providers.add(codeLama7bProvider);
         //providers.add(codeLama13bProvider);
-            //providers.add(codeGemma7bProvider);   //Unpromising
-            //providers.add(deepseekCoder6b7Provider);    //Unpromising
-            //providers.add(starCoder2_7bProvider);       //Unpromising
-            //providers.add(deepSeekR1b5);                //Unpromising
+        //providers.add(codeGemma7bProvider);   //Unpromising
+        //providers.add(deepseekCoder6b7Provider);    //Unpromising
+        //providers.add(starCoder2_7bProvider);       //Unpromising
+        //providers.add(deepSeekR1b5);                //Unpromising
         //providers.add(qwen3_8b);
-            // providers.add(starCoder2_15bProvider);   //Unpromising
+        //providers.add(starCoder2_15bProvider);   //Unpromising
         //providers.add(cogito8bProvider);
-        providers.add(deepseekR1_7b);
+        //providers.add(deepseekR1_7b);
+        //providers.add(gptOss20b);
 
         String oldVersion = "5.6.15.Final";
         String newVersion = "7.0.4.Final";
@@ -133,6 +137,9 @@ public class Main {
 
         String hibernateLeft = "testFiles/hibernate-core-5.6.15.Final.jar";
         String hibernateRight = "testFiles/hibernate-core-7.0.4.Final.jar";
+
+        String[] hibernateParameterTypeNames = new String[]{"java.lang.Object"};
+
 
         String hibernateMethodName = "save";
         String hibernateClassName = "org.hibernate.Session";
@@ -150,10 +157,11 @@ public class Main {
 
         String gsonMethodName = "parse";
         String gsonClassName = "com.google.gson.JsonParser";
+        String[] gsonParameterTypeNames = new String[]{"java.lang.String"};
         String gsonName = "Gson";
 
-        //String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate);
-        String prompt = buildPrompt(gsonName, gsonOldVersion, gsonNewVersion, gsonLeft, gsonRight, gsonClassName, gsonMethodName, brokenCodeGson);
+        //String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate, hibernateParameterTypeNames);
+        String prompt = buildPrompt(gsonName, gsonOldVersion, gsonNewVersion, gsonLeft, gsonRight, gsonClassName, gsonMethodName, brokenCodeGson, gsonParameterTypeNames);
 
         System.out.println(prompt);
 
@@ -190,12 +198,49 @@ public class Main {
         }
     }
 
-    public static void sendAndPrintCode(AIProvider aiProvider, String prompt){
-        System.out.println(aiProvider.getModel());
-        System.out.println(aiProvider.sendPromptAndReceiveResponse(prompt, systemContext).code());
+    public static JApiMethod inferTargetMethod(List<JApiMethod> methodsWithSameName, String[] parameterTypeNames) {
+        if (methodsWithSameName.size() == 1) {
+            return methodsWithSameName.get(0);
+        }
+
+        ArrayList<JApiMethod> candidates = new ArrayList<>(methodsWithSameName.size());
+        candidates.addAll(methodsWithSameName);
+
+
+        for (int i = candidates.size() - 1; i >= 0; i--) {
+            JApiMethod method = candidates.get(i);
+            if (method.getParameters().size() != parameterTypeNames.length) {
+                candidates.remove(i);
+                continue;
+            }
+
+            for (int j = 0; j < method.getParameters().size(); j++) {
+                JApiParameter parameter = method.getParameters().get(j);
+                if(!parameter.getType().equals(parameterTypeNames[j]) && !parameterTypeNames[j].equals("java.lang.Object")) {
+                    candidates.remove(i);
+                    break;
+                }
+            }
+        }
+
+        if (candidates.isEmpty()) {
+            throw new RuntimeException("No methods with the same signature found");
+        }
+
+        if (candidates.size() == 1) {
+            return candidates.get(0);
+        }
+
+
+        return candidates.get(0);
     }
 
-    public static String buildPrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName, String brokenMethodName, String brokenCode) {
+    public static void sendAndPrintCode(AIProvider aiProvider, String prompt) {
+        System.out.println(aiProvider.getModel());
+        System.out.println(aiProvider.sendPromptAndReceiveResponse(prompt, systemContext));
+    }
+
+    public static String buildPrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName, String brokenMethodName, String brokenCode, String[] parameterTypeNames) {
         JarDiffUtil jarDiffUtil = new JarDiffUtil(pathToOldLibraryJar, pathToNewLibraryJar);
 
         ClassDiffResult classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName);
@@ -207,12 +252,21 @@ public class Main {
             methodSimilarityString.append(formattedString).append(System.lineSeparator());
         }
 
+        JApiMethod conflictingMethod = inferTargetMethod(classDiffResult.methodsWithSameName(), parameterTypeNames);
+
+        System.out.println(conflictingMethod);
+        List<ConflictType> conflictTypes = ConflictType.getConflictTypesFromMethod(conflictingMethod);
+
+        for (ConflictType conflictType : conflictTypes) {
+            System.out.println(conflictType.name());
+        }
+
 
         return String.format(promptTemplate,
                 libraryName,
                 oldVersion,
                 newVersion,
-                classDiffResult.methodDiff(),
+                JarDiffUtil.buildMethodChangeReport(conflictingMethod),
                 newVersion,
                 oldVersion,
                 classDiffResult.classDiff(),

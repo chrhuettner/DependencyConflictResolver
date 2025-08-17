@@ -67,7 +67,8 @@ public class AutoResolutionRunner {
                         rightJar,
                         className,
                         methodName,
-                        brokenCode
+                        brokenCode,
+                        new String[]{}
                 );
 
                 System.out.println("Prompt for " + className + "#" + methodName + ":\n" + prompt + "\n");

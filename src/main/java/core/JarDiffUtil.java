@@ -30,7 +30,7 @@ public class JarDiffUtil {
         BuildDiffResult changes = buildChangeReport(jApiClasses, fullyQualifiedCallerClassName, methodName, similarMethods, methodsWithSameName);
 
 
-        return new ClassDiffResult(changes.classResult(), changes.methodResult(), methodsWithSameName, getSimilarityOfMethods(similarMethods, getFullMethodSignature(methodsWithSameName.get(0).getOldMethod().get(), methodsWithSameName.get(0).getReturnType().getOldReturnType().toString())));
+        return new ClassDiffResult(changes.classResult(), methodsWithSameName, getSimilarityOfMethods(similarMethods, getFullMethodSignature(methodsWithSameName.get(0).getOldMethod().get(), methodsWithSameName.get(0).getReturnType().getOldReturnType().toString())));
     }
 
     public List<JApiMethod> getChangedMethods() {
@@ -73,7 +73,7 @@ public class JarDiffUtil {
 
     private static BuildDiffResult buildChangeReport(List<JApiClass> jApiClasses, String fullyQualifiedCallerClassName, String methodName, List<JApiMethod> similarMethods, List<JApiMethod> methodsWithSameName) {
         StringBuilder classChanges = new StringBuilder();
-        StringBuilder methodChanges = new StringBuilder();
+        //StringBuilder methodChanges = new StringBuilder();
 
         for (JApiClass jApiClass : jApiClasses) {
             /*if (jApiClass.getChangeStatus() == JApiChangeStatus.UNCHANGED) {
@@ -93,8 +93,8 @@ public class JarDiffUtil {
                 if (jApiMethod.getName().equals(methodName)) {
                     methodsWithSameName.add(jApiMethod);
 
-                    methodChanges.append(buildMethodChangeReport(jApiMethod));
-                    methodChanges.append(System.lineSeparator()).append(System.lineSeparator());
+                    //methodChanges.append(buildMethodChangeReport(jApiMethod));
+                    //methodChanges.append(System.lineSeparator()).append(System.lineSeparator());
 
                 } else {
                     //if (jApiMethod.getChangeStatus() == JApiChangeStatus.REMOVED) {
@@ -111,7 +111,7 @@ public class JarDiffUtil {
             //classChanges.append("End of changed class methods.").append(System.lineSeparator());
         }
 
-        return new BuildDiffResult(classChanges.toString(), methodChanges.toString());
+        return new BuildDiffResult(classChanges.toString());
     }
 
     private static String buildClassChangeHeader(JApiClass jApiClass) {
@@ -133,7 +133,7 @@ public class JarDiffUtil {
         return header.toString();
     }
 
-    private static String buildMethodChangeReport(JApiMethod jApiMethod) {
+    public static String buildMethodChangeReport(JApiMethod jApiMethod) {
         StringBuilder report = new StringBuilder();
         List<JApiCompatibilityChange> compatibilityChanges = jApiMethod.getCompatibilityChanges();
 
