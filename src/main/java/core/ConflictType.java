@@ -16,8 +16,11 @@ public enum ConflictType {
     METHOD_RETURN_TO_NON_VOID, METHOD_BEHAVIOR_CHANGED, STATIC_METHOD_MOVED, NON_STATIC_METHOD_MOVED, METHOD_TO_ABSTRACT, NONE;
 
     public static List<ConflictType> getConflictTypesFromMethod(JApiMethod method) {
-        List<JApiCompatibilityChange> changes = method.getCompatibilityChanges();
         List<ConflictType> conflictTypes = new ArrayList<ConflictType>();
+        if(method == null) {
+            return conflictTypes;
+        }
+        List<JApiCompatibilityChange> changes = method.getCompatibilityChanges();
 
         if (method.getOldMethod().isPresent() && method.getNewMethod().isPresent()) {
             conflictTypes.addAll(getMethodConflictTypesFromDiff(method.getOldMethod().get(), method.getNewMethod().get()));

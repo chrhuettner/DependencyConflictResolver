@@ -29,8 +29,12 @@ public class JarDiffUtil {
 
         BuildDiffResult changes = buildChangeReport(jApiClasses, fullyQualifiedCallerClassName, methodName, similarMethods, methodsWithSameName);
 
+        List<SimilarityResult> similarityResults = new ArrayList<>();
+        if (!methodsWithSameName.isEmpty()) {
+            similarityResults = getSimilarityOfMethods(similarMethods, getFullMethodSignature(methodsWithSameName.get(0).getOldMethod().get(), methodsWithSameName.get(0).getReturnType().getOldReturnType().toString()));
+        }
 
-        return new ClassDiffResult(changes.classResult(), methodsWithSameName, getSimilarityOfMethods(similarMethods, getFullMethodSignature(methodsWithSameName.get(0).getOldMethod().get(), methodsWithSameName.get(0).getReturnType().getOldReturnType().toString())));
+        return new ClassDiffResult(changes.classResult(), methodsWithSameName, similarityResults);
     }
 
     public List<JApiMethod> getChangedMethods() {
@@ -45,8 +49,8 @@ public class JarDiffUtil {
                 }
                 if (jApiMethod.getChangeStatus() == JApiChangeStatus.MODIFIED && !jApiMethod.getCompatibilityChanges().isEmpty()) {
 
-                    for(JApiCompatibilityChange jApiCompatibilityChange : jApiMethod.getCompatibilityChanges()) {
-                        if(!jApiCompatibilityChange.isBinaryCompatible()){
+                    for (JApiCompatibilityChange jApiCompatibilityChange : jApiMethod.getCompatibilityChanges()) {
+                        if (!jApiCompatibilityChange.isBinaryCompatible()) {
                             removedMethods.add(jApiMethod);
                             break;
                         }
@@ -134,6 +138,9 @@ public class JarDiffUtil {
     }
 
     public static String buildMethodChangeReport(JApiMethod jApiMethod) {
+        if(jApiMethod == null){
+            return "";
+        }
         StringBuilder report = new StringBuilder();
         List<JApiCompatibilityChange> compatibilityChanges = jApiMethod.getCompatibilityChanges();
 

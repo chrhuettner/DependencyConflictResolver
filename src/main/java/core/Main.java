@@ -10,7 +10,6 @@ import provider.ChatGPTProvider;
 import provider.ClaudeProvider;
 import provider.OllamaProvider;
 
-import javax.json.JsonWriter;
 import java.io.File;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -122,7 +121,7 @@ public class Main {
         //providers.add(deepseekCoder6b7Provider);    //Unpromising
         //providers.add(starCoder2_7bProvider);       //Unpromising
         //providers.add(deepSeekR1b5);                //Unpromising
-        //providers.add(qwen3_8b);
+        providers.add(qwen3_8b);
         //providers.add(starCoder2_15bProvider);   //Unpromising
         //providers.add(cogito8bProvider);
         //providers.add(deepseekR1_7b);
@@ -224,7 +223,8 @@ public class Main {
         }
 
         if (candidates.isEmpty()) {
-            throw new RuntimeException("No methods with the same signature found");
+            System.err.println("No methods with the same signature found");
+            return null;
         }
 
         if (candidates.size() == 1) {
