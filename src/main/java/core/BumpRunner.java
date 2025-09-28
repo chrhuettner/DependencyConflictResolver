@@ -6,6 +6,9 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.CopyArchiveToContainerCmd;
 import com.github.dockerjava.api.command.CreateContainerResponse;
+import com.github.dockerjava.api.command.PullImageResultCallback;
+import com.github.dockerjava.api.model.AuthConfig;
+import com.github.dockerjava.api.model.PullResponseItem;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.core.DockerClientConfig;
@@ -35,8 +38,12 @@ import provider.ClaudeProvider;
 import provider.OllamaProvider;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,8 +59,13 @@ import static core.Main.sendAndPrintCode;
 
 public class BumpRunner {
 
+    private static boolean useContainerExtraction = false;
 
     public static void main(String[] args) {
+        String targetDirectory = "testFiles/downloaded";
+        File outputDir = new File(targetDirectory);
+
+
         AIProvider chatgptProvider = new ChatGPTProvider();
         AIProvider claudeProvider = new ClaudeProvider();
         AIProvider codeLama7bProvider = new OllamaProvider("codellama:7b");
@@ -100,7 +112,8 @@ public class BumpRunner {
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<String> validEntryNames = new ArrayList<>();
-        int i = 0;
+        int satisfiedConflictPairs = 0;
+        int totalPairs = 0;
         for (File file : bumpFolder.listFiles()) {
             try {
                 JsonNode jsonNode = objectMapper.readTree(file);
@@ -115,77 +128,39 @@ public class BumpRunner {
                 String dependencyArtifactID = cleanString(updatedDependency.get("dependencyArtifactID").toString());
                 String preCommitReproductionCommand = cleanString(jsonNode.get("preCommitReproductionCommand").toString());
                 String breakingUpdateReproductionCommand = cleanString(jsonNode.get("breakingUpdateReproductionCommand").toString());
-
-                String brokenUpdateImage = breakingUpdateReproductionCommand.substring(breakingUpdateReproductionCommand.lastIndexOf(" ")).trim();
-
-                if (mavenSourceLinkPre.equals("ul") || mavenSourceLinkBreaking.equals("ul")) {
-                    System.out.println("Skipped " + dependencyArtifactID + " due to missing sources");
+                String updatedFileType = cleanString(updatedDependency.get("updatedFileType").toString());
+                if (!updatedFileType.equals("JAR")) {
                     continue;
                 }
 
 
-                System.out.println(mavenSourceLinkPre);
-                URL urlPre = new URL(mavenSourceLinkPre);
-                String fileNamePre = Paths.get(urlPre.getPath()).getFileName().toString();
+                String brokenUpdateImage = breakingUpdateReproductionCommand.substring(breakingUpdateReproductionCommand.lastIndexOf(" ")).trim();
+                String oldUpdateImage = preCommitReproductionCommand.substring(preCommitReproductionCommand.lastIndexOf(" ")).trim();
 
-                Path targetPathPre = Paths.get("testFiles/downloaded").resolve(fileNamePre);
+                String combinedArtifactNameNew = dependencyArtifactID + "-" + newVersion + ".jar";
+                String combinedArtifactNameOld = dependencyArtifactID + "-" + previousVersion + ".jar";
 
-                if (!Files.exists(targetPathPre)) {
-                    InputStream inPrev = urlPre.openStream();
-                    Files.copy(inPrev, targetPathPre, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println(file.getName());
+                Path targetPathOld = downloadLibrary(mavenSourceLinkPre, outputDir, dockerClient, oldUpdateImage, combinedArtifactNameOld);
+                Path targetPathNew = downloadLibrary(mavenSourceLinkBreaking, outputDir, dockerClient, brokenUpdateImage, combinedArtifactNameNew);
+
+                if (Files.exists(targetPathOld) && Files.exists(targetPathNew)) {
+                    satisfiedConflictPairs++;
                 }
+                totalPairs++;
+                //String prompt = buildPrompt(dependencyArtifactID, previousVersion, newVersion, targetPathOld.toString(), targetPathNew.toString(),
+                //        "", "", "", new String[]{});
 
-
-                URL urlNew = new URL(mavenSourceLinkBreaking);
-
-                String fileNameNew = Paths.get(urlNew.getPath()).getFileName().toString();
-                Path targetPathNew = Paths.get("testFiles/downloaded").resolve(fileNameNew);
-
-                if (!Files.exists(targetPathNew)) {
-                    InputStream inNew = urlNew.openStream();
-                    Files.copy(inNew, targetPathNew, StandardCopyOption.REPLACE_EXISTING);
-
-                }
-
-
-                // Pull an image
-                dockerClient.pullImageCmd(brokenUpdateImage).start().awaitCompletion();
-
-                // Create container
-                CreateContainerResponse container = dockerClient.createContainerCmd(brokenUpdateImage)
-                        .exec();
-
-                //dockerClient.startContainerCmd(container.getId()).exec();
-                HashMap<String, String> classFileLocations = new HashMap<>();
-                try (InputStream tarStream = dockerClient.copyArchiveFromContainerCmd(container.getId(), "/").exec();
-                     TarArchiveInputStream tarInput = new TarArchiveInputStream(tarStream)) {
-
-                    TarArchiveEntry entry;
-                    while ((entry = tarInput.getNextEntry()) != null) {
-                        // Print only top-level entries
-                        String path = entry.getName();
-                        //System.out.println(path);
-
-                        //TODO: extract missing dependencies (those where the entry is null in the json) from the docker container
-                        //TODO: get .java file from the github repo based on url and breakingCommit
-                        classFileLocations.put(path.substring(path.lastIndexOf("/")), path);
-                    }
-                }
-
-
-                String prompt = buildPrompt(dependencyArtifactID, previousVersion, newVersion, targetPathNew.toString(), targetPathNew.toString(),
-                        "", "", "", new String[]{});
-
-                System.out.println(prompt);
-                break;
+                //System.out.println(prompt);
+                //break;
 
             } catch (IOException e) {
                 System.err.println(e);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
 
         }
+
+        System.out.println(satisfiedConflictPairs + " out of " + totalPairs + " entries have valid dependencies");
         try {
             objectMapper.writeValue(new File("testFiles/downloaded/validEntries.json"), validEntryNames);
         } catch (IOException e) {
@@ -194,6 +169,110 @@ public class BumpRunner {
     }
 
     private static String cleanString(String str) {
+        if (str.equals("null")) {
+            return null;
+        }
         return str.substring(1, str.length() - 1);
+    }
+
+    public static void extractEntry(TarArchiveInputStream tais, TarArchiveEntry entry, File outputDir) throws IOException {
+        File outputFile = new File(outputDir, entry.getName().substring(entry.getName().lastIndexOf('/') + 1));
+
+        try (FileOutputStream fos = new FileOutputStream(outputFile)) {
+            byte[] buffer = new byte[8192];
+            int len;
+            long remaining = entry.getSize();
+            while (remaining > 0 && (len = tais.read(buffer, 0, (int) Math.min(buffer.length, remaining))) != -1) {
+                fos.write(buffer, 0, len);
+                remaining -= len;
+            }
+        }
+    }
+
+    public static void extractLibraryFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String artifactNameWithVersion) {
+        System.out.println("Fetching library from container (this takes some time)");
+        CreateContainerResponse container = pullAndStartContainer(dockerClient, imagePath);
+        getLibraryFromContainer(dockerClient, container, artifactNameWithVersion, targetDirectory);
+    }
+
+    public static Path downloadLibrary(String libraryUrl, File targetDirectory, DockerClient dockerClient, String imagePath, String artifactNameWithVersion) {
+        Path targetPath = Path.of(targetDirectory.getPath()).resolve(artifactNameWithVersion);
+        if (!Files.exists(targetPath)) {
+            if (libraryUrl == null) {
+                if (useContainerExtraction) {
+                    extractLibraryFromContainer(targetDirectory, dockerClient, imagePath, artifactNameWithVersion);
+                }
+            } else {
+                try {
+                    URL url = new URI(libraryUrl).toURL();
+                    InputStream inPrev = url.openStream();
+                    Files.copy(inPrev, targetPath, StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException | URISyntaxException e) {
+                    System.err.println("Error downloading " + artifactNameWithVersion + " from " + libraryUrl + ". Resorting to container extraction: " + useContainerExtraction);
+                    if (useContainerExtraction) {
+                        extractLibraryFromContainer(targetDirectory, dockerClient, imagePath, artifactNameWithVersion);
+                    }
+                }
+            }
+        } else {
+            System.out.println("Library already exists locally at " + targetPath);
+        }
+        return targetPath;
+    }
+
+    public static CreateContainerResponse pullAndStartContainer(DockerClient dockerClient, String imagePath) {
+        try {
+            dockerClient.pullImageCmd(imagePath)
+                    .exec(new PullImageResultCallback() {
+                        @Override
+                        public void onNext(PullResponseItem item) {
+                            String status = item.getStatus();
+                            String progress = item.getProgress();
+                            String id = item.getId();
+
+                            if (status != null) {
+                                if (progress != null && !progress.isEmpty()) {
+                                    System.out.printf("%s: %s %s%n", id != null ? id : "", status, progress);
+                                } else {
+                                    System.out.printf("%s: %s%n", id != null ? id : "", status);
+                                }
+                            }
+
+                            super.onNext(item);
+                        }
+                    }).awaitCompletion();
+            return dockerClient.createContainerCmd(imagePath).exec();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void getLibraryFromContainer(DockerClient dockerClient, CreateContainerResponse container, String artifactWithVersionName, File outputDir) {
+        try (InputStream tarStream = dockerClient.copyArchiveFromContainerCmd(container.getId(), "/").exec();
+             TarArchiveInputStream tarInput = new TarArchiveInputStream(tarStream)) {
+
+            TarArchiveEntry entry;
+            boolean found = false;
+            while ((entry = tarInput.getNextEntry()) != null) {
+                String path = entry.getName();
+                if (entry.isDirectory()) {
+                    continue;
+                }
+                //System.out.println(path);
+                if (!path.endsWith(artifactWithVersionName)) {
+                    continue;
+                }
+
+                System.out.println("Found " + artifactWithVersionName + " in container, proceeding to download it into " + outputDir.getAbsolutePath());
+                extractEntry(tarInput, entry, outputDir);
+                found = true;
+                break;
+            }
+            if (!found) {
+                System.err.println("No library with name " + artifactWithVersionName + " found in container");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
