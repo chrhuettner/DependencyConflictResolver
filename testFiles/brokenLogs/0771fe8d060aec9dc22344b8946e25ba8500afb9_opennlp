@@ -1,0 +1,131 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache OpenNLP Reactor                                             [pom]
+[INFO] Apache OpenNLP Tools                                            [bundle]
+[INFO] Apache OpenNLP UIMA Annotators                                     [jar]
+[INFO] Apache OpenNLP Brat Annotator                                      [jar]
+[INFO] Apache OpenNLP Morfologik Addon                                    [jar]
+[INFO] Apache OpenNLP Documentation                                       [pom]
+[INFO] Apache OpenNLP Distribution                                        [pom]
+[INFO] opennlp-dl                                                         [jar]
+[INFO] 
+[INFO] ---------------------< org.apache.opennlp:opennlp >---------------------
+[INFO] Building Apache OpenNLP Reactor 1.9.5-SNAPSHOT                     [1/8]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ opennlp ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-java) @ opennlp ---
+[INFO] 
+[INFO] --- forbiddenapis:2.7:check (default) @ opennlp ---
+[INFO] Skipping execution for packaging "pom"
+[INFO] 
+[INFO] --- forbiddenapis:2.7:testCheck (default) @ opennlp ---
+[INFO] Skipping execution for packaging "pom"
+[INFO] 
+[INFO] --- checkstyle:2.17:check (validate) @ opennlp ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache OpenNLP Reactor 1.9.5-SNAPSHOT:
+[INFO] 
+[INFO] Apache OpenNLP Reactor ............................. FAILURE [  7.552 s]
+[INFO] Apache OpenNLP Tools ............................... SKIPPED
+[INFO] Apache OpenNLP UIMA Annotators ..................... SKIPPED
+[INFO] Apache OpenNLP Brat Annotator ...................... SKIPPED
+[INFO] Apache OpenNLP Morfologik Addon .................... SKIPPED
+[INFO] Apache OpenNLP Documentation ....................... SKIPPED
+[INFO] Apache OpenNLP Distribution ........................ SKIPPED
+[INFO] opennlp-dl ......................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.314 s
+[INFO] Finished at: 2025-09-30T16:56:07Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-checkstyle-plugin:2.17
+[WARNING]  * de.thetaphi:forbiddenapis:2.7
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.0.0
+[WARNING]  * org.apache.maven.plugins:maven-site-plugin:3.5.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check (validate) on project opennlp: Execution validate of goal org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check failed: An API incompatibility was encountered while executing org.apache.maven.plugins:maven-checkstyle-plugin:2.17:check: java.lang.NoSuchMethodError: 'void com.puppycrawl.tools.checkstyle.DefaultLogger.<init>(java.io.OutputStream, boolean)'
+[ERROR] -----------------------------------------------------
+[ERROR] realm =    plugin>org.apache.maven.plugins:maven-checkstyle-plugin:2.17
+[ERROR] strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
+[ERROR] urls[0] = file:/root/.m2/repository/org/apache/maven/plugins/maven-checkstyle-plugin/2.17/maven-checkstyle-plugin-2.17.jar
+[ERROR] urls[1] = file:/root/.m2/repository/com/puppycrawl/tools/checkstyle/8.29/checkstyle-8.29.jar
+[ERROR] urls[2] = file:/root/.m2/repository/info/picocli/picocli/4.1.4/picocli-4.1.4.jar
+[ERROR] urls[3] = file:/root/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
+[ERROR] urls[4] = file:/root/.m2/repository/org/antlr/antlr4-runtime/4.8-1/antlr4-runtime-4.8-1.jar
+[ERROR] urls[5] = file:/root/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar
+[ERROR] urls[6] = file:/root/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+[ERROR] urls[7] = file:/root/.m2/repository/com/google/guava/guava/28.2-jre/guava-28.2-jre.jar
+[ERROR] urls[8] = file:/root/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar
+[ERROR] urls[9] = file:/root/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+[ERROR] urls[10] = file:/root/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar
+[ERROR] urls[11] = file:/root/.m2/repository/org/checkerframework/checker-qual/2.10.0/checker-qual-2.10.0.jar
+[ERROR] urls[12] = file:/root/.m2/repository/com/google/errorprone/error_prone_annotations/2.3.4/error_prone_annotations-2.3.4.jar
+[ERROR] urls[13] = file:/root/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar
+[ERROR] urls[14] = file:/root/.m2/repository/net/sf/saxon/Saxon-HE/9.9.1-6/Saxon-HE-9.9.1-6.jar
+[ERROR] urls[15] = file:/root/.m2/repository/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.jar
+[ERROR] urls[16] = file:/root/.m2/repository/org/slf4j/jcl-over-slf4j/1.5.6/jcl-over-slf4j-1.5.6.jar
+[ERROR] urls[17] = file:/root/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+[ERROR] urls[18] = file:/root/.m2/repository/commons-cli/commons-cli/1.2/commons-cli-1.2.jar
+[ERROR] urls[19] = file:/root/.m2/repository/org/codehaus/plexus/plexus-interactivity-api/1.0-alpha-4/plexus-interactivity-api-1.0-alpha-4.jar
+[ERROR] urls[20] = file:/root/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar
+[ERROR] urls[21] = file:/root/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar
+[ERROR] urls[22] = file:/root/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar
+[ERROR] urls[23] = file:/root/.m2/repository/org/apache/maven/reporting/maven-reporting-api/3.0/maven-reporting-api-3.0.jar
+[ERROR] urls[24] = file:/root/.m2/repository/org/apache/maven/reporting/maven-reporting-impl/2.3/maven-reporting-impl-2.3.jar
+[ERROR] urls[25] = file:/root/.m2/repository/org/apache/maven/shared/maven-shared-utils/0.6/maven-shared-utils-0.6.jar
+[ERROR] urls[26] = file:/root/.m2/repository/org/apache/maven/doxia/doxia-core/1.2/doxia-core-1.2.jar
+[ERROR] urls[27] = file:/root/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+[ERROR] urls[28] = file:/root/.m2/repository/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar
+[ERROR] urls[29] = file:/root/.m2/repository/org/apache/httpcomponents/httpclient/4.0.2/httpclient-4.0.2.jar
+[ERROR] urls[30] = file:/root/.m2/repository/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1.jar
+[ERROR] urls[31] = file:/root/.m2/repository/commons-codec/commons-codec/1.3/commons-codec-1.3.jar
+[ERROR] urls[32] = file:/root/.m2/repository/commons-validator/commons-validator/1.3.1/commons-validator-1.3.1.jar
+[ERROR] urls[33] = file:/root/.m2/repository/commons-digester/commons-digester/1.6/commons-digester-1.6.jar
+[ERROR] urls[34] = file:/root/.m2/repository/org/apache/maven/doxia/doxia-sink-api/1.4/doxia-sink-api-1.4.jar
+[ERROR] urls[35] = file:/root/.m2/repository/org/apache/maven/doxia/doxia-logging-api/1.4/doxia-logging-api-1.4.jar
+[ERROR] urls[36] = file:/root/.m2/repository/org/apache/maven/doxia/doxia-decoration-model/1.4/doxia-decoration-model-1.4.jar
+[ERROR] urls[37] = file:/root/.m2/repository/org/apache/maven/doxia/doxia-site-renderer/1.4/doxia-site-renderer-1.4.jar
+[ERROR] urls[38] = file:/root/.m2/repository/org/apache/maven/doxia/doxia-module-xhtml/1.4/doxia-module-xhtml-1.4.jar
+[ERROR] urls[39] = file:/root/.m2/repository/org/apache/maven/doxia/doxia-module-fml/1.4/doxia-module-fml-1.4.jar
+[ERROR] urls[40] = file:/root/.m2/repository/org/codehaus/plexus/plexus-i18n/1.0-beta-7/plexus-i18n-1.0-beta-7.jar
+[ERROR] urls[41] = file:/root/.m2/repository/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar
+[ERROR] urls[42] = file:/root/.m2/repository/commons-chain/commons-chain/1.1/commons-chain-1.1.jar
+[ERROR] urls[43] = file:/root/.m2/repository/dom4j/dom4j/1.1/dom4j-1.1.jar
+[ERROR] urls[44] = file:/root/.m2/repository/sslext/sslext/1.2-0/sslext-1.2-0.jar
+[ERROR] urls[45] = file:/root/.m2/repository/org/apache/struts/struts-core/1.3.8/struts-core-1.3.8.jar
+[ERROR] urls[46] = file:/root/.m2/repository/org/apache/struts/struts-taglib/1.3.8/struts-taglib-1.3.8.jar
+[ERROR] urls[47] = file:/root/.m2/repository/org/apache/struts/struts-tiles/1.3.8/struts-tiles-1.3.8.jar
+[ERROR] urls[48] = file:/root/.m2/repository/org/apache/maven/doxia/doxia-integration-tools/1.6/doxia-integration-tools-1.6.jar
+[ERROR] urls[49] = file:/root/.m2/repository/commons-io/commons-io/1.4/commons-io-1.4.jar
+[ERROR] urls[50] = file:/root/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+[ERROR] urls[51] = file:/root/.m2/repository/org/codehaus/plexus/plexus-resources/1.0.1/plexus-resources-1.0.1.jar
+[ERROR] urls[52] = file:/root/.m2/repository/org/codehaus/plexus/plexus-utils/3.0.20/plexus-utils-3.0.20.jar
+[ERROR] urls[53] = file:/root/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.jar
+[ERROR] urls[54] = file:/root/.m2/repository/org/codehaus/plexus/plexus-velocity/1.1.8/plexus-velocity-1.1.8.jar
+[ERROR] urls[55] = file:/root/.m2/repository/org/apache/velocity/velocity/1.5/velocity-1.5.jar
+[ERROR] urls[56] = file:/root/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar
+[ERROR] urls[57] = file:/root/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar
+[ERROR] urls[58] = file:/root/.m2/repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar
+[ERROR] Number of foreign imports: 1
+[ERROR] import: Entry[import  from realm ClassRealm[maven.api, parent: null]]
+[ERROR] 
+[ERROR] -----------------------------------------------------
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginContainerException

@@ -1,0 +1,375 @@
+[INFO] Scanning for projects...
+[WARNING] The project org.quickfixj:quickfixj-parent:pom:3.0.0-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] QuickFIX/J Parent                                                  [pom]
+[INFO] QuickFIX/J Code Generator Maven Plugin                    [maven-plugin]
+[INFO] QuickFIX/J Dictionary Generator                                 [bundle]
+[INFO] QuickFIX/J Core engine                                          [bundle]
+[INFO] QuickFIX/J Message classes for various FIX specs                   [pom]
+[INFO] QuickFIX/J Message classes for FIX 4.0                             [jar]
+[INFO] QuickFIX/J Message classes for FIX 4.1                             [jar]
+[INFO] QuickFIX/J Message classes for FIX 4.2                             [jar]
+[INFO] QuickFIX/J Message classes for FIX 4.3                             [jar]
+[INFO] QuickFIX/J Message classes for FIX 4.4                             [jar]
+[INFO] QuickFIX/J Message classes for FIX 5.0                             [jar]
+[INFO] QuickFIX/J Message classes for FIX 5.0 SP1                         [jar]
+[INFO] QuickFIX/J Message classes for FIX 5.0 SP2                         [jar]
+[INFO] QuickFIX/J Message classes for FIXT 1.1                            [jar]
+[INFO] QuickFIX/J Message classes for all FIX specs                       [jar]
+[INFO] QuickFIX/J Examples                                                [pom]
+[INFO] QuickFIX/J Examples - Executor                                  [bundle]
+[INFO] QuickFIX/J Examples - Order Match                               [bundle]
+[INFO] QuickFIX/J Examples - Banzai                                    [bundle]
+[INFO] QuickFIX/J All runtime modules                                  [bundle]
+[INFO] QuickFIX/J Distribution                                            [pom]
+[INFO] 
+[INFO] -------------------< org.quickfixj:quickfixj-parent >-------------------
+[INFO] Building QuickFIX/J Parent 3.0.0-SNAPSHOT                         [1/21]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quickfixj-parent ---
+[INFO] 
+[INFO] --- bundle:3.5.1:manifest (default) @ quickfixj-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] ---------------< org.quickfixj:quickfixj-codegenerator >----------------
+[INFO] Building QuickFIX/J Code Generator Maven Plugin 3.0.0-SNAPSHOT    [2/21]
+[INFO]   from quickfixj-codegenerator/pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quickfixj-codegenerator ---
+[INFO] Deleting /quickfixj/quickfixj-codegenerator/target
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ quickfixj-codegenerator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ quickfixj-codegenerator ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /quickfixj/quickfixj-codegenerator/target/classes
+[INFO] 
+[INFO] --- plugin:3.6.1:descriptor (default-descriptor) @ quickfixj-codegenerator ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[WARNING] org.quickfixj.codegenerator.GenerateMojo#dictFile:
+[WARNING]   The syntax
+[WARNING]     @parameter expression="${property}"
+[WARNING]   is deprecated, please use
+[WARNING]     @parameter property="property"
+[WARNING]   instead.
+[WARNING] org.quickfixj.codegenerator.GenerateMojo#outputDirectory:
+[WARNING]   The syntax
+[WARNING]     @parameter expression="${property}"
+[WARNING]   is deprecated, please use
+[WARNING]     @parameter property="property"
+[WARNING]   instead.
+[WARNING] org.quickfixj.codegenerator.GenerateMojo#project:
+[WARNING]   The syntax
+[WARNING]     @parameter expression="${property}"
+[WARNING]   is deprecated, please use
+[WARNING]     @parameter property="property"
+[WARNING]   instead.
+[WARNING] org.quickfixj.codegenerator.GenerateMojo#schemaDirectory:
+[WARNING]   The syntax
+[WARNING]     @parameter expression="${property}"
+[WARNING]   is deprecated, please use
+[WARNING]     @parameter property="property"
+[WARNING]   instead.
+[INFO] java-javadoc mojo extractor found 1 mojo descriptor.
+[INFO] ant mojo extractor found 0 mojo descriptor.
+[INFO] bsh mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 0 mojo descriptor.
+[INFO] 
+[INFO] --- bundle:3.5.1:manifest (default) @ quickfixj-codegenerator ---
+[WARNING] Ignoring project type maven-plugin - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ quickfixj-codegenerator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /quickfixj/quickfixj-codegenerator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ quickfixj-codegenerator ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ quickfixj-codegenerator ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ---------------< org.quickfixj:quickfixj-dictgenerator >----------------
+[INFO] Building QuickFIX/J Dictionary Generator 3.0.0-SNAPSHOT           [3/21]
+[INFO]   from quickfixj-dictgenerator/pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quickfixj-dictgenerator ---
+[INFO] Deleting /quickfixj/quickfixj-dictgenerator/target
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ quickfixj-dictgenerator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /quickfixj/quickfixj-dictgenerator/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ quickfixj-dictgenerator ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to /quickfixj/quickfixj-dictgenerator/target/classes
+[INFO] 
+[INFO] --- bundle:3.5.1:manifest (default) @ quickfixj-dictgenerator ---
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ quickfixj-dictgenerator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /quickfixj/quickfixj-dictgenerator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ quickfixj-dictgenerator ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ quickfixj-dictgenerator ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --------------------< org.quickfixj:quickfixj-core >--------------------
+[INFO] Building QuickFIX/J Core engine 3.0.0-SNAPSHOT                    [4/21]
+[INFO]   from quickfixj-core/pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quickfixj-core ---
+[INFO] Deleting /quickfixj/quickfixj-core/target
+[INFO] 
+[INFO] --- quickfixj-codegenerator:3.0.0-SNAPSHOT:generate (fixt11) @ quickfixj-core ---
+[INFO] Successfully created an instance of the QuickFIX source generator
+[INFO] Initialising code generator task
+[INFO] Processing /quickfixj/quickfixj-messages/quickfixj-messages-fixt11/src/main/resources/FIXT11.xml
+[INFO] FIXT11.xml: generating field classes in /quickfixj/quickfixj-core/target/generated-sources/quickfix/field/
+[INFO] Loading predefined xslt file:Fields.xsl
+[INFO] FIXT11.xml: generating message base class
+[INFO] Loading predefined xslt file:Message.xsl
+[INFO] Loading predefined xslt file:MessageFactory.xsl
+[INFO] Loading predefined xslt file:MessageCracker.xsl
+[INFO] FIXT11.xml: generating component classes
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] FIXT11.xml: generating message subclasses
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] 
+[INFO] --- quickfixj-codegenerator:3.0.0-SNAPSHOT:generate (fix50sp2) @ quickfixj-core ---
+[INFO] Successfully created an instance of the QuickFIX source generator
+[INFO] Initialising code generator task
+[INFO] Processing /quickfixj/quickfixj-messages/quickfixj-messages-fix50sp2/src/main/resources/FIX50SP2.modified.xml
+[INFO] FIX50SP2.modified.xml: generating field classes in /quickfixj/quickfixj-core/target/generated-sources/quickfix/field/
+[INFO] Loading predefined xslt file:Fields.xsl
+[INFO] FIX50SP2.modified.xml: generating message base class
+[INFO] Loading predefined xslt file:Message.xsl
+[INFO] Loading predefined xslt file:MessageFactory.xsl
+[INFO] Loading predefined xslt file:MessageCracker.xsl
+[INFO] FIX50SP2.modified.xml: generating component classes
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] FIX50SP2.modified.xml: generating message subclasses
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] 
+[INFO] --- quickfixj-codegenerator:3.0.0-SNAPSHOT:generate (fix50sp1) @ quickfixj-core ---
+[INFO] Successfully created an instance of the QuickFIX source generator
+[INFO] Initialising code generator task
+[INFO] Processing /quickfixj/quickfixj-messages/quickfixj-messages-fix50sp1/src/main/resources/FIX50SP1.modified.xml
+[INFO] FIX50SP1.modified.xml: generating field classes in /quickfixj/quickfixj-core/target/generated-sources/quickfix/field/
+[INFO] Loading predefined xslt file:Fields.xsl
+[INFO] FIX50SP1.modified.xml: generating message base class
+[INFO] Loading predefined xslt file:Message.xsl
+[INFO] Loading predefined xslt file:MessageFactory.xsl
+[INFO] Loading predefined xslt file:MessageCracker.xsl
+[INFO] FIX50SP1.modified.xml: generating component classes
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] FIX50SP1.modified.xml: generating message subclasses
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] 
+[INFO] --- quickfixj-codegenerator:3.0.0-SNAPSHOT:generate (fix50) @ quickfixj-core ---
+[INFO] Successfully created an instance of the QuickFIX source generator
+[INFO] Initialising code generator task
+[INFO] Processing /quickfixj/quickfixj-messages/quickfixj-messages-fix50/src/main/resources/FIX50.xml
+[INFO] FIX50.xml: generating field classes in /quickfixj/quickfixj-core/target/generated-sources/quickfix/field/
+[INFO] Loading predefined xslt file:Fields.xsl
+[INFO] FIX50.xml: generating message base class
+[INFO] Loading predefined xslt file:Message.xsl
+[INFO] Loading predefined xslt file:MessageFactory.xsl
+[INFO] Loading predefined xslt file:MessageCracker.xsl
+[INFO] FIX50.xml: generating component classes
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] FIX50.xml: generating message subclasses
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] 
+[INFO] --- quickfixj-codegenerator:3.0.0-SNAPSHOT:generate (fix44) @ quickfixj-core ---
+[INFO] Successfully created an instance of the QuickFIX source generator
+[INFO] Initialising code generator task
+[INFO] Processing /quickfixj/quickfixj-messages/quickfixj-messages-fix44/src/main/resources/FIX44.modified.xml
+[INFO] FIX44.modified.xml: generating field classes in /quickfixj/quickfixj-core/target/generated-sources/quickfix/field/
+[INFO] Loading predefined xslt file:Fields.xsl
+[INFO] FIX44.modified.xml: generating message base class
+[INFO] Loading predefined xslt file:Message.xsl
+[INFO] Loading predefined xslt file:MessageFactory.xsl
+[INFO] Loading predefined xslt file:MessageCracker.xsl
+[INFO] FIX44.modified.xml: generating component classes
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] FIX44.modified.xml: generating message subclasses
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] 
+[INFO] --- quickfixj-codegenerator:3.0.0-SNAPSHOT:generate (fix43) @ quickfixj-core ---
+[INFO] Successfully created an instance of the QuickFIX source generator
+[INFO] Initialising code generator task
+[INFO] Processing /quickfixj/quickfixj-messages/quickfixj-messages-fix43/src/main/resources/FIX43.xml
+[INFO] FIX43.xml: generating field classes in /quickfixj/quickfixj-core/target/generated-sources/quickfix/field/
+[INFO] Loading predefined xslt file:Fields.xsl
+[INFO] FIX43.xml: generating message base class
+[INFO] Loading predefined xslt file:Message.xsl
+[INFO] Loading predefined xslt file:MessageFactory.xsl
+[INFO] Loading predefined xslt file:MessageCracker.xsl
+[INFO] FIX43.xml: generating component classes
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] FIX43.xml: generating message subclasses
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] 
+[INFO] --- quickfixj-codegenerator:3.0.0-SNAPSHOT:generate (fix42) @ quickfixj-core ---
+[INFO] Successfully created an instance of the QuickFIX source generator
+[INFO] Initialising code generator task
+[INFO] Processing /quickfixj/quickfixj-messages/quickfixj-messages-fix42/src/main/resources/FIX42.xml
+[INFO] FIX42.xml: generating field classes in /quickfixj/quickfixj-core/target/generated-sources/quickfix/field/
+[INFO] Loading predefined xslt file:Fields.xsl
+[INFO] FIX42.xml: generating message base class
+[INFO] Loading predefined xslt file:Message.xsl
+[INFO] Loading predefined xslt file:MessageFactory.xsl
+[INFO] Loading predefined xslt file:MessageCracker.xsl
+[INFO] FIX42.xml: generating component classes
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] FIX42.xml: generating message subclasses
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] 
+[INFO] --- quickfixj-codegenerator:3.0.0-SNAPSHOT:generate (fix41) @ quickfixj-core ---
+[INFO] Successfully created an instance of the QuickFIX source generator
+[INFO] Initialising code generator task
+[INFO] Processing /quickfixj/quickfixj-messages/quickfixj-messages-fix41/src/main/resources/FIX41.xml
+[INFO] FIX41.xml: generating field classes in /quickfixj/quickfixj-core/target/generated-sources/quickfix/field/
+[INFO] Loading predefined xslt file:Fields.xsl
+[INFO] FIX41.xml: generating message base class
+[INFO] Loading predefined xslt file:Message.xsl
+[INFO] Loading predefined xslt file:MessageFactory.xsl
+[INFO] Loading predefined xslt file:MessageCracker.xsl
+[INFO] FIX41.xml: generating component classes
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] FIX41.xml: generating message subclasses
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] 
+[INFO] --- quickfixj-codegenerator:3.0.0-SNAPSHOT:generate (fix40) @ quickfixj-core ---
+[INFO] Successfully created an instance of the QuickFIX source generator
+[INFO] Initialising code generator task
+[INFO] Processing /quickfixj/quickfixj-messages/quickfixj-messages-fix40/src/main/resources/FIX40.xml
+[INFO] FIX40.xml: generating field classes in /quickfixj/quickfixj-core/target/generated-sources/quickfix/field/
+[INFO] Loading predefined xslt file:Fields.xsl
+[INFO] FIX40.xml: generating message base class
+[INFO] Loading predefined xslt file:Message.xsl
+[INFO] Loading predefined xslt file:MessageFactory.xsl
+[INFO] Loading predefined xslt file:MessageCracker.xsl
+[INFO] FIX40.xml: generating component classes
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] FIX40.xml: generating message subclasses
+[INFO] Loading predefined xslt file:MessageSubclass.xsl
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ quickfixj-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ quickfixj-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2802 source files to /quickfixj/quickfixj-core/target/classes
+[INFO] /quickfixj/quickfixj-core/src/main/java/quickfix/SleepycatStore.java: Some input files use unchecked or unsafe operations.
+[INFO] /quickfixj/quickfixj-core/src/main/java/quickfix/SleepycatStore.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/acceptor/AbstractSocketAcceptor.java:[136,18] cannot find symbol
+  symbol:   method setUseClientMode(boolean)
+  location: variable sslFilter of type quickfix.mina.ssl.SSLFilter
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/initiator/IoSessionInitiator.java:[195,22] cannot find symbol
+  symbol:   method setUseClientMode(boolean)
+  location: variable sslFilter of type quickfix.mina.ssl.SSLFilter
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/ssl/SSLFilter.java:[43,9] constructor SslFilter in class org.apache.mina.filter.ssl.SslFilter cannot be applied to given types;
+  required: javax.net.ssl.SSLContext
+  found: javax.net.ssl.SSLContext,boolean
+  reason: actual and formal argument lists differ in length
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/ssl/SSLFilter.java:[78,38] cannot find symbol
+  symbol:   variable PEER_ADDRESS
+  location: class quickfix.mina.ssl.SSLFilter
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/initiator/InitiatorProxyIoHandler.java:[65,27] cannot find symbol
+  symbol:   method initiateHandshake(org.apache.mina.core.session.IoSession)
+  location: variable sslFilter of type quickfix.mina.ssl.SSLFilter
+[INFO] 5 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for QuickFIX/J Parent 3.0.0-SNAPSHOT:
+[INFO] 
+[INFO] QuickFIX/J Parent .................................. SUCCESS [  0.218 s]
+[INFO] QuickFIX/J Code Generator Maven Plugin ............. SUCCESS [  4.256 s]
+[INFO] QuickFIX/J Dictionary Generator .................... SUCCESS [  0.783 s]
+[INFO] QuickFIX/J Core engine ............................. FAILURE [03:21 min]
+[INFO] QuickFIX/J Message classes for various FIX specs ... SKIPPED
+[INFO] QuickFIX/J Message classes for FIX 4.0 ............. SKIPPED
+[INFO] QuickFIX/J Message classes for FIX 4.1 ............. SKIPPED
+[INFO] QuickFIX/J Message classes for FIX 4.2 ............. SKIPPED
+[INFO] QuickFIX/J Message classes for FIX 4.3 ............. SKIPPED
+[INFO] QuickFIX/J Message classes for FIX 4.4 ............. SKIPPED
+[INFO] QuickFIX/J Message classes for FIX 5.0 ............. SKIPPED
+[INFO] QuickFIX/J Message classes for FIX 5.0 SP1 ......... SKIPPED
+[INFO] QuickFIX/J Message classes for FIX 5.0 SP2 ......... SKIPPED
+[INFO] QuickFIX/J Message classes for FIXT 1.1 ............ SKIPPED
+[INFO] QuickFIX/J Message classes for all FIX specs ....... SKIPPED
+[INFO] QuickFIX/J Examples ................................ SKIPPED
+[INFO] QuickFIX/J Examples - Executor ..................... SKIPPED
+[INFO] QuickFIX/J Examples - Order Match .................. SKIPPED
+[INFO] QuickFIX/J Examples - Banzai ....................... SKIPPED
+[INFO] QuickFIX/J All runtime modules ..................... SKIPPED
+[INFO] QuickFIX/J Distribution ............................ SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:30 min
+[INFO] Finished at: 2025-09-30T16:35:42Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 6 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.0
+[WARNING]  * org.apache.felix:maven-bundle-plugin:3.5.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-plugin-plugin:3.6.1
+[WARNING]  * org.quickfixj:quickfixj-codegenerator:3.0.0-SNAPSHOT
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile (default-compile) on project quickfixj-core: Compilation failure: Compilation failure: 
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/acceptor/AbstractSocketAcceptor.java:[136,18] cannot find symbol
+[ERROR]   symbol:   method setUseClientMode(boolean)
+[ERROR]   location: variable sslFilter of type quickfix.mina.ssl.SSLFilter
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/initiator/IoSessionInitiator.java:[195,22] cannot find symbol
+[ERROR]   symbol:   method setUseClientMode(boolean)
+[ERROR]   location: variable sslFilter of type quickfix.mina.ssl.SSLFilter
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/ssl/SSLFilter.java:[43,9] constructor SslFilter in class org.apache.mina.filter.ssl.SslFilter cannot be applied to given types;
+[ERROR]   required: javax.net.ssl.SSLContext
+[ERROR]   found: javax.net.ssl.SSLContext,boolean
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/ssl/SSLFilter.java:[78,38] cannot find symbol
+[ERROR]   symbol:   variable PEER_ADDRESS
+[ERROR]   location: class quickfix.mina.ssl.SSLFilter
+[ERROR] /quickfixj/quickfixj-core/src/main/java/quickfix/mina/initiator/InitiatorProxyIoHandler.java:[65,27] cannot find symbol
+[ERROR]   symbol:   method initiateHandshake(org.apache.mina.core.session.IoSession)
+[ERROR]   location: variable sslFilter of type quickfix.mina.ssl.SSLFilter
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :quickfixj-core

@@ -1,0 +1,244 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------------< com.lpvs:lpvs >----------------------------
+[INFO] Building lpvs 1.0.2
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/maven-metadata.xml (1.6 kB at 1.5 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.11.0/gson-2.11.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.11.0/gson-2.11.0.pom (12 kB at 64 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.11.0/gson-parent-2.11.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.11.0/gson-parent-2.11.0.pom (26 kB at 95 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.pom (4.3 kB at 26 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.27.0/error_prone_parent-2.27.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.27.0/error_prone_parent-2.27.0.pom (13 kB at 106 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.12.0/gson-2.12.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.12.0/gson-2.12.0.pom (13 kB at 144 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.12.0/gson-parent-2.12.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.12.0/gson-parent-2.12.0.pom (27 kB at 213 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.36.0/error_prone_annotations-2.36.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.36.0/error_prone_annotations-2.36.0.pom (4.3 kB at 39 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.36.0/error_prone_parent-2.36.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.36.0/error_prone_parent-2.36.0.pom (16 kB at 87 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.12.1/gson-2.12.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.12.1/gson-2.12.1.pom (13 kB at 113 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.12.1/gson-parent-2.12.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.12.1/gson-parent-2.12.1.pom (27 kB at 234 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.0/gson-2.13.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.0/gson-2.13.0.pom (13 kB at 123 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.13.0/gson-parent-2.13.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.13.0/gson-parent-2.13.0.pom (27 kB at 206 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.37.0/error_prone_annotations-2.37.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.37.0/error_prone_annotations-2.37.0.pom (4.4 kB at 40 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.37.0/error_prone_parent-2.37.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.37.0/error_prone_parent-2.37.0.pom (16 kB at 201 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_type_annotations/2.37.0/error_prone_type_annotations-2.37.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_type_annotations/2.37.0/error_prone_type_annotations-2.37.0.pom (1.5 kB at 16 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.1/gson-2.13.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.1/gson-2.13.1.pom (13 kB at 204 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.13.1/gson-parent-2.13.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.13.1/gson-parent-2.13.1.pom (27 kB at 292 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.38.0/error_prone_annotations-2.38.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.38.0/error_prone_annotations-2.38.0.pom (4.3 kB at 47 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.38.0/error_prone_parent-2.38.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.38.0/error_prone_parent-2.38.0.pom (16 kB at 181 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.2-rc1/gson-2.13.2-rc1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.2-rc1/gson-2.13.2-rc1.pom (13 kB at 98 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.13.2-rc1/gson-parent-2.13.2-rc1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.13.2-rc1/gson-parent-2.13.2-rc1.pom (27 kB at 327 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.41.0/error_prone_annotations-2.41.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.41.0/error_prone_annotations-2.41.0.pom (4.3 kB at 34 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.41.0/error_prone_parent-2.41.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_parent/2.41.0/error_prone_parent-2.41.0.pom (16 kB at 152 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.2/gson-2.13.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.2/gson-2.13.2.pom (13 kB at 86 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.13.2/gson-parent-2.13.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson-parent/2.13.2/gson-parent-2.13.2.pom (27 kB at 186 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.2/gson-2.13.2.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.13.2/gson-2.13.2.jar (290 kB at 1.1 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.41.0/error_prone_annotations-2.41.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.41.0/error_prone_annotations-2.41.0.jar (20 kB at 182 kB/s)
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ lpvs ---
+[INFO] Deleting /LPVS/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ lpvs ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/LPVS/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ lpvs ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ lpvs ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 28 source files with javac [debug deprecation release 11] to target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor': bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/core/annotation/AliasFor.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor': bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/core/annotation/AliasFor.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor': bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/core/annotation/AliasFor.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor': bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/core/annotation/AliasFor.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'attribute()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'annotation()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[WARNING] Cannot find annotation method 'value()' in type 'org.springframework.core.annotation.AliasFor'
+[INFO] 96 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /LPVS/src/main/java/com/lpvs/util/LPVSFileUtil.java:[15,32] cannot access org.springframework.util.FileSystemUtils
+  bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/util/FileSystemUtils.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /LPVS/src/main/java/com/lpvs/LicensePreValidationSystem.java:[15,37] cannot access org.springframework.core.task.TaskExecutor
+  bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/core/task/TaskExecutor.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /LPVS/src/main/java/com/lpvs/controller/GitHubWebhooksController.java:[27,32] cannot access org.springframework.util.StringUtils
+  bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/util/StringUtils.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /LPVS/src/main/java/com/lpvs/LicensePreValidationSystem.java:[37,12] cannot find symbol
+  symbol:   class TaskExecutor
+  location: class com.lpvs.LicensePreValidationSystem
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.392 s
+[INFO] Finished at: 2025-09-30T17:13:47Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project lpvs: Compilation failure: Compilation failure: 
+[ERROR] /LPVS/src/main/java/com/lpvs/util/LPVSFileUtil.java:[15,32] cannot access org.springframework.util.FileSystemUtils
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/util/FileSystemUtils.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /LPVS/src/main/java/com/lpvs/LicensePreValidationSystem.java:[15,37] cannot access org.springframework.core.task.TaskExecutor
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/core/task/TaskExecutor.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /LPVS/src/main/java/com/lpvs/controller/GitHubWebhooksController.java:[27,32] cannot access org.springframework.util.StringUtils
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.8/spring-core-6.0.8.jar(/org/springframework/util/StringUtils.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /LPVS/src/main/java/com/lpvs/LicensePreValidationSystem.java:[37,12] cannot find symbol
+[ERROR]   symbol:   class TaskExecutor
+[ERROR]   location: class com.lpvs.LicensePreValidationSystem
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

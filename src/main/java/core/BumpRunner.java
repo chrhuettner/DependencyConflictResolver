@@ -107,7 +107,7 @@ public class BumpRunner {
         AtomicInteger activeThreadCount = new AtomicInteger();
         AtomicInteger failedFixes = new AtomicInteger();
         AtomicInteger successfulFixes = new AtomicInteger();
-        int limit = 1;
+        int limit = 8;
         for (File file : bumpFolder.listFiles()) {
             while (activeThreadCount.getAndUpdate(operand -> {
                 if (operand >= limit) {
@@ -481,7 +481,7 @@ public class BumpRunner {
                 if (entry.isDirectory()) {
                     continue;
                 }
-                System.out.println(path);
+                //System.out.println(path);
                 if (!path.endsWith(fileName)) {
                     continue;
                 }
