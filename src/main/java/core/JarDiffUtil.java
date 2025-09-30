@@ -83,8 +83,8 @@ public class JarDiffUtil {
             /*if (jApiClass.getChangeStatus() == JApiChangeStatus.UNCHANGED) {
                 continue;
             }*/
-
-            if (!jApiClass.getFullyQualifiedName().equals(fullyQualifiedCallerClassName)) {
+            //System.out.println(jApiClass.getFullyQualifiedName());
+            if (!jApiClass.getFullyQualifiedName().endsWith(fullyQualifiedCallerClassName)) {
                 continue;
             }
 

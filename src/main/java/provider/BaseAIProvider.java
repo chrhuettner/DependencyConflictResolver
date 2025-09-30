@@ -46,7 +46,7 @@ public abstract class BaseAIProvider implements AIProvider {
             String code = "";
 
             if(startIndex != -1 && endIndex != -1){
-                code = result.substring(startIndex+Main.codeStart.length(), endIndex);
+                code = result.substring(startIndex+Main.codeStart.length(), endIndex).trim();
             }else{
                 System.err.println(getModel()+" failed to respond code in expected format!");
                 System.err.println("Full response: " + result);

@@ -235,9 +235,11 @@ public class Main {
         return candidates.get(0);
     }
 
-    public static void sendAndPrintCode(AIProvider aiProvider, String prompt) {
+    public static ConflictResolutionResult sendAndPrintCode(AIProvider aiProvider, String prompt) {
         System.out.println(aiProvider.getModel());
-        System.out.println(aiProvider.sendPromptAndReceiveResponse(prompt, systemContext));
+        ConflictResolutionResult result = aiProvider.sendPromptAndReceiveResponse(prompt, systemContext);
+        System.out.println(result);
+        return result;
     }
 
     public static String buildPrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName, String brokenMethodName, String brokenCode, String[] parameterTypeNames) {
