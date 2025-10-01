@@ -1,0 +1,80 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.facebook.business.sdk:facebook-java-business-sdk:jar:17.0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-source-plugin is missing. @ line 39, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] --------< com.facebook.business.sdk:facebook-java-business-sdk >--------
+[INFO] Building com.facebook.business.sdk:facebook-java-business-sdk 17.0.1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ facebook-java-business-sdk ---
+[INFO] Deleting /facebook-java-business-sdk/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ facebook-java-business-sdk ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /facebook-java-business-sdk/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ facebook-java-business-sdk ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 476 source files to /facebook-java-business-sdk/target/classes
+[INFO] /facebook-java-business-sdk/src/main/java/com/facebook/ads/sdk/APIException.java: Some input files use or override a deprecated API.
+[INFO] /facebook-java-business-sdk/src/main/java/com/facebook/ads/sdk/APIException.java: Recompile with -Xlint:deprecation for details.
+[INFO] /facebook-java-business-sdk/src/main/java/com/facebook/ads/sdk/AdsPixel.java: Some input files use unchecked or unsafe operations.
+[INFO] /facebook-java-business-sdk/src/main/java/com/facebook/ads/sdk/AdsPixel.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ facebook-java-business-sdk ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /facebook-java-business-sdk/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ facebook-java-business-sdk ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 15 source files to /facebook-java-business-sdk/target/test-classes
+[INFO] /facebook-java-business-sdk/src/test/java/com/facebook/ads/sdk/serverside/BatchProcessorTest.java: Some input files use or override a deprecated API.
+[INFO] /facebook-java-business-sdk/src/test/java/com/facebook/ads/sdk/serverside/BatchProcessorTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /facebook-java-business-sdk/src/test/java/com/facebook/ads/sdk/serverside/utils/HashedListAdaptorTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /facebook-java-business-sdk/src/test/java/com/facebook/ads/sdk/serverside/utils/HashedListAdaptorTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- kotlin:1.6.0:test-compile (test-compile) @ facebook-java-business-sdk ---
+[WARNING] Using experimental Kotlin incremental compilation
+[INFO] Non-incremental compilation will be performed: NO_BUILD_HISTORY
+[INFO] Kotlin compile iteration: /facebook-java-business-sdk/src/test/kotlin/com/facebook/ads/APIContextTest.kt
+[INFO] Exit code: COMPILATION_ERROR
+[ERROR] /root/.m2/repository/com/squareup/okio/okio-jvm/3.4.0/okio-jvm-3.4.0.jar!/META-INF/okio.kotlin_module: (-1, -1) Module was compiled with an incompatible version of Kotlin. The binary version of its metadata is 1.8.0, expected version is 1.6.0.
+[ERROR] /root/.m2/repository/com/squareup/okio/okio/3.4.0/okio-3.4.0.jar!/META-INF/okio.kotlin_module: (-1, -1) Module was compiled with an incompatible version of Kotlin. The binary version of its metadata is 1.8.0, expected version is 1.6.0.
+[INFO] Compiled 1 Kotlin files using incremental compiler
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  30.581 s
+[INFO] Finished at: 2025-10-01T13:29:27Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.jetbrains.kotlin:kotlin-maven-plugin:1.6.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.jetbrains.kotlin:kotlin-maven-plugin:1.6.0:test-compile (test-compile) on project facebook-java-business-sdk: Compilation failure: Compilation failure: 
+[ERROR] /root/.m2/repository/com/squareup/okio/okio-jvm/3.4.0/okio-jvm-3.4.0.jar!/META-INF/okio.kotlin_module: Module was compiled with an incompatible version of Kotlin. The binary version of its metadata is 1.8.0, expected version is 1.6.0.
+[ERROR] /root/.m2/repository/com/squareup/okio/okio/3.4.0/okio-3.4.0.jar!/META-INF/okio.kotlin_module: Module was compiled with an incompatible version of Kotlin. The binary version of its metadata is 1.8.0, expected version is 1.6.0.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

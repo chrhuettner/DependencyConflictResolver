@@ -1,0 +1,602 @@
+[INFO] Scanning for projects...
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.46 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.46 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.46/maven-hpi-plugin-3.46.pom
+[WARNING] The POM for org.jenkins-ci.tools:maven-hpi-plugin:jar:3.46 is missing, no dependency information available
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.46 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.46 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.46/maven-hpi-plugin-3.46.jar
+[WARNING] Failed to build parent project for org.jvnet.hudson.plugins:analysis-pom:pom:6.10.0
+[WARNING] Failed to build parent project for io.jenkins.plugins:code-coverage-api:hpi:4.8.0-SNAPSHOT
+[INFO] Inspecting build with total of 3 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Code Coverage API Plugin                                           [hpi]
+[INFO] UI Tests of Code Coverage Plugin                                   [jar]
+[INFO] Aggregator for Code Coverage Plugin                                [pom]
+[INFO] 
+[INFO] ----------------< io.jenkins.plugins:code-coverage-api >----------------
+[INFO] Building Code Coverage API Plugin 4.8.0-SNAPSHOT                   [1/3]
+[INFO]   from plugin/pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ code-coverage-api ---
+[INFO] Deleting /code-coverage-api-plugin/plugin/target
+[INFO] 
+[INFO] --- hpi:3.46:validate (default-validate) @ code-coverage-api ---
+[INFO] 
+[INFO] --- hpi:3.46:validate-hpi (default-validate-hpi) @ code-coverage-api ---
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (display-info) @ code-coverage-api ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.dependency.RequireUpperBoundDeps passed
+[INFO] Rule 1: io.jenkins.tools.incrementals.enforcer.RequireExtensionVersion passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 3: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 4: org.apache.maven.plugins.enforcer.EnforceBytecodeVersion passed
+[INFO] Rule 5: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (no-snapshots-in-release) @ code-coverage-api ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.dependency.RequireReleaseDeps passed
+[INFO] 
+[INFO] --- localizer:1.31:generate (default) @ code-coverage-api ---
+[INFO] 
+[INFO] >>> javadoc:3.5.0:javadoc (default) > generate-sources @ code-coverage-api >>>
+[INFO] 
+[INFO] --- hpi:3.46:validate (default-validate) @ code-coverage-api ---
+[INFO] 
+[INFO] --- hpi:3.46:validate-hpi (default-validate-hpi) @ code-coverage-api ---
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (display-info) @ code-coverage-api ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.dependency.RequireUpperBoundDeps passed
+[INFO] Rule 4: org.apache.maven.plugins.enforcer.EnforceBytecodeVersion passed
+[INFO] Rule 5: org.apache.maven.enforcer.rules.dependency.BannedDependencies passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (no-snapshots-in-release) @ code-coverage-api ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.dependency.RequireReleaseDeps passed
+[INFO] 
+[INFO] --- localizer:1.31:generate (default) @ code-coverage-api ---
+[INFO] 
+[INFO] <<< javadoc:3.5.0:javadoc (default) < generate-sources @ code-coverage-api <<<
+[INFO] 
+[INFO] 
+[INFO] --- javadoc:3.5.0:javadoc (default) @ code-coverage-api ---
+[INFO] No previous run data found, generating javadoc.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ code-coverage-api ---
+[INFO] Copying 113 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- flatten:1.5.0:flatten (flatten) @ code-coverage-api ---
+[INFO] Generating flattened POM of project io.jenkins.plugins:code-coverage-api:hpi:4.8.0-SNAPSHOT...
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ code-coverage-api ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 150 source files with javac [debug release 11] to target/classes
+[INFO] io.jenkins.plugins.coverage.adapter.JacocoReportAdapter.JacocoReportAdapterDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.source.DefaultSourceFileResolver.DefaultSourceFileResolverDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumn.CoverageDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.metrics.steps.CoverageStep.Descriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.detector.AntPathReportDetector.AntPathReportDetectorDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.CoveragePullRequestMonitoringPortlet.PortletFactory indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.metrics.steps.CoverageMetricColumn.CoverageMetricColumnDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.metrics.steps.CoverageTokenMacro indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.adapter.CoberturaReportAdapter.CoberturaReportAdapterDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.metrics.steps.CoverageTool.CoverageToolDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.metrics.steps.CoverageRecorder.Descriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.CoveragePublisher.CoveragePublisherDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.adapter.IstanbulCoberturaReportAdapter.IstanbulCoberturaReportAdapterDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.threshold.Threshold.ThreshHoldDescriptor indexed under hudson.Extension
+[INFO] io.jenkins.plugins.coverage.metrics.steps.CoverageQualityGate.Descriptor indexed under hudson.Extension
+[WARNING] No processor claimed any of these annotations: /edu.umd.cs.findbugs.annotations.Nullable,/org.jenkinsci.plugins.tokenmacro.DataBoundTokenMacro.Parameter,/hudson.init.Initializer,/org.kohsuke.accmod.Restricted,/edu.umd.cs.findbugs.annotations.NonNull,/org.kohsuke.stapler.QueryParameter,/org.kohsuke.stapler.DataBoundSetter,/org.jenkinsci.Symbol,/edu.umd.cs.findbugs.annotations.CheckForNull,/org.kohsuke.stapler.bind.JavaScriptMethod,/org.kohsuke.stapler.AncestorInPath,/edu.umd.cs.findbugs.annotations.SuppressFBWarnings,/org.kohsuke.stapler.verb.POST,/org.kohsuke.stapler.export.Exported,/edu.hm.hafner.util.VisibleForTesting,/org.kohsuke.stapler.export.ExportedBean,/org.kohsuke.stapler.DataBoundConstructor,/edu.umd.cs.findbugs.annotations.DefaultAnnotation,/hudson.Extension
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/exception/CoverageException.java:[3,8] serializable class io.jenkins.plugins.coverage.exception.CoverageException has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/metrics/steps/CoverageXmlStream.java:[123,41] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/metrics/steps/CoverageXmlStream.java:[204,41] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/metrics/steps/CoverageXmlStream.java:[174,47] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/metrics/steps/CoverageXmlStream.java:[284,41] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/adapter/CoverageAdapter.java:[10,17] serializable class io.jenkins.plugins.coverage.adapter.CoverageAdapter has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/adapter/CoverageReportAdapter.java:[24,17] serializable class io.jenkins.plugins.coverage.adapter.CoverageReportAdapter has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/adapter/XMLCoverageReportAdapter.java:[60,13] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/adapter/XMLCoverageReportAdapter.java:[14,17] serializable class io.jenkins.plugins.coverage.adapter.XMLCoverageReportAdapter has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/adapter/JavaXMLCoverageReportAdapter.java:[9,17] serializable class io.jenkins.plugins.coverage.adapter.JavaXMLCoverageReportAdapter has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/adapter/JacocoReportAdapter.java:[23,14] serializable class io.jenkins.plugins.coverage.adapter.JacocoReportAdapter has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/targets/CoverageTrend.java:[10,8] serializable class io.jenkins.plugins.coverage.targets.CoverageTrend has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/threshold/Threshold.java:[17,8] serializable class io.jenkins.plugins.coverage.threshold.Threshold has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/detector/ReportDetector.java:[56,14] found raw type: io.jenkins.plugins.coverage.adapter.CoverageReportAdapterDescriptor
+  missing type arguments for generic class io.jenkins.plugins.coverage.adapter.CoverageReportAdapterDescriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/detector/ReportDetector.java:[73,18] found raw type: io.jenkins.plugins.coverage.adapter.CoverageReportAdapterDescriptor
+  missing type arguments for generic class io.jenkins.plugins.coverage.adapter.CoverageReportAdapterDescriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/detector/ReportDetector.java:[77,25] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/detector/ReportDetector.java:[79,25] found raw type: java.lang.reflect.Constructor
+  missing type arguments for generic class java.lang.reflect.Constructor<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/detector/ReportDetector.java:[102,18] found raw type: io.jenkins.plugins.coverage.adapter.CoverageReportAdapterDescriptor
+  missing type arguments for generic class io.jenkins.plugins.coverage.adapter.CoverageReportAdapterDescriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/detector/ReportDetector.java:[24,17] serializable class io.jenkins.plugins.coverage.detector.ReportDetector has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorder.java:[519,59] found raw type: hudson.model.AbstractProject
+  missing type arguments for generic class hudson.model.AbstractProject<P,R>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/detector/AntPathReportDetector.java:[17,8] serializable class io.jenkins.plugins.coverage.detector.AntPathReportDetector has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/adapter/JSONCoverageReportAdapter.java:[11,17] serializable class io.jenkins.plugins.coverage.adapter.JSONCoverageReportAdapter has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/adapter/CoberturaReportAdapter.java:[20,14] serializable class io.jenkins.plugins.coverage.adapter.CoberturaReportAdapter has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/CoverageProcessor.java:[349,13] found raw type: io.jenkins.plugins.coverage.adapter.CoverageReportAdapterDescriptor
+  missing type arguments for generic class io.jenkins.plugins.coverage.adapter.CoverageReportAdapterDescriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/CoverageProcessor.java:[683,20] serializable class io.jenkins.plugins.coverage.CoverageProcessor.FindReportCallable has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/model/CoverageXmlStream.java:[93,41] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/model/CoverageXmlStream.java:[129,41] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/model/CoverageXmlStream.java:[154,41] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/model/CoverageXmlStream.java:[186,41] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/model/CoverageXmlStream.java:[216,41] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/CoveragePublisher.java:[385,49] found raw type: io.jenkins.plugins.coverage.source.DefaultSourceFileResolver.DefaultSourceFileResolverDescriptor
+  missing type arguments for generic class io.jenkins.plugins.coverage.source.DefaultSourceFileResolver.DefaultSourceFileResolverDescriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/CoveragePublisher.java:[393,59] found raw type: hudson.model.AbstractProject
+  missing type arguments for generic class hudson.model.AbstractProject<P,R>
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/adapter/IstanbulCoberturaReportAdapter.java:[23,8] serializable class io.jenkins.plugins.coverage.adapter.IstanbulCoberturaReportAdapter has no definition of serialVersionUID
+[WARNING] /code-coverage-api-plugin/plugin/src/main/java/io/jenkins/plugins/coverage/CompatibleObjectInputStream.java:[24,9] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[INFO] 
+[INFO] --- access-modifier-checker:1.31:enforce (default-enforce) @ code-coverage-api ---
+[INFO] 
+[INFO] --- hpi:3.46:insert-test (default-insert-test) @ code-coverage-api ---
+[INFO] 
+[INFO] --- assertj:2.2.0:generate-assertions (default) @ code-coverage-api ---
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/assertj/assertj-core/maven-metadata.xml
+[INFO] Downloading from repo.jenkins-ci.org: https://repo.jenkins-ci.org/public/org/assertj/assertj-core/maven-metadata.xml
+[INFO] Artifact org.assertj:assertj-core:jar:2.9.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.assertj:assertj-core:jar:2.9.1 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/assertj/assertj-core/2.9.1/assertj-core-2.9.1.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/assertj/assertj-core/2.9.1/assertj-core-2.9.1.jar (0 B at 0 B/s)
+[INFO] 
+[INFO] --- antrun:3.1.0:run (createTempDir) @ code-coverage-api ---
+[INFO] Executing tasks
+[INFO]     [mkdir] Created dir: /code-coverage-api-plugin/plugin/target/tmp
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ code-coverage-api ---
+[INFO] Copying 54 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ code-coverage-api ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 186 source files with javac [debug release 11] to target/test-classes
+[INFO] io.jenkins.plugins.coverage.model.ChecksNameITest.InterceptingChecksPublisherFactory indexed under org.jvnet.hudson.test.TestExtension
+[WARNING] No processor claimed any of these annotations: /com.tngtech.archunit.junit.AnalyzeClasses,/org.jvnet.hudson.test.recipes.LocalData,/org.junit.jupiter.api.DisplayName,/org.junit.jupiter.api.Tag,/com.tngtech.archunit.junit.ArchTest,/javax.annotation.Generated,/org.junit.Rule,/org.jvnet.hudson.test.TestExtension,/org.junit.BeforeClass,/edu.hm.hafner.util.VisibleForTesting,/org.junitpioneer.jupiter.DefaultLocale,/org.testcontainers.junit.jupiter.Testcontainers,/org.junit.jupiter.params.provider.ValueSource,/org.junit.jupiter.api.Test,/org.junit.jupiter.api.BeforeAll,/org.junit.jupiter.params.provider.NullSource,/org.testcontainers.junit.jupiter.Container,/org.junit.jupiter.params.provider.EnumSource,/org.assertj.core.util.CheckReturnValue,/org.junit.jupiter.params.provider.CsvSource,/org.junit.Test,/org.junit.ClassRule,/edu.umd.cs.findbugs.annotations.SuppressFBWarnings,/org.junit.jupiter.params.ParameterizedTest,/org.junit.jupiter.api.Disabled,/org.junit.Before
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageQualityGateDescriptorAssert.java:[93,53] static method should be qualified by type name, hudson.model.Descriptor, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageQualityGateDescriptorAssert.java:[277,79] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageQualityGateDescriptorAssert.java:[285,29] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageQualityGateDescriptorAssert.java:[325,51] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageQualityGateDescriptorAssert.java:[333,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageQualityGateDescriptorAssert.java:[349,55] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageQualityGateDescriptorAssert.java:[357,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/visualization/dashboard/ProjectCoverageDeltaAssert.java:[70,53] static method should be qualified by type name, io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnType, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/visualization/dashboard/ProjectCoverageDeltaAssert.java:[93,53] static method should be qualified by type name, io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnType, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/visualization/dashboard/ProjectCoverageDeltaAssert.java:[113,57] static method should be qualified by type name, io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnType, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/visualization/dashboard/ProjectCoverageDeltaAssert.java:[136,57] static method should be qualified by type name, io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnType, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/visualization/dashboard/ProjectCoverageDeltaAssert.java:[157,59] static method should be qualified by type name, io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnType, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/visualization/dashboard/ProjectCoverageDeltaAssert.java:[181,59] static method should be qualified by type name, io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnType, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/visualization/dashboard/ProjectCoverageDeltaAssert.java:[200,15] static method should be qualified by type name, io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnType, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/visualization/dashboard/ProjectCoverageDeltaAssert.java:[201,58] static method should be qualified by type name, io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnType, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/src/test/java/io/jenkins/plugins/coverage/model/testutil/JobStubs.java:[46,9] found raw type: hudson.model.Job
+  missing type arguments for generic class hudson.model.Job<JobT,RunT>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/color/CoverageColorJenkinsIdAssert.java:[46,53] static method should be qualified by type name, io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsId, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/color/CoverageColorJenkinsIdAssert.java:[69,53] static method should be qualified by type name, io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsId, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/color/CoverageColorJenkinsIdAssert.java:[89,57] static method should be qualified by type name, io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsId, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/color/CoverageColorJenkinsIdAssert.java:[112,57] static method should be qualified by type name, io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsId, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/color/CoverageColorJenkinsIdAssert.java:[133,59] static method should be qualified by type name, io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsId, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/color/CoverageColorJenkinsIdAssert.java:[157,59] static method should be qualified by type name, io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsId, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/color/CoverageColorJenkinsIdAssert.java:[176,15] static method should be qualified by type name, io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsId, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/color/CoverageColorJenkinsIdAssert.java:[177,58] static method should be qualified by type name, io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsId, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/source/SourceViewModelAssert.java:[85,53] found raw type: hudson.model.Run
+  missing type arguments for generic class hudson.model.Run<JobT,RunT>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/source/SourceViewModelAssert.java:[93,17] found raw type: hudson.model.Run
+  missing type arguments for generic class hudson.model.Run<JobT,RunT>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[37,59] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[45,14] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[61,64] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[69,14] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[85,59] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[93,14] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[109,64] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[117,14] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[133,53] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[141,14] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[157,58] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageApiAssert.java:[165,14] found raw type: java.util.NavigableMap
+  missing type arguments for generic class java.util.NavigableMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageMetricColumnAssert.java:[109,63] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageMetricColumnAssert.java:[117,17] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageMetricColumnCoverageMetricColumnDescriptorAssert.java:[93,53] static method should be qualified by type name, hudson.model.Descriptor, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageMetricColumnCoverageMetricColumnDescriptorAssert.java:[277,100] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageMetricColumnCoverageMetricColumnDescriptorAssert.java:[285,29] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageMetricColumnCoverageMetricColumnDescriptorAssert.java:[325,72] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageMetricColumnCoverageMetricColumnDescriptorAssert.java:[333,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageMetricColumnCoverageMetricColumnDescriptorAssert.java:[349,76] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageMetricColumnCoverageMetricColumnDescriptorAssert.java:[357,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageQualityGateAssert.java:[86,62] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageQualityGateAssert.java:[94,17] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorderAssert.java:[110,59] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorderAssert.java:[118,17] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorderDescriptorAssert.java:[93,53] static method should be qualified by type name, hudson.model.Descriptor, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorderDescriptorAssert.java:[277,76] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorderDescriptorAssert.java:[285,29] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorderDescriptorAssert.java:[325,48] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorderDescriptorAssert.java:[333,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorderDescriptorAssert.java:[349,52] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageRecorderDescriptorAssert.java:[357,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepAssert.java:[86,55] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepAssert.java:[94,17] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepDescriptorAssert.java:[130,53] static method should be qualified by type name, hudson.model.Descriptor, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepDescriptorAssert.java:[338,72] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepDescriptorAssert.java:[346,29] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepDescriptorAssert.java:[398,63] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepDescriptorAssert.java:[406,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepDescriptorAssert.java:[752,44] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepDescriptorAssert.java:[760,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepDescriptorAssert.java:[776,48] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageStepDescriptorAssert.java:[784,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageToolAssert.java:[61,55] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageToolAssert.java:[69,17] found raw type: hudson.model.Descriptor
+  missing type arguments for generic class hudson.model.Descriptor<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageToolCoverageToolDescriptorAssert.java:[93,53] static method should be qualified by type name, hudson.model.Descriptor, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageToolCoverageToolDescriptorAssert.java:[301,84] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageToolCoverageToolDescriptorAssert.java:[309,29] found raw type: org.kohsuke.stapler.lang.Klass
+  missing type arguments for generic class org.kohsuke.stapler.lang.Klass<C>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageToolCoverageToolDescriptorAssert.java:[349,56] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageToolCoverageToolDescriptorAssert.java:[357,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageToolCoverageToolDescriptorAssert.java:[397,60] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageToolCoverageToolDescriptorAssert.java:[405,5] found raw type: java.lang.Class
+  missing type arguments for generic class java.lang.Class<T>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageViewModelAssert.java:[407,55] found raw type: hudson.model.Run
+  missing type arguments for generic class hudson.model.Run<JobT,RunT>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/metrics/steps/CoverageViewModelAssert.java:[415,17] found raw type: hudson.model.Run
+  missing type arguments for generic class hudson.model.Run<JobT,RunT>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageMetricAssert.java:[46,53] static method should be qualified by type name, io.jenkins.plugins.coverage.model.CoverageMetric, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageMetricAssert.java:[69,53] static method should be qualified by type name, io.jenkins.plugins.coverage.model.CoverageMetric, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageMetricAssert.java:[89,57] static method should be qualified by type name, io.jenkins.plugins.coverage.model.CoverageMetric, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageMetricAssert.java:[112,57] static method should be qualified by type name, io.jenkins.plugins.coverage.model.CoverageMetric, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageMetricAssert.java:[133,59] static method should be qualified by type name, io.jenkins.plugins.coverage.model.CoverageMetric, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageMetricAssert.java:[157,59] static method should be qualified by type name, io.jenkins.plugins.coverage.model.CoverageMetric, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageMetricAssert.java:[176,15] static method should be qualified by type name, io.jenkins.plugins.coverage.model.CoverageMetric, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageMetricAssert.java:[177,58] static method should be qualified by type name, io.jenkins.plugins.coverage.model.CoverageMetric, instead of by an expression
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeAssert.java:[922,57] found raw type: java.util.SortedMap
+  missing type arguments for generic class java.util.SortedMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeAssert.java:[930,14] found raw type: java.util.SortedMap
+  missing type arguments for generic class java.util.SortedMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeAssert.java:[946,59] found raw type: java.util.SortedMap
+  missing type arguments for generic class java.util.SortedMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeAssert.java:[954,14] found raw type: java.util.SortedMap
+  missing type arguments for generic class java.util.SortedMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeAssert.java:[1123,61] found raw type: java.util.SortedMap
+  missing type arguments for generic class java.util.SortedMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeAssert.java:[1131,14] found raw type: java.util.SortedMap
+  missing type arguments for generic class java.util.SortedMap<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeConverterAssert.java:[37,67] found raw type: java.util.Map.Entry
+  missing type arguments for generic class java.util.Map.Entry<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeConverterAssert.java:[57,98] found raw type: java.util.Map.Entry
+  missing type arguments for generic class java.util.Map.Entry<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeConverterAssert.java:[80,71] found raw type: java.util.Map.Entry
+  missing type arguments for generic class java.util.Map.Entry<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeConverterAssert.java:[100,102] found raw type: java.util.Map.Entry
+  missing type arguments for generic class java.util.Map.Entry<K,V>
+[WARNING] /code-coverage-api-plugin/plugin/target/generated-test-sources/assertj-assertions/io/jenkins/plugins/coverage/model/CoverageNodeConverterAssert.java:[124,75] found raw type: java.util.Map.Entry
+  missing type arguments for generic class java.util.Map.Entry<K,V>
+[INFO] 
+[INFO] --- hpi:3.46:test-hpl (default-test-hpl) @ code-coverage-api ---
+[INFO] Generating /code-coverage-api-plugin/plugin/target/test-classes/the.hpl
+[INFO] 
+[INFO] --- hpi:3.46:resolve-test-dependencies (default-resolve-test-dependencies) @ code-coverage-api ---
+[INFO] 
+[INFO] --- hpi:3.46:test-runtime (default-test-runtime) @ code-coverage-api ---
+[INFO] Setting jenkins.addOpens to --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.desktop/com.sun.beans.introspect=ALL-UNNAMED
+[INFO] Setting jenkins.insaneHook to --patch-module='java.base=/code-coverage-api-plugin/plugin/target/patch-modules/org-netbeans-insane-hook.jar' --add-exports=java.base/org.netbeans.insane.hook=ALL-UNNAMED
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ code-coverage-api ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/code-coverage-api-plugin/plugin/target/jacoco.exec,includes=io/jenkins/plugins/**/* -Xms768M -Xmx768M -XX:+HeapDumpOnOutOfMemoryError -XX:+TieredCompilation -XX:TieredStopAtLevel=1 @{jenkins.addOpens} @{jenkins.insaneHook}
+[INFO] 
+[INFO] --- surefire:3.1.0:test (default-test) @ code-coverage-api ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.jenkins.plugins.coverage.CoverageChecksPublisherTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.866 s - in io.jenkins.plugins.coverage.CoverageChecksPublisherTest
+[INFO] Running io.jenkins.plugins.coverage.CoverageCornerCaseTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/.m2/repository/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.834 s - in io.jenkins.plugins.coverage.CoverageCornerCaseTest
+[INFO] Running io.jenkins.plugins.coverage.CoverageProcessorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.837 s - in io.jenkins.plugins.coverage.CoverageProcessorTest
+[INFO] Running io.jenkins.plugins.coverage.CoveragePublisherPipelineTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/.m2/repository/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 26.552 s - in io.jenkins.plugins.coverage.CoveragePublisherPipelineTest
+[INFO] Running io.jenkins.plugins.coverage.Security2376Test
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.vmplugin.v7.Java7$1 (file:/root/.m2/repository/org/codehaus/groovy/groovy-all/2.4.21/groovy-all-2.4.21.jar) to constructor java.lang.invoke.MethodHandles$Lookup(java.lang.Class,int)
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.vmplugin.v7.Java7$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.526 s - in io.jenkins.plugins.coverage.Security2376Test
+[INFO] Running io.jenkins.plugins.coverage.metrics.PackageArchitectureTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.21 s - in io.jenkins.plugins.coverage.metrics.PackageArchitectureTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.PluginArchitectureTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.419 s - in io.jenkins.plugins.coverage.metrics.PluginArchitectureTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.charts.CoverageSeriesBuilderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.612 s - in io.jenkins.plugins.coverage.metrics.charts.CoverageSeriesBuilderTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.charts.TreeMapNodeConverterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.597 s - in io.jenkins.plugins.coverage.metrics.charts.TreeMapNodeConverterTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.color.ColorProviderFactoryTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 s - in io.jenkins.plugins.coverage.metrics.color.ColorProviderFactoryTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.color.ColorProviderTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.585 s - in io.jenkins.plugins.coverage.metrics.color.ColorProviderTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.color.CoverageChangeLevelTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in io.jenkins.plugins.coverage.metrics.color.CoverageChangeLevelTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.color.CoverageChangeTendencyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in io.jenkins.plugins.coverage.metrics.color.CoverageChangeTendencyTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsIdTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in io.jenkins.plugins.coverage.metrics.color.CoverageColorJenkinsIdTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.color.CoverageLevelTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s - in io.jenkins.plugins.coverage.metrics.color.CoverageLevelTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.model.ElementFormatterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 s - in io.jenkins.plugins.coverage.metrics.model.ElementFormatterTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.source.CoverageSourcePrinterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.987 s - in io.jenkins.plugins.coverage.metrics.source.CoverageSourcePrinterTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.source.MutationSourcePrinterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.896 s - in io.jenkins.plugins.coverage.metrics.source.MutationSourcePrinterTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.source.SourceCodeFacadeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 s - in io.jenkins.plugins.coverage.metrics.source.SourceCodeFacadeTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.CodeDeltaCalculatorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.249 s - in io.jenkins.plugins.coverage.metrics.steps.CodeDeltaCalculatorTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.CoverageBuildActionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.04 s - in io.jenkins.plugins.coverage.metrics.steps.CoverageBuildActionTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.CoverageChecksPublisherTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.53 s - in io.jenkins.plugins.coverage.metrics.steps.CoverageChecksPublisherTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.CoverageJobActionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.101 s - in io.jenkins.plugins.coverage.metrics.steps.CoverageJobActionTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.CoverageMetricColumnTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.303 s - in io.jenkins.plugins.coverage.metrics.steps.CoverageMetricColumnTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.CoverageQualityGateEvaluatorTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.272 s - in io.jenkins.plugins.coverage.metrics.steps.CoverageQualityGateEvaluatorTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.CoverageTokenMacroTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.392 s - in io.jenkins.plugins.coverage.metrics.steps.CoverageTokenMacroTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.CoverageViewModelTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.353 s - in io.jenkins.plugins.coverage.metrics.steps.CoverageViewModelTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.CoverageXmlStreamTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.6 s - in io.jenkins.plugins.coverage.metrics.steps.CoverageXmlStreamTest
+[INFO] Running io.jenkins.plugins.coverage.metrics.steps.FileChangesProcessorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.242 s - in io.jenkins.plugins.coverage.metrics.steps.FileChangesProcessorTest
+[INFO] Running io.jenkins.plugins.coverage.model.CodeDeltaCalculatorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.248 s - in io.jenkins.plugins.coverage.model.CodeDeltaCalculatorTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageBuildActionTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.664 s - in io.jenkins.plugins.coverage.model.CoverageBuildActionTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageJobActionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.148 s - in io.jenkins.plugins.coverage.model.CoverageJobActionTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageLeafTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.351 s - in io.jenkins.plugins.coverage.model.CoverageLeafTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageMetricTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in io.jenkins.plugins.coverage.model.CoverageMetricTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageNodeTest
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.477 s - in io.jenkins.plugins.coverage.model.CoverageNodeTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoveragePercentageTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.461 s - in io.jenkins.plugins.coverage.model.CoveragePercentageTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageResultTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.14 s - in io.jenkins.plugins.coverage.model.CoverageResultTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.472 s - in io.jenkins.plugins.coverage.model.CoverageTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageTreeCreatorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.302 s - in io.jenkins.plugins.coverage.model.CoverageTreeCreatorTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageViewModelTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.264 s - in io.jenkins.plugins.coverage.model.CoverageViewModelTest
+[INFO] Running io.jenkins.plugins.coverage.model.CoverageXmlStreamTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.992 s - in io.jenkins.plugins.coverage.model.CoverageXmlStreamTest
+[INFO] Running io.jenkins.plugins.coverage.model.FileChangesProcessorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.514 s - in io.jenkins.plugins.coverage.model.FileChangesProcessorTest
+[INFO] Running io.jenkins.plugins.coverage.model.FileCoverageNodeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.583 s - in io.jenkins.plugins.coverage.model.FileCoverageNodeTest
+[INFO] Running io.jenkins.plugins.coverage.model.FilePathValidatorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.294 s - in io.jenkins.plugins.coverage.model.FilePathValidatorTest
+[INFO] Running io.jenkins.plugins.coverage.model.MethodCoverageNodeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.66 s - in io.jenkins.plugins.coverage.model.MethodCoverageNodeTest
+[INFO] Running io.jenkins.plugins.coverage.model.PackageCoverageNodeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.696 s - in io.jenkins.plugins.coverage.model.PackageCoverageNodeTest
+[INFO] Running io.jenkins.plugins.coverage.model.PluginArchitectureTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.487 s - in io.jenkins.plugins.coverage.model.PluginArchitectureTest
+[INFO] Running io.jenkins.plugins.coverage.model.SafeFractionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in io.jenkins.plugins.coverage.model.SafeFractionTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.charts.CoverageSeriesBuilderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.247 s - in io.jenkins.plugins.coverage.model.visualization.charts.CoverageSeriesBuilderTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.code.SourceCodeFacadeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 s - in io.jenkins.plugins.coverage.model.visualization.code.SourceCodeFacadeTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.colorization.ColorProviderFactoryTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in io.jenkins.plugins.coverage.model.visualization.colorization.ColorProviderFactoryTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.colorization.ColorProviderTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.473 s - in io.jenkins.plugins.coverage.model.visualization.colorization.ColorProviderTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.colorization.CoverageChangeLevelTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in io.jenkins.plugins.coverage.model.visualization.colorization.CoverageChangeLevelTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.colorization.CoverageChangeTendencyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in io.jenkins.plugins.coverage.model.visualization.colorization.CoverageChangeTendencyTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.colorization.CoverageColorJenkinsIdTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in io.jenkins.plugins.coverage.model.visualization.colorization.CoverageColorJenkinsIdTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.colorization.CoverageLevelTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s - in io.jenkins.plugins.coverage.model.visualization.colorization.CoverageLevelTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.dashboard.ChangeCoverageDeltaTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.267 s - in io.jenkins.plugins.coverage.model.visualization.dashboard.ChangeCoverageDeltaTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.dashboard.ChangeCoverageTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.253 s - in io.jenkins.plugins.coverage.model.visualization.dashboard.ChangeCoverageTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.964 s - in io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnTypeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s - in io.jenkins.plugins.coverage.model.visualization.dashboard.CoverageColumnTypeTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.dashboard.IndirectCoverageChangesTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.266 s - in io.jenkins.plugins.coverage.model.visualization.dashboard.IndirectCoverageChangesTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.dashboard.ProjectCoverageDeltaTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.309 s - in io.jenkins.plugins.coverage.model.visualization.dashboard.ProjectCoverageDeltaTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.dashboard.ProjectCoverageTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.44 s - in io.jenkins.plugins.coverage.model.visualization.dashboard.ProjectCoverageTest
+[INFO] Running io.jenkins.plugins.coverage.model.visualization.tree.TreeMapNodeConverterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.275 s - in io.jenkins.plugins.coverage.model.visualization.tree.TreeMapNodeConverterTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 348, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------< io.jenkins.plugins:code-coverage-api-ui-tests >------------
+[INFO] Building UI Tests of Code Coverage Plugin UNVERSIONED              [2/3]
+[INFO]   from ui-tests/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ code-coverage-api-ui-tests ---
+[INFO] Deleting /code-coverage-api-plugin/ui-tests/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-require-property-diverges) @ code-coverage-api-ui-tests ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-java) @ code-coverage-api-ui-tests ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ code-coverage-api-ui-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /code-coverage-api-plugin/ui-tests/src/main/resources
+[INFO] 
+[INFO] --- resources:3.2.0:copy-resources (copy-resources) @ code-coverage-api-ui-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ code-coverage-api-ui-tests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to /code-coverage-api-plugin/ui-tests/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] [options] bootstrap class path not set in conjunction with -source 8
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /code-coverage-api-plugin/ui-tests/src/main/java/io/jenkins/plugins/coverage/util/ChartUtil.java:[7,36] error: package com.gargoylesoftware.htmlunit does not exist
+[ERROR] /code-coverage-api-plugin/ui-tests/src/main/java/io/jenkins/plugins/coverage/util/ChartUtil.java:[35,12] error: cannot find symbol
+  symbol:   class ScriptResult
+  location: class ChartUtil
+[ERROR] /code-coverage-api-plugin/ui-tests/src/main/java/io/jenkins/plugins/coverage/util/ChartUtil.java:[35,44] error: cannot find symbol
+  symbol:   class ScriptResult
+  location: class ChartUtil
+[ERROR] /code-coverage-api-plugin/ui-tests/src/main/java/io/jenkins/plugins/coverage/util/ChartUtil.java:[60,42] error: cannot find symbol
+  symbol:   class ScriptResult
+  location: class ChartUtil
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Code Coverage API Plugin 4.8.0-SNAPSHOT ............ SUCCESS [03:28 min]
+[INFO] UI Tests of Code Coverage Plugin UNVERSIONED ....... FAILURE [  2.435 s]
+[INFO] Aggregator for Code Coverage Plugin UNVERSIONED .... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:35 min
+[INFO] Finished at: 2025-10-01T13:41:15Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 7 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.10
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.assertj:assertj-assertions-generator-maven-plugin:2.2.0
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING]  * org.jvnet.localizer:localizer-maven-plugin:1.31
+[WARNING]  * org.apache.maven.plugins:maven-javadoc-plugin:3.5.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project code-coverage-api-ui-tests: Compilation failure: Compilation failure: 
+[ERROR] /code-coverage-api-plugin/ui-tests/src/main/java/io/jenkins/plugins/coverage/util/ChartUtil.java:[7,36] error: package com.gargoylesoftware.htmlunit does not exist
+[ERROR] /code-coverage-api-plugin/ui-tests/src/main/java/io/jenkins/plugins/coverage/util/ChartUtil.java:[35,12] error: cannot find symbol
+[ERROR]   symbol:   class ScriptResult
+[ERROR]   location: class ChartUtil
+[ERROR] /code-coverage-api-plugin/ui-tests/src/main/java/io/jenkins/plugins/coverage/util/ChartUtil.java:[35,44] error: cannot find symbol
+[ERROR]   symbol:   class ScriptResult
+[ERROR]   location: class ChartUtil
+[ERROR] /code-coverage-api-plugin/ui-tests/src/main/java/io/jenkins/plugins/coverage/util/ChartUtil.java:[60,42] error: cannot find symbol
+[ERROR]   symbol:   class ScriptResult
+[ERROR]   location: class ChartUtil
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :code-coverage-api-ui-tests

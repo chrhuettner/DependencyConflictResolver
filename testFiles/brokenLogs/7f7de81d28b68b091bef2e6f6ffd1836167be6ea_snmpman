@@ -1,0 +1,76 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] SNMPMan Parent                                                     [pom]
+[INFO] SNMPMan                                                            [jar]
+[INFO] SNMPMan Command Line                                               [jar]
+[INFO] 
+[INFO] --------------------< com.oneandone:snmpman-parent >--------------------
+[INFO] Building SNMPMan Parent 2.1.7-SNAPSHOT                             [1/3]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ snmpman-parent ---
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default-prepare-agent) @ snmpman-parent ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/snmpman/target/jacoco.exec
+[INFO] 
+[INFO] -----------------------< com.oneandone:snmpman >------------------------
+[INFO] Building SNMPMan 2.1.7-SNAPSHOT                                    [2/3]
+[INFO]   from snmpman/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ snmpman ---
+[INFO] Deleting /snmpman/snmpman/target
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default-prepare-agent) @ snmpman ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/snmpman/snmpman/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ snmpman ---
+[INFO] skip non existing resourceDirectory /snmpman/snmpman/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ snmpman ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 25 source files to /snmpman/snmpman/target/classes
+[INFO] /snmpman/snmpman/src/main/java/com/oneandone/snmpman/Snmpman.java: Some input files use or override a deprecated API.
+[INFO] /snmpman/snmpman/src/main/java/com/oneandone/snmpman/Snmpman.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /snmpman/snmpman/src/main/java/com/oneandone/snmpman/SnmpmanAgent.java:[389,77] incompatible types: java.util.SortedMap<org.snmp4j.agent.MOScope,org.snmp4j.agent.ManagedObject<?>> cannot be converted to java.util.SortedMap<org.snmp4j.agent.MOScope,org.snmp4j.agent.ManagedObject>
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for SNMPMan Parent 2.1.7-SNAPSHOT:
+[INFO] 
+[INFO] SNMPMan Parent ..................................... SUCCESS [  0.459 s]
+[INFO] SNMPMan ............................................ FAILURE [  1.586 s]
+[INFO] SNMPMan Command Line ............................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.175 s
+[INFO] Finished at: 2025-10-01T13:24:54Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.10
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project snmpman: Compilation failure
+[ERROR] /snmpman/snmpman/src/main/java/com/oneandone/snmpman/SnmpmanAgent.java:[389,77] incompatible types: java.util.SortedMap<org.snmp4j.agent.MOScope,org.snmp4j.agent.ManagedObject<?>> cannot be converted to java.util.SortedMap<org.snmp4j.agent.MOScope,org.snmp4j.agent.ManagedObject>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :snmpman

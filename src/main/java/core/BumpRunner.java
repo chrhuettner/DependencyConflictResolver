@@ -91,8 +91,8 @@ public class BumpRunner {
                 .dockerHost(config.getDockerHost())
                 .sslConfig(config.getSSLConfig())
                 .maxConnections(1000)
-                .connectionTimeout(Duration.ofSeconds(30000))
-                .responseTimeout(Duration.ofSeconds(45000))
+                .connectionTimeout(Duration.ofSeconds(3000000))
+                .responseTimeout(Duration.ofSeconds(4500000))
                 .build();
 
         DockerClient dockerClient = DockerClientImpl.getInstance(config, dockerHttpClient);
@@ -107,7 +107,7 @@ public class BumpRunner {
         AtomicInteger activeThreadCount = new AtomicInteger();
         AtomicInteger failedFixes = new AtomicInteger();
         AtomicInteger successfulFixes = new AtomicInteger();
-        int limit = 8;
+        int limit = 2;
         for (File file : bumpFolder.listFiles()) {
             while (activeThreadCount.getAndUpdate(operand -> {
                 if (operand >= limit) {

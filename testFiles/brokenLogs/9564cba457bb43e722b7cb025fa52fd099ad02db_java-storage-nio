@@ -1,0 +1,173 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 4 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 4 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Storage Parent                                                     [pom]
+[INFO] Google Cloud NIO                                                   [jar]
+[INFO] Google Cloud NIO Retrofit Example                                  [jar]
+[INFO] Google Cloud NIO Examples                                          [jar]
+[INFO] 
+[INFO] --------------< com.google.cloud:google-cloud-nio-parent >--------------
+[INFO] Building Storage Parent 0.126.18-SNAPSHOT                          [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ google-cloud-nio-parent ---
+[INFO] Deleting /java-storage-nio/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce) @ google-cloud-nio-parent ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 2: org.apache.maven.enforcer.rules.dependency.RequireUpperBoundDeps passed
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[INFO] Rule 3: org.codehaus.mojo.extraenforcer.dependencies.BanDuplicateClasses passed
+[INFO] 
+[INFO] --- checkstyle:3.3.0:check (checkstyle) @ google-cloud-nio-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ google-cloud-nio-parent ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/java-storage-nio/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper:3.4.0:add-resource (add-main-proto-resources) @ google-cloud-nio-parent ---
+[INFO] 
+[INFO] --- build-helper:3.4.0:add-test-resource (add-test-proto-resources) @ google-cloud-nio-parent ---
+[INFO] 
+[INFO] --- animal-sniffer:1.23:check (java8) @ google-cloud-nio-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- jacoco:0.8.10:report (report) @ google-cloud-nio-parent ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] -----------------< com.google.cloud:google-cloud-nio >------------------
+[INFO] Building Google Cloud NIO 0.126.18-SNAPSHOT                        [2/4]
+[INFO]   from google-cloud-nio/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ google-cloud-nio ---
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce) @ google-cloud-nio ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[INFO] Rule 3: org.codehaus.mojo.extraenforcer.dependencies.BanDuplicateClasses passed
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Storage Parent 0.126.18-SNAPSHOT:
+[INFO] 
+[INFO] Storage Parent ..................................... SUCCESS [  1.383 s]
+[INFO] Google Cloud NIO ................................... FAILURE [  0.690 s]
+[INFO] Google Cloud NIO Retrofit Example .................. SKIPPED
+[INFO] Google Cloud NIO Examples .......................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.038 s
+[INFO] Finished at: 2025-10-01T13:56:52Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 1 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.10
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.3.0:enforce (enforce) on project google-cloud-nio: 
+[ERROR] Rule 2: org.apache.maven.enforcer.rules.dependency.RequireUpperBoundDeps failed with message:
+[ERROR] Failed while enforcing RequireUpperBoundDeps. The error(s) are [
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-core:1.55.1 [runtime] paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-core:1.55.1 [runtime] (managed) <-- io.grpc:grpc-core:1.56.0 [runtime]
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-stub:1.55.1 paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-stub:1.55.1 (managed) <-- io.grpc:grpc-stub:1.56.0
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-xds:1.55.1 [runtime] paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-xds:1.55.1 [runtime] (managed) <-- io.grpc:grpc-xds:1.56.0 [runtime]
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-api:1.55.1 paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-api:1.55.1 (managed) <-- io.grpc:grpc-api:1.56.0
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-auth:1.55.1 paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-auth:1.55.1 (managed) <-- io.grpc:grpc-auth:1.56.0
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-rls:1.55.1 [runtime] paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-rls:1.55.1 [runtime] (managed) <-- io.grpc:grpc-rls:1.56.0 [runtime]
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-netty-shaded:1.55.1 [runtime] paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-netty-shaded:1.55.1 [runtime] (managed) <-- io.grpc:grpc-netty-shaded:1.56.0 [runtime]
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-services:1.55.1 [runtime] paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-services:1.55.1 [runtime] (managed) <-- io.grpc:grpc-services:1.56.0 [runtime]
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-protobuf:1.55.1 paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-protobuf:1.55.1 (managed) <-- io.grpc:grpc-protobuf:1.56.0
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for com.google.j2objc:j2objc-annotations:1.3 paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-com.google.j2objc:j2objc-annotations:1.3
+[ERROR] and
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.guava:guava:32.0.1-jre
+[ERROR]     +-com.google.j2objc:j2objc-annotations:2.8
+[ERROR] and
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.http-client:google-http-client:1.43.3
+[ERROR]     +-com.google.j2objc:j2objc-annotations:2.8
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-googleapis:1.55.1 [runtime] paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-googleapis:1.55.1 [runtime] (managed) <-- io.grpc:grpc-googleapis:1.56.0 [runtime]
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-context:1.55.1 paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-context:1.55.1 (managed) <-- io.grpc:grpc-context:1.56.0
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-grpclb:1.55.1 paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-grpclb:1.55.1 (managed) <-- io.grpc:grpc-grpclb:1.56.0
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-protobuf-lite:1.55.1 paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-protobuf-lite:1.55.1 (managed) <-- io.grpc:grpc-protobuf-lite:1.56.0
+[ERROR] , 
+[ERROR] Require upper bound dependencies error for io.grpc:grpc-alts:1.55.1 paths to dependency are:
+[ERROR] +-com.google.cloud:google-cloud-nio:0.126.18-SNAPSHOT
+[ERROR]   +-com.google.cloud:google-cloud-storage:2.23.0
+[ERROR]     +-io.grpc:grpc-alts:1.55.1 (managed) <-- io.grpc:grpc-alts:1.56.0
+[ERROR] ]
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :google-cloud-nio

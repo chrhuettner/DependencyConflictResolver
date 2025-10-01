@@ -1,0 +1,118 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: linux
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.bitness: 64
+[INFO] os.detected.version: 6.6
+[INFO] os.detected.version.major: 6
+[INFO] os.detected.version.minor: 6
+[INFO] os.detected.release: alpine
+[INFO] os.detected.release.version: 3.18.2
+[INFO] os.detected.release.like.alpine: true
+[INFO] os.detected.classifier: linux-x86_64
+[INFO] 
+[INFO] -----------< com.google.cloud:pubsub-group-kafka-connector >------------
+[INFO] Building Pub/Sub Group Kafka Connector 1.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact org.slf4j:slf4j-log4j12:jar:2.0.3 has been relocated to org.slf4j:slf4j-reload4j:jar:2.0.3
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ pubsub-group-kafka-connector ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ pubsub-group-kafka-connector ---
+[WARNING] The artifact org.slf4j:slf4j-log4j12:jar:2.0.3 has been relocated to org.slf4j:slf4j-reload4j:jar:2.0.3
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[ERROR] Rule 2: org.apache.maven.plugins.enforcer.RequireUpperBoundDeps failed with message:
+Failed while enforcing RequireUpperBoundDeps. The error(s) are [
+Require upper bound dependencies error for com.google.errorprone:error_prone_annotations:2.16 paths to dependency are:
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.errorprone:error_prone_annotations:2.16
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.cloud:google-cloud-pubsub:1.120.25
+    +-com.google.errorprone:error_prone_annotations:2.16
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.cloud:pubsublite-kafka:1.0.2
+    +-com.google.errorprone:error_prone_annotations:2.16
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.api.grpc:proto-google-cloud-pubsublite-v1:1.8.0
+    +-com.google.errorprone:error_prone_annotations:2.16
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.api.grpc:proto-google-cloud-pubsub-v1:1.102.25
+    +-com.google.errorprone:error_prone_annotations:2.16
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.api:api-common:2.6.2
+    +-com.google.errorprone:error_prone_annotations:2.18.0
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.cloud:google-cloud-pubsublite:1.8.0
+    +-com.google.errorprone:error_prone_annotations:2.16
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.guava:guava:31.1-jre
+    +-com.google.errorprone:error_prone_annotations:2.11.0
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.protobuf:protobuf-java-util:3.21.9
+    +-com.google.errorprone:error_prone_annotations:2.5.1
+, 
+Require upper bound dependencies error for com.google.auto.value:auto-value-annotations:1.10 paths to dependency are:
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.cloud:google-cloud-pubsub:1.120.25
+    +-com.google.auto.value:auto-value-annotations:1.10 (managed) <-- com.google.auto.value:auto-value-annotations:1.10
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.auth:google-auth-library-oauth2-http:1.12.1
+    +-com.google.auto.value:auto-value-annotations:1.10 (managed) <-- com.google.auto.value:auto-value-annotations:1.10
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.cloud:pubsublite-kafka:1.0.2
+    +-com.google.auto.value:auto-value-annotations:1.10 (managed) <-- com.google.auto.value:auto-value-annotations:1.10
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.api.grpc:proto-google-cloud-pubsublite-v1:1.8.0
+    +-com.google.auto.value:auto-value-annotations:1.10 [runtime] (managed) <-- com.google.auto.value:auto-value-annotations:1.10 [runtime]
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.api.grpc:proto-google-cloud-pubsub-v1:1.102.25
+    +-com.google.auto.value:auto-value-annotations:1.10 [runtime] (managed) <-- com.google.auto.value:auto-value-annotations:1.10 [runtime]
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.api:api-common:2.6.2
+    +-com.google.auto.value:auto-value-annotations:1.10 (managed) <-- com.google.auto.value:auto-value-annotations:1.10.1
+and
++-com.google.cloud:pubsub-group-kafka-connector:1.0.1-SNAPSHOT
+  +-com.google.cloud:google-cloud-pubsublite:1.8.0
+    +-com.google.auto.value:auto-value-annotations:1.10 (managed) <-- com.google.auto.value:auto-value-annotations:1.10
+]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.164 s
+[INFO] Finished at: 2025-10-01T13:57:05Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING]  * org.xolstice.maven.plugins:protobuf-maven-plugin:0.6.1
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.1.0:enforce (enforce) on project pubsub-group-kafka-connector: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

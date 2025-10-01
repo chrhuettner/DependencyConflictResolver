@@ -1,0 +1,89 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------< com.github.volodya-lombrozo:jtcop-maven-plugin >-----------
+[INFO] Building jtcop 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jtcop-maven-plugin ---
+[INFO] Deleting /jtcop/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ jtcop-maven-plugin ---
+[INFO] skip non existing resourceDirectory /jtcop/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ jtcop-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 64 source files to /jtcop/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/ModelSourceFileSystem.java:[28,28] cannot access opennlp.tools.postag.POSModel
+  bad class file: /root/.m2/repository/org/apache/opennlp/opennlp-tools/2.3.0/opennlp-tools-2.3.0.jar(/opennlp/tools/postag/POSModel.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/RulePresentSimpleMl.java:[36,28] cannot access opennlp.tools.postag.POSTaggerME
+  bad class file: /root/.m2/repository/org/apache/opennlp/opennlp-tools/2.3.0/opennlp-tools-2.3.0.jar(/opennlp/tools/postag/POSTaggerME.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/ModelSourceFileSystem.java:[52,12] cannot find symbol
+  symbol:   class POSModel
+  location: class com.github.lombrozo.testnames.rules.ml.ModelSourceFileSystem
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/ModelSource.java:[41,5] cannot find symbol
+  symbol:   class POSModel
+  location: interface com.github.lombrozo.testnames.rules.ml.ModelSource
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/ModelSourceInternet.java:[60,12] cannot find symbol
+  symbol:   class POSModel
+  location: class com.github.lombrozo.testnames.rules.ml.ModelSourceInternet
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/RulePresentSimpleMl.java:[53,19] cannot find symbol
+  symbol:   class POSTaggerME
+  location: class com.github.lombrozo.testnames.rules.ml.RulePresentSimpleMl
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/RulePresentSimpleMl.java:[65,31] cannot find symbol
+  symbol:   class POSTaggerME
+  location: class com.github.lombrozo.testnames.rules.ml.RulePresentSimpleMl
+[INFO] 7 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.250 s
+[INFO] Finished at: 2025-10-01T09:26:47Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project jtcop-maven-plugin: Compilation failure: Compilation failure: 
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/ModelSourceFileSystem.java:[28,28] cannot access opennlp.tools.postag.POSModel
+[ERROR]   bad class file: /root/.m2/repository/org/apache/opennlp/opennlp-tools/2.3.0/opennlp-tools-2.3.0.jar(/opennlp/tools/postag/POSModel.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/RulePresentSimpleMl.java:[36,28] cannot access opennlp.tools.postag.POSTaggerME
+[ERROR]   bad class file: /root/.m2/repository/org/apache/opennlp/opennlp-tools/2.3.0/opennlp-tools-2.3.0.jar(/opennlp/tools/postag/POSTaggerME.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/ModelSourceFileSystem.java:[52,12] cannot find symbol
+[ERROR]   symbol:   class POSModel
+[ERROR]   location: class com.github.lombrozo.testnames.rules.ml.ModelSourceFileSystem
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/ModelSource.java:[41,5] cannot find symbol
+[ERROR]   symbol:   class POSModel
+[ERROR]   location: interface com.github.lombrozo.testnames.rules.ml.ModelSource
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/ModelSourceInternet.java:[60,12] cannot find symbol
+[ERROR]   symbol:   class POSModel
+[ERROR]   location: class com.github.lombrozo.testnames.rules.ml.ModelSourceInternet
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/RulePresentSimpleMl.java:[53,19] cannot find symbol
+[ERROR]   symbol:   class POSTaggerME
+[ERROR]   location: class com.github.lombrozo.testnames.rules.ml.RulePresentSimpleMl
+[ERROR] /jtcop/src/main/java/com/github/lombrozo/testnames/rules/ml/RulePresentSimpleMl.java:[65,31] cannot find symbol
+[ERROR]   symbol:   class POSTaggerME
+[ERROR]   location: class com.github.lombrozo.testnames.rules.ml.RulePresentSimpleMl
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

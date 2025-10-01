@@ -1,0 +1,1545 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Polyglot :: Aggregator                                             [pom]
+[INFO] Polyglot :: Common                                          [takari-jar]
+[INFO] Polyglot :: Atom                                            [takari-jar]
+[INFO] Polyglot :: Maven Plugin                           [takari-maven-plugin]
+[INFO] Polyglot :: Ruby                                            [takari-jar]
+[INFO] Polyglot :: Scala                                           [takari-jar]
+[INFO] Polyglot :: Groovy                                          [takari-jar]
+[INFO] Polyglot :: YAML                                            [takari-jar]
+[INFO] Polyglot :: Clojure                                         [takari-jar]
+[INFO] Polyglot :: XML                                             [takari-jar]
+[INFO] Polyglot :: Java                                            [takari-jar]
+[INFO] Polyglot :: Kotlin                                          [takari-jar]
+[INFO] Polyglot :: Translate Plugin                       [takari-maven-plugin]
+[INFO] 
+[INFO] --------------------< io.takari.polyglot:polyglot >---------------------
+[INFO] Building Polyglot :: Aggregator 0.4.10-SNAPSHOT                   [1/13]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ polyglot ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot ---
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-metadata (default) @ polyglot ---
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-test-metadata (default) @ polyglot ---
+[INFO] 
+[INFO] -----------------< io.takari.polyglot:polyglot-common >-----------------
+[INFO] Building Polyglot :: Common 0.4.10-SNAPSHOT                       [2/13]
+[INFO]   from polyglot-common/pom.xml
+[INFO] -----------------------------[ takari-jar ]-----------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ polyglot-common ---
+[INFO] Deleting /polyglot-maven/polyglot-common/target
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-common ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-common ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-common ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-common ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 18 sources to /polyglot-maven/polyglot-common/target/classes
+[INFO] Compiled 18 out of 18 sources (9160 ms)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:export-package (default-export-package) @ polyglot-common ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-metadata (default) @ polyglot-common ---
+[INFO] Discovered 6 component descriptors(s)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-test-resources (default-process-test-resources) @ polyglot-common ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:testCompile (default-testCompile) @ polyglot-common ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 0 sources to /polyglot-maven/polyglot-common/target/test-classes
+[INFO] Compiled 0 out of 0 sources (256 ms)
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-test-metadata (default) @ polyglot-common ---
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ polyglot-common ---
+[INFO] 
+[INFO] ------------------< io.takari.polyglot:polyglot-atom >------------------
+[INFO] Building Polyglot :: Atom 0.4.10-SNAPSHOT                         [3/13]
+[INFO]   from polyglot-atom/pom.xml
+[INFO] -----------------------------[ takari-jar ]-----------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ polyglot-atom ---
+[INFO] Deleting /polyglot-maven/polyglot-atom/target
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-atom ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-atom ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-atom ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-atom ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 14 sources to /polyglot-maven/polyglot-atom/target/classes
+[INFO] Compiled 14 out of 14 sources (1386 ms)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:export-package (default-export-package) @ polyglot-atom ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-metadata (default) @ polyglot-atom ---
+[INFO] Discovered 3 component descriptors(s)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-test-resources (default-process-test-resources) @ polyglot-atom ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:testCompile (default-testCompile) @ polyglot-atom ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 4 sources to /polyglot-maven/polyglot-atom/target/test-classes
+[INFO] Compiled 4 out of 4 sources (513 ms)
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-test-metadata (default) @ polyglot-atom ---
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ polyglot-atom ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.sonatype.maven.polyglot.atom.parsing.AtomParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.328 s - in org.sonatype.maven.polyglot.atom.parsing.AtomParserTest
+[INFO] Running org.sonatype.maven.polyglot.atom.AtomModelWithMavenTest
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+project "Apache Maven" @ "http://maven.apache.org/" as pom
+  id: org.apache.maven:maven:3.0.4-SNAPSHOT
+  inherits: org.eclipse.tesla:tesla:3
+  properties: [ modelloVersion: "1.4.1"
+                build.timestamp: "${maven.build.timestamp}"
+                plexusVersion: "1.5.5"
+                jlineVersion: "2.3"
+                maven.test.redirectTestOutputToFile: "true"
+                distributionId: "eclipse-tesla"
+                cipherVersion: "1.7"
+                gossipVersion: "1.7"
+                maven.build.timestamp.format: "yyyyMMddHHmm"
+                project.build.sourceEncoding: "UTF-8"
+                distributionShortName: "Tesla"
+                mavenVersion: "3.0.4-SNAPSHOT"
+                easyMockVersion: "1.2_Java1.3"
+                gshellVersion: "3.0.4-SNAPSHOT"
+                plexusUtilsVersion: "2.0.6"
+                wagonVersion: "1.0-beta-7"
+                junitVersion: "4.8.2"
+                classWorldsVersion: "2.4"
+                slf4jVersion: "1.6.1"
+                commonsCliVersion: "1.2"
+                project.reporting.outputEncoding: "UTF-8"
+                plexusInterpolationVersion: "1.14"
+                sisuInjectVersion: "2.2.1"
+                aetherVersion: "1.12"
+                distributionName: "Eclipse Tesla"
+                jxpathVersion: "1.3"
+                securityDispatcherVersion: "1.3" ]
+  overrides: [ org.apache.maven:maven-model:${project.version}
+               org.apache.maven:maven-settings:${project.version}
+               org.apache.maven:maven-settings-builder:${project.version}
+               org.apache.maven:maven-plugin-api:${project.version}
+               org.apache.maven:maven-embedder:${project.version}
+               org.apache.maven:maven-core:${project.version}
+               org.apache.maven:maven-model-builder:${project.version}
+               org.apache.maven:maven-compat:${project.version}
+               org.apache.maven:maven-artifact:${project.version}
+               org.apache.maven:maven-aether-provider:${project.version}
+               org.apache.maven:maven-repository-metadata:${project.version}
+               org.codehaus.plexus:plexus-utils:${plexusUtilsVersion}
+               org.sonatype.sisu:sisu-inject-plexus:${sisuInjectVersion}
+               org.sonatype.sisu:sisu-inject-bean:2.2.1
+               org.codehaus.plexus:plexus-component-annotations:${plexusVersion}
+               org.codehaus.plexus:plexus-classworlds:${classWorldsVersion}
+               org.codehaus.plexus:plexus-interpolation:${plexusInterpolationVersion}
+               org.slf4j:slf4j-api:${slf4jVersion}
+               org.slf4j:slf4j-simple:${slf4jVersion}
+               org.apache.maven.wagon:wagon-provider-api:${wagonVersion}
+               org.apache.maven.wagon:wagon-file:${wagonVersion}
+               org.apache.maven.wagon:wagon-http-lightweight:${wagonVersion}
+               org.apache.maven.wagon:wagon-http-shared:${wagonVersion}
+               org.sonatype.aether:aether-api:${aetherVersion}
+               org.sonatype.aether:aether-spi:${aetherVersion}
+               org.sonatype.aether:aether-impl:${aetherVersion}
+               org.sonatype.aether:aether-util:${aetherVersion}
+               org.sonatype.aether:aether-connector-asynchttpclient:${aetherVersion}
+               org.sonatype.aether:aether-connector-file:${aetherVersion}
+               org.sonatype.aether:aether-connector-wagon:${aetherVersion}
+               org.sonatype.maven:wagon-ahc:1.2.0
+               commons-cli:commons-cli:${commonsCliVersion}
+               commons-jxpath:commons-jxpath:${jxpathVersion}
+               org.sonatype.plexus:plexus-sec-dispatcher:${securityDispatcherVersion}
+               org.sonatype.plexus:plexus-cipher:${cipherVersion}
+               org.sonatype.gossip:gossip-core:${gossipVersion}
+               org.sonatype.gossip:gossip-bootstrap:${gossipVersion}
+               org.sonatype.gossip:gossip-slf4j:${gossipVersion}
+               org.sonatype.gossip:gossip-support:${gossipVersion}
+               org.sonatype.grrrowl:grrrowl:1.1.1
+               com.thoughtworks.xstream:xstream:1.4.6
+               commons-codec:commons-codec:1.4
+               org.eclipse.tesla.shell:tesla-shell-core:${gshellVersion}
+               org.eclipse.tesla.shell:tesla-shell-core:${gshellVersion}(tests)
+               org.eclipse.tesla.shell:tesla-shell-util:${gshellVersion}
+               org.eclipse.tesla.shell.ext:tesla-shell-gossip:${gshellVersion}
+               org.eclipse.tesla.shell.ext:tesla-shell-plexus:${gshellVersion}
+               org.eclipse.tesla.shell.ext:tesla-shell-logback:${gshellVersion}
+               org.eclipse.tesla.shell.commands:tesla-shell-standard:${gshellVersion}
+               org.eclipse.tesla.shell.commands:tesla-shell-logging:${gshellVersion}
+               org.eclipse.tesla.shell.commands:tesla-shell-pref:${gshellVersion}
+               org.eclipse.tesla.shell.commands:tesla-shell-network:${gshellVersion}
+               org.eclipse.tesla.shell.commands:tesla-shell-file:${gshellVersion}
+               org.eclipse.tesla.shell.commands:tesla-shell-pom:${gshellVersion}
+               org.eclipse.tesla.shell:tesla-shell-maven:${mavenVersion}
+               org.eclipse.tesla.shell:tesla-shell-personality:${mavenVersion}
+               org.eclipse.tesla.polyglot:tesla-polyglot-common:${mavenVersion}
+               org.eclipse.tesla.polyglot:tesla-polyglot-atom:${mavenVersion}
+               org.slf4j:jcl-over-slf4j:${slf4jVersion}
+               ch.qos.logback:logback-classic:0.9.29
+               org.sonatype.jline:jline:${jlineVersion}
+               org.sonatype.jline:jline:${jlineVersion}(tests)
+               commons-jexl:commons-jexl:1.1
+               easymock:easymock:${easyMockVersion} ]
+  deps: [ junit:junit:${junitVersion} ]
+  modules: [ maven-core
+             apache-maven
+             maven-model
+             maven-settings
+             maven-settings-builder
+             maven-artifact
+             maven-aether-provider
+             maven-repository-metadata
+             maven-plugin-api
+             maven-model-builder
+             maven-embedder
+             maven-compat
+             tesla-shell
+             tesla-polyglot ]
+
+
+plugin-override
+  id: org.codehaus.plexus:plexus-component-metadata:${plexusVersion}
+
+plugin-override
+  id: org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+  source: "1.5"
+  target: "1.5"
+
+plugin-override
+  id: org.apache.maven.plugins:maven-release-plugin
+  tagBase: "https://svn.apache.org/repos/asf/maven/maven-3/tags"
+  autoVersionSubmodules: "true"
+
+plugin-override
+  id: org.apache.maven.plugins:maven-surefire-plugin:2.8.1
+  argLine: "-Xmx256m"
+
+plugin-override
+  id: org.codehaus.modello:modello-maven-plugin:${modelloVersion}
+  useJava5: "true"
+
+plugin-override
+  id: org.apache.felix:maven-bundle-plugin:1.0.0
+
+plugin-override
+  id: org.apache.maven.plugins:maven-assembly-plugin:2.2-beta-5
+
+plugin-override
+  id: org.apache.maven.plugins:maven-javadoc-plugin:2.5
+
+plugin-override
+  id: org.apache.maven.plugins:maven-resources-plugin:2.4.2
+
+plugin-override
+  id: org.apache.maven.plugins:maven-remote-resources-plugin:1.1
+
+plugin-override
+  id: org.apache.maven.plugins:maven-site-plugin:2.1
+
+plugin-override
+  id: org.codehaus.mojo:javacc-maven-plugin:2.6
+
+plugin-override
+  id: org.sonatype.plugins:sisu-maven-plugin:1.1
+
+plugin-override
+  id: org.eclipse.m2e:lifecycle-mapping:1.0.0
+  lifecycleMappingMetadata: [
+    pluginExecutions: {
+      pluginExecution: [
+        pluginExecutionFilter: {
+          groupId: "org.sonatype.plugins"
+          artifactId: "sisu-maven-plugin"
+          versionRange: "[1.1,)"
+          goals: [
+            goal: "main-index"
+            goal: "test-index"
+          ]
+        }        action: {
+          ignore: []
+        }
+      ]
+    }
+  ]
+
+plugin
+  id: org.codehaus.mojo:animal-sniffer-maven-plugin:1.6
+  signature: [
+    groupId: "org.codehaus.mojo.signature"
+    artifactId: "java15"
+    version: "1.0"
+  ]
+
+plugin
+  id: org.sonatype.plugins:sisu-maven-plugin
+
+plugin
+  id: com.mycila.maven-license-plugin:maven-license-plugin:1.9.0
+  aggregate: "true"
+  strictCheck: "true"
+  header: "${project.basedir}/header.txt"
+  useDefaultExcludes: "false"
+  includes: [
+    include: "**/pom.xml"
+    include: "**/*.xml"
+    include: "**/*.xsd"
+    include: "**/*.xjb"
+    include: "**/*.mdo"
+    include: "**/*.properties"
+    include: "**/*.java"
+    include: "**/*.groovy"
+    include: "**/*.scala"
+    include: "**/*.aj"
+    include: "**/*.js"
+    include: "**/*.css"
+  ]  excludes: [
+    exclude: "**/target/**"
+  ]  mapping: [
+    scala: "JAVADOC_STYLE"
+    xjb: "XML_STYLE"
+    mdo: "XML_STYLE"
+  ]
+
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.77 s - in org.sonatype.maven.polyglot.atom.AtomModelWithMavenTest
+[INFO] Running org.sonatype.maven.polyglot.atom.AtomModelWithSBTest
+repositories << "http://scala-tools.org/repo-releases/"
+
+project "Sitebricks :: Parent" @ "https://github.com/dhanji/sitebricks" as pom
+  id: com.google.sitebricks:sitebricks-parent:0.8.6-SNAPSHOT
+  inherits: org.sonatype.oss:oss-parent:6
+  properties: [ guice.version: "3.0"
+                ch.qos.logback.version: "0.9.9"
+                org.mortbay.jetty.version: "6.1.9"
+                org.testng.version: "5.8"
+                org.codehaus.jackson.version: "1.8.0"
+                org.seleniumhq.webdriver.version: "0.9.7376" ]
+  overrides: [ com.google.sitebricks:sitebricks-converter:${project.version}
+               com.google.sitebricks:sitebricks:${project.version}
+               com.google.sitebricks:stat:${project.version}
+               com.google.sitebricks:sitebricks-client:${project.version}
+               org.mvel:mvel2:2.0.18
+               com.google.guava:guava:r09
+               com.google.code.gson:gson:1.6
+               com.google.inject:guice:${guice.version}
+               com.google.inject.extensions:guice-servlet:${guice.version}
+               com.google.inject.extensions:guice-multibindings:${guice.version}
+               net.jcip:jcip-annotations:1.0
+               com.intellij:annotations:7.0.3
+               org.freemarker:freemarker:2.3.10
+               commons-io:commons-io:1.4
+               commons-collections:commons-collections:20040616
+               commons-lang:commons-lang:2.5
+               com.ning:async-http-client:1.6.3
+               javax.servlet:servlet-api:2.5
+               com.thoughtworks.xstream:xstream:1.4.6
+               org.codehaus.jackson:jackson-core-asl:${org.codehaus.jackson.version}
+               org.codehaus.jackson:jackson-mapper-asl:${org.codehaus.jackson.version}
+               jaxen:jaxen:1.1.1
+               saxpath:saxpath:1.0-FCS
+               dom4j:dom4j:1.6.1
+               org.jsoup:jsoup:1.5.2
+               org.slf4j:slf4j-api:1.5.5
+               ch.qos.logback:logback-classic:${ch.qos.logback.version}
+               ch.qos.logback:logback-core:${ch.qos.logback.version}
+               org.easymock:easymock:2.4
+               org.mortbay.jetty:jetty:${org.mortbay.jetty.version}
+               org.mortbay.jetty:jetty-util:${org.mortbay.jetty.version}
+               org.mortbay.jetty:servlet-api-2.5:${org.mortbay.jetty.version}
+               org.seleniumhq.webdriver:webdriver-common:${org.seleniumhq.webdriver.version}
+               org.seleniumhq.webdriver:webdriver-support:${org.seleniumhq.webdriver.version}
+               org.seleniumhq.webdriver:webdriver-htmlunit:${org.seleniumhq.webdriver.version}
+               org.testng:testng:${org.testng.version}(jdk15) ]
+  modules: [ sitebricks
+             sitebricks-converter
+             sitebricks-async
+             sitebricks-client
+             sitebricks-acceptance-tests
+             sitebricks-mail
+             sitebricks-options
+             sitebricks-jetty-archetype
+             stat
+             slf4j ]
+
+
+plugin
+  id: org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+  source: "1.6"
+  target: "1.6"
+
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>6</version>
+  </parent>
+  <groupId>com.google.sitebricks</groupId>
+  <artifactId>sitebricks-parent</artifactId>
+  <version>0.8.6-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Sitebricks :: Parent</name>
+  <url>https://github.com/dhanji/sitebricks</url>
+  <modules>
+    <module>sitebricks</module>
+    <module>sitebricks-converter</module>
+    <module>sitebricks-async</module>
+    <module>sitebricks-client</module>
+    <module>sitebricks-acceptance-tests</module>
+    <module>sitebricks-mail</module>
+    <module>sitebricks-options</module>
+    <module>sitebricks-jetty-archetype</module>
+    <module>stat</module>
+    <module>slf4j</module>
+  </modules>
+  <scm>
+    <connection>scm:git:git@github.com:dhanji/sitebricks.git</connection>
+    <developerConnection>scm:git:git@github.com:dhanji/sitebricks.git</developerConnection>
+    <url>https://github.com/dhanji/sitebricks</url>
+  </scm>
+  <distributionManagement>
+    <repository>
+      <id>google-with-staging</id>
+      <name>Nexus OSS Staging Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <snapshotRepository>
+      <id>google-snapshots</id>
+      <name>Sonatype OSS Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/google-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <properties>
+    <guice.version>3.0</guice.version>
+    <ch.qos.logback.version>0.9.9</ch.qos.logback.version>
+    <org.mortbay.jetty.version>6.1.9</org.mortbay.jetty.version>
+    <org.testng.version>5.8</org.testng.version>
+    <org.codehaus.jackson.version>1.8.0</org.codehaus.jackson.version>
+    <org.seleniumhq.webdriver.version>0.9.7376</org.seleniumhq.webdriver.version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.google.sitebricks</groupId>
+        <artifactId>sitebricks-converter</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.sitebricks</groupId>
+        <artifactId>sitebricks</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.sitebricks</groupId>
+        <artifactId>stat</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.sitebricks</groupId>
+        <artifactId>sitebricks-client</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mvel</groupId>
+        <artifactId>mvel2</artifactId>
+        <version>2.0.18</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>r09</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>1.6</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.inject</groupId>
+        <artifactId>guice</artifactId>
+        <version>${guice.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.inject.extensions</groupId>
+        <artifactId>guice-servlet</artifactId>
+        <version>${guice.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.inject.extensions</groupId>
+        <artifactId>guice-multibindings</artifactId>
+        <version>${guice.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.jcip</groupId>
+        <artifactId>jcip-annotations</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.intellij</groupId>
+        <artifactId>annotations</artifactId>
+        <version>7.0.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.freemarker</groupId>
+        <artifactId>freemarker</artifactId>
+        <version>2.3.10</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>1.4</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-collections</groupId>
+        <artifactId>commons-collections</artifactId>
+        <version>20040616</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-lang</groupId>
+        <artifactId>commons-lang</artifactId>
+        <version>2.5</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ning</groupId>
+        <artifactId>async-http-client</artifactId>
+        <version>1.6.3</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>2.5</version>
+      </dependency>
+      <dependency>
+        <groupId>com.thoughtworks.xstream</groupId>
+        <artifactId>xstream</artifactId>
+        <version>1.4.6</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-core-asl</artifactId>
+        <version>${org.codehaus.jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-mapper-asl</artifactId>
+        <version>${org.codehaus.jackson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>jaxen</groupId>
+        <artifactId>jaxen</artifactId>
+        <version>1.1.1</version>
+      </dependency>
+      <dependency>
+        <groupId>saxpath</groupId>
+        <artifactId>saxpath</artifactId>
+        <version>1.0-FCS</version>
+      </dependency>
+      <dependency>
+        <groupId>dom4j</groupId>
+        <artifactId>dom4j</artifactId>
+        <version>1.6.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jsoup</groupId>
+        <artifactId>jsoup</artifactId>
+        <version>1.5.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.5.5</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${ch.qos.logback.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>${ch.qos.logback.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.easymock</groupId>
+        <artifactId>easymock</artifactId>
+        <version>2.4</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty</artifactId>
+        <version>${org.mortbay.jetty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-util</artifactId>
+        <version>${org.mortbay.jetty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>servlet-api-2.5</artifactId>
+        <version>${org.mortbay.jetty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.seleniumhq.webdriver</groupId>
+        <artifactId>webdriver-common</artifactId>
+        <version>${org.seleniumhq.webdriver.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.seleniumhq.webdriver</groupId>
+        <artifactId>webdriver-support</artifactId>
+        <version>${org.seleniumhq.webdriver.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.seleniumhq.webdriver</groupId>
+        <artifactId>webdriver-htmlunit</artifactId>
+        <version>${org.seleniumhq.webdriver.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>${org.testng.version}</version>
+        <classifier>jdk15</classifier>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <repositories>
+    <repository>
+      <id>scala.org</id>
+      <name>Scala.org Repository</name>
+      <url>http://scala-tools.org/repo-releases/</url>
+    </repository>
+  </repositories>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
+project "Sitebricks :: Core" @ "http://sitebricks.org" as jar
+  id: com.google.sitebricks:sitebricks:0.8.6-SNAPSHOT
+  inherits: com.google.sitebricks:sitebricks-parent:0.8.6-SNAPSHOT
+  deps: [ org.testng:testng:${org.testng.version}(jdk15)
+               com.google.sitebricks:sitebricks-converter
+               com.google.sitebricks:sitebricks-client
+               org.mvel:mvel2
+               com.google.guava:guava
+               net.jcip:jcip-annotations
+               com.intellij:annotations
+               com.google.inject:guice
+               com.google.inject.extensions:guice-servlet
+               com.google.inject.extensions:guice-multibindings
+               com.ning:async-http-client
+               commons-io:commons-io
+               commons-lang:commons-lang
+               dom4j:dom4j
+               jaxen:jaxen
+               saxpath:saxpath
+               javax.servlet:servlet-api
+               com.thoughtworks.xstream:xstream
+               org.easymock:easymock
+               org.codehaus.jackson:jackson-core-asl
+               org.codehaus.jackson:jackson-mapper-asl
+               org.jsoup:jsoup
+               org.freemarker:freemarker ]
+
+
+plugin
+  id: org.apache.maven.plugins:maven-assembly-plugin
+  someCompoundKey: [
+    someKey: "someValue"
+    someKey2: "someValue"
+    someCompoundKeyInner: {
+      someKey: "someValue"
+    }
+  ]
+
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.468 s - in org.sonatype.maven.polyglot.atom.AtomModelWithSBTest
+[INFO] Running org.sonatype.maven.polyglot.atom.AtomModelWithGuiceTest
+project "Google Guice" @ "http://code.google.com/p/google-guice/" as pom
+  id: com.google.inject:guice-parent:3.0-SNAPSHOT
+  inherits: com.google:google:5
+  properties: [ guice.with.no_aop: "true"
+                project.build.sourceEncoding: "UTF-8"
+                guice.api.version: "1.3"
+                guice.with.jarjar: "true" ]
+  deps: [ org.testng:testng:5.11(jdk15) ]
+  modules: [ core
+             extensions ]
+
+
+plugin-override
+  id: org.apache.maven.plugins:maven-remote-resources-plugin:1.1
+
+plugin-override
+  id: org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+
+plugin-override
+  id: org.codehaus.mojo:animal-sniffer-maven-plugin:1.6
+  signature: [
+    groupId: "org.codehaus.mojo.signature"
+    artifactId: "java15"
+    version: "1.0"
+  ]
+
+plugin-override
+  id: org.sonatype.plugins:jarjar-maven-plugin:1.4
+  rules: [
+    rule: {
+      pattern: "net.sf.cglib.*"
+      result: "com.google.inject.internal.cglib.$@1"
+    }    rule: {
+      pattern: "net.sf.cglib.**.*"
+      result: "com.google.inject.internal.cglib.@1.$@2"
+    }    rule: {
+      pattern: "org.objectweb.asm.*"
+      result: "com.google.inject.internal.asm.$@1"
+    }    rule: {
+      pattern: "org.objectweb.asm.**.*"
+      result: "com.google.inject.internal.asm.@1.$@2"
+    }    rule: {
+      pattern: "com.google.common.*"
+      result: "com.google.inject.internal.guava.$@1"
+    }    rule: {
+      pattern: "com.google.common.**.*"
+      result: "com.google.inject.internal.guava.@1.$@2"
+    }    keep: {
+      pattern: "com.google.inject.**"
+    }    keep: {
+      pattern: "com.googlecode.**"
+    }
+  ]
+
+plugin-override
+  id: org.apache.maven.plugins:maven-surefire-plugin:2.5
+  redirectTestOutputToFile: "true"
+
+plugin-override
+  id: org.apache.felix:maven-bundle-plugin:2.1.0
+  instructions: [
+    module: "com.google.inject"
+    _include: "-${project.basedir}/build.properties"
+    Bundle-Copyright: "Copyright (C) 2006 Google Inc."
+    Bundle-DocURL: "http://code.google.com/p/google-guice/"
+    Bundle-Name: "${project.artifactId}"
+    Bundle-SymbolicName: "$(module)"
+    Bundle-RequiredExecutionEnvironment: "J2SE-1.5,JavaSE-1.6"
+    Import-Package: "!com.google.inject.*,*"
+    _exportcontents: "!*.internal.*,$(module).*;version=${guice.api.version}"
+    _versionpolicy: "[$(version;==;$(@)),$(version;+;$(@)))"
+    _nouses: "true"
+    _removeheaders: "Embed-Dependency,Embed-Transitive,
+                Built-By,Tool,Created-By,Build-Jdk,
+                Originally-Created-By,Archiver-Version,
+                Include-Resource,Private-Package,
+                Ignore-Package,Bnd-LastModified"
+  ]
+
+plugin-override
+  id: org.apache.maven.plugins:maven-jar-plugin:2.3.1
+  archive: [
+    manifestFile: "${project.build.outputDirectory}/META-INF/MANIFEST.MF"
+    addMavenDescriptor: "false"
+  ]
+
+plugin-override
+  id: org.apache.maven.plugins:maven-javadoc-plugin:2.7
+
+plugin-override
+  id: org.apache.maven.plugins:maven-source-plugin:2.1.2
+
+plugin-override
+  id: org.apache.maven.plugins:maven-gpg-plugin:1.1
+
+plugin-override
+  id: org.apache.maven.plugins:maven-release-plugin:2.1
+  autoVersionSubmodules: "true"
+
+plugin-override
+  id: org.apache.maven.plugins:maven-deploy-plugin:2.5
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.google</groupId>
+    <artifactId>google</artifactId>
+    <version>5</version>
+  </parent>
+  <groupId>com.google.inject</groupId>
+  <artifactId>guice-parent</artifactId>
+  <version>3.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Google Guice</name>
+  <description>Guice is a lightweight dependency injection framework for Java 5 and above</description>
+  <url>http://code.google.com/p/google-guice/</url>
+  <inceptionYear>2006</inceptionYear>
+  <organization>
+    <name>Google, Inc.</name>
+    <url>http://www.google.com</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <mailingLists>
+    <mailingList>
+      <name>Guice Users List</name>
+      <subscribe>http://groups.google.com/group/google-guice/subscribe</subscribe>
+      <unsubscribe>http://groups.google.com/group/google-guice/subscribe</unsubscribe>
+      <post>http://groups.google.com/group/google-guice/post</post>
+      <archive>http://groups.google.com/group/google-guice/topics</archive>
+    </mailingList>
+    <mailingList>
+      <name>Guice Developers List</name>
+      <subscribe>http://groups.google.com/group/google-guice-dev/subscribe</subscribe>
+      <unsubscribe>http://groups.google.com/group/google-guice-dev/subscribe</unsubscribe>
+      <post>http://groups.google.com/group/google-guice-dev/post</post>
+      <archive>http://groups.google.com/group/google-guice-dev/topics</archive>
+    </mailingList>
+  </mailingLists>
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
+  <modules>
+    <module>core</module>
+    <module>extensions</module>
+  </modules>
+  <scm>
+    <connection>scm:svn:http://google-guice.googlecode.com/svn/trunk</connection>
+    <developerConnection>scm:svn:https://google-guice.googlecode.com/svn/trunk</developerConnection>
+    <url>http://code.google.com/p/google-guice/source/browse</url>
+  </scm>
+  <issueManagement>
+    <system>Google Code</system>
+    <url>http://code.google.com/p/google-guice/issues/</url>
+  </issueManagement>
+  <ciManagement>
+    <system>Hudson</system>
+    <url>https://grid.sonatype.org/ci/job/Google-Guice/</url>
+  </ciManagement>
+  <properties>
+    <guice.with.no_aop>true</guice.with.no_aop>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <guice.api.version>1.3</guice.api.version>
+    <guice.with.jarjar>true</guice.with.jarjar>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>5.11</version>
+      <classifier>jdk15</classifier>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <sourceDirectory>${project.basedir}/src</sourceDirectory>
+    <testSourceDirectory>${project.basedir}/test</testSourceDirectory>
+    <resources>
+      <resource>
+        <filtering>false</filtering>
+        <directory>${project.basedir}/src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <filtering>false</filtering>
+        <directory>${project.basedir}/test</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </testResource>
+    </testResources>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-remote-resources-plugin</artifactId>
+          <version>1.1</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>process</goal>
+              </goals>
+              <configuration>
+                <resourceBundles>
+                  <resourceBundle>org.apache:apache-jar-resource-bundle:1.4</resourceBundle>
+                </resourceBundles>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>animal-sniffer-maven-plugin</artifactId>
+          <version>1.6</version>
+          <executions>
+            <execution>
+              <id>check-java-1.5-compat</id>
+              <phase>process-classes</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <signature>
+              <groupId>org.codehaus.mojo.signature</groupId>
+              <artifactId>java15</artifactId>
+              <version>1.0</version>
+            </signature>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>jarjar-maven-plugin</artifactId>
+          <version>1.4</version>
+          <executions>
+            <execution>
+              <id>jarjar-classes</id>
+              <phase>process-test-classes</phase>
+              <goals>
+                <goal>jarjar</goal>
+              </goals>
+              <configuration>
+                <input>{classes}</input>
+              </configuration>
+            </execution>
+            <execution>
+              <id>jarjar-test-classes</id>
+              <phase>process-test-classes</phase>
+              <goals>
+                <goal>jarjar</goal>
+              </goals>
+              <configuration>
+                <input>{test-classes}</input>
+              </configuration>
+            </execution>
+          </executions>
+          <configuration>
+            <rules>
+              <rule>
+                <pattern>net.sf.cglib.*</pattern>
+                <result>com.google.inject.internal.cglib.$@1</result>
+              </rule>
+              <rule>
+                <pattern>net.sf.cglib.**.*</pattern>
+                <result>com.google.inject.internal.cglib.@1.$@2</result>
+              </rule>
+              <rule>
+                <pattern>org.objectweb.asm.*</pattern>
+                <result>com.google.inject.internal.asm.$@1</result>
+              </rule>
+              <rule>
+                <pattern>org.objectweb.asm.**.*</pattern>
+                <result>com.google.inject.internal.asm.@1.$@2</result>
+              </rule>
+              <rule>
+                <pattern>com.google.common.*</pattern>
+                <result>com.google.inject.internal.guava.$@1</result>
+              </rule>
+              <rule>
+                <pattern>com.google.common.**.*</pattern>
+                <result>com.google.inject.internal.guava.@1.$@2</result>
+              </rule>
+              <keep>
+                <pattern>com.google.inject.**</pattern>
+              </keep>
+              <keep>
+                <pattern>com.googlecode.**</pattern>
+              </keep>
+            </rules>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.5</version>
+          <configuration>
+            <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>2.1.0</version>
+          <executions>
+            <execution>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>manifest</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <instructions>
+              <module>com.google.inject</module>
+              <_include>-${project.basedir}/build.properties</_include>
+              <Bundle-Copyright>Copyright (C) 2006 Google Inc.</Bundle-Copyright>
+              <Bundle-DocURL>http://code.google.com/p/google-guice/</Bundle-DocURL>
+              <Bundle-Name>${project.artifactId}</Bundle-Name>
+              <Bundle-SymbolicName>$(module)</Bundle-SymbolicName>
+              <Bundle-RequiredExecutionEnvironment>J2SE-1.5,JavaSE-1.6</Bundle-RequiredExecutionEnvironment>
+              <Import-Package>!com.google.inject.*,*</Import-Package>
+              <_exportcontents>!*.internal.*,$(module).*;version=${guice.api.version}</_exportcontents>
+              <_versionpolicy>[$(version;==;$(@)),$(version;+;$(@)))</_versionpolicy>
+              <_nouses>true</_nouses>
+              <_removeheaders>Embed-Dependency,Embed-Transitive,
+                Built-By,Tool,Created-By,Build-Jdk,
+                Originally-Created-By,Archiver-Version,
+                Include-Resource,Private-Package,
+                Ignore-Package,Bnd-LastModified</_removeheaders>
+            </instructions>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.3.1</version>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>test-jar</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <archive>
+              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+              <addMavenDescriptor>false</addMavenDescriptor>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.7</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.1.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>1.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.1</version>
+          <configuration>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <profiles>
+    <profile>
+      <id>sonatype-grid</id>
+      <distributionManagement>
+        <repository>
+          <id>${forgeReleaseId}</id>
+          <url>${forgeReleaseUrl}</url>
+        </repository>
+        <snapshotRepository>
+          <id>${forgeSnapshotId}</id>
+          <url>${forgeSnapshotUrl}</url>
+        </snapshotRepository>
+      </distributionManagement>
+      <properties>
+        <forgeSnapshotId>forge-snapshots</forgeSnapshotId>
+        <forgeSnapshotUrl>http://repository.sonatype.org/content/repositories/snapshots</forgeSnapshotUrl>
+        <forgeReleaseUrl>http://repository.sonatype.org:8081/service/local/staging/deploy/maven2</forgeReleaseUrl>
+        <forgeReleaseId>forge-releases</forgeReleaseId>
+      </properties>
+    </profile>
+  </profiles>
+</project>
+
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 s - in org.sonatype.maven.polyglot.atom.AtomModelWithGuiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< io.takari.polyglot:polyglot-maven-plugin >--------------
+[INFO] Building Polyglot :: Maven Plugin 0.4.10-SNAPSHOT                 [4/13]
+[INFO]   from polyglot-maven-plugin/pom.xml
+[INFO] ------------------------[ takari-maven-plugin ]-------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ polyglot-maven-plugin ---
+[INFO] Deleting /polyglot-maven/polyglot-maven-plugin/target
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-maven-plugin ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 1 sources to /polyglot-maven/polyglot-maven-plugin/target/classes
+[INFO] Compiled 1 out of 1 sources (2407 ms)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:mojo-annotation-processor (default-mojo-annotation-processor) @ polyglot-maven-plugin ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 1 sources to /polyglot-maven/polyglot-maven-plugin/target/classes
+[INFO] Compiled 1 out of 1 sources (667 ms)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:export-package (default-export-package) @ polyglot-maven-plugin ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:plugin-descriptor (default-plugin-descriptor) @ polyglot-maven-plugin ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:sisu-index (default-sisu-index) @ polyglot-maven-plugin ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-metadata (default) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-test-resources (default-process-test-resources) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:testProperties (default-testProperties) @ polyglot-maven-plugin ---
+[INFO] Previous incremental build state does not exist, performing full build
+[WARNING] File '/root/.m2/settings.xml' does not exist! It will be ignored.
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:testCompile (default-testCompile) @ polyglot-maven-plugin ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 1 sources to /polyglot-maven/polyglot-maven-plugin/target/test-classes
+[INFO] Compiled 1 out of 1 sources (249 ms)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:sisu-test-index (default-sisu-test-index) @ polyglot-maven-plugin ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-test-metadata (default) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ polyglot-maven-plugin ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.sonatype.maven.polyglot.plugin.VersionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 s - in org.sonatype.maven.polyglot.plugin.VersionTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ------------------< io.takari.polyglot:polyglot-ruby >------------------
+[INFO] Building Polyglot :: Ruby 0.4.10-SNAPSHOT                         [5/13]
+[INFO]   from polyglot-ruby/pom.xml
+[INFO] -----------------------------[ takari-jar ]-----------------------------
+[INFO] Downloading from mavengems: mavengem:https://rubygems.org/rubygems/virtus/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/rubygems/virtus/maven-metadata.xml
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.jruby.ext.zlib.RubyZlib (file:/root/.m2/repository/org/jruby/jruby-core/9.1.17.0/jruby-core-9.1.17.0.jar) to field java.util.zip.CRC32.crc
+WARNING: Please consider reporting this to the maintainers of org.jruby.ext.zlib.RubyZlib
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[WARNING] Could not transfer metadata rubygems:virtus/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/virtus/maven-metadata.xml, remote=/maven/releases/rubygems/virtus/maven-metadata.xml, name=virtus, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=virtus] on https://rubygems.org
+[INFO] Downloading from mavengems: mavengem:https://rubygems.org/rubygems/descendants_tracker/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/rubygems/descendants_tracker/maven-metadata.xml
+[WARNING] Could not transfer metadata rubygems:descendants_tracker/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/descendants_tracker/maven-metadata.xml, remote=/maven/releases/rubygems/descendants_tracker/maven-metadata.xml, name=descendants_tracker, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=descendants_tracker] on https://rubygems.org
+[INFO] Downloading from mavengems: mavengem:https://rubygems.org/rubygems/thread_safe/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/rubygems/thread_safe/maven-metadata.xml
+[WARNING] Could not transfer metadata rubygems:thread_safe/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/thread_safe/maven-metadata.xml, remote=/maven/releases/rubygems/thread_safe/maven-metadata.xml, name=thread_safe, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=thread_safe] on https://rubygems.org
+[INFO] Downloading from mavengems: mavengem:https://rubygems.org/rubygems/atomic/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/rubygems/atomic/maven-metadata.xml
+[WARNING] Could not transfer metadata rubygems:atomic/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/atomic/maven-metadata.xml, remote=/maven/releases/rubygems/atomic/maven-metadata.xml, name=atomic, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=atomic] on https://rubygems.org
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/rubygems/equalizer/maven-metadata.xml
+[INFO] Downloading from mavengems: mavengem:https://rubygems.org/rubygems/equalizer/maven-metadata.xml
+[WARNING] Could not transfer metadata rubygems:equalizer/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/equalizer/maven-metadata.xml, remote=/maven/releases/rubygems/equalizer/maven-metadata.xml, name=equalizer, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=equalizer] on https://rubygems.org
+[INFO] Downloading from mavengems: mavengem:https://rubygems.org/rubygems/coercible/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/rubygems/coercible/maven-metadata.xml
+[WARNING] Could not transfer metadata rubygems:coercible/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/coercible/maven-metadata.xml, remote=/maven/releases/rubygems/coercible/maven-metadata.xml, name=coercible, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=coercible] on https://rubygems.org
+[INFO] Downloading from mavengems: mavengem:https://rubygems.org/rubygems/backports/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/rubygems/backports/maven-metadata.xml
+[WARNING] Could not transfer metadata rubygems:backports/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/backports/maven-metadata.xml, remote=/maven/releases/rubygems/backports/maven-metadata.xml, name=backports, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=backports] on https://rubygems.org
+[INFO] Downloading from mavengems: mavengem:https://rubygems.org/rubygems/axiom-types/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/rubygems/axiom-types/maven-metadata.xml
+[WARNING] Could not transfer metadata rubygems:axiom-types/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/axiom-types/maven-metadata.xml, remote=/maven/releases/rubygems/axiom-types/maven-metadata.xml, name=axiom-types, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=axiom-types] on https://rubygems.org
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/rubygems/ice_nine/maven-metadata.xml
+[INFO] Downloading from mavengems: mavengem:https://rubygems.org/rubygems/ice_nine/maven-metadata.xml
+[WARNING] Could not transfer metadata rubygems:ice_nine/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/ice_nine/maven-metadata.xml, remote=/maven/releases/rubygems/ice_nine/maven-metadata.xml, name=ice_nine, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=ice_nine] on https://rubygems.org
+[WARNING] rubygems:coercible/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:coercible/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/coercible/maven-metadata.xml, remote=/maven/releases/rubygems/coercible/maven-metadata.xml, name=coercible, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=coercible] on https://rubygems.org
+[WARNING] rubygems:descendants_tracker/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:descendants_tracker/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/descendants_tracker/maven-metadata.xml, remote=/maven/releases/rubygems/descendants_tracker/maven-metadata.xml, name=descendants_tracker, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=descendants_tracker] on https://rubygems.org
+[WARNING] rubygems:equalizer/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:equalizer/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/equalizer/maven-metadata.xml, remote=/maven/releases/rubygems/equalizer/maven-metadata.xml, name=equalizer, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=equalizer] on https://rubygems.org
+[WARNING] rubygems:axiom-types/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:axiom-types/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/axiom-types/maven-metadata.xml, remote=/maven/releases/rubygems/axiom-types/maven-metadata.xml, name=axiom-types, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=axiom-types] on https://rubygems.org
+[WARNING] rubygems:ice_nine/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:ice_nine/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/ice_nine/maven-metadata.xml, remote=/maven/releases/rubygems/ice_nine/maven-metadata.xml, name=ice_nine, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=ice_nine] on https://rubygems.org
+[WARNING] rubygems:thread_safe/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:thread_safe/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/thread_safe/maven-metadata.xml, remote=/maven/releases/rubygems/thread_safe/maven-metadata.xml, name=thread_safe, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=thread_safe] on https://rubygems.org
+[WARNING] rubygems:atomic/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:atomic/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/atomic/maven-metadata.xml, remote=/maven/releases/rubygems/atomic/maven-metadata.xml, name=atomic, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=atomic] on https://rubygems.org
+[WARNING] rubygems:descendants_tracker/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:descendants_tracker/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/descendants_tracker/maven-metadata.xml, remote=/maven/releases/rubygems/descendants_tracker/maven-metadata.xml, name=descendants_tracker, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=descendants_tracker] on https://rubygems.org
+[WARNING] rubygems:descendants_tracker/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:descendants_tracker/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/descendants_tracker/maven-metadata.xml, remote=/maven/releases/rubygems/descendants_tracker/maven-metadata.xml, name=descendants_tracker, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=descendants_tracker] on https://rubygems.org
+[WARNING] rubygems:equalizer/maven-metadata.xml failed to transfer from mavengem:https://rubygems.org during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of mavengems has elapsed or updates are forced. Original error: Could not transfer metadata rubygems:equalizer/maven-metadata.xml from/to mavengems (mavengem:https://rubygems.org): Error transferring file: RubygemsFile[type=MAVEN_METADATA, storage=/maven/releases/rubygems/equalizer/maven-metadata.xml, remote=/maven/releases/rubygems/equalizer/maven-metadata.xml, name=equalizer, state=ERROR, exception=IOException: java.io.FileNotFoundException: https://rubygems.org/api/v1/dependencies?gems=equalizer] on https://rubygems.org
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ polyglot-ruby ---
+[INFO] Deleting /polyglot-maven/polyglot-ruby/target
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-ruby ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-ruby ---
+[INFO] 
+[INFO] --- gem:2.0.1:initialize (default) @ polyglot-ruby ---
+[INFO] Successfully installed maven-tools-1.1.7
+[INFO] Successfully installed virtus-1.0.5
+[INFO] Successfully installed descendants_tracker-0.0.4
+[INFO] Successfully installed thread_safe-0.3.6-java
+[INFO] Successfully installed equalizer-0.0.11
+[INFO] Successfully installed coercible-1.0.0
+[INFO] Successfully installed axiom-types-0.1.1
+[INFO] Successfully installed ice_nine-0.11.2
+[INFO] 8 gems installed
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-ruby ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-ruby ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 10 sources to /polyglot-maven/polyglot-ruby/target/classes
+[INFO] Compiled 10 out of 10 sources (19101 ms)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:export-package (default-export-package) @ polyglot-ruby ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-metadata (default) @ polyglot-ruby ---
+[INFO] Discovered 4 component descriptors(s)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-test-resources (default-process-test-resources) @ polyglot-ruby ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:testCompile (default-testCompile) @ polyglot-ruby ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 7 sources to /polyglot-maven/polyglot-ruby/target/test-classes
+[INFO] Compiled 7 out of 7 sources (900 ms)
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-test-metadata (default) @ polyglot-ruby ---
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ polyglot-ruby ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.sonatype.maven.polyglot.ruby.RubyModelWithExecuteTasksTest
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.757 s - in org.sonatype.maven.polyglot.ruby.RubyModelWithExecuteTasksTest
+[INFO] Running org.sonatype.maven.polyglot.ruby.RubyReaderWithGemspecsTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.128 s - in org.sonatype.maven.polyglot.ruby.RubyReaderWithGemspecsTest
+[INFO] Running org.sonatype.maven.polyglot.ruby.RubyModelWithMavenTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.685 s - in org.sonatype.maven.polyglot.ruby.RubyModelWithMavenTest
+[INFO] Running org.sonatype.maven.polyglot.ruby.RubyReaderWithPomTest
+unknown format of /polyglot-maven/polyglot-ruby/target/rubygems-provided/gems/maven-tools-1.1.7/spec/pom_from_jarfile_and_empty_lock/Jarfile.lock - skip it
+DEPRECATED jruby declaration has no effect anymore
+DEPRECATED jruby declaration has no effect anymore
+
+# Jarfile DSL #
+          local "path-to-local-jar"
+          jar # nested element
+          pom # nested element
+          repository # nested element
+          snapshot_repository # nested element
+          scope # nested element
+
+# JAR #
+
+hash options: jar {:scope=>(:compile|:test|:provided|:runtime), :group_id=>"group_id", :artifact_id=>"artifact_id", :version=>"version", :classifier=>"classifier"}
+nested: jar do
+          scope (:compile|:test|:provided|:runtime)
+          exclusions # nested element
+          exclusion # nested element
+          group_id "group_id"
+          artifact_id "artifact_id"
+          version "version"
+          classifier "classifier"
+        end
+argument: jar 'group_id:artifact_id:version'
+argument: jar 'group_id:artifact_id:classifier:version'
+arguments: jar 'group_id:artifact_id','version'
+arguments: jar 'group_id:artifact_id','classifier,'version'
+arguments: jar 'group_id','artifact_id','version'
+arguments: jar 'group_id','artifact_id','classifier,'version'
+
+# EXCLUSIONS #
+
+nested: exclusions do
+          exclusion # nested element
+        end
+arguments: exclusions 'group_id:artifact_id1', 'group_id:artifact_id2'
+arguments: exclusions ['group_id','artifact_id1'], ['group_id','artifact_id2']
+
+# EXCLUSION #
+
+hash options: exclusion {:group_id=>"group_id", :artifact_id=>"artifact_id"}
+nested: exclusion do
+          group_id "group_id"
+          artifact_id "artifact_id"
+        end
+argument: exclusion 'group_id:artifact_id'
+arguments: exclusion 'group_id','artifact_id'
+
+# POM #
+
+hash options: pom {:scope=>(:compile|:test|:provided|:runtime), :group_id=>"group_id", :artifact_id=>"artifact_id", :version=>"version", :classifier=>"classifier"}
+nested: pom do
+          scope (:compile|:test|:provided|:runtime)
+          exclusions # nested element
+          exclusion # nested element
+          group_id "group_id"
+          artifact_id "artifact_id"
+          version "version"
+          classifier "classifier"
+        end
+argument: pom 'group_id:artifact_id:version'
+argument: pom 'group_id:artifact_id:classifier:version'
+arguments: pom 'group_id:artifact_id','version'
+arguments: pom 'group_id:artifact_id','classifier,'version'
+arguments: pom 'group_id','artifact_id','version'
+arguments: pom 'group_id','artifact_id','classifier,'version'
+DEPRECATED jruby declaration has no effect anymore
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.322 s - in org.sonatype.maven.polyglot.ruby.RubyReaderWithPomTest
+[INFO] Running org.sonatype.maven.polyglot.ruby.RubyReaderWithGemfileTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.984 s - in org.sonatype.maven.polyglot.ruby.RubyReaderWithGemfileTest
+[INFO] Running org.sonatype.maven.polyglot.ruby.RubyModelRoundtripTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.941 s - in org.sonatype.maven.polyglot.ruby.RubyModelRoundtripTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 80, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------------< io.takari.polyglot:polyglot-scala >------------------
+[INFO] Building Polyglot :: Scala 0.4.10-SNAPSHOT                        [6/13]
+[INFO]   from polyglot-scala/pom.xml
+[INFO] -----------------------------[ takari-jar ]-----------------------------
+[WARNING] Parameter 'useZincServer' is unknown for plugin 'scala-maven-plugin:4.3.1:compile (default)'
+[WARNING] Parameter 'useZincServer' is unknown for plugin 'scala-maven-plugin:4.3.1:testCompile (default)'
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ polyglot-scala ---
+[INFO] Deleting /polyglot-maven/polyglot-scala/target
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-scala ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-scala ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-scala ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-scala ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 0 sources to /polyglot-maven/polyglot-scala/target/classes
+[INFO] Compiled 0 out of 0 sources (5958 ms)
+[INFO] 
+[INFO] --- scala:4.3.1:compile (default) @ polyglot-scala ---
+[INFO] Using incremental compilation using Mixed compile order
+[INFO] Compiler bridge file: /root/.sbt/1.0/zinc/org.scala-sbt/org.scala-sbt-compiler-bridge_2.11-1.3.2-bin_2.11.12__55.0-1.3.2_20200115T025827.jar
+[INFO] Compiling 48 Scala sources to /polyglot-maven/polyglot-scala/target/classes ...
+[WARNING] [Warn] /polyglot-maven/polyglot-scala/src/main/scala/org/sonatype/maven/polyglot/scala/ScalaModelReader.scala:215: method linesIterator in trait StringLike is deprecated: Use `lines` instead.
+[WARNING] one warning found
+[INFO] Done compiling.
+[INFO] compile in 80.7 s
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:export-package (default-export-package) @ polyglot-scala ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-metadata (default) @ polyglot-scala ---
+[INFO] Merging 1 manually-crafted descriptor file(s)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-test-resources (default-process-test-resources) @ polyglot-scala ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:testCompile (default-testCompile) @ polyglot-scala ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 0 sources to /polyglot-maven/polyglot-scala/target/test-classes
+[INFO] Compiled 0 out of 0 sources (3864 ms)
+[INFO] 
+[INFO] --- scala:4.3.1:testCompile (default) @ polyglot-scala ---
+[INFO] Using incremental compilation using Mixed compile order
+[INFO] Compiler bridge file: /root/.sbt/1.0/zinc/org.scala-sbt/org.scala-sbt-compiler-bridge_2.11-1.3.2-bin_2.11.12__55.0-1.3.2_20200115T025827.jar
+[INFO] Compiling 5 Scala sources to /polyglot-maven/polyglot-scala/target/test-classes ...
+[INFO] Done compiling.
+[INFO] compile in 37.2 s
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-test-metadata (default) @ polyglot-scala ---
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ polyglot-scala ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.sonatype.maven.polyglot.scala.ScalaModelReaderWriterSpec
+[WARNING] Tests run: 10, Failures: 0, Errors: 0, Skipped: 7, Time elapsed: 4.316 s - in org.sonatype.maven.polyglot.scala.ScalaModelReaderWriterSpec
+[INFO] Running org.sonatype.maven.polyglot.scala.GavSpec
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.349 s - in org.sonatype.maven.polyglot.scala.GavSpec
+[INFO] Running org.sonatype.maven.polyglot.scala.ScalaModelSpec
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.691 s - in org.sonatype.maven.polyglot.scala.ScalaModelSpec
+[INFO] Running org.sonatype.maven.polyglot.scala.DependencySpec
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.279 s - in org.sonatype.maven.polyglot.scala.DependencySpec
+[INFO] Running org.sonatype.maven.polyglot.scala.ConfigSpec
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.9 s - in org.sonatype.maven.polyglot.scala.ConfigSpec
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 31, Failures: 0, Errors: 0, Skipped: 7
+[INFO] 
+[INFO] 
+[INFO] -----------------< io.takari.polyglot:polyglot-groovy >-----------------
+[INFO] Building Polyglot :: Groovy 0.4.10-SNAPSHOT                       [7/13]
+[INFO]   from polyglot-groovy/pom.xml
+[INFO] -----------------------------[ takari-jar ]-----------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ polyglot-groovy ---
+[INFO] Deleting /polyglot-maven/polyglot-groovy/target
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-groovy ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-groovy ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-groovy ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-groovy ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 30 sources to /polyglot-maven/polyglot-groovy/target/classes
+[INFO] Compiled 30 out of 30 sources (1977 ms)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:export-package (default-export-package) @ polyglot-groovy ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-metadata (default) @ polyglot-groovy ---
+[INFO] Discovered 4 component descriptors(s)
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-test-resources (default-process-test-resources) @ polyglot-groovy ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:testCompile (default-testCompile) @ polyglot-groovy ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 0 sources to /polyglot-maven/polyglot-groovy/target/test-classes
+[INFO] Compiled 0 out of 0 sources (57 ms)
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-test-metadata (default) @ polyglot-groovy ---
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ polyglot-groovy ---
+[INFO] 
+[INFO] ------------------< io.takari.polyglot:polyglot-yaml >------------------
+[INFO] Building Polyglot :: YAML 0.4.10-SNAPSHOT                         [8/13]
+[INFO]   from polyglot-yaml/pom.xml
+[INFO] -----------------------------[ takari-jar ]-----------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ polyglot-yaml ---
+[INFO] Deleting /polyglot-maven/polyglot-yaml/target
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:update-check (default-update-check) @ polyglot-yaml ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-versions) @ polyglot-yaml ---
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:process-resources (default-process-resources) @ polyglot-yaml ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] 
+[INFO] --- takari-lifecycle:1.13.7:compile (default-compile) @ polyglot-yaml ---
+[INFO] Previous incremental build state does not exist, performing full build
+[INFO] Compiling 12 sources to /polyglot-maven/polyglot-yaml/target/classes
+[ERROR] /polyglot-maven/polyglot-yaml/src/main/java/org/sonatype/maven/polyglot/yaml/ModelRepresenter.java:[218,27] Exception IntrospectionException is not compatible with throws clause in Representer.getProperties(Class<? extends Object>)
+[INFO] Compiled 12 out of 12 sources (412 ms)
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Polyglot :: Aggregator 0.4.10-SNAPSHOT:
+[INFO] 
+[INFO] Polyglot :: Aggregator ............................. SUCCESS [  7.953 s]
+[INFO] Polyglot :: Common ................................. SUCCESS [ 38.282 s]
+[INFO] Polyglot :: Atom ................................... SUCCESS [ 13.815 s]
+[INFO] Polyglot :: Maven Plugin ........................... SUCCESS [  6.847 s]
+[INFO] Polyglot :: Ruby ................................... SUCCESS [06:11 min]
+[INFO] Polyglot :: Scala .................................. SUCCESS [02:24 min]
+[INFO] Polyglot :: Groovy ................................. SUCCESS [  4.444 s]
+[INFO] Polyglot :: YAML ................................... FAILURE [  0.685 s]
+[INFO] Polyglot :: Clojure ................................ SKIPPED
+[INFO] Polyglot :: XML .................................... SKIPPED
+[INFO] Polyglot :: Java ................................... SKIPPED
+[INFO] Polyglot :: Kotlin ................................. SKIPPED
+[INFO] Polyglot :: Translate Plugin ....................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  09:58 min
+[INFO] Finished at: 2025-10-01T09:14:35Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 7 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.codehaus.plexus:plexus-component-metadata:2.1.0
+[WARNING]  * net.alchim31.maven:scala-maven-plugin:4.3.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.0
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING]  * io.takari.maven.plugins:takari-lifecycle-plugin:1.13.7
+[WARNING]  * de.saumya.mojo:gem-maven-plugin:2.0.1
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal io.takari.maven.plugins:takari-lifecycle-plugin:1.13.7:compile (default-compile) on project polyglot-yaml: 1 error(s) encountered:
+[ERROR] /polyglot-maven/polyglot-yaml/src/main/java/org/sonatype/maven/polyglot/yaml/ModelRepresenter.java:[218:27] Exception IntrospectionException is not compatible with throws clause in Representer.getProperties(Class<? extends Object>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :polyglot-yaml

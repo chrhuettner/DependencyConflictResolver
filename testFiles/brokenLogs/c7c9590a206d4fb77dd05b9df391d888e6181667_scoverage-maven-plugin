@@ -1,0 +1,77 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.scoverage:scoverage-maven-plugin >----------------
+[INFO] Building SCoverage Maven Plugin 1.4.12-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ scoverage-maven-plugin ---
+[INFO] Deleting /scoverage-maven-plugin/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-maven) @ scoverage-maven-plugin ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-java) @ scoverage-maven-plugin ---
+[INFO] 
+[INFO] --- plugin:3.6.0:helpmojo (help-goal) @ scoverage-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-annotations mojo extractor found 0 mojo descriptor.
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ scoverage-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ scoverage-maven-plugin ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 13 source files with javac [debug target 1.8] to target/classes
+[INFO] /scoverage-maven-plugin/src/main/java/org/scoverage/plugin/SCoveragePreCompileMojo.java: /scoverage-maven-plugin/src/main/java/org/scoverage/plugin/SCoveragePreCompileMojo.java uses unchecked or unsafe operations.
+[INFO] /scoverage-maven-plugin/src/main/java/org/scoverage/plugin/SCoveragePreCompileMojo.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /scoverage-maven-plugin/src/main/java/org/scoverage/plugin/SCoverageReportMojo.java:[32,61] package org.apache.maven.doxia.module.xhtml.decoration.render does not exist
+[ERROR] /scoverage-maven-plugin/src/main/java/org/scoverage/plugin/SCoverageReportMojo.java:[385,13] cannot find symbol
+  symbol:   class RenderingContext
+  location: class org.scoverage.plugin.SCoverageReportMojo
+[ERROR] /scoverage-maven-plugin/src/main/java/org/scoverage/plugin/SCoverageReportMojo.java:[385,44] cannot find symbol
+  symbol:   class RenderingContext
+  location: class org.scoverage.plugin.SCoverageReportMojo
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.395 s
+[INFO] Finished at: 2025-10-01T15:10:55Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-plugin-plugin:3.6.0
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-site-plugin:3.7.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.4.1
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project scoverage-maven-plugin: Compilation failure: Compilation failure: 
+[ERROR] /scoverage-maven-plugin/src/main/java/org/scoverage/plugin/SCoverageReportMojo.java:[32,61] package org.apache.maven.doxia.module.xhtml.decoration.render does not exist
+[ERROR] /scoverage-maven-plugin/src/main/java/org/scoverage/plugin/SCoverageReportMojo.java:[385,13] cannot find symbol
+[ERROR]   symbol:   class RenderingContext
+[ERROR]   location: class org.scoverage.plugin.SCoverageReportMojo
+[ERROR] /scoverage-maven-plugin/src/main/java/org/scoverage/plugin/SCoverageReportMojo.java:[385,44] cannot find symbol
+[ERROR]   symbol:   class RenderingContext
+[ERROR]   location: class org.scoverage.plugin.SCoverageReportMojo
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

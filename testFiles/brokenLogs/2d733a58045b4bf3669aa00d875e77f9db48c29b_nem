@@ -1,0 +1,798 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] NEM Core                                                           [jar]
+[INFO] NEM Deploy                                                         [jar]
+[INFO] NEM Peer                                                           [jar]
+[INFO] NEM Infrastructure Server                                          [jar]
+[INFO] NEM Infrastructure Server - ALL                                    [pom]
+[INFO] 
+[INFO] -----------------------< org.nem.core:nem-core >------------------------
+[INFO] Building NEM Core 0.6.100                                          [1/5]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ nem-core ---
+[INFO] Deleting /nem/core/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ nem-core ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/nem/core/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ nem-core ---
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ nem-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 280 source files to /nem/core/target/classes
+[INFO] 
+[INFO] --- build-helper:3.3.0:add-test-source (add-test-source) @ nem-core ---
+[INFO] Test Source directory: /nem/core/src/it/java added.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ nem-core ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ nem-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 278 source files to /nem/core/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ nem-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.nem.core.connect.HttpMethodClientTest
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Oct 01, 2025 9:18:06 AM org.nem.core.connect.HttpMethodClient lambda$sendRequest$2
+WARNING: forcibly aborting request to http://10.255.255.1
+Oct 01, 2025 9:18:13 AM org.nem.core.connect.HttpMethodClient lambda$sendRequest$2
+WARNING: forcibly aborting request to http://10.255.255.1
+[ERROR] Tests run: 20, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 13.211 s <<< FAILURE! - in org.nem.core.connect.HttpMethodClientTest
+[ERROR] sendThrowsBusyPeerExceptionOnSocketTimeout(org.nem.core.connect.HttpMethodClientTest$PostMethodTest)  Time elapsed: 1.215 s  <<< ERROR!
+java.lang.Exception: Unexpected exception, expected<org.nem.core.connect.BusyPeerException> but was<org.nem.core.connect.FatalPeerException>
+Caused by: org.nem.core.connect.FatalPeerException: Peer returned unexpected data: 
+
+[INFO] Running org.nem.core.connect.HttpDeserializerResponseStrategyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.nem.core.connect.HttpDeserializerResponseStrategyTest
+[INFO] Running org.nem.core.connect.HttpVoidResponseStrategyTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.connect.HttpVoidResponseStrategyTest
+[INFO] Running org.nem.core.connect.HttpJsonPostRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.connect.HttpJsonPostRequestTest
+[INFO] Running org.nem.core.connect.HttpErrorResponseDeserializerUnionStrategyTest
+Oct 01, 2025 9:18:15 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 700: badness
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.nem.core.connect.HttpErrorResponseDeserializerUnionStrategyTest
+[INFO] Running org.nem.core.connect.ErrorResponseDeserializerUnionTest
+Oct 01, 2025 9:18:15 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 700: badness
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.connect.ErrorResponseDeserializerUnionTest
+[INFO] Running org.nem.core.connect.HttpJsonResponseStrategyTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.nem.core.connect.HttpJsonResponseStrategyTest
+[INFO] Running org.nem.core.connect.VersionProviderTest
+Oct 01, 2025 9:18:15 AM org.nem.core.connect.VersionProvider getLatestVersion
+WARNING: unable to determine latest version: java.util.concurrent.CompletionException: java.lang.IllegalStateException: cannot retrieve deserializer when an error has occurred
+Oct 01, 2025 9:18:15 AM org.nem.core.connect.VersionProvider getLatestVersion
+WARNING: unable to determine latest version: java.lang.IllegalStateException: other error
+Oct 01, 2025 9:18:15 AM org.nem.core.connect.VersionProvider getLatestVersion
+WARNING: unable to determine latest version: java.util.concurrent.CompletionException: java.lang.IllegalStateException: cannot retrieve deserializer when an error has occurred
+Oct 01, 2025 9:18:15 AM org.nem.core.metadata.CodeSourceFacade <init>
+WARNING: no certificate found for (file:/nem/core/target/classes/ <no signer certificates>)
+Oct 01, 2025 9:18:15 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <classes>
+Oct 01, 2025 9:18:16 AM org.nem.core.metadata.JarFacade loadAttributes
+WARNING: could not find manifest for classes
+Oct 01, 2025 9:18:16 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.338 s - in org.nem.core.connect.VersionProviderTest
+[INFO] Running org.nem.core.connect.client.DefaultAsyncNemConnectorTest
+Oct 01, 2025 9:18:16 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+Oct 01, 2025 9:18:16 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+Oct 01, 2025 9:18:16 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.72 s - in org.nem.core.connect.client.DefaultAsyncNemConnectorTest
+[INFO] Running org.nem.core.connect.HttpBinaryPostRequestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.nem.core.connect.HttpBinaryPostRequestTest
+[INFO] Running org.nem.core.connect.HttpBinaryResponseStrategyTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.nem.core.connect.HttpBinaryResponseStrategyTest
+[INFO] Running org.nem.core.connect.ErrorResponseTest
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code 404: exception message
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code 404: badness
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code 404: Not Found
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code -123: badness
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code -123
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 890
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code -123: exception message
+Oct 01, 2025 9:18:17 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.nem.core.connect.ErrorResponseTest
+[INFO] Running org.nem.core.metadata.MetaDataFactoryTest
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <test-title>, version <test-version>
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.316 s - in org.nem.core.metadata.MetaDataFactoryTest
+[INFO] Running org.nem.core.metadata.CodeSourceFacadeTest
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.CodeSourceFacade <init>
+WARNING: no certificate found for (http://nem.com/foo/n.jar <no signer certificates>)
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.CodeSourceFacade <init>
+WARNING: no certificate found for (http://nem.com/foo/n.jar <no signer certificates>)
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 s - in org.nem.core.metadata.CodeSourceFacadeTest
+[INFO] Running org.nem.core.metadata.ApplicationMetaDataTest
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in org.nem.core.metadata.ApplicationMetaDataTest
+[INFO] Running org.nem.core.metadata.JarFacadeTest
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade loadAttributes
+WARNING: could not find manifest for nem.jar
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+WARNING: Analyzing meta data not possible <null>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+WARNING: Analyzing meta data not possible <null>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <test-title>, version <test-version>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <test-title>, version <test-version>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+WARNING: Analyzing meta data not possible <null>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade loadAttributes
+WARNING: unexpected implementation vendor for manifest in nem.jar
+Oct 01, 2025 9:18:18 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.nem.core.metadata.JarFacadeTest
+[INFO] Running org.nem.core.utils.FormatUtilsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.nem.core.utils.FormatUtilsTest
+[INFO] Running org.nem.core.utils.StringEncoderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.StringEncoderTest
+[INFO] Running org.nem.core.utils.ByteUtilsTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.nem.core.utils.ByteUtilsTest
+[INFO] Running org.nem.core.utils.AbstractTwoLevelMapTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.nem.core.utils.AbstractTwoLevelMapTest
+[INFO] Running org.nem.core.utils.ArrayUtilsTest
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 s - in org.nem.core.utils.ArrayUtilsTest
+[INFO] Running org.nem.core.utils.SetOnceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.SetOnceTest
+[INFO] Running org.nem.core.utils.Base64EncoderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.Base64EncoderTest
+[INFO] Running org.nem.core.utils.LockFileTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.272 s - in org.nem.core.utils.LockFileTest
+[INFO] Running org.nem.core.utils.CircularStackTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.CircularStackTest
+[INFO] Running org.nem.core.utils.MustBeTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.utils.MustBeTest
+[INFO] Running org.nem.core.utils.HexEncoderTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.nem.core.utils.HexEncoderTest
+[INFO] Running org.nem.core.utils.StringUtilsTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.StringUtilsTest
+[INFO] Running org.nem.core.utils.Base32EncoderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.Base32EncoderTest
+[INFO] Running org.nem.core.utils.ExceptionUtilsTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in org.nem.core.utils.ExceptionUtilsTest
+[INFO] Running org.nem.core.i18n.UTF8ResourceBundleControlTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.core.i18n.UTF8ResourceBundleControlTest
+[INFO] Running org.nem.core.time.SystemTimeProviderTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s - in org.nem.core.time.SystemTimeProviderTest
+[INFO] Running org.nem.core.time.UnixTimeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.nem.core.time.UnixTimeTest
+[INFO] Running org.nem.core.time.TimeSynchronizationResultTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.time.TimeSynchronizationResultTest
+[INFO] Running org.nem.core.time.synchronization.CommunicationTimeStampsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.nem.core.time.synchronization.CommunicationTimeStampsTest
+[INFO] Running org.nem.core.time.synchronization.TimeSynchronizationSampleTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.nem.core.time.synchronization.TimeSynchronizationSampleTest
+[INFO] Running org.nem.core.time.NetworkTimeStampTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.nem.core.time.NetworkTimeStampTest
+[INFO] Running org.nem.core.time.TimeInstantTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.nem.core.time.TimeInstantTest
+[INFO] Running org.nem.core.math.SparseBitmapTest
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 s - in org.nem.core.math.SparseBitmapTest
+[INFO] Running org.nem.core.math.SparseMatrixTest
+[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.397 s - in org.nem.core.math.SparseMatrixTest
+[INFO] Running org.nem.core.math.DenseMatrixTest
+[INFO] Tests run: 54, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.nem.core.math.DenseMatrixTest
+[INFO] Running org.nem.core.math.ColumnVectorTest
+[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.429 s - in org.nem.core.math.ColumnVectorTest
+[INFO] Running org.nem.core.math.MatrixElementTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.nem.core.math.MatrixElementTest
+[INFO] Running org.nem.core.messages.PlainMessageTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.messages.PlainMessageTest
+[INFO] Running org.nem.core.messages.SecureMessageTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.647 s - in org.nem.core.messages.SecureMessageTest
+[INFO] Running org.nem.core.messages.MessageFactoryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.nem.core.messages.MessageFactoryTest
+[INFO] Running org.nem.core.model.NemesisBlockInfoTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.NemesisBlockInfoTest
+[INFO] Running org.nem.core.model.HashMetaDataTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.nem.core.model.HashMetaDataTest
+[INFO] Running org.nem.core.model.NemesisBlockTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.077 s - in org.nem.core.model.NemesisBlockTest
+[INFO] Running org.nem.core.model.primitive.AmountTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.AmountTest
+[INFO] Running org.nem.core.model.primitive.NodeIdTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.NodeIdTest
+[INFO] Running org.nem.core.model.primitive.AbstractPrimitiveBigIntegerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.AbstractPrimitiveBigIntegerTest
+[INFO] Running org.nem.core.model.primitive.ClusterIdTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.primitive.ClusterIdTest
+[INFO] Running org.nem.core.model.primitive.SupplyTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.primitive.SupplyTest
+[INFO] Running org.nem.core.model.primitive.BlockAmountTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.nem.core.model.primitive.BlockAmountTest
+[INFO] Running org.nem.core.model.primitive.AbstractPrimitiveLongTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.AbstractPrimitiveLongTest
+[INFO] Running org.nem.core.model.primitive.NodeAgeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.primitive.NodeAgeTest
+[INFO] Running org.nem.core.model.primitive.ReferenceCountTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.nem.core.model.primitive.ReferenceCountTest
+[INFO] Running org.nem.core.model.primitive.QuantityTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.primitive.QuantityTest
+[INFO] Running org.nem.core.model.primitive.BlockDifficultyTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.BlockDifficultyTest
+[INFO] Running org.nem.core.model.primitive.TimeOffsetTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.model.primitive.TimeOffsetTest
+[INFO] Running org.nem.core.model.primitive.BlockHeightTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.primitive.BlockHeightTest
+[INFO] Running org.nem.core.model.primitive.BlockChainScoreTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.nem.core.model.primitive.BlockChainScoreTest
+[INFO] Running org.nem.core.model.primitive.HashShortIdTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.nem.core.model.primitive.HashShortIdTest
+[INFO] Running org.nem.core.model.NemGlobalsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.nem.core.model.NemGlobalsTest
+[INFO] Running org.nem.core.model.BlockChainConfigurationBuilderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.model.BlockChainConfigurationBuilderTest
+[INFO] Running org.nem.core.model.AddressTest
+[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in org.nem.core.model.AddressTest
+[INFO] Running org.nem.core.model.MosaicSupplyTypeTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.model.MosaicSupplyTypeTest
+[INFO] Running org.nem.core.model.VerifiableEntityTest
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.186 s - in org.nem.core.model.VerifiableEntityTest
+[INFO] Running org.nem.core.model.NemStatusTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.nem.core.model.NemStatusTest
+[INFO] Running org.nem.core.model.MosaicDefinitionCreationTransactionTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s - in org.nem.core.model.MosaicDefinitionCreationTransactionTest
+[INFO] Running org.nem.core.model.BlockedHarvesterPublicKeysTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.nem.core.model.BlockedHarvesterPublicKeysTest
+[INFO] Running org.nem.core.model.MosaicSupplyChangeTransactionTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.nem.core.model.MosaicSupplyChangeTransactionTest
+[INFO] Running org.nem.core.model.BlockChainFeatureTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.nem.core.model.BlockChainFeatureTest
+[INFO] Running org.nem.core.model.TransferTransactionTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.82 s - in org.nem.core.model.TransferTransactionTest
+[INFO] Running org.nem.core.model.MultisigMinCosignatoriesModificationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in org.nem.core.model.MultisigMinCosignatoriesModificationTest
+[INFO] Running org.nem.core.model.NemesisBlockMainnetTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.854 s - in org.nem.core.model.NemesisBlockMainnetTest
+[INFO] Running org.nem.core.model.namespace.NamespaceIdTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.nem.core.model.namespace.NamespaceIdTest
+[INFO] Running org.nem.core.model.namespace.ReservedNamespaceFilterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.nem.core.model.namespace.ReservedNamespaceFilterTest
+[INFO] Running org.nem.core.model.namespace.NamespaceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.core.model.namespace.NamespaceTest
+[INFO] Running org.nem.core.model.namespace.NamespaceIdPartTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.nem.core.model.namespace.NamespaceIdPartTest
+[INFO] Running org.nem.core.model.MultisigCosignatoryModificationTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.nem.core.model.MultisigCosignatoryModificationTest
+[INFO] Running org.nem.core.model.AccountRemoteStatusTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.AccountRemoteStatusTest
+[INFO] Running org.nem.core.model.FeeUnitAwareTransactionFeeCalculatorTest
+[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.493 s - in org.nem.core.model.FeeUnitAwareTransactionFeeCalculatorTest
+[INFO] Running org.nem.core.model.AccountStatusTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.AccountStatusTest
+[INFO] Running org.nem.core.model.BlockTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.nem.core.model.BlockTest
+[INFO] Running org.nem.core.model.BlockExtensionsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.nem.core.model.BlockExtensionsTest
+[INFO] Running org.nem.core.model.KeyPairViewModelTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.model.KeyPairViewModelTest
+[INFO] Running org.nem.core.model.TransactionExecutionStateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.nem.core.model.TransactionExecutionStateTest
+[INFO] Running org.nem.core.model.ZeroTransactionFeeCalculatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.nem.core.model.ZeroTransactionFeeCalculatorTest
+[INFO] Running org.nem.core.model.NetworkInfoTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.NetworkInfoTest
+[INFO] Running org.nem.core.model.MultisigTransactionTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.nem.core.model.MultisigTransactionTest
+[INFO] Running org.nem.core.model.transactions.extensions.AggregateTransactionValidationExtensionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.nem.core.model.transactions.extensions.AggregateTransactionValidationExtensionTest
+[INFO] Running org.nem.core.model.transactions.extensions.AggregateTransactionSerializationExtensionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.241 s - in org.nem.core.model.transactions.extensions.AggregateTransactionSerializationExtensionTest
+[INFO] Running org.nem.core.model.MultisigSignatureTransactionComparatorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.nem.core.model.MultisigSignatureTransactionComparatorTest
+[INFO] Running org.nem.core.model.NetworkInfosTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 s - in org.nem.core.model.NetworkInfosTest
+[INFO] Running org.nem.core.model.AccountTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in org.nem.core.model.AccountTest
+[INFO] Running org.nem.core.model.BlockChainConfigurationTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.BlockChainConfigurationTest
+[INFO] Running org.nem.core.model.BlockFactoryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.nem.core.model.BlockFactoryTest
+[INFO] Running org.nem.core.model.ncc.PublicKeyBuilderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.nem.core.model.ncc.PublicKeyBuilderTest
+[INFO] Running org.nem.core.model.ncc.MultisigInfoTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.nem.core.model.ncc.MultisigInfoTest
+[INFO] Running org.nem.core.model.ncc.NemRequestResultTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.nem.core.model.ncc.NemRequestResultTest
+[INFO] Running org.nem.core.model.ncc.SerializableAccountIdTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.nem.core.model.ncc.SerializableAccountIdTest
+[INFO] Running org.nem.core.model.ncc.RequestAnnounceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.RequestAnnounceTest
+[INFO] Running org.nem.core.model.ncc.AccountInfoTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.model.ncc.AccountInfoTest
+[INFO] Running org.nem.core.model.ncc.AccountMetaDataTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.nem.core.model.ncc.AccountMetaDataTest
+[INFO] Running org.nem.core.model.ncc.TransactionMetaDataTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.TransactionMetaDataTest
+[INFO] Running org.nem.core.model.ncc.MosaicIdSupplyPairTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.core.model.ncc.MosaicIdSupplyPairTest
+[INFO] Running org.nem.core.model.ncc.MosaicDefinitionMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.nem.core.model.ncc.MosaicDefinitionMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.HarvestInfoTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.model.ncc.HarvestInfoTest
+[INFO] Running org.nem.core.model.ncc.TransactionMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.nem.core.model.ncc.TransactionMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.MosaicDefinitionSupplyPairTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.nem.core.model.ncc.MosaicDefinitionSupplyPairTest
+[INFO] Running org.nem.core.model.ncc.RequestPrepareTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.RequestPrepareTest
+[INFO] Running org.nem.core.model.ncc.NemAnnounceResultTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.nem.core.model.ncc.NemAnnounceResultTest
+[INFO] Running org.nem.core.model.ncc.UnconfirmedTransactionMetaDataTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.model.ncc.UnconfirmedTransactionMetaDataTest
+[INFO] Running org.nem.core.model.ncc.AccountIdBuilderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.nem.core.model.ncc.AccountIdBuilderTest
+[INFO] Running org.nem.core.model.ncc.NamespaceMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.core.model.ncc.NamespaceMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.RequestPrepareAnnounceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.model.ncc.RequestPrepareAnnounceTest
+[INFO] Running org.nem.core.model.ncc.UnconfirmedTransactionMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.nem.core.model.ncc.UnconfirmedTransactionMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.AccountMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.nem.core.model.ncc.AccountMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.AccountIdTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.nem.core.model.ncc.AccountIdTest
+[INFO] Running org.nem.core.model.ncc.DefaultMetaDataTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.core.model.ncc.DefaultMetaDataTest
+[INFO] Running org.nem.core.model.observers.ImportanceTransferNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.model.observers.ImportanceTransferNotificationTest
+[INFO] Running org.nem.core.model.observers.BalanceAdjustmentNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.BalanceAdjustmentNotificationTest
+[INFO] Running org.nem.core.model.observers.MultisigCosignatoryModificationNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.MultisigCosignatoryModificationNotificationTest
+[INFO] Running org.nem.core.model.observers.ProvisionNamespaceNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.ProvisionNamespaceNotificationTest
+[INFO] Running org.nem.core.model.observers.MultisigMinCosignatoriesModificationNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.MultisigMinCosignatoriesModificationNotificationTest
+[INFO] Running org.nem.core.model.observers.TransactionHashesNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.model.observers.TransactionHashesNotificationTest
+[INFO] Running org.nem.core.model.observers.AccountNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.AccountNotificationTest
+[INFO] Running org.nem.core.model.observers.NamedObserverTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.observers.NamedObserverTest
+[INFO] Running org.nem.core.model.observers.MosaicTransferNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.model.observers.MosaicTransferNotificationTest
+[INFO] Running org.nem.core.model.observers.MosaicSupplyChangeNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.MosaicSupplyChangeNotificationTest
+[INFO] Running org.nem.core.model.observers.BalanceTransferNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.BalanceTransferNotificationTest
+[INFO] Running org.nem.core.model.observers.MosaicDefinitionCreationNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.observers.MosaicDefinitionCreationNotificationTest
+[INFO] Running org.nem.core.model.observers.ReverseTransactionObserverTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.observers.ReverseTransactionObserverTest
+[INFO] Running org.nem.core.model.DefaultTransactionFeeCalculatorTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.213 s - in org.nem.core.model.DefaultTransactionFeeCalculatorTest
+[INFO] Running org.nem.core.model.TransactionFeeCalculatorBeforeForkTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.331 s - in org.nem.core.model.TransactionFeeCalculatorBeforeForkTest
+[INFO] Running org.nem.core.model.MessageTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.MessageTest
+[INFO] Running org.nem.core.model.mosaic.MosaicDefinitionTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.nem.core.model.mosaic.MosaicDefinitionTest
+[INFO] Running org.nem.core.model.mosaic.MosaicUtilsTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.nem.core.model.mosaic.MosaicUtilsTest
+[INFO] Running org.nem.core.model.mosaic.MosaicConstantsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.mosaic.MosaicConstantsTest
+[INFO] Running org.nem.core.model.mosaic.MosaicDescriptorTest
+Oct 01, 2025 9:18:35 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'description' string from 'abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd!' to 'abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd'
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 s - in org.nem.core.model.mosaic.MosaicDescriptorTest
+[INFO] Running org.nem.core.model.mosaic.MosaicTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.nem.core.model.mosaic.MosaicTest
+[INFO] Running org.nem.core.model.mosaic.MosaicLevyTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.model.mosaic.MosaicLevyTest
+[INFO] Running org.nem.core.model.mosaic.DefaultMosaicTransferFeeCalculatorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in org.nem.core.model.mosaic.DefaultMosaicTransferFeeCalculatorTest
+[INFO] Running org.nem.core.model.mosaic.MosaicFeeInformationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.mosaic.MosaicFeeInformationTest
+[INFO] Running org.nem.core.model.mosaic.DefaultMosaicPropertiesTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.nem.core.model.mosaic.DefaultMosaicPropertiesTest
+[INFO] Running org.nem.core.model.mosaic.MosaicTransferFeeTypeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.mosaic.MosaicTransferFeeTypeTest
+[INFO] Running org.nem.core.model.mosaic.MosaicIdTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.nem.core.model.mosaic.MosaicIdTest
+[INFO] Running org.nem.core.model.BlockMultisigTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.nem.core.model.BlockMultisigTest
+[INFO] Running org.nem.core.model.NemPropertiesTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in org.nem.core.model.NemPropertiesTest
+[INFO] Running org.nem.core.model.MultisigAggregateModificationTransactionTest
+[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.557 s - in org.nem.core.model.MultisigAggregateModificationTransactionTest
+[INFO] Running org.nem.core.model.TransferTransactionAttachmentTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.nem.core.model.TransferTransactionAttachmentTest
+[INFO] Running org.nem.core.model.MultisigModificationTypeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.nem.core.model.MultisigModificationTypeTest
+[INFO] Running org.nem.core.model.MultisigSignatureTransactionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.nem.core.model.MultisigSignatureTransactionTest
+[INFO] Running org.nem.core.model.HashMetaDataPairTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.HashMetaDataPairTest
+[INFO] Running org.nem.core.model.NemPropertyTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.nem.core.model.NemPropertyTest
+[INFO] Running org.nem.core.model.ProvisionNamespaceTransactionTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.nem.core.model.ProvisionNamespaceTransactionTest
+[INFO] Running org.nem.core.model.TransactionFactoryTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.211 s - in org.nem.core.model.TransactionFactoryTest
+[INFO] Running org.nem.core.model.ImportanceTransferTransactionTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ImportanceTransferTransactionTest
+[INFO] Running org.nem.core.model.ValidationResultTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 s - in org.nem.core.model.ValidationResultTest
+[INFO] Running org.nem.core.model.TransactionExtensionsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.nem.core.model.TransactionExtensionsTest
+[INFO] Running org.nem.core.model.TransactionTypesTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.TransactionTypesTest
+[INFO] Running org.nem.core.model.TransactionTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.nem.core.model.TransactionTest
+[INFO] Running org.nem.core.model.TransactionFeeCalculatorAfterForkTest
+[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.474 s - in org.nem.core.model.TransactionFeeCalculatorAfterForkTest
+[INFO] Running org.nem.core.model.HashUtilsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.HashUtilsTest
+[INFO] Running org.nem.core.node.NodeIdentityTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.nem.core.node.NodeIdentityTest
+[INFO] Running org.nem.core.node.NodeTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.nem.core.node.NodeTest
+[INFO] Running org.nem.core.node.NodeFeatureTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.node.NodeFeatureTest
+[INFO] Running org.nem.core.node.NisNodeInfoTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.nem.core.node.NisNodeInfoTest
+[INFO] Running org.nem.core.node.NodeCollectionTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s - in org.nem.core.node.NodeCollectionTest
+[INFO] Running org.nem.core.node.NodeEndpointTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in org.nem.core.node.NodeEndpointTest
+[INFO] Running org.nem.core.node.NodeMetaDataTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.nem.core.node.NodeMetaDataTest
+[INFO] Running org.nem.core.node.NodeVersionTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.nem.core.node.NodeVersionTest
+[INFO] Running org.nem.core.crypto.KeyPairTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in org.nem.core.crypto.KeyPairTest
+[INFO] Running org.nem.core.crypto.HashChainTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.nem.core.crypto.HashChainTest
+[INFO] Running org.nem.core.crypto.HashTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.HashTest
+[INFO] Running org.nem.core.crypto.CipherTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.nem.core.crypto.CipherTest
+[INFO] Running org.nem.core.crypto.HashesTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.nem.core.crypto.HashesTest
+[INFO] Running org.nem.core.crypto.SignerTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in org.nem.core.crypto.SignerTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1DsaSignerTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.189 s - in org.nem.core.crypto.secp256k1.SecP256K1DsaSignerTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1KeyGeneratorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.281 s - in org.nem.core.crypto.secp256k1.SecP256K1KeyGeneratorTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1KeyAnalyzerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in org.nem.core.crypto.secp256k1.SecP256K1KeyAnalyzerTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1BlockCipherTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.335 s - in org.nem.core.crypto.secp256k1.SecP256K1BlockCipherTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1CryptoEngineTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.nem.core.crypto.secp256k1.SecP256K1CryptoEngineTest
+[INFO] Running org.nem.core.crypto.secp256k1.SepP256K1CurveTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.secp256k1.SepP256K1CurveTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1UtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.crypto.secp256k1.SecP256K1UtilsTest
+[INFO] Running org.nem.core.crypto.PrivateKeyTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.crypto.PrivateKeyTest
+[INFO] Running org.nem.core.crypto.PublicKeyTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.nem.core.crypto.PublicKeyTest
+[INFO] Running org.nem.core.crypto.SignatureTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in org.nem.core.crypto.SignatureTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519CurveTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.nem.core.crypto.ed25519.Ed25519CurveTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519GroupTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519GroupTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519FieldTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519FieldTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519EncodedGroupElementTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.7 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519EncodedGroupElementTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519FieldElementTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.709 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519FieldElementTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519GroupElementTest
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.83 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519GroupElementTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519EncodedFieldElementTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519EncodedFieldElementTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.MathUtilsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.381 s - in org.nem.core.crypto.ed25519.arithmetic.MathUtilsTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519UtilsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.ed25519.Ed25519UtilsTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519KeyAnalyzerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.core.crypto.ed25519.Ed25519KeyAnalyzerTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519KeyGeneratorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.838 s - in org.nem.core.crypto.ed25519.Ed25519KeyGeneratorTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519BlockCipherTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s - in org.nem.core.crypto.ed25519.Ed25519BlockCipherTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519CryptoEngineTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.nem.core.crypto.ed25519.Ed25519CryptoEngineTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519DsaSignerTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.359 s - in org.nem.core.crypto.ed25519.Ed25519DsaSignerTest
+[INFO] Running org.nem.core.serialization.JsonSerializerTest
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s - in org.nem.core.serialization.JsonSerializerTest
+[INFO] Running org.nem.core.serialization.SerializableListTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.nem.core.serialization.SerializableListTest
+[INFO] Running org.nem.core.serialization.BinarySerializerTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.nem.core.serialization.BinarySerializerTest
+[INFO] Running org.nem.core.serialization.primitive.JsonPrimitiveSerializationTest
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.nem.core.serialization.primitive.JsonPrimitiveSerializationTest
+[INFO] Running org.nem.core.serialization.primitive.BinaryPrimitiveSerializationTest
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.nem.core.serialization.primitive.BinaryPrimitiveSerializationTest
+[INFO] Running org.nem.core.serialization.primitive.BinaryPrimitiveTruncationTest
+Oct 01, 2025 9:19:03 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'val' string from 'rldltegwkfnfxuhioyyhgglaxnefhohijxzolkbafihbjgcgrwfetlrptytnnxdjnkatrcsjhfrwsjurmuqgqtspnrgvppokulcvidulldkzcepueelmmaimcewjnfnmwakkfsgjzjqdzxudttjznrvlghoptiuscyeypdwskpcoqplupyonaeulbxqqxnfzgsqdnxmcsshhuybadubjoumwdqccdaaucequkzmaimmfuifntobuvmcmynvmybesfvpwiufcfrscktitkyhxlfjzqadurehojilqragteopkamizokqjjlgrgwyvderavhrpneklghokfolepsebwptewinbygdspainhoulsqofcftegpxaqiodtddinfyp' to 'rldltegwkfnfxuhioyyhgglaxnefhohijxzolkbafihbjgcgrwfetlrptytnnxdjnkatrcsjhfrwsjurmuqgqtspnrgvppokulcvidulldkzcepueelmmaimcewjnfnm'
+Oct 01, 2025 9:19:03 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'val' string from 'odgtfskhawwhgfrbrxpr' to 'odgtf'
+Oct 01, 2025 9:19:03 AM org.nem.core.serialization.Serializer writeString
+INFO: truncated 'val' string from 'flrjjhlxbnsfdnxtlvmdfntlrybuyczqcorzujajrmqnzfwsmbiejbunqjjtaceqmzvwblbdqoxpbhvzepmuhfvpunaflopirsklhpxgatsldewkiwvonywvgedlcpqyeriiqeviecplwwhddggtdoxsspeucdnbetwjstficgbqkbzrcjvejrrnnjtiuuxqwvljilhtccbwwcaatnarwfvqsuclpftuwsbvtgdyehqqnizeiqnjbvhsiwchhkkcdnykrmxwifekcjqiwfwfiutierumjeoncgckvcbnosvsrcyvfxioceyesdlpohsspdiwtmlpqelzksstawcwioszdwhghjbafvxpvtqaxbjlviekxsoaishdbkhvvbxn' to 'flrjjhlxbnsfdnxtlvmdfntlrybuyczqcorzujajrmqnzfwsmbiejbunqjjtaceqmzvwblbdqoxpbhvzepmuhfvpunaflopirsklhpxgatsldewkiwvonywvgedlcpqy'
+Oct 01, 2025 9:19:03 AM org.nem.core.serialization.Serializer writeString
+INFO: truncated 'val' string from 'gfehvxbdirefzbdzwdxe' to 'gfehv'
+Oct 01, 2025 9:19:03 AM org.nem.core.serialization.Deserializer readOptionalBytes
+INFO: truncated 'val' bytes from '6144' to '2048'
+Oct 01, 2025 9:19:03 AM org.nem.core.serialization.Deserializer readOptionalBytes
+INFO: truncated 'val' bytes from '20' to '5'
+Oct 01, 2025 9:19:03 AM org.nem.core.serialization.Serializer writeBytes
+INFO: truncated 'val' bytes from '6144' to '2048'
+Oct 01, 2025 9:19:03 AM org.nem.core.serialization.Serializer writeBytes
+INFO: truncated 'val' bytes from '20' to '5'
+Oct 01, 2025 9:19:04 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'val' string from 'tomzatthcxqzrjqpdkypnyfzrjdbeygxntepoezmxohevjfshfnkepekuumthjhqfbbainwonrnixrzjrlnnloylfcbuxuunrhiyykaezccdkefbwrcdxnywopvggpvmwnfcbcgfjtanznlkolgbnfdwgycsmsjtpzofuvjapfxmjfntwcgxzsjsevvgbmylrrhbqoipjcjchydewbvizmmjdfjgwzzqwgckfkgtdgbsdrwszthodkbeuathxgxjlzeeyvbrigiriqzoaehhlwodtyhkwguqjjfjwcaohlicorxvowzkxlfqtrhvwvuglojoukabfftrgfxormmruoiplamkwblbkbyohgdaekvuevnpslqkwzjpmaigncht' to 'tomzatthcxqzrjqpdkypnyfzrjdbeygxntepoezmxohevjfshfnkepekuumthjhqfbbainwonrnixrzjrlnnloylfcbuxuunrhiyykaezccdkefbwrcdxnywopvggpvm'
+Oct 01, 2025 9:19:04 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'val' string from 'xnloruoiuhnnalftaqiz' to 'xnlor'
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s - in org.nem.core.serialization.primitive.BinaryPrimitiveTruncationTest
+[INFO] Running org.nem.core.serialization.primitive.JsonPrimitiveTruncationTest
+Oct 01, 2025 9:19:04 AM org.nem.core.serialization.Serializer writeString
+INFO: truncated 'val' string from 'qaheyqwgnuddaeqzqdrpvhnlmozydnnjpttjsuskdpjbnkmwuzrscpxzkldzyhuvdpxhauriuhivoznggjfgloiekwervqdezlonwbpcobhxmgijnaqunibwtofebvjejvlzkhmbtjjhkdljriqchjkbwdbxaxxvqbvytpyyitfqybduvwzvytvtdcjevsnopcdtxygfxhqxckoqcdvghthsirttuwrylfdgitmvqvbzpgzeqeghbvnmjtbksthdeadpqbxcyyzcelmnwoicdxbbddtfqrvicmpkazbavqrqxqppzlhdisfrhrtsapopuzowycvgrdsmhgpmgrmzcdzggtdpolmusewgfgpkkisghmphricxjwypomujxvpk' to 'qaheyqwgnuddaeqzqdrpvhnlmozydnnjpttjsuskdpjbnkmwuzrscpxzkldzyhuvdpxhauriuhivoznggjfgloiekwervqdezlonwbpcobhxmgijnaqunibwtofebvje'
+Oct 01, 2025 9:19:04 AM org.nem.core.serialization.Serializer writeString
+INFO: truncated 'val' string from 'bjbufwbaqzsvcqvtvlhc' to 'bjbuf'
+Oct 01, 2025 9:19:04 AM org.nem.core.serialization.Deserializer readOptionalBytes
+INFO: truncated 'val' bytes from '6144' to '2048'
+Oct 01, 2025 9:19:04 AM org.nem.core.serialization.Deserializer readOptionalBytes
+INFO: truncated 'val' bytes from '20' to '5'
+Oct 01, 2025 9:19:04 AM org.nem.core.serialization.Serializer writeBytes
+INFO: truncated 'val' bytes from '6144' to '2048'
+Oct 01, 2025 9:19:04 AM org.nem.core.serialization.Serializer writeBytes
+INFO: truncated 'val' bytes from '20' to '5'
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.nem.core.serialization.primitive.JsonPrimitiveTruncationTest
+[INFO] Running org.nem.core.serialization.SerializationContextTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.serialization.SerializationContextTest
+[INFO] Running org.nem.core.serialization.DeserializationContextTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.nem.core.serialization.DeserializationContextTest
+[INFO] Running org.nem.core.async.SleepFutureTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.271 s - in org.nem.core.async.SleepFutureTest
+Oct 01, 2025 9:19:04 AM org.nem.core.async.NemAsyncTimerVisitor notifyOperationCompleteExceptionally
+WARNING: Timer timer a raised exception: test exception
+java.lang.RuntimeException: test exception
+	at org.nem.core.async.NemAsyncTimerVisitorTest.averageOperationTimeIsCalculatedCorrectlyWhenThereAreMultipleCompletions(NemAsyncTimerVisitorTest.java:98)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+Oct 01, 2025 9:19:04 AM org.nem.core.async.NemAsyncTimerVisitor notifyOperationCompleteExceptionally
+WARNING: Timer timer a raised exception: test exception
+java.lang.RuntimeException: test exception
+	at org.nem.core.async.NemAsyncTimerVisitorTest.assertVisitorSerialization(NemAsyncTimerVisitorTest.java:152)
+	at org.nem.core.async.NemAsyncTimerVisitorTest.visitorCanBeSerializedWhileNotExecuting(NemAsyncTimerVisitorTest.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+[INFO] Running org.nem.core.async.NemAsyncTimerVisitorTest
+Oct 01, 2025 9:19:04 AM org.nem.core.async.NemAsyncTimerVisitor notifyOperationCompleteExceptionally
+WARNING: Timer timer a raised exception: test exception
+java.lang.RuntimeException: test exception
+	at org.nem.core.async.NemAsyncTimerVisitorTest.assertVisitorSerialization(NemAsyncTimerVisitorTest.java:152)
+	at org.nem.core.async.NemAsyncTimerVisitorTest.visitorCanBeSerializedWhileExecuting(NemAsyncTimerVisitorTest.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+Oct 01, 2025 9:19:04 AM org.nem.core.async.NemAsyncTimerVisitor notifyOperationCompleteExceptionally
+WARNING: Timer timer a raised exception: test exception
+java.lang.RuntimeException: test exception
+	at org.nem.core.async.NemAsyncTimerVisitorTest.notifyOperationCompleteExceptionallyUpdatesVisitorStateCorrectly(NemAsyncTimerVisitorTest.java:74)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.nem.core.async.NemAsyncTimerVisitorTest
+[INFO] Running org.nem.core.async.AsyncTimerTest
+Oct 01, 2025 9:19:05 AM org.nem.core.async.AsyncTimer getNextChainLink
+WARNING: Timer unknown timer raised exception during start: java.lang.RuntimeException: CountableExceptionFuture
+Oct 01, 2025 9:19:05 AM org.nem.core.async.AsyncTimer getNextChainLink
+WARNING: Timer unknown timer raised exception during start: java.lang.RuntimeException: CountableExceptionFuture
+Oct 01, 2025 9:19:05 AM org.nem.core.async.AsyncTimer getNextChainLink
+WARNING: Timer unknown timer raised exception during start: java.lang.RuntimeException: CountableExceptionFuture
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.354 s - in org.nem.core.async.AsyncTimerTest
+[INFO] Running org.nem.core.async.AsyncTimerOptionsBuilderTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.572 s - in org.nem.core.async.AsyncTimerOptionsBuilderTest
+[INFO] Running org.nem.core.async.DelayStrategyTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.nem.core.async.DelayStrategyTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   HttpMethodClientTest$PostMethodTest.sendThrowsBusyPeerExceptionOnSocketTimeout » 
+[INFO] 
+[ERROR] Tests run: 2361, Failures: 0, Errors: 1, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for NEM Infrastructure Server - ALL 0.6.100:
+[INFO] 
+[INFO] NEM Core ........................................... FAILURE [02:01 min]
+[INFO] NEM Deploy ......................................... SKIPPED
+[INFO] NEM Peer ........................................... SKIPPED
+[INFO] NEM Infrastructure Server .......................... SKIPPED
+[INFO] NEM Infrastructure Server - ALL .................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:02 min
+[INFO] Finished at: 2025-10-01T09:19:14Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.codehaus.mojo:build-helper-maven-plugin:3.3.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project nem-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /nem/core/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

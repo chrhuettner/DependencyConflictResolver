@@ -1,0 +1,47 @@
+[INFO] Scanning for projects...
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.34 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.34 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.34/maven-hpi-plugin-3.34.pom
+[WARNING] The POM for org.jenkins-ci.tools:maven-hpi-plugin:jar:3.34 is missing, no dependency information available
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.34 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.34 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.34/maven-hpi-plugin-3.34.jar
+[WARNING] Failed to build parent project for hudson.plugins.sloccount:sloccount:hpi:1.27-SNAPSHOT
+[INFO] 
+[INFO] -----------------< hudson.plugins.sloccount:sloccount >-----------------
+[INFO] Building Jenkins SLOCCount Plug-in 1.27-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.34:validate (default-validate)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.34:validate-hpi (default-validate-hpi)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.34:initialize (default-initialize)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.34:insert-test (default-insert-test)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.34:test-hpl (default-test-hpl)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.34:resolve-test-dependencies (default-resolve-test-dependencies)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.34:test-runtime (default-test-runtime)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sloccount ---
+[INFO] 
+[INFO] --- hpi:3.34:validate (default-validate) @ sloccount ---
+[INFO] 
+[INFO] --- hpi:3.34:validate-hpi (default-validate-hpi) @ sloccount ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.392 s
+[INFO] Finished at: 2025-10-01T12:02:30Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 1 plugin(s)
+[WARNING] 
+[WARNING]  * org.jenkins-ci.tools:maven-hpi-plugin:3.34
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.jenkins-ci.tools:maven-hpi-plugin:3.34:validate-hpi (default-validate-hpi) on project sloccount: Dependency io.jenkins.plugins:jaxb:jar:2.3.6-2 requires Jenkins 2.332.1 or higher. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

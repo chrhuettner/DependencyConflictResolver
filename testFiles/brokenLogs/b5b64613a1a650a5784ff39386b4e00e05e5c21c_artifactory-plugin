@@ -1,0 +1,128 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< org.jenkins-ci.plugins:artifactory >-----------------
+[INFO] Building Jenkins Artifactory Plugin 3.16.x-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.12:validate (default-validate)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.12:insert-test (default-insert-test)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.12:test-hpl (default-test-hpl)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.12:resolve-test-dependencies (default-resolve-test-dependencies)'
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ artifactory ---
+[INFO] Deleting /artifactory-plugin/target
+[INFO] 
+[INFO] --- hpi:3.12:validate (default-validate) @ artifactory ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:display-info (display-info) @ artifactory ---
+[INFO] Maven Version: 3.9.2
+[INFO] JDK Version: 11.0.19 normalized as: 11.0.19
+[INFO] OS Info: Arch: amd64 Family: unix Name: linux Version: 6.6.87.2-microsoft-standard-wsl2
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (display-info) @ artifactory ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (default) @ artifactory ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- localizer:1.26:generate (default) @ artifactory ---
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ artifactory ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 47 resources
+[INFO] 
+[INFO] --- jrebel:1.1.1:generate (generate-rebel-xml) @ artifactory ---
+[INFO] Processing org.jenkins-ci.plugins:artifactory with packaging jar
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ artifactory ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 334 source files to /artifactory-plugin/target/classes
+[INFO] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/declarative/steps/generic/UploadStep.java: Some input files use or override a deprecated API.
+[INFO] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/declarative/steps/generic/UploadStep.java: Recompile with -Xlint:deprecation for details.
+[INFO] /artifactory-plugin/src/main/java/org/jfrog/hudson/util/ExtractorUtils.java: Some input files use unchecked or unsafe operations.
+[INFO] /artifactory-plugin/src/main/java/org/jfrog/hudson/util/ExtractorUtils.java: Recompile with -Xlint:unchecked for details.
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/declarative/steps/CreateJFrogInstanceStep.java:[21,1] cannot find symbol
+  symbol:   static isAllBlank
+  location: class org.apache.commons.lang3.StringUtils
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/common/executors/ReleaseBundleDeleteExecutor.java:[51,71] cannot find symbol
+  symbol:   method isAllBlank(java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.StringUtils
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/common/executors/ReleaseBundleDistributeExecutor.java:[51,71] cannot find symbol
+  symbol:   method isAllBlank(java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.StringUtils
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/declarative/steps/CreateServerStep.java:[129,17] cannot find symbol
+  symbol:   method isAllBlank(java.lang.String,java.lang.String)
+  location: class org.jfrog.hudson.pipeline.declarative.steps.CreateServerStep.Execution
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/release/scm/perforce/P4Manager.java:[44,47] no suitable constructor found for ClientHelper(java.lang.String,hudson.model.TaskListener,java.lang.String,java.lang.String)
+    constructor org.jenkinsci.plugins.p4.client.ClientHelper.ClientHelper(hudson.model.ItemGroup,java.lang.String,hudson.model.TaskListener,org.jenkinsci.plugins.p4.workspace.Workspace) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to hudson.model.ItemGroup)
+    constructor org.jenkinsci.plugins.p4.client.ClientHelper.ClientHelper(hudson.model.Item,java.lang.String,hudson.model.TaskListener,org.jenkinsci.plugins.p4.workspace.Workspace) is not applicable
+      (argument mismatch; java.lang.String cannot be converted to hudson.model.Item)
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/common/executors/CreateDockerBuildExecutor.java:[34,24] cannot find symbol
+  symbol:   method isAllBlank(java.lang.String,java.lang.String)
+  location: class org.apache.commons.lang3.StringUtils
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/declarative/steps/CreateJFrogInstanceStep.java:[140,17] cannot find symbol
+  symbol:   method isAllBlank(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+  location: class org.jfrog.hudson.pipeline.declarative.steps.CreateJFrogInstanceStep.Execution
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/scripted/steps/CreateJFrogPlatformInstanceStep.java:[73,17] cannot find symbol
+  symbol:   method isAllBlank(java.lang.String,java.lang.String,java.lang.String)
+  location: class org.jfrog.hudson.pipeline.scripted.steps.CreateJFrogPlatformInstanceStep.Execution
+[INFO] 8 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.996 s
+[INFO] Finished at: 2025-10-01T14:49:54Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 7 plugin(s)
+[WARNING] 
+[WARNING]  * org.jvnet.localizer:maven-localizer-plugin:1.26
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.zeroturnaround:jrebel-maven-plugin:1.1.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING]  * org.jenkins-ci.tools:maven-hpi-plugin:3.12
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project artifactory: Compilation failure: Compilation failure: 
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/declarative/steps/CreateJFrogInstanceStep.java:[21,1] cannot find symbol
+[ERROR]   symbol:   static isAllBlank
+[ERROR]   location: class org.apache.commons.lang3.StringUtils
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/common/executors/ReleaseBundleDeleteExecutor.java:[51,71] cannot find symbol
+[ERROR]   symbol:   method isAllBlank(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.StringUtils
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/common/executors/ReleaseBundleDistributeExecutor.java:[51,71] cannot find symbol
+[ERROR]   symbol:   method isAllBlank(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.StringUtils
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/declarative/steps/CreateServerStep.java:[129,17] cannot find symbol
+[ERROR]   symbol:   method isAllBlank(java.lang.String,java.lang.String)
+[ERROR]   location: class org.jfrog.hudson.pipeline.declarative.steps.CreateServerStep.Execution
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/release/scm/perforce/P4Manager.java:[44,47] no suitable constructor found for ClientHelper(java.lang.String,hudson.model.TaskListener,java.lang.String,java.lang.String)
+[ERROR]     constructor org.jenkinsci.plugins.p4.client.ClientHelper.ClientHelper(hudson.model.ItemGroup,java.lang.String,hudson.model.TaskListener,org.jenkinsci.plugins.p4.workspace.Workspace) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to hudson.model.ItemGroup)
+[ERROR]     constructor org.jenkinsci.plugins.p4.client.ClientHelper.ClientHelper(hudson.model.Item,java.lang.String,hudson.model.TaskListener,org.jenkinsci.plugins.p4.workspace.Workspace) is not applicable
+[ERROR]       (argument mismatch; java.lang.String cannot be converted to hudson.model.Item)
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/common/executors/CreateDockerBuildExecutor.java:[34,24] cannot find symbol
+[ERROR]   symbol:   method isAllBlank(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.lang3.StringUtils
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/declarative/steps/CreateJFrogInstanceStep.java:[140,17] cannot find symbol
+[ERROR]   symbol:   method isAllBlank(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+[ERROR]   location: class org.jfrog.hudson.pipeline.declarative.steps.CreateJFrogInstanceStep.Execution
+[ERROR] /artifactory-plugin/src/main/java/org/jfrog/hudson/pipeline/scripted/steps/CreateJFrogPlatformInstanceStep.java:[73,17] cannot find symbol
+[ERROR]   symbol:   method isAllBlank(java.lang.String,java.lang.String,java.lang.String)
+[ERROR]   location: class org.jfrog.hudson.pipeline.scripted.steps.CreateJFrogPlatformInstanceStep.Execution
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,73 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.artipie:docker-adapter >---------------------
+[INFO] Building docker-adapter 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ docker-adapter ---
+[INFO] Deleting /docker-adapter/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven) @ docker-adapter ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (jcabi-build-number) @ docker-adapter ---
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/docker-adapter' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /docker-adapter
+[INFO] Storing buildNumber: null at timestamp: 2025-10-01T13:58:46
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: not a git repository (or any of the parent directories): .git
+
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/docker-adapter' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /docker-adapter
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- buildnumber:1.4:create-timestamp (jcabi-build-number) @ docker-adapter ---
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ docker-adapter ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /docker-adapter/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ docker-adapter ---
+[INFO] Compiling 107 source files to /docker-adapter/target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /docker-adapter/src/main/java/com/artipie/docker/asto/AstoBlob.java:[56,28] size(com.artipie.asto.Key) in com.artipie.asto.Storage has been deprecated
+[WARNING] /docker-adapter/src/main/java/com/artipie/docker/asto/AstoUpload.java:[98,40] size(com.artipie.asto.Key) in com.artipie.asto.Storage has been deprecated
+[WARNING] /docker-adapter/src/main/java/com/artipie/docker/asto/AstoUpload.java:[113,42] size(com.artipie.asto.Key) in com.artipie.asto.Storage has been deprecated
+[INFO] 3 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /docker-adapter/src/main/java/com/artipie/docker/asto/AstoBlob.java: warnings found and -Werror specified
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.125 s
+[INFO] Finished at: 2025-10-01T13:58:48Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.0.2
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.codehaus.mojo:buildnumber-maven-plugin:1.4
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile (default-compile) on project docker-adapter: Compilation failure
+[ERROR] /docker-adapter/src/main/java/com/artipie/docker/asto/AstoBlob.java: warnings found and -Werror specified
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

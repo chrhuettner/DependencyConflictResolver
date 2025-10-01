@@ -1,0 +1,599 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.equinor:neqsim >-------------------------
+[INFO] Building neqsim 2.3.3
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ neqsim ---
+[INFO] Deleting /neqsim/target
+[INFO] 
+[INFO] --- flatten:1.2.7:clean (flatten.clean) @ neqsim ---
+[INFO] Deleting /neqsim/.flattened-pom.xml
+[INFO] 
+[INFO] --- enforcer:3.0.0:enforce (enforce-maven) @ neqsim ---
+[INFO] 
+[INFO] --- jacoco:0.8.7:prepare-agent (default) @ neqsim ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/neqsim/target/jacoco.exec,excludes=neqsim/physicalProperties/util/parameterFitting/**/*:neqsim/fluidMechanics/util/parameterFitting/**/*:neqsim/PVTsimulation/util/parameterFitting/**/*:neqsim/thermo/util/parameterFitting/**/*:neqsim/statistics/util/parameterFitting/**/*:neqsim/PVTsimulation/util/parameterfitting/**/*
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ neqsim ---
+[INFO] Copying 222 resources
+[INFO] 
+[INFO] --- flatten:1.2.7:flatten (flatten) @ neqsim ---
+[INFO] Generating flattened POM of project com.equinor:neqsim:jar:2.3.3...
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ neqsim ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 907 source files to /neqsim/target/classes
+[INFO] /neqsim/src/main/java/neqsim/thermo/system/SystemThermo.java: Some input files use or override a deprecated API.
+[INFO] /neqsim/src/main/java/neqsim/thermo/system/SystemThermo.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ neqsim ---
+[INFO] skip non existing resourceDirectory /neqsim/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.9.0:testCompile (default-testCompile) @ neqsim ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 212 source files to /neqsim/target/test-classes
+[INFO] /neqsim/src/test/java/neqsim/processSimulation/util/example/MasstransferMeOH.java: Some input files use or override a deprecated API.
+[INFO] /neqsim/src/test/java/neqsim/processSimulation/util/example/MasstransferMeOH.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ neqsim ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running neqsim.processSimulation.processEquipment.mixer.MixerTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.3 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.mixer.MixerTest
+[ERROR] neqsim.processSimulation.processEquipment.mixer.MixerTest  Time elapsed: 1.3 s  <<< ERROR!
+java.lang.UnsupportedClassVersionError: org/apache/derby/iapi/jdbc/JDBCBoot has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+	at neqsim.processSimulation.processEquipment.mixer.MixerTest.setUpBeforeClass(MixerTest.java:25)
+
+[INFO] Running neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.032 s - in neqsim.processSimulation.processEquipment.absorber.SimpleAbsorberTest
+[INFO] Running neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest
+[ERROR] neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest.testRun  Time elapsed: 0.014 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.splitter.ComponentSplitterTest.setUpBeforeClass(ComponentSplitterTest.java:21)
+
+[INFO] Running neqsim.processSimulation.processEquipment.stream.StreamTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.stream.StreamTest
+[ERROR] neqsim.processSimulation.processEquipment.stream.StreamTest.testLCV  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.stream.StreamTest.setUpBeforeClass(StreamTest.java:27)
+
+[ERROR] neqsim.processSimulation.processEquipment.stream.StreamTest.testNoFlow  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.stream.StreamTest.setUpBeforeClass(StreamTest.java:27)
+
+[INFO] Running neqsim.processSimulation.processEquipment.separator.SeparatorTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.043 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.separator.SeparatorTest
+[ERROR] neqsim.processSimulation.processEquipment.separator.SeparatorTest.testOnePhase  Time elapsed: 0.029 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.separator.SeparatorTest.setUpBeforeClass(SeparatorTest.java:27)
+
+[ERROR] neqsim.processSimulation.processEquipment.separator.SeparatorTest.testFlow  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.separator.SeparatorTest.setUpBeforeClass(SeparatorTest.java:27)
+
+[INFO] Running neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.002 s - in neqsim.processSimulation.processEquipment.adsorber.SimpleAdsorberTest
+[INFO] Running neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest
+[ERROR] neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.powerGeneration.GasTurbineTest.setUp(GasTurbineTest.java:17)
+
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorChartTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.compressor.CompressorChartTest
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorChartTest.test_Run  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorChartTest.setUp(CompressorChartTest.java:22)
+
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.testCompressorChartEquals  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.setUp(CompressorCalculationTest.java:18)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.testRun  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorCalculationTest.setUp(CompressorCalculationTest.java:18)
+
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorTest
+[ERROR] Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.compressor.CompressorTest
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testCompressorWithGERG2008  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testMultiPhaseCompression  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testCompressorWithSrk  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testCompressorRigorousMethod  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testCompressorSchultzMethod  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testSerialize  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorTest.testIsentropicCalcMethod  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorTest.setUp(CompressorTest.java:44)
+
+[INFO] Running neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.testFailRunCalculation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.setUp(CompressorPropertyProfileTest.java:30)
+
+[ERROR] neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.testRunCalculation  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.compressor.CompressorPropertyProfileTest.setUp(CompressorPropertyProfileTest.java:30)
+
+[INFO] Running neqsim.processSimulation.processEquipment.pump.PumpTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in neqsim.processSimulation.processEquipment.pump.PumpTest
+[ERROR] neqsim.processSimulation.processEquipment.pump.PumpTest.testRun  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processEquipment.pump.PumpTest.testRun(PumpTest.java:18)
+
+[INFO] Running neqsim.processSimulation.measurementDevice.pHProbeTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in neqsim.processSimulation.measurementDevice.pHProbeTest
+[ERROR] neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValueWithAlkanility  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValueWithAlkanility(pHProbeTest.java:44)
+
+[ERROR] neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValue  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.measurementDevice.pHProbeTest.testGetMeasuredValue(pHProbeTest.java:18)
+
+[INFO] Running neqsim.processSimulation.measurementDevice.WellAllocatorTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.processSimulation.measurementDevice.WellAllocatorTest
+[ERROR] neqsim.processSimulation.measurementDevice.WellAllocatorTest.testGetMeasuredValueString  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.measurementDevice.WellAllocatorTest.testGetMeasuredValueString(WellAllocatorTest.java:30)
+
+[INFO] Running neqsim.processSimulation.processSystem.ProcessSystemTest
+[ERROR] Tests run: 41, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.183 s <<< FAILURE! - in neqsim.processSimulation.processSystem.ProcessSystemTest
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemTest.runTEGProcessTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processSystem.ProcessSystemTest.runTEGProcessTest(ProcessSystemTest.java:306)
+
+[INFO] Running neqsim.processSimulation.processSystem.GlycolRigTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.processSimulation.processSystem.GlycolRigTest
+[ERROR] neqsim.processSimulation.processSystem.GlycolRigTest.runTEGProcessTest  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processSystem.GlycolRigTest.runTEGProcessTest(GlycolRigTest.java:29)
+
+[INFO] Running neqsim.processSimulation.processSystem.ProcessSystemControllerTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in neqsim.processSimulation.processSystem.ProcessSystemControllerTest
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemControllerTest.testStaticSimulationWithController  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processSystem.ProcessSystemControllerTest.getTestSystem(ProcessSystemControllerTest.java:42)
+	at neqsim.processSimulation.processSystem.ProcessSystemControllerTest.testStaticSimulationWithController(ProcessSystemControllerTest.java:59)
+
+[INFO] Running neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest
+[ERROR] neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.testDynamicCalculation2  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.processSystem.ProcessSystemRunTransientTest.testDynamicCalculation2(ProcessSystemRunTransientTest.java:115)
+
+[INFO] Running neqsim.processSimulation.util.example.process1Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.processSimulation.util.example.process1Test
+[ERROR] neqsim.processSimulation.util.example.process1Test  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.processSimulation.util.example.process1Test.setUp(process1Test.java:20)
+
+[INFO] Running neqsim.thermodynamicOperations.ThermodynamicOperationsTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in neqsim.thermodynamicOperations.ThermodynamicOperationsTest
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testpropertyFlashOnlineSingle  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testpropertyFlashOnlineSingle(ThermodynamicOperationsTest.java:170)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testNeqSimPython  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testNeqSimPython(ThermodynamicOperationsTest.java:18)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testpropertyFlashOnline  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testpropertyFlashOnline(ThermodynamicOperationsTest.java:148)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testComponentNames  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testComponentNames(ThermodynamicOperationsTest.java:78)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testPropertyFlash  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testPropertyFlash(ThermodynamicOperationsTest.java:114)
+
+[ERROR] neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testNeqSimPython2  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.ThermodynamicOperationsTest.testNeqSimPython2(ThermodynamicOperationsTest.java:49)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.TVFlashTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.TVFlashTest
+[ERROR] neqsim.thermodynamicOperations.flashOps.TVFlashTest.testTVflash  Time elapsed: 0.014 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.flashOps.TVFlashTest.setUp(TVFlashTest.java:28)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test
+[ERROR] neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test.testRun  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.flashOps.PHFlashGERG2008Test.setUp(PHFlashGERG2008Test.java:23)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.PHFlashTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.PHFlashTest
+[ERROR] neqsim.thermodynamicOperations.flashOps.PHFlashTest.testRun  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.flashOps.PHFlashTest.setUp(PHFlashTest.java:23)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.WaxFlashTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 s - in neqsim.thermodynamicOperations.flashOps.WaxFlashTest
+[INFO] Running neqsim.thermodynamicOperations.flashOps.TPFlashTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.TPFlashTest
+[ERROR] neqsim.thermodynamicOperations.flashOps.TPFlashTest.testRun2  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.flashOps.TPFlashTest.setUp(TPFlashTest.java:23)
+
+[ERROR] neqsim.thermodynamicOperations.flashOps.TPFlashTest.testRun3  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.flashOps.TPFlashTest.setUp(TPFlashTest.java:23)
+
+[ERROR] neqsim.thermodynamicOperations.flashOps.TPFlashTest.testRun5  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.flashOps.TPFlashTest.setUp(TPFlashTest.java:23)
+
+[INFO] Running neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test
+[ERROR] neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test.testRun  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermodynamicOperations.flashOps.PSFlashGERG2008Test.setUp(PSFlashGERG2008Test.java:23)
+
+[INFO] Running neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest
+[ERROR] Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testSolveTransient  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testCreateSystem  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testSolveSteadyState  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testInit  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+
+[ERROR] neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.testSolveSteadyStateConstantFrictionFactor  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.fluidMechanics.flowSystem.onePhaseFlowSystem.pipeFlowSystem.PipeFlowSystemTest.setUp(PipeFlowSystemTest.java:17)
+
+[INFO] Running neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest
+[ERROR] neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.physicalProperties.physicalPropertyMethods.liquidPhysicalProperties.density.CostaldTest.setUp(CostaldTest.java:15)
+
+[INFO] Running neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest
+[ERROR] neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.physicalProperties.physicalPropertyMethods.commonPhasePhysicalProperties.viscosity.FrictionTheoryViscosityMethodTest.setUp(FrictionTheoryViscosityMethodTest.java:14)
+
+[INFO] Running neqsim.PVTsimulation.simulation.SaturationTemperatureTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.PVTsimulation.simulation.SaturationTemperatureTest
+[ERROR] neqsim.PVTsimulation.simulation.SaturationTemperatureTest.testCalcSaturationTemperature  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.PVTsimulation.simulation.SaturationTemperatureTest.testCalcSaturationTemperature(SaturationTemperatureTest.java:28)
+
+[INFO] Running neqsim.PVTsimulation.simulation.SaturationPressureTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.PVTsimulation.simulation.SaturationPressureTest
+[ERROR] neqsim.PVTsimulation.simulation.SaturationPressureTest.testCalcSaturationPressure  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.PVTsimulation.simulation.SaturationPressureTest.testCalcSaturationPressure(SaturationPressureTest.java:18)
+
+[INFO] Running neqsim.thermo.component.ComponentTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.thermo.component.ComponentTest
+[ERROR] neqsim.thermo.component.ComponentTest  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.component.ComponentTest.setUpBeforeClass(ComponentTest.java:18)
+
+[INFO] Running neqsim.thermo.component.ComponentHydrateGFTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.component.ComponentHydrateGFTest
+[ERROR] neqsim.thermo.component.ComponentHydrateGFTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.component.ComponentHydrateGFTest.setUpBeforeClass(ComponentHydrateGFTest.java:27)
+
+[INFO] Running neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest
+[ERROR] neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testRead  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testRead(EclipseFluidReadWriteTest.java:39)
+
+[ERROR] neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testSetComposition  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testSetComposition(EclipseFluidReadWriteTest.java:63)
+
+[ERROR] neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testReadAndAddFluids  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.readwrite.EclipseFluidReadWriteTest.testReadAndAddFluids(EclipseFluidReadWriteTest.java:45)
+
+[INFO] Running neqsim.thermo.util.example.SrkOilCharacterizationTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.SrkOilCharacterizationTest
+[ERROR] neqsim.thermo.util.example.SrkOilCharacterizationTest  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.example.SrkOilCharacterizationTest.setUp(SrkOilCharacterizationTest.java:29)
+
+[INFO] Running neqsim.thermo.util.example.VapourPressureTTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.util.example.VapourPressureTTest
+[ERROR] neqsim.thermo.util.example.VapourPressureTTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.example.VapourPressureTTest.setUp(VapourPressureTTest.java:30)
+
+[INFO] Running neqsim.thermo.util.example.FlashGasTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.util.example.FlashGasTest
+[ERROR] neqsim.thermo.util.example.FlashGasTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.example.FlashGasTest.setUp(FlashGasTest.java:37)
+
+[INFO] Running neqsim.thermo.util.example.FlashWaterTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in neqsim.thermo.util.example.FlashWaterTest
+[ERROR] neqsim.thermo.util.example.FlashWaterTest  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.example.FlashWaterTest.setUp(FlashWaterTest.java:29)
+
+[INFO] Running neqsim.thermo.util.example.KlabFlashBugTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.util.example.KlabFlashBugTest
+[ERROR] neqsim.thermo.util.example.KlabFlashBugTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.example.KlabFlashBugTest.setUp(KlabFlashBugTest.java:37)
+
+[INFO] Running neqsim.thermo.util.example.SrkEoSTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.util.example.SrkEoSTest
+[ERROR] neqsim.thermo.util.example.SrkEoSTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.example.SrkEoSTest.setUp(SrkEoSTest.java:34)
+
+[INFO] Running neqsim.thermo.util.example.FlashOilTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.thermo.util.example.FlashOilTest
+[ERROR] neqsim.thermo.util.example.FlashOilTest  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.util.example.FlashOilTest.setUp(FlashOilTest.java:53)
+
+[INFO] Running neqsim.thermo.system.SystemPropertiesTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! - in neqsim.thermo.system.SystemPropertiesTest
+[ERROR] neqsim.thermo.system.SystemPropertiesTest.testGetProperties  Time elapsed: 0.023 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemPropertiesTest.testGetProperties(SystemPropertiesTest.java:9)
+
+[INFO] Running neqsim.thermo.system.SystemUMRPRUMCEosNewTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in neqsim.thermo.system.SystemUMRPRUMCEosNewTest
+[ERROR] neqsim.thermo.system.SystemUMRPRUMCEosNewTest  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemUMRPRUMCEosNewTest.setUp(SystemUMRPRUMCEosNewTest.java:26)
+
+[INFO] Running neqsim.thermo.system.SystemThermoSetMolarCompositionTest
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in neqsim.thermo.system.SystemThermoSetMolarCompositionTest
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testNoFlowPlus  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.setup(SystemThermoSetMolarCompositionTest.java:13)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testSetMolarCompositionOfPlusFluid  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.setup(SystemThermoSetMolarCompositionTest.java:13)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.setMolarCompositionPlus  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.setup(SystemThermoSetMolarCompositionTest.java:13)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testSetMolarComposition  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.setup(SystemThermoSetMolarCompositionTest.java:13)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testNoFlowPlusFluid  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.setup(SystemThermoSetMolarCompositionTest.java:13)
+
+[ERROR] neqsim.thermo.system.SystemThermoSetMolarCompositionTest.testNoFlow  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoSetMolarCompositionTest.setup(SystemThermoSetMolarCompositionTest.java:13)
+
+[INFO] Running neqsim.thermo.system.SystemElectrolyteCPATest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in neqsim.thermo.system.SystemElectrolyteCPATest
+[ERROR] neqsim.thermo.system.SystemElectrolyteCPATest  Time elapsed: 0.016 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemElectrolyteCPATest.setUp(SystemElectrolyteCPATest.java:29)
+
+[INFO] Running neqsim.thermo.system.SystemSrkSchwartzentruberEosTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in neqsim.thermo.system.SystemSrkSchwartzentruberEosTest
+[ERROR] neqsim.thermo.system.SystemSrkSchwartzentruberEosTest  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemSrkSchwartzentruberEosTest.setUp(SystemSrkSchwartzentruberEosTest.java:23)
+
+[INFO] Running neqsim.thermo.system.SystemSrkCPAstatoilTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.thermo.system.SystemSrkCPAstatoilTest
+[ERROR] neqsim.thermo.system.SystemSrkCPAstatoilTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemSrkCPAstatoilTest.setUp(SystemSrkCPAstatoilTest.java:28)
+
+[INFO] Running neqsim.thermo.system.SystemThermoAddComponentTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in neqsim.thermo.system.SystemThermoAddComponentTest
+[ERROR] neqsim.thermo.system.SystemThermoAddComponentTest.testAddPlusFraction  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoAddComponentTest.testAddPlusFraction(SystemThermoAddComponentTest.java:67)
+
+[ERROR] neqsim.thermo.system.SystemThermoAddComponentTest.testGetTotalNumberOfMoles  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoAddComponentTest.testGetTotalNumberOfMoles(SystemThermoAddComponentTest.java:124)
+
+[ERROR] neqsim.thermo.system.SystemThermoAddComponentTest.testAddComponent  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoAddComponentTest.testAddComponent(SystemThermoAddComponentTest.java:30)
+
+[ERROR] neqsim.thermo.system.SystemThermoAddComponentTest.testAddTBPFraction  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemThermoAddComponentTest.testAddTBPFraction(SystemThermoAddComponentTest.java:98)
+
+[INFO] Running neqsim.thermo.system.SystemPrEoSTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in neqsim.thermo.system.SystemPrEoSTest
+[ERROR] neqsim.thermo.system.SystemPrEoSTest  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.thermo.system.SystemPrEoSTest.setUp(SystemPrEosTest.java:22)
+
+[INFO] Running neqsim.standards.gasQuality.Draft_GERG2004Test
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.001 s - in neqsim.standards.gasQuality.Draft_GERG2004Test
+[INFO] Running neqsim.standards.gasQuality.Standard_ISO6578Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.standards.gasQuality.Standard_ISO6578Test
+[ERROR] neqsim.standards.gasQuality.Standard_ISO6578Test.testCalculate  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.standards.gasQuality.Standard_ISO6578Test.testCalculate(Standard_ISO6578Test.java:12)
+
+[INFO] Running neqsim.standards.gasQuality.Standard_ISO6976Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in neqsim.standards.gasQuality.Standard_ISO6976Test
+[ERROR] neqsim.standards.gasQuality.Standard_ISO6976Test  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.standards.gasQuality.Standard_ISO6976Test.setUpBeforeClass(Standard_ISO6976Test.java:24)
+
+[INFO] Running neqsim.standards.gasQuality.Draft_ISO18453Test
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in neqsim.standards.gasQuality.Draft_ISO18453Test
+[ERROR] neqsim.standards.gasQuality.Draft_ISO18453Test.testCalculate  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.standards.gasQuality.Draft_ISO18453Test.testCalculate(Draft_ISO18453Test.java:13)
+
+[INFO] Running neqsim.standards.salesContract.BaseContractTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in neqsim.standards.salesContract.BaseContractTest
+[ERROR] neqsim.standards.salesContract.BaseContractTest.testRunCheck  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.apache.derby.jdbc.EmbeddedDriver
+	at neqsim.standards.salesContract.BaseContractTest.testRunCheck(BaseContractTest.java:12)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   SaturationPressureTest.testCalcSaturationPressure:18 » NoClassDefFound Could n...
+[ERROR]   SaturationTemperatureTest.testCalcSaturationTemperature:28 » NoClassDefFound C...
+[ERROR]   PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a...
+[ERROR]   PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a...
+[ERROR]   PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a...
+[ERROR]   PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a...
+[ERROR]   PipeFlowSystemTest.setUp:17 » NoClassDefFound Could not initialize class org.a...
+[ERROR]   FrictionTheoryViscosityMethodTest.setUp:14 » NoClassDefFound Could not initial...
+[ERROR]   CostaldTest.setUp:15 » NoClassDefFound Could not initialize class org.apache.d...
+[ERROR]   WellAllocatorTest.testGetMeasuredValueString:30 » NoClassDefFound Could not in...
+[ERROR]   pHProbeTest.testGetMeasuredValue:18 » NoClassDefFound Could not initialize cla...
+[ERROR]   pHProbeTest.testGetMeasuredValueWithAlkanility:44 » NoClassDefFound Could not ...
+[ERROR]   CompressorCalculationTest.setUp:18 » NoClassDefFound Could not initialize clas...
+[ERROR]   CompressorCalculationTest.setUp:18 » NoClassDefFound Could not initialize clas...
+[ERROR]   CompressorChartTest.setUp:22 » NoClassDefFound Could not initialize class org....
+[ERROR]   CompressorPropertyProfileTest.setUp:30 » NoClassDefFound Could not initialize ...
+[ERROR]   CompressorPropertyProfileTest.setUp:30 » NoClassDefFound Could not initialize ...
+[ERROR]   CompressorTest.setUp:44 » NoClassDefFound Could not initialize class org.apach...
+[ERROR]   CompressorTest.setUp:44 » NoClassDefFound Could not initialize class org.apach...
+[ERROR]   CompressorTest.setUp:44 » NoClassDefFound Could not initialize class org.apach...
+[ERROR]   CompressorTest.setUp:44 » NoClassDefFound Could not initialize class org.apach...
+[ERROR]   CompressorTest.setUp:44 » NoClassDefFound Could not initialize class org.apach...
+[ERROR]   CompressorTest.setUp:44 » NoClassDefFound Could not initialize class org.apach...
+[ERROR]   CompressorTest.setUp:44 » NoClassDefFound Could not initialize class org.apach...
+[ERROR]   MixerTest.setUpBeforeClass:25 » UnsupportedClassVersion org/apache/derby/iapi/...
+[ERROR]   GasTurbineTest.setUp:17 » NoClassDefFound Could not initialize class org.apach...
+[ERROR]   PumpTest.testRun:18 » NoClassDefFound Could not initialize class org.apache.de...
+[ERROR]   SeparatorTest.setUpBeforeClass:27 » NoClassDefFound Could not initialize class...
+[ERROR]   SeparatorTest.setUpBeforeClass:27 » NoClassDefFound Could not initialize class...
+[ERROR]   ComponentSplitterTest.setUpBeforeClass:21 » NoClassDefFound Could not initiali...
+[ERROR]   StreamTest.setUpBeforeClass:27 » NoClassDefFound Could not initialize class or...
+[ERROR]   StreamTest.setUpBeforeClass:27 » NoClassDefFound Could not initialize class or...
+[ERROR]   GlycolRigTest.runTEGProcessTest:29 » NoClassDefFound Could not initialize clas...
+[ERROR]   ProcessSystemControllerTest.testStaticSimulationWithController:59->getTestSystem:42 » NoClassDefFound
+[ERROR]   ProcessSystemRunTransientTest.testDynamicCalculation2:115 » NoClassDefFound Co...
+[ERROR]   ProcessSystemTest.runTEGProcessTest:306 » NoClassDefFound Could not initialize...
+[ERROR]   process1Test.setUp:20 » NoClassDefFound Could not initialize class org.apache....
+[ERROR]   Draft_ISO18453Test.testCalculate:13 » NoClassDefFound Could not initialize cla...
+[ERROR]   Standard_ISO6578Test.testCalculate:12 » NoClassDefFound Could not initialize c...
+[ERROR]   Standard_ISO6976Test.setUpBeforeClass:24 » NoClassDefFound Could not initializ...
+[ERROR]   BaseContractTest.testRunCheck:12 » NoClassDefFound Could not initialize class ...
+[ERROR]   ComponentHydrateGFTest.setUpBeforeClass:27 » NoClassDefFound Could not initial...
+[ERROR]   ComponentTest.setUpBeforeClass:18 » NoClassDefFound Could not initialize class...
+[ERROR]   SystemElectrolyteCPATest.setUp:29 » NoClassDefFound Could not initialize class...
+[ERROR]   SystemPrEoSTest.setUp:22 » NoClassDefFound Could not initialize class org.apac...
+[ERROR]   SystemPropertiesTest.testGetProperties:9 » NoClassDefFound Could not initializ...
+[ERROR]   SystemSrkCPAstatoilTest.setUp:28 » NoClassDefFound Could not initialize class ...
+[ERROR]   SystemSrkSchwartzentruberEosTest.setUp:23 » NoClassDefFound Could not initiali...
+[ERROR]   SystemThermoAddComponentTest.testAddComponent:30 » NoClassDefFound Could not i...
+[ERROR]   SystemThermoAddComponentTest.testAddPlusFraction:67 » NoClassDefFound Could no...
+[ERROR]   SystemThermoAddComponentTest.testAddTBPFraction:98 » NoClassDefFound Could not...
+[ERROR]   SystemThermoAddComponentTest.testGetTotalNumberOfMoles:124 » NoClassDefFound C...
+[ERROR]   SystemThermoSetMolarCompositionTest.setup:13 » NoClassDefFound Could not initi...
+[ERROR]   SystemThermoSetMolarCompositionTest.setup:13 » NoClassDefFound Could not initi...
+[ERROR]   SystemThermoSetMolarCompositionTest.setup:13 » NoClassDefFound Could not initi...
+[ERROR]   SystemThermoSetMolarCompositionTest.setup:13 » NoClassDefFound Could not initi...
+[ERROR]   SystemThermoSetMolarCompositionTest.setup:13 » NoClassDefFound Could not initi...
+[ERROR]   SystemThermoSetMolarCompositionTest.setup:13 » NoClassDefFound Could not initi...
+[ERROR]   SystemUMRPRUMCEosNewTest.setUp:26 » NoClassDefFound Could not initialize class...
+[ERROR]   FlashGasTest.setUp:37 » NoClassDefFound Could not initialize class org.apache....
+[ERROR]   FlashOilTest.setUp:53 » NoClassDefFound Could not initialize class org.apache....
+[ERROR]   FlashWaterTest.setUp:29 » NoClassDefFound Could not initialize class org.apach...
+[ERROR]   KlabFlashBugTest.setUp:37 » NoClassDefFound Could not initialize class org.apa...
+[ERROR]   SrkEoSTest.setUp:34 » NoClassDefFound Could not initialize class org.apache.de...
+[ERROR]   SrkOilCharacterizationTest.setUp:29 » NoClassDefFound Could not initialize cla...
+[ERROR]   VapourPressureTTest.setUp:30 » NoClassDefFound Could not initialize class org....
+[ERROR]   EclipseFluidReadWriteTest.testRead:39 » NoClassDefFound Could not initialize c...
+[ERROR]   EclipseFluidReadWriteTest.testReadAndAddFluids:45 » NoClassDefFound Could not ...
+[ERROR]   EclipseFluidReadWriteTest.testSetComposition:63 » NoClassDefFound Could not in...
+[ERROR]   ThermodynamicOperationsTest.testComponentNames:78 » NoClassDefFound Could not ...
+[ERROR]   ThermodynamicOperationsTest.testNeqSimPython:18 » NoClassDefFound Could not in...
+[ERROR]   ThermodynamicOperationsTest.testNeqSimPython2:49 » NoClassDefFound Could not i...
+[ERROR]   ThermodynamicOperationsTest.testPropertyFlash:114 » NoClassDefFound Could not ...
+[ERROR]   ThermodynamicOperationsTest.testpropertyFlashOnline:148 » NoClassDefFound Coul...
+[ERROR]   ThermodynamicOperationsTest.testpropertyFlashOnlineSingle:170 » NoClassDefFound
+[ERROR]   PHFlashGERG2008Test.setUp:23 » NoClassDefFound Could not initialize class org....
+[ERROR]   PHFlashTest.setUp:23 » NoClassDefFound Could not initialize class org.apache.d...
+[ERROR]   PSFlashGERG2008Test.setUp:23 » NoClassDefFound Could not initialize class org....
+[ERROR]   TPFlashTest.setUp:23 » NoClassDefFound Could not initialize class org.apache.d...
+[ERROR]   TPFlashTest.setUp:23 » NoClassDefFound Could not initialize class org.apache.d...
+[ERROR]   TPFlashTest.setUp:23 » NoClassDefFound Could not initialize class org.apache.d...
+[ERROR]   TVFlashTest.setUp:28 » NoClassDefFound Could not initialize class org.apache.d...
+[INFO] 
+[ERROR] Tests run: 134, Failures: 0, Errors: 82, Skipped: 4
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  35.434 s
+[INFO] Finished at: 2025-10-01T15:26:12Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 6 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.7
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.9.0
+[WARNING]  * org.codehaus.mojo:flatten-maven-plugin:1.2.7
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project neqsim: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /neqsim/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,1494 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] sparql.anything                                                    [pom]
+[INFO] sparql-anything-model                                              [jar]
+[INFO] sparql-anything-metadata                                           [jar]
+[INFO] sparql-anything-parser                                             [jar]
+[INFO] sparql-anything-csv                                                [jar]
+[INFO] sparql-anything-testutils                                          [jar]
+[INFO] sparql-anything-xml                                                [jar]
+[INFO] sparql-anything-docs                                               [jar]
+[INFO] sparql-anything-html                                               [jar]
+[INFO] sparql-anything-text                                               [jar]
+[INFO] sparql-anything-json                                               [jar]
+[INFO] sparql-anything-yaml                                               [jar]
+[INFO] sparql-anything-markdown                                           [jar]
+[INFO] sparql-anything-bib                                                [jar]
+[INFO] sparql-anything-archive                                            [jar]
+[INFO] sparql-anything-binary                                             [jar]
+[INFO] sparql-anything-spreadsheet                                        [jar]
+[INFO] sparql-anything-rdf                                                [jar]
+[INFO] sparql-anything-engine                                             [jar]
+[INFO] sparql-anything-cli                                                [jar]
+[INFO] sparql-anything-it                                                 [jar]
+[INFO] sparql-anything-fuseki                                             [jar]
+[INFO] 
+[INFO] ----------< com.github.sparqlanything:sparql-anything-parent >----------
+[INFO] Building sparql.anything 0.8.0-SNAPSHOT                           [1/22]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sparql-anything-parent ---
+[INFO] 
+[INFO] ----------< com.github.sparqlanything:sparql-anything-model >-----------
+[INFO] Building sparql-anything-model 0.8.0-SNAPSHOT                     [2/22]
+[INFO]   from sparql-anything-model/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sparql-anything-model ---
+[INFO] Deleting /sparql.anything/sparql-anything-model/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sparql-anything-model ---
+[INFO] skip non existing resourceDirectory /sparql.anything/sparql-anything-model/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ sparql-anything-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 15 source files to /sparql.anything/sparql-anything-model/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sparql-anything-model ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ sparql-anything-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /sparql.anything/sparql-anything-model/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ sparql-anything-model ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.sparqlanything.model.test.ResourceManagerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in com.github.sparqlanything.model.test.ResourceManagerTest
+[INFO] Running com.github.sparqlanything.model.test.TriplifierGetPropertyValuesTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.sparqlanything.model.test.TriplifierGetPropertyValuesTest
+[INFO] Running com.github.sparqlanything.model.test.HTTPHelperTest
+[main] INFO com.github.sparqlanything.model.HTTPHelper - Setting proxy: myhost.net:80
+file
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in com.github.sparqlanything.model.test.HTTPHelperTest
+[INFO] Running com.github.sparqlanything.model.test.TestTriplifierEscaper
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.sparqlanything.model.test.TestTriplifierEscaper
+[INFO] Running com.github.sparqlanything.model.test.TripleFilteringFacadeXBuilderTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.655 s - in com.github.sparqlanything.model.test.TripleFilteringFacadeXBuilderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ---------< com.github.sparqlanything:sparql-anything-metadata >---------
+[INFO] Building sparql-anything-metadata 0.8.0-SNAPSHOT                  [3/22]
+[INFO]   from sparql-anything-metadata/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sparql-anything-metadata ---
+[INFO] Deleting /sparql.anything/sparql-anything-metadata/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sparql-anything-metadata ---
+[INFO] skip non existing resourceDirectory /sparql.anything/sparql-anything-metadata/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ sparql-anything-metadata ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /sparql.anything/sparql-anything-metadata/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sparql-anything-metadata ---
+[INFO] skip non existing resourceDirectory /sparql.anything/sparql-anything-metadata/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ sparql-anything-metadata ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /sparql.anything/sparql-anything-metadata/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ sparql-anything-metadata ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.sparqlanything.metadata.test.MetadataTriplifierTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in com.github.sparqlanything.metadata.test.MetadataTriplifierTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----------< com.github.sparqlanything:sparql-anything-parser >----------
+[INFO] Building sparql-anything-parser 0.8.0-SNAPSHOT                    [4/22]
+[INFO]   from sparql-anything-parser/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sparql-anything-parser ---
+[INFO] Deleting /sparql.anything/sparql-anything-parser/target
+[INFO] 
+[INFO] --- antlr4:4.7:antlr4 (default) @ sparql-anything-parser ---
+[INFO] ANTLR 4: Processing source directory /sparql.anything/sparql-anything-parser/src/main/antlr4
+[INFO] Processing grammar: com/github/sparqlanything/facadeiri/antlr/FacadeIRI.g4
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sparql-anything-parser ---
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ sparql-anything-parser ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /sparql.anything/sparql-anything-parser/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sparql-anything-parser ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ sparql-anything-parser ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /sparql.anything/sparql-anything-parser/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ sparql-anything-parser ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.sparqlanything.parser.test.FacadeIRIParserTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s - in com.github.sparqlanything.parser.test.FacadeIRIParserTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------< com.github.sparqlanything:sparql-anything-csv >------------
+[INFO] Building sparql-anything-csv 0.8.0-SNAPSHOT                       [5/22]
+[INFO]   from sparql-anything-csv/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sparql-anything-csv ---
+[INFO] Deleting /sparql.anything/sparql-anything-csv/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sparql-anything-csv ---
+[INFO] skip non existing resourceDirectory /sparql.anything/sparql-anything-csv/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ sparql-anything-csv ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /sparql.anything/sparql-anything-csv/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sparql-anything-csv ---
+[INFO] Copying 4 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ sparql-anything-csv ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /sparql.anything/sparql-anything-csv/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ sparql-anything-csv ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.sparqlanything.csv.CSVTriplifierTest
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/ns/root]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Year "1997"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Make "Ford"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Model "E350"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Description "ac, abs, moon"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Price "3000.00"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/ns/root]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Price "3000.00"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Description "ac, abs, moon"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Model "E350"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Make "Ford"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test.tsv##row1 http://www.example.org#Year "1997"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/ns/root]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "1997"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 "Ford"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 "E350"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 "ac, abs, moon"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 "3000.00"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Year"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 "Make"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 "Model"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 "Description"]
+[urn:x-arq:DefaultGraph file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 "Price"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/ns/root]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 "3000.00"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 "ac, abs, moon"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 "E350"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 "Ford"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "1997"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 "Price"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 "Description"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 "Model"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 "Make"]
+[file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv# file:/sparql.anything/sparql-anything-csv/target/test-classes/test1.csv##row1 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Year"]
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.588 s - in com.github.sparqlanything.csv.CSVTriplifierTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------< com.github.sparqlanything:sparql-anything-testutils >---------
+[INFO] Building sparql-anything-testutils 0.8.0-SNAPSHOT                 [6/22]
+[INFO]   from sparql-anything-testutils/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sparql-anything-testutils ---
+[INFO] Deleting /sparql.anything/sparql-anything-testutils/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sparql-anything-testutils ---
+[INFO] skip non existing resourceDirectory /sparql.anything/sparql-anything-testutils/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ sparql-anything-testutils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /sparql.anything/sparql-anything-testutils/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sparql-anything-testutils ---
+[INFO] skip non existing resourceDirectory /sparql.anything/sparql-anything-testutils/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ sparql-anything-testutils ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ sparql-anything-testutils ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] -----------< com.github.sparqlanything:sparql-anything-xml >------------
+[INFO] Building sparql-anything-xml 0.8.0-SNAPSHOT                       [7/22]
+[INFO]   from sparql-anything-xml/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sparql-anything-xml ---
+[INFO] Deleting /sparql.anything/sparql-anything-xml/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sparql-anything-xml ---
+[INFO] skip non existing resourceDirectory /sparql.anything/sparql-anything-xml/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ sparql-anything-xml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /sparql.anything/sparql-anything-xml/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sparql-anything-xml ---
+[INFO] Copying 12 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ sparql-anything-xml ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /sparql.anything/sparql-anything-xml/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ sparql-anything-xml ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.sparqlanything.xml.XMLTriplifierTest
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Corets, Eva"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "5.95"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Computer"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Maeve Ascendant"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "2000-10-01"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "2000-12-16"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "5.95"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "After the collapse of a nanotechnology
+            society in England, the young survivors lay thefoundation for a new society."
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Midnight Rain"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://sparql.xyz/facade-x/data/isbn "432-3-16-143110-1"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/1:author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/2:title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/3:genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/4:price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/5:publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_6 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/6:description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "44.95"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "A former architect battles corporate zombies,
+            an evil sorceress, and her own childhood to become queenof the world."
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Ralls, Kim"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "XML Developer's Guide"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "2000-11-17"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Gambardella, Matthew"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Fantasy"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://sparql.xyz/facade-x/data/isbn "978-3-12-148410-0"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/1:author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/2:title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/3:genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/4:price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/5:publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_6 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/6:description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/ns/root
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/books
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Fantasy"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "An in-depth look at creating applications
+            with XML."
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://sparql.xyz/facade-x/data/isbn "928-3-16-148410-0"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/1:author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/2:title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/3:genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/4:price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/5:publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_6 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/6:description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Corets, Eva"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "5.95"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Computer"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Maeve Ascendant"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "2000-10-01"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "2000-12-16"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "After the collapse of a nanotechnology
+            society in England, the young survivors lay thefoundation for a new society."
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "5.95"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Midnight Rain"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_6 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/6:description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/5:publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/4:price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/3:genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/2:title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/1:author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://sparql.xyz/facade-x/data/isbn "432-3-16-143110-1"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "44.95"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/4:price http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "A former architect battles corporate zombies,
+            an evil sorceress, and her own childhood to become queenof the world."
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Ralls, Kim"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "XML Developer's Guide"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/2:title http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "2000-11-17"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/5:publish_date http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Gambardella, Matthew"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/1:author http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Fantasy"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_6 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/6:description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/5:publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/4:price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/3:genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/2:title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/1:author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://sparql.xyz/facade-x/data/isbn "978-3-12-148410-0"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/3:book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/books
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/ns/root
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Fantasy"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/3:genre http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_6 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/6:description
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/5:publish_date
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/4:price
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/3:genre
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/2:title
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book/1:author
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://sparql.xyz/facade-x/data/isbn "928-3-16-148410-0"
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/2:book http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/book
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "An in-depth look at creating applications
+            with XML."
+[main] INFO com.github.sparqlanything.xml.XMLTriplifierTest - file:/sparql.anything/sparql-anything-xml/target/test-classes/test1.xml#/books/1:book/6:description http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/data/description
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.547 s - in com.github.sparqlanything.xml.XMLTriplifierTest
+[INFO] Running com.github.sparqlanything.xml.MoreXMLTriplifierTest
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testBooks_1$1 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {xml.path=//book, blank-nodes=false, root=http://www.example.org/document, location=file:/sparql.anything/sparql-anything-xml/target/test-classes/Books_1.xml}
+[main] INFO com.github.sparqlanything.xml.MoreXMLTriplifierTest - Test XML books (XPath //book, one go)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testBooks_2$1 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {xml.path=//book, blank-nodes=false, root=http://www.example.org/document, location=file:/sparql.anything/sparql-anything-xml/target/test-classes/Books_2.xml}
+[main] INFO com.github.sparqlanything.xml.MoreXMLTriplifierTest - Test XML books (XPath //book, one go) -- different input but same output as _1
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testBooks$1 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {blank-nodes=false, root=http://www.example.org/document, location=file:/sparql.anything/sparql-anything-xml/target/test-classes/Books.xml}
+[main] INFO com.github.sparqlanything.xml.MoreXMLTriplifierTest - Test XML books (one go)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testSimple$1 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {blank-nodes=false, root=http://www.example.org/document, location=file:/sparql.anything/sparql-anything-xml/target/test-classes/Simple.xml}
+[main] INFO com.github.sparqlanything.xml.MoreXMLTriplifierTest - Test XML (one go)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testSliceBooks$1 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {xml.path=//book, slice=true, blank-nodes=false, root=http://www.example.org/document, location=file:/sparql.anything/sparql-anything-xml/target/test-classes/SliceBooks.xml}
+[main] INFO com.github.sparqlanything.xml.MoreXMLTriplifierTest - Test XML books (XPath //book, with slicing)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 s - in com.github.sparqlanything.xml.MoreXMLTriplifierTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------< com.github.sparqlanything:sparql-anything-docs >-----------
+[INFO] Building sparql-anything-docs 0.8.0-SNAPSHOT                      [8/22]
+[INFO]   from sparql-anything-docs/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sparql-anything-docs ---
+[INFO] Deleting /sparql.anything/sparql-anything-docs/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sparql-anything-docs ---
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ sparql-anything-docs ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /sparql.anything/sparql-anything-docs/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sparql-anything-docs ---
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ sparql-anything-docs ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /sparql.anything/sparql-anything-docs/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ sparql-anything-docs ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.sparqlanything.docs.test.DocxTriplifierTest
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testDoc1 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {blank-nodes=false, root=http://www.example.org/document, location=file:/sparql.anything/sparql-anything-docs/target/test-classes/Doc1.docx}
+[main] WARN com.github.sparqlanything.testutils.TestUtils - Whole files
+
+Expected
+
+<http://www.example.org/document>
+        a       <http://sparql.xyz/facade-x/ns/root> , <http://sparql.xyz/facade-x/data/Document> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                <http://sparql.xyz/facade-x/data/Heading1/1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
+                <http://sparql.xyz/facade-x/data/paragraph/2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_3>
+                <http://sparql.xyz/facade-x/data/paragraph/3> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_4>
+                <http://sparql.xyz/facade-x/data/Heading2/4> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_5>
+                <http://sparql.xyz/facade-x/data/paragraph/5> .
+
+<http://sparql.xyz/facade-x/data/Heading2/4>
+        a       <http://sparql.xyz/facade-x/data/Heading2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 2" .
+
+<http://sparql.xyz/facade-x/data/Heading1/1>
+        a       <http://sparql.xyz/facade-x/data/Heading1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/2>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/5>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph3" .
+
+<http://sparql.xyz/facade-x/data/paragraph/3>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph2" .
+
+
+--------
+
+Result
+
+<http://www.example.org/document>
+        a       <http://sparql.xyz/facade-x/data/Document> , <http://sparql.xyz/facade-x/ns/root> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                <http://sparql.xyz/facade-x/data/Heading1/1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
+                <http://sparql.xyz/facade-x/data/paragraph/2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_3>
+                <http://sparql.xyz/facade-x/data/paragraph/3> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_4>
+                <http://sparql.xyz/facade-x/data/Heading2/4> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_5>
+                <http://sparql.xyz/facade-x/data/paragraph/5> .
+
+<http://sparql.xyz/facade-x/data/Heading2/4>
+        a       <http://sparql.xyz/facade-x/data/Heading2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 2" .
+
+<http://sparql.xyz/facade-x/data/Heading1/1>
+        a       <http://sparql.xyz/facade-x/data/Heading1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/2>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/5>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph3" .
+
+<http://sparql.xyz/facade-x/data/paragraph/3>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph2" .
+
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testDoc2 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {blank-nodes=false, root=http://www.example.org/document, location=file:/sparql.anything/sparql-anything-docs/target/test-classes/Doc2.docx}
+[main] WARN com.github.sparqlanything.testutils.TestUtils - Whole files
+
+Expected
+
+<http://www.example.org/document>
+        a       <http://sparql.xyz/facade-x/ns/root> , <http://sparql.xyz/facade-x/data/Document> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                <http://sparql.xyz/facade-x/data/Heading1/1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
+                <http://sparql.xyz/facade-x/data/paragraph/2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_3>
+                <http://sparql.xyz/facade-x/data/paragraph/3> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_4>
+                <http://sparql.xyz/facade-x/data/Heading2/4> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_5>
+                <http://sparql.xyz/facade-x/data/paragraph/5> .
+
+<http://sparql.xyz/facade-x/data/Heading2/4>
+        a       <http://sparql.xyz/facade-x/data/Heading2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 2" .
+
+<http://sparql.xyz/facade-x/data/Heading1/1>
+        a       <http://sparql.xyz/facade-x/data/Heading1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/2>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/5>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph3" .
+
+<http://sparql.xyz/facade-x/data/paragraph/3>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph2" .
+
+
+--------
+
+Result
+
+<http://www.example.org/document>
+        a       <http://sparql.xyz/facade-x/data/Document> , <http://sparql.xyz/facade-x/ns/root> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                <http://sparql.xyz/facade-x/data/Heading1/1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
+                <http://sparql.xyz/facade-x/data/paragraph/2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_3>
+                <http://sparql.xyz/facade-x/data/paragraph/3> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_4>
+                <http://sparql.xyz/facade-x/data/Heading2/4> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_5>
+                <http://sparql.xyz/facade-x/data/paragraph/5> .
+
+<http://sparql.xyz/facade-x/data/Heading2/4>
+        a       <http://sparql.xyz/facade-x/data/Heading2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 2" .
+
+<http://sparql.xyz/facade-x/data/Heading1/1>
+        a       <http://sparql.xyz/facade-x/data/Heading1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/2>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/5>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph3" .
+
+<http://sparql.xyz/facade-x/data/paragraph/3>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph2" .
+
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testDoc3 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {blank-nodes=false, root=http://www.example.org/document, location=file:/sparql.anything/sparql-anything-docs/target/test-classes/Doc3.docx}
+[main] WARN com.github.sparqlanything.testutils.TestUtils - Whole files
+
+Expected
+
+<http://sparql.xyz/facade-x/data/Heading2/6>
+        a       <http://sparql.xyz/facade-x/data/Heading2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 2" .
+
+<http://www.example.org/document>
+        a       <http://sparql.xyz/facade-x/ns/root> , <http://sparql.xyz/facade-x/data/Document> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                <http://sparql.xyz/facade-x/data/Heading1/1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
+                <http://sparql.xyz/facade-x/data/paragraph/2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_3>
+                <http://sparql.xyz/facade-x/data/paragraph/3> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_4>
+                <http://sparql.xyz/facade-x/data/ListParagraph/4> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_5>
+                <http://sparql.xyz/facade-x/data/ListParagraph/5> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_6>
+                <http://sparql.xyz/facade-x/data/Heading2/6> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_7>
+                <http://sparql.xyz/facade-x/data/paragraph/7> .
+
+<http://sparql.xyz/facade-x/data/ListParagraph/5>
+        a       <http://sparql.xyz/facade-x/data/ListParagraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Bullet2" .
+
+<http://sparql.xyz/facade-x/data/Heading1/1>
+        a       <http://sparql.xyz/facade-x/data/Heading1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/2>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/7>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph3" .
+
+<http://sparql.xyz/facade-x/data/ListParagraph/4>
+        a       <http://sparql.xyz/facade-x/data/ListParagraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Bullet1 " .
+
+<http://sparql.xyz/facade-x/data/paragraph/3>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph2" .
+
+
+--------
+
+Result
+
+<http://sparql.xyz/facade-x/data/Heading2/6>
+        a       <http://sparql.xyz/facade-x/data/Heading2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 2" .
+
+<http://www.example.org/document>
+        a       <http://sparql.xyz/facade-x/data/Document> , <http://sparql.xyz/facade-x/ns/root> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                <http://sparql.xyz/facade-x/data/Heading1/1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2>
+                <http://sparql.xyz/facade-x/data/paragraph/2> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_3>
+                <http://sparql.xyz/facade-x/data/paragraph/3> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_4>
+                <http://sparql.xyz/facade-x/data/ListParagraph/4> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_5>
+                <http://sparql.xyz/facade-x/data/ListParagraph/5> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_6>
+                <http://sparql.xyz/facade-x/data/Heading2/6> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_7>
+                <http://sparql.xyz/facade-x/data/paragraph/7> .
+
+<http://sparql.xyz/facade-x/data/ListParagraph/5>
+        a       <http://sparql.xyz/facade-x/data/ListParagraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Bullet2" .
+
+<http://sparql.xyz/facade-x/data/Heading1/1>
+        a       <http://sparql.xyz/facade-x/data/Heading1> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Title 1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/2>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph1" .
+
+<http://sparql.xyz/facade-x/data/paragraph/7>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph3" .
+
+<http://sparql.xyz/facade-x/data/ListParagraph/4>
+        a       <http://sparql.xyz/facade-x/data/ListParagraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Bullet1 " .
+
+<http://sparql.xyz/facade-x/data/paragraph/3>
+        a       <http://sparql.xyz/facade-x/data/Paragraph> ;
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1>
+                "Paragraph2" .
+
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.047 s - in com.github.sparqlanything.docs.test.DocxTriplifierTest
+[INFO] Running com.github.sparqlanything.docs.test.TestTriplifier
+[WARNING] Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0 s - in com.github.sparqlanything.docs.test.TestTriplifier
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 7, Failures: 0, Errors: 0, Skipped: 4
+[INFO] 
+[INFO] 
+[INFO] -----------< com.github.sparqlanything:sparql-anything-html >-----------
+[INFO] Building sparql-anything-html 0.8.0-SNAPSHOT                      [9/22]
+[INFO]   from sparql-anything-html/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from oss.sonatype.org-snapshot: https://oss.sonatype.org/content/repositories/snapshots/com/google/code/findbugs/jsr305/maven-metadata.xml
+[INFO] Downloading from apache.snapshots: https://repository.apache.org/snapshots/com/google/code/findbugs/jsr305/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/maven-metadata.xml
+[INFO] Downloading from bintray-allenai-maven: https://allenai.bintray.com/maven/com/google/code/findbugs/jsr305/maven-metadata.xml
+[INFO] Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/com/google/code/findbugs/jsr305/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/maven-metadata.xml (461 B at 788 B/s)
+[WARNING] Could not transfer metadata com.google.code.findbugs:jsr305/maven-metadata.xml from/to bintray-allenai-maven (https://allenai.bintray.com/maven): Certificate for <allenai.bintray.com> doesn't match any of the subject alternative names: [*.jfrog.io, *.int.jfrog.io, jfrog.io, *.pe.jfrog.io]
+[INFO] Downloading from oss.sonatype.org-snapshot: https://oss.sonatype.org/content/repositories/snapshots/org/slf4j/slf4j-api/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/maven-metadata.xml
+[INFO] Downloading from bintray-allenai-maven: https://allenai.bintray.com/maven/org/slf4j/slf4j-api/maven-metadata.xml
+[INFO] Downloading from apache.snapshots: https://repository.apache.org/snapshots/org/slf4j/slf4j-api/maven-metadata.xml
+[INFO] Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/slf4j/slf4j-api/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/maven-metadata.xml (3.8 kB at 19 kB/s)
+[WARNING] Could not transfer metadata org.slf4j:slf4j-api/maven-metadata.xml from/to bintray-allenai-maven (https://allenai.bintray.com/maven): Certificate for <allenai.bintray.com> doesn't match any of the subject alternative names: [*.jfrog.io, *.int.jfrog.io, jfrog.io, *.pe.jfrog.io]
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ sparql-anything-html ---
+[INFO] Deleting /sparql.anything/sparql-anything-html/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ sparql-anything-html ---
+[INFO] skip non existing resourceDirectory /sparql.anything/sparql-anything-html/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ sparql-anything-html ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /sparql.anything/sparql-anything-html/target/classes
+[INFO] /sparql.anything/sparql-anything-html/src/main/java/com/github/sparqlanything/html/HTMLTriplifier.java: /sparql.anything/sparql-anything-html/src/main/java/com/github/sparqlanything/html/HTMLTriplifier.java uses unchecked or unsafe operations.
+[INFO] /sparql.anything/sparql-anything-html/src/main/java/com/github/sparqlanything/html/HTMLTriplifier.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ sparql-anything-html ---
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ sparql-anything-html ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /sparql.anything/sparql-anything-html/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ sparql-anything-html ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.sparqlanything.html.HTMLMicrodataTest
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testMicrodata1 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {blank-nodes=false, root=http://www.example.org/document, location=file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html, html.metadata=true}
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div/h1
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div/h1
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div/span
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div/span
+[main] WARN com.github.sparqlanything.testutils.TestUtils - Whole files
+
+Expected
+
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#body> .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div> .
+<html/body> <https://html.spec.whatwg.org/#innerHTML> "<div itemscope itemtype=\"https://schema.org/Movie\"> \n <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span> \n</div>" .
+<html/body> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#span> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerHTML> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerText> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#h1> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Avatar" .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerHTML> "Avatar" .
+<html/body/div/h1> <http://www.w3.org/1999/xhtml#itemprop> "name" .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerText> "Avatar" .
+<html/head> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#head> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemscope> "" .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#div> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div/h1> .
+<html/body/div> <https://html.spec.whatwg.org/#innerHTML> "<h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>" .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemtype> "https://schema.org/Movie" .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body/div/span> .
+<html/body/div> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://sparql.xyz/facade-x/ns/root> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/head> .
+<html> <https://html.spec.whatwg.org/#innerHTML> "<head></head>\n<body> \n <div itemscope itemtype=\"https://schema.org/Movie\"> \n  <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span> \n </div>  \n</body>" .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body> .
+<html> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> <http://www.w3.org/1999/xhtml/microdata#item> _:B8ad0570bf2528a4f8b9a14b324efd020 .
+_:B8ad0570bf2528a4f8b9a14b324efd020 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Movie> .
+_:B8ad0570bf2528a4f8b9a14b324efd020 <https://schema.org/name> "Avatar" .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#body> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body> <https://html.spec.whatwg.org/#innerHTML> "<div itemscope itemtype=\"https://schema.org/Movie\"> \n <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span> \n</div>" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#span> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerHTML> "Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerText> "Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#h1> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Avatar" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerHTML> "Avatar" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/xhtml#itemprop> "name" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerText> "Avatar" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/head> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#head> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemscope> "" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#div> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div/h1> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <https://html.spec.whatwg.org/#innerHTML> "<h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemtype> "https://schema.org/Movie" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body/div/span> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#html> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://sparql.xyz/facade-x/ns/root> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/head> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <https://html.spec.whatwg.org/#innerHTML> "<head></head>\n<body> \n <div itemscope itemtype=\"https://schema.org/Movie\"> \n  <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span> \n </div>  \n</body>" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> <http://www.w3.org/1999/xhtml/microdata#item> _:B8ad0570bf2528a4f8b9a14b324efd020 <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+_:B8ad0570bf2528a4f8b9a14b324efd020 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Movie> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+_:B8ad0570bf2528a4f8b9a14b324efd020 <https://schema.org/name> "Avatar" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+
+
+--------
+
+Obtained
+
+<html/body> <https://html.spec.whatwg.org/#innerHTML> "<div itemscope itemtype=\"https://schema.org/Movie\">\n <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>\n</div>" .
+<html/body> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#body> .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div> .
+_:Bnode1j6g8pl7hx2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Movie> .
+_:Bnode1j6g8pl7hx2 <https://schema.org/name> "Avatar" .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerHTML> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerText> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#span> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerHTML> "Avatar" .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerText> "Avatar" .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#h1> .
+<html/body/div/h1> <http://www.w3.org/1999/xhtml#itemprop> "name" .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Avatar" .
+<html/head> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#head> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://sparql.xyz/facade-x/ns/root> .
+<html> <https://html.spec.whatwg.org/#innerHTML> "<head></head>\n<body>\n <div itemscope itemtype=\"https://schema.org/Movie\">\n  <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>\n </div>\n</body>" .
+<html> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/head> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body> .
+<html/body/div> <https://html.spec.whatwg.org/#innerHTML> "<h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>" .
+<html/body/div> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#div> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemscope> "" .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemtype> "https://schema.org/Movie" .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div/h1> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body/div/span> .
+<file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> <http://www.w3.org/1999/xhtml/microdata#item> _:Bnode1j6g8pl7hx2 .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#body> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body> <https://html.spec.whatwg.org/#innerHTML> "<div itemscope itemtype=\"https://schema.org/Movie\">\n <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>\n</div>" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+_:Bnode1j6g8pl7hx2 <https://schema.org/name> "Avatar" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+_:Bnode1j6g8pl7hx2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Movie> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#span> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerText> "Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerHTML> "Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Avatar" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/xhtml#itemprop> "name" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#h1> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerText> "Avatar" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerHTML> "Avatar" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/head> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#head> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body/div/span> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div/h1> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemtype> "https://schema.org/Movie" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemscope> "" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#div> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html/body/div> <https://html.spec.whatwg.org/#innerHTML> "<h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/head> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#html> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <https://html.spec.whatwg.org/#innerHTML> "<head></head>\n<body>\n <div itemscope itemtype=\"https://schema.org/Movie\">\n  <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>\n </div>\n</body>" <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://sparql.xyz/facade-x/ns/root> <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+<file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> <http://www.w3.org/1999/xhtml/microdata#item> _:Bnode1j6g8pl7hx2 <file:/sparql.anything/sparql-anything-html/target/test-classes/Microdata1.html> .
+
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.013 s <<< FAILURE! - in com.github.sparqlanything.html.HTMLMicrodataTest
+[ERROR] com.github.sparqlanything.html.HTMLMicrodataTest.testMicrodata1  Time elapsed: 1.956 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.github.sparqlanything.testutils.TestUtils.assertIsomorphic(TestUtils.java:144)
+	at com.github.sparqlanything.testutils.AbstractTriplifierTester.assertResultIsIsomorphicWithExpected(AbstractTriplifierTester.java:199)
+	at com.github.sparqlanything.html.HTMLMicrodataTest.testMicrodata1(HTMLMicrodataTest.java:33)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:61)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[INFO] Running com.github.sparqlanything.html.HTMLTriplifierTest
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/head/title
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/head/title
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div:1
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div:1
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/p.paragraph:2
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/p.paragraph:2
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/p.paragraph:3
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/p.paragraph:3
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/p.paragraph:4
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/p.paragraph:4
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div:5
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div:5
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body https://html.spec.whatwg.org/#innerHTML "<div id=\"notUnique\"></div>
+<p class=\"paragraph\">Hello world</p>
+<p class=\"paragraph\">Hello world 2</p>
+<p class=\"paragraph\">Hello world 3</p>
+<div id=\"notUnique\"></div>"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body https://html.spec.whatwg.org/#innerText "Hello world Hello world 2 Hello world 3  Hello world Hello world 2 Hello world 3 "
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 html/body/div:1
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 html/body/p.paragraph:2
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 html/body/p.paragraph:3
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 html/body/p.paragraph:4
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 html/body/div:5
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/div:1 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#div
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/div:1 http://www.w3.org/1999/xhtml#id "notUnique"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 https://html.spec.whatwg.org/#innerHTML "Hello world 3"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 https://html.spec.whatwg.org/#innerText "Hello world 3"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#p
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 http://www.w3.org/1999/xhtml#class "paragraph"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Hello world 3"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head https://html.spec.whatwg.org/#innerHTML "<title>Hello world!</title>"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head https://html.spec.whatwg.org/#innerText "Hello world! Hello world!"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 html/head/title
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 https://html.spec.whatwg.org/#innerHTML "Hello world"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 https://html.spec.whatwg.org/#innerText "Hello world"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#p
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 http://www.w3.org/1999/xhtml#class "paragraph"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Hello world"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/ns/root
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html https://html.spec.whatwg.org/#innerHTML "<head>
+ <title>Hello world!</title>
+</head>
+<body>
+ <div id=\"notUnique\"></div>
+ <p class=\"paragraph\">Hello world</p>
+ <p class=\"paragraph\">Hello world 2</p>
+ <p class=\"paragraph\">Hello world 3</p>
+ <div id=\"notUnique\"></div>
+</body>"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html https://html.spec.whatwg.org/#innerText "Hello world! Hello world Hello world 2 Hello world 3 Hello world! Hello world! Hello world Hello world 2 Hello world 3  Hello world Hello world 2 Hello world 3 "
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#html
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 html/head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 html/body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head/title https://html.spec.whatwg.org/#innerHTML "Hello world!"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head/title https://html.spec.whatwg.org/#innerText "Hello world!"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head/title http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#title
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head/title http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Hello world!"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/div:5 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#div
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/div:5 http://www.w3.org/1999/xhtml#id "notUnique"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 https://html.spec.whatwg.org/#innerHTML "Hello world 2"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 https://html.spec.whatwg.org/#innerText "Hello world 2"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#p
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 http://www.w3.org/1999/xhtml#class "paragraph"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Hello world 2"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_5 html/body/div:5
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_4 html/body/p.paragraph:4
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_3 html/body/p.paragraph:3
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 html/body/p.paragraph:2
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 html/body/div:1
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body https://html.spec.whatwg.org/#innerText "Hello world Hello world 2 Hello world 3  Hello world Hello world 2 Hello world 3 "
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body https://html.spec.whatwg.org/#innerHTML "<div id=\"notUnique\"></div>
+<p class=\"paragraph\">Hello world</p>
+<p class=\"paragraph\">Hello world 2</p>
+<p class=\"paragraph\">Hello world 3</p>
+<div id=\"notUnique\"></div>"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/div:1 http://www.w3.org/1999/xhtml#id "notUnique"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/div:1 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#div
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Hello world 3"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 http://www.w3.org/1999/xhtml#class "paragraph"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#p
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 https://html.spec.whatwg.org/#innerText "Hello world 3"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:4 https://html.spec.whatwg.org/#innerHTML "Hello world 3"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Hello world"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 http://www.w3.org/1999/xhtml#class "paragraph"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#p
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 https://html.spec.whatwg.org/#innerText "Hello world"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:2 https://html.spec.whatwg.org/#innerHTML "Hello world"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 html/head/title
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head https://html.spec.whatwg.org/#innerText "Hello world! Hello world!"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head https://html.spec.whatwg.org/#innerHTML "<title>Hello world!</title>"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html http://www.w3.org/1999/02/22-rdf-syntax-ns#_2 html/body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 html/head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#html
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html https://html.spec.whatwg.org/#innerText "Hello world! Hello world Hello world 2 Hello world 3 Hello world! Hello world! Hello world Hello world 2 Hello world 3  Hello world Hello world 2 Hello world 3 "
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html https://html.spec.whatwg.org/#innerHTML "<head>
+ <title>Hello world!</title>
+</head>
+<body>
+ <div id=\"notUnique\"></div>
+ <p class=\"paragraph\">Hello world</p>
+ <p class=\"paragraph\">Hello world 2</p>
+ <p class=\"paragraph\">Hello world 3</p>
+ <div id=\"notUnique\"></div>
+</body>"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://sparql.xyz/facade-x/ns/root
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head/title http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Hello world!"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head/title http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#title
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head/title https://html.spec.whatwg.org/#innerText "Hello world!"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/head/title https://html.spec.whatwg.org/#innerHTML "Hello world!"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/div:5 http://www.w3.org/1999/xhtml#id "notUnique"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/div:5 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#div
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 http://www.w3.org/1999/02/22-rdf-syntax-ns#_1 "Hello world 2"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 http://www.w3.org/1999/xhtml#class "paragraph"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/1999/xhtml#p
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 https://html.spec.whatwg.org/#innerText "Hello world 2"
+[main] INFO com.github.sparqlanything.html.HTMLTriplifierTest - html/body/p.paragraph:3 https://html.spec.whatwg.org/#innerHTML "Hello world 2"
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xhtml: <http://www.w3.org/1999/xhtml#> .
+
+[ rdf:type  <http://sparql.xyz/facade-x/ns/root> , xhtml:html ;
+  rdf:_1    [ rdf:type  xhtml:head ;
+              rdf:_1    [ rdf:type  xhtml:title ;
+                          rdf:_1    "Hello world!" ;
+                          <https://html.spec.whatwg.org/#innerHTML>
+                                  "Hello world!" ;
+                          <https://html.spec.whatwg.org/#innerText>
+                                  "Hello world!"
+                        ] ;
+              <https://html.spec.whatwg.org/#innerHTML>
+                      "<title>Hello world!</title>" ;
+              <https://html.spec.whatwg.org/#innerText>
+                      "Hello world! Hello world!"
+            ] ;
+  rdf:_2    [ rdf:type  xhtml:body ;
+              rdf:_1    [ rdf:type     xhtml:p ;
+                          rdf:_1       "Hello world" ;
+                          xhtml:class  "paragraph" ;
+                          <https://html.spec.whatwg.org/#innerHTML>
+                                  "Hello world" ;
+                          <https://html.spec.whatwg.org/#innerText>
+                                  "Hello world"
+                        ] ;
+              <https://html.spec.whatwg.org/#innerHTML>
+                      "<p class=\"paragraph\">Hello world</p>" ;
+              <https://html.spec.whatwg.org/#innerText>
+                      "Hello world Hello world"
+            ] ;
+  <https://html.spec.whatwg.org/#innerHTML>
+          "<head>\n <title>Hello world!</title>\n</head>\n<body>\n <p class=\"paragraph\">Hello world</p>\n</body>" ;
+  <https://html.spec.whatwg.org/#innerText>
+          "Hello world! Hello world Hello world! Hello world! Hello world Hello world"
+] .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xhtml: <http://www.w3.org/1999/xhtml#> .
+
+[ rdf:type  <http://sparql.xyz/facade-x/ns/root> , xhtml:html ;
+  rdf:_1    [ rdf:type  xhtml:head ] ;
+  rdf:_2    [ rdf:type  xhtml:body ;
+              rdf:_1    [ rdf:type     xhtml:div ;
+                          rdf:_1       [ rdf:type     xhtml:span ;
+                                         rdf:_1       " Image Caption " ;
+                                         xhtml:class  "title" ;
+                                         <https://html.spec.whatwg.org/#innerHTML>
+                                                 "Image Caption" ;
+                                         <https://html.spec.whatwg.org/#innerText>
+                                                 "Image Caption"
+                                       ] ;
+                          rdf:_2       [ rdf:type  xhtml:div ;
+                                         rdf:_1    [ rdf:type    xhtml:a ;
+                                                     rdf:_1      "Paula Rego" ;
+                                                     xhtml:href  "/artists/paula-rego" ;
+                                                     <https://html.spec.whatwg.org/#innerHTML>
+                                                             "Paula Rego" ;
+                                                     <https://html.spec.whatwg.org/#innerText>
+                                                             "Paula Rego"
+                                                   ] ;
+                                         rdf:_2    ", " ;
+                                         rdf:_3    [ rdf:type  xhtml:em ;
+                                                     rdf:_1    "The Baker’s Wife" ;
+                                                     <https://html.spec.whatwg.org/#innerHTML>
+                                                             "The Baker’s Wife" ;
+                                                     <https://html.spec.whatwg.org/#innerText>
+                                                             "The Baker’s Wife"
+                                                   ] ;
+                                         rdf:_4    ", 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 " ;
+                                         rdf:_5    [ rdf:type     xhtml:p ;
+                                                     rdf:_1       "For copyright information, please contact the IMMA Collections team: " ;
+                                                     rdf:_2       [ rdf:type    xhtml:a ;
+                                                                    rdf:_1      [ rdf:type            xhtml:span ;
+                                                                                  rdf:_1              "[email&nbsp;protected]" ;
+                                                                                  xhtml:class         "__cf_email__" ;
+                                                                                  xhtml:data-cfemail  "741d1a121b341d1919155a1d11" ;
+                                                                                  <https://html.spec.whatwg.org/#innerHTML>
+                                                                                          "[email&nbsp;protected]" ;
+                                                                                  <https://html.spec.whatwg.org/#innerText>
+                                                                                          "[email protected]"
+                                                                                ] ;
+                                                                    xhtml:href  "/cdn-cgi/l/email-protection#254c4b434a654c4848440b4c40" ;
+                                                                    <https://html.spec.whatwg.org/#innerHTML>
+                                                                            "<span class=\"__cf_email__\" data-cfemail=\"741d1a121b341d1919155a1d11\">[email&nbsp;protected]</span>" ;
+                                                                    <https://html.spec.whatwg.org/#innerText>
+                                                                            "[email protected] [email protected]"
+                                                                  ] ;
+                                                     rdf:_3       "." ;
+                                                     xhtml:style  "display: none" ;
+                                                     <https://html.spec.whatwg.org/#innerHTML>
+                                                             "For copyright information, please contact the IMMA Collections team: <a href=\"/cdn-cgi/l/email-protection#254c4b434a654c4848440b4c40\"><span class=\"__cf_email__\" data-cfemail=\"741d1a121b341d1919155a1d11\">[email&nbsp;protected]</span></a>." ;
+                                                     <https://html.spec.whatwg.org/#innerText>
+                                                             "For copyright information, please contact the IMMA Collections team: [email protected]. [email protected] [email protected]"
+                                                   ] ;
+                                         <https://html.spec.whatwg.org/#innerHTML>
+                                                 "<a href=\"/artists/paula-rego\">Paula Rego</a>, <em>The Baker’s Wife</em>, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 \n<p style=\"display: none\">For copyright information, please contact the IMMA Collections team: <a href=\"/cdn-cgi/l/email-protection#254c4b434a654c4848440b4c40\"><span class=\"__cf_email__\" data-cfemail=\"741d1a121b341d1919155a1d11\">[email&nbsp;protected]</span></a>.</p>" ;
+                                         <https://html.spec.whatwg.org/#innerText>
+                                                 "Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected]. Paula Rego The Baker’s Wife For copyright information, please contact the IMMA Collections team: [email protected]. [email protected] [email protected]"
+                                       ] ;
+                          xhtml:class  "annotation expander" ;
+                          <https://html.spec.whatwg.org/#innerHTML>
+                                  "<span class=\"title\"> Image Caption </span>\n<div><a href=\"/artists/paula-rego\">Paula Rego</a>, <em>The Baker’s Wife</em>, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 \n <p style=\"display: none\">For copyright information, please contact the IMMA Collections team: <a href=\"/cdn-cgi/l/email-protection#254c4b434a654c4848440b4c40\"><span class=\"__cf_email__\" data-cfemail=\"741d1a121b341d1919155a1d11\">[email&nbsp;protected]</span></a>.</p>\n</div>" ;
+                          <https://html.spec.whatwg.org/#innerText>
+                                  "Image Caption Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected]. Image Caption Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected]. Paula Rego The Baker’s Wife For copyright information, please contact the IMMA Collections team: [email protected]. [email protected] [email protected]"
+                        ] ;
+              <https://html.spec.whatwg.org/#innerHTML>
+                      "<div class=\"annotation expander\"><span class=\"title\"> Image Caption </span>\n <div><a href=\"/artists/paula-rego\">Paula Rego</a>, <em>The Baker’s Wife</em>, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 \n  <p style=\"display: none\">For copyright information, please contact the IMMA Collections team: <a href=\"/cdn-cgi/l/email-protection#254c4b434a654c4848440b4c40\"><span class=\"__cf_email__\" data-cfemail=\"741d1a121b341d1919155a1d11\">[email&nbsp;protected]</span></a>.</p>\n </div>\n</div>" ;
+              <https://html.spec.whatwg.org/#innerText>
+                      "Image Caption Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected]. Image Caption Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected]. Image Caption Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected]. Paula Rego The Baker’s Wife For copyright information, please contact the IMMA Collections team: [email protected]. [email protected] [email protected]"
+            ] ;
+  <https://html.spec.whatwg.org/#innerHTML>
+          "<head></head>\n<body>\n <div class=\"annotation expander\"><span class=\"title\"> Image Caption </span>\n  <div><a href=\"/artists/paula-rego\">Paula Rego</a>, <em>The Baker’s Wife</em>, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 \n   <p style=\"display: none\">For copyright information, please contact the IMMA Collections team: <a href=\"/cdn-cgi/l/email-protection#254c4b434a654c4848440b4c40\"><span class=\"__cf_email__\" data-cfemail=\"741d1a121b341d1919155a1d11\">[email&nbsp;protected]</span></a>.</p>\n  </div>\n </div>\n</body>" ;
+  <https://html.spec.whatwg.org/#innerText>
+          "Image Caption Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected].  Image Caption Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected]. Image Caption Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected]. Image Caption Paula Rego, The Baker’s Wife, 1989, Etching and aquatint on hand-made paper, 33.5 x 26.3 cm, Collection Irish Museum of Modern Art, Purchase, 1997 For copyright information, please contact the IMMA Collections team: [email protected]. Paula Rego The Baker’s Wife For copyright information, please contact the IMMA Collections team: [email protected]. [email protected] [email protected]"
+] .
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in com.github.sparqlanything.html.HTMLTriplifierTest
+[INFO] Running com.github.sparqlanything.html.HTMLMicrodataRemoteTest
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - testMicrodata1 (run)
+[main] INFO com.github.sparqlanything.testutils.AbstractTriplifierTester - {blank-nodes=false, root=http://www.example.org/document, location=https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html, html.metadata=true}
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/head
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div/h1
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div/h1
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div/span
+[main] INFO com.github.sparqlanything.html.HTMLTriplifier - html/body/div/span
+[main] WARN com.github.sparqlanything.testutils.TestUtils - Whole files
+
+Expected
+
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#body> .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div> .
+<html/body> <https://html.spec.whatwg.org/#innerHTML> "<div itemscope itemtype=\"https://schema.org/Movie\"> \n <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span> \n</div>" .
+<html/body> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#span> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerHTML> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerText> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#h1> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Avatar" .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerHTML> "Avatar" .
+<html/body/div/h1> <http://www.w3.org/1999/xhtml#itemprop> "name" .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerText> "Avatar" .
+<html/head> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#head> .
+<https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> <http://www.w3.org/1999/xhtml/microdata#item> _:Bf451009d0e419054ad764b1caaaf6d73 .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemscope> "" .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#div> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div/h1> .
+<html/body/div> <https://html.spec.whatwg.org/#innerHTML> "<h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>" .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemtype> "https://schema.org/Movie" .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body/div/span> .
+<html/body/div> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://sparql.xyz/facade-x/ns/root> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/head> .
+<html> <https://html.spec.whatwg.org/#innerHTML> "<head></head>\n<body> \n <div itemscope itemtype=\"https://schema.org/Movie\"> \n  <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span> \n </div>  \n</body>" .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body> .
+<html> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+_:Bf451009d0e419054ad764b1caaaf6d73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Movie> .
+_:Bf451009d0e419054ad764b1caaaf6d73 <https://schema.org/name> "Avatar" .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#body> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body> <https://html.spec.whatwg.org/#innerHTML> "<div itemscope itemtype=\"https://schema.org/Movie\"> \n <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span> \n</div>" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#span> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerHTML> "Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerText> "Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#h1> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Avatar" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerHTML> "Avatar" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/xhtml#itemprop> "name" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerText> "Avatar" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/head> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#head> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> <http://www.w3.org/1999/xhtml/microdata#item> _:Bf451009d0e419054ad764b1caaaf6d73 <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemscope> "" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#div> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div/h1> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <https://html.spec.whatwg.org/#innerHTML> "<h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemtype> "https://schema.org/Movie" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body/div/span> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#html> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://sparql.xyz/facade-x/ns/root> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/head> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <https://html.spec.whatwg.org/#innerHTML> "<head></head>\n<body> \n <div itemscope itemtype=\"https://schema.org/Movie\"> \n  <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span> \n </div>  \n</body>" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+_:Bf451009d0e419054ad764b1caaaf6d73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Movie> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+_:Bf451009d0e419054ad764b1caaaf6d73 <https://schema.org/name> "Avatar" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+
+
+--------
+
+Obtained
+
+<html/body> <https://html.spec.whatwg.org/#innerHTML> "<div itemscope itemtype=\"https://schema.org/Movie\">\n <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>\n</div>" .
+<html/body> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#body> .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div> .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerHTML> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerText> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#span> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Director: James Cameron (born August 16, 1954)" .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerHTML> "Avatar" .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerText> "Avatar" .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#h1> .
+<html/body/div/h1> <http://www.w3.org/1999/xhtml#itemprop> "name" .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Avatar" .
+<html/head> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#head> .
+<https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> <http://www.w3.org/1999/xhtml/microdata#item> _:Bnode1j6g8pl7hx4 .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://sparql.xyz/facade-x/ns/root> .
+<html> <https://html.spec.whatwg.org/#innerHTML> "<head></head>\n<body>\n <div itemscope itemtype=\"https://schema.org/Movie\">\n  <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>\n </div>\n</body>" .
+<html> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/head> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body> .
+<html/body/div> <https://html.spec.whatwg.org/#innerHTML> "<h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>" .
+<html/body/div> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#div> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemscope> "" .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemtype> "https://schema.org/Movie" .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div/h1> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body/div/span> .
+_:Bnode1j6g8pl7hx4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Movie> .
+_:Bnode1j6g8pl7hx4 <https://schema.org/name> "Avatar" .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#body> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body> <https://html.spec.whatwg.org/#innerHTML> "<div itemscope itemtype=\"https://schema.org/Movie\">\n <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>\n</div>" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/span> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#span> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerText> "Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/span> <https://html.spec.whatwg.org/#innerHTML> "Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Avatar" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/xhtml#itemprop> "name" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#h1> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerText> "Avatar" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div/h1> <https://html.spec.whatwg.org/#innerHTML> "Avatar" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/head> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#head> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> <http://www.w3.org/1999/xhtml/microdata#item> _:Bnode1j6g8pl7hx4 <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body/div/span> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/body/div/h1> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemtype> "https://schema.org/Movie" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/xhtml#itemscope> "" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#div> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html/body/div> <https://html.spec.whatwg.org/#innerHTML> "<h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> <html/body> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> <html/head> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/xhtml#html> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <https://html.spec.whatwg.org/#innerText> "Avatar Director: James Cameron (born August 16, 1954)  Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954) Avatar Director: James Cameron (born August 16, 1954)" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <https://html.spec.whatwg.org/#innerHTML> "<head></head>\n<body>\n <div itemscope itemtype=\"https://schema.org/Movie\">\n  <h1 itemprop=\"name\">Avatar</h1> <span>Director: James Cameron (born August 16, 1954)</span>\n </div>\n</body>" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+<html> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://sparql.xyz/facade-x/ns/root> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+_:Bnode1j6g8pl7hx4 <https://schema.org/name> "Avatar" <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+_:Bnode1j6g8pl7hx4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Movie> <https://raw.githubusercontent.com/SPARQL-Anything/sparql-anything.cc-site/main/examples/Microdata1.html> .
+
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.813 s <<< FAILURE! - in com.github.sparqlanything.html.HTMLMicrodataRemoteTest
+[ERROR] com.github.sparqlanything.html.HTMLMicrodataRemoteTest.testMicrodata1  Time elapsed: 0.811 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at com.github.sparqlanything.testutils.TestUtils.assertIsomorphic(TestUtils.java:144)
+	at com.github.sparqlanything.testutils.AbstractTriplifierTester.assertResultIsIsomorphicWithExpected(AbstractTriplifierTester.java:199)
+	at com.github.sparqlanything.html.HTMLMicrodataRemoteTest.testMicrodata1(HTMLMicrodataRemoteTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:61)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   HTMLMicrodataRemoteTest.testMicrodata1:36->AbstractTriplifierTester.assertResultIsIsomorphicWithExpected:199
+[ERROR]   HTMLMicrodataTest.testMicrodata1:33->AbstractTriplifierTester.assertResultIsIsomorphicWithExpected:199
+[INFO] 
+[ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for sparql.anything 0.8.0-SNAPSHOT:
+[INFO] 
+[INFO] sparql.anything .................................... SUCCESS [  0.155 s]
+[INFO] sparql-anything-model .............................. SUCCESS [  3.979 s]
+[INFO] sparql-anything-metadata ........................... SUCCESS [  0.741 s]
+[INFO] sparql-anything-parser ............................. SUCCESS [  1.674 s]
+[INFO] sparql-anything-csv ................................ SUCCESS [  2.190 s]
+[INFO] sparql-anything-testutils .......................... SUCCESS [  0.146 s]
+[INFO] sparql-anything-xml ................................ SUCCESS [  1.289 s]
+[INFO] sparql-anything-docs ............................... SUCCESS [  1.993 s]
+[INFO] sparql-anything-html ............................... FAILURE [  5.975 s]
+[INFO] sparql-anything-text ............................... SKIPPED
+[INFO] sparql-anything-json ............................... SKIPPED
+[INFO] sparql-anything-yaml ............................... SKIPPED
+[INFO] sparql-anything-markdown ........................... SKIPPED
+[INFO] sparql-anything-bib ................................ SKIPPED
+[INFO] sparql-anything-archive ............................ SKIPPED
+[INFO] sparql-anything-binary ............................. SKIPPED
+[INFO] sparql-anything-spreadsheet ........................ SKIPPED
+[INFO] sparql-anything-rdf ................................ SKIPPED
+[INFO] sparql-anything-engine ............................. SKIPPED
+[INFO] sparql-anything-cli ................................ SKIPPED
+[INFO] sparql-anything-it ................................. SKIPPED
+[INFO] sparql-anything-fuseki ............................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.367 s
+[INFO] Finished at: 2025-10-01T16:13:29Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.0
+[WARNING]  * org.antlr:antlr4-maven-plugin:4.7
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0:test (default-test) on project sparql-anything-html: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /sparql.anything/sparql-anything-html/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :sparql-anything-html

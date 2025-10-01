@@ -1,0 +1,2173 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] quick-perf                                                         [pom]
+[INFO] quick-perf-core                                                    [jar]
+[INFO] quick-perf-jvm-parent                                              [pom]
+[INFO] quick-perf-jvm-core                                                [jar]
+[INFO] quick-perf-jvm-annotations                                         [jar]
+[INFO] quick-perf-jfr-annotations                                         [jar]
+[INFO] quick-perf-sql-parent                                              [pom]
+[INFO] quick-perf-sql-annotations                                         [jar]
+[INFO] quick-perf-sql-memory-test-util                                    [jar]
+[INFO] quick-perf-sql-hibernate-test-util                                 [jar]
+[INFO] quick-perf-junit4-parent                                           [pom]
+[INFO] quick-perf-junit4                                                  [jar]
+[INFO] quick-perf-sql-memory-test                                         [jar]
+[INFO] quick-perf-junit4-5-jvm-test                                       [jar]
+[INFO] quick-perf-junit4-12-jvm-test                                      [jar]
+[INFO] quick-perf-junit4-13-jvm-test                                      [jar]
+[INFO] quick-perf-junit4-13-1-jvm-test                                    [jar]
+[INFO] quick-perf-junit4-13-2-jvm-test                                    [jar]
+[INFO] quick-perf-junit4-sql-test                                         [jar]
+[INFO] quick-perf-junit5-parent                                           [pom]
+[INFO] quick-perf-junit5-test-util                                        [jar]
+[INFO] quick-perf-junit5                                                  [jar]
+[INFO] quick-perf-junit5-jvm-test                                         [jar]
+[INFO] quick-perf-junit5-sql-test                                         [jar]
+[INFO] quick-perf-testng-parent                                           [pom]
+[INFO] quick-perf-testng-test-util                                        [jar]
+[INFO] quick-perf-testng                                                  [jar]
+[INFO] quick-perf-testng-sql-test                                         [jar]
+[INFO] quick-perf-testng-jvm-test                                         [jar]
+[INFO] quick-perf-spring                                                  [pom]
+[INFO] quick-perf-sql-spring4                                             [jar]
+[INFO] quick-perf-sql-spring5                                             [jar]
+[INFO] quick-perf-junit4-spring-base-tests                                [jar]
+[INFO] quick-perf-junit4-spring3                                          [jar]
+[INFO] quick-perf-junit4-spring4                                          [jar]
+[INFO] quick-perf-junit4-spring5                                          [jar]
+[INFO] quick-perf-springboot1-sql-starter                                 [jar]
+[INFO] quick-perf-springboot2-sql-starter                                 [jar]
+[INFO] quick-perf-junit4-spring-boot-test                                 [jar]
+[INFO] quick-perf-bom                                                     [pom]
+[INFO] 
+[INFO] ----------------------< org.quickperf:quick-perf >----------------------
+[INFO] Building quick-perf 1.1.1-SNAPSHOT                                [1/40]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] -------------------< org.quickperf:quick-perf-core >--------------------
+[INFO] Building quick-perf-core 1.1.1-SNAPSHOT                           [2/40]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-core ---
+[INFO] Deleting /quickperf/core/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-core ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-core ---
+[INFO] skip non existing resourceDirectory /quickperf/core/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 78 source files to /quickperf/core/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-core ---
+[INFO] skip non existing resourceDirectory /quickperf/core/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /quickperf/core/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.time.FormatExecutionTimeTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in org.quickperf.time.FormatExecutionTimeTest
+[INFO] Running org.quickperf.AnnotationsMergerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 s - in org.quickperf.AnnotationsMergerTest
+[INFO] Running org.quickperf.time.ExecutionTimeComparisonTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 s - in org.quickperf.time.ExecutionTimeComparisonTest
+[INFO] Running org.quickperf.AnnotationFormatterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.138 s - in org.quickperf.AnnotationFormatterTest
+[INFO] Running org.quickperf.repository.TestIssueRepositoryTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in org.quickperf.repository.TestIssueRepositoryTest
+[INFO] Running org.quickperf.time.FormatExecutionTimeAndAppendNsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.142 s - in org.quickperf.time.FormatExecutionTimeAndAppendNsTest
+[INFO] Running org.quickperf.testlauncher.AllJvmOptionsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.747 s - in org.quickperf.testlauncher.AllJvmOptionsTest
+[INFO] Running org.quickperf.time.MaxExecutionTimeVerifierTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s - in org.quickperf.time.MaxExecutionTimeVerifierTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----------------< org.quickperf:quick-perf-jvm-parent >-----------------
+[INFO] Building quick-perf-jvm-parent 1.1.1-SNAPSHOT                     [3/40]
+[INFO]   from jvm/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-jvm-parent ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-jvm-parent ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] -----------------< org.quickperf:quick-perf-jvm-core >------------------
+[INFO] Building quick-perf-jvm-core 1.1.1-SNAPSHOT                       [4/40]
+[INFO]   from jvm/jvm-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-jvm-core ---
+[INFO] Deleting /quickperf/jvm/jvm-core/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-jvm-core ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-jvm-core ---
+[INFO] skip non existing resourceDirectory /quickperf/jvm/jvm-core/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-jvm-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /quickperf/jvm/jvm-core/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-jvm-core ---
+[INFO] skip non existing resourceDirectory /quickperf/jvm/jvm-core/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-jvm-core ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-jvm-core ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-jvm-annotations >--------------
+[INFO] Building quick-perf-jvm-annotations 1.1.1-SNAPSHOT                [5/40]
+[INFO]   from jvm/jvm-annotations/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-jvm-annotations ---
+[INFO] Deleting /quickperf/jvm/jvm-annotations/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-jvm-annotations ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-jvm-annotations ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-jvm-annotations ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 36 source files to /quickperf/jvm/jvm-annotations/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-jvm-annotations ---
+[INFO] skip non existing resourceDirectory /quickperf/jvm/jvm-annotations/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-jvm-annotations ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /quickperf/jvm/jvm-annotations/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-jvm-annotations ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.jvm.allocation.format.FormatAllocationTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s - in org.quickperf.jvm.allocation.format.FormatAllocationTest
+[INFO] Running org.quickperf.jvm.allocation.AllocationComparisonTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in org.quickperf.jvm.allocation.AllocationComparisonTest
+[INFO] Running org.quickperf.jvm.JvmOptionConverterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.031 s - in org.quickperf.jvm.JvmOptionConverterTest
+[INFO] Running org.quickperf.jvm.allocation.format.FormatAndAppendAllocationInBytesTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.137 s - in org.quickperf.jvm.allocation.format.FormatAndAppendAllocationInBytesTest
+[INFO] Running org.quickperf.jvm.allocation.AllocationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in org.quickperf.jvm.allocation.AllocationTest
+[INFO] Running org.quickperf.jvm.allocation.MaxHeapAllocationPerfVerifierTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in org.quickperf.jvm.allocation.MaxHeapAllocationPerfVerifierTest
+[INFO] Running org.quickperf.jvm.allocation.format.ShortFormatAllocationTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.138 s - in org.quickperf.jvm.allocation.format.ShortFormatAllocationTest
+[INFO] Running org.quickperf.jvm.heap.HeapDumperTest
+
+[QUICK PERF] Heap dump file 
+👉 /quickperf/jvm/jvm-annotations/target/heap-dump-test.hprof
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.504 s - in org.quickperf.jvm.heap.HeapDumperTest
+[INFO] Running org.quickperf.jvm.allocation.AllocationUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s - in org.quickperf.jvm.allocation.AllocationUnitTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-jfr-annotations >--------------
+[INFO] Building quick-perf-jfr-annotations 1.1.1-SNAPSHOT                [6/40]
+[INFO]   from jvm/jfr-annotations/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-jfr-annotations ---
+[INFO] Deleting /quickperf/jvm/jfr-annotations/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-jfr-annotations ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-jfr-annotations ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-jfr-annotations ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 30 source files to /quickperf/jvm/jfr-annotations/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-jfr-annotations ---
+[INFO] skip non existing resourceDirectory /quickperf/jvm/jfr-annotations/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-jfr-annotations ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /quickperf/jvm/jfr-annotations/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-jfr-annotations ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.jvm.jmc.value.AllocationRateTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.723 s - in org.quickperf.jvm.jmc.value.AllocationRateTest
+[INFO] Running org.quickperf.jvm.jmc.value.StringWidthAdapterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s - in org.quickperf.jvm.jmc.value.StringWidthAdapterTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----------------< org.quickperf:quick-perf-sql-parent >-----------------
+[INFO] Building quick-perf-sql-parent 1.1.1-SNAPSHOT                     [7/40]
+[INFO]   from sql/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-sql-parent ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-sql-parent ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-sql-annotations >--------------
+[INFO] Building quick-perf-sql-annotations 1.1.1-SNAPSHOT                [8/40]
+[INFO]   from sql/sql-annotations/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-sql-annotations ---
+[INFO] Deleting /quickperf/sql/sql-annotations/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-sql-annotations ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-sql-annotations ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-sql-annotations ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 138 source files to /quickperf/sql/sql-annotations/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-sql-annotations ---
+[INFO] skip non existing resourceDirectory /quickperf/sql/sql-annotations/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-sql-annotations ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /quickperf/sql/sql-annotations/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-sql-annotations ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.sql.select.SameSelectTypesWithDiffParamValuesTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.762 s - in org.quickperf.sql.select.SameSelectTypesWithDiffParamValuesTest
+[INFO] Running org.quickperf.sql.SqlRecorderRegistryTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.quickperf.sql.SqlRecorderRegistryTest
+[INFO] Running org.quickperf.sql.time.SqlQueryMaxExecutionTimeVerifierTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.quickperf.sql.time.SqlQueryMaxExecutionTimeVerifierTest
+[INFO] Running org.quickperf.sql.connection.ConnectionEventsProfilerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.57 s - in org.quickperf.sql.connection.ConnectionEventsProfilerTest
+[INFO] Running org.quickperf.sql.DataSourceProxyVerifierTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in org.quickperf.sql.DataSourceProxyVerifierTest
+[INFO] Running org.quickperf.sql.connection.ConnectionListenerRegistryTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.549 s - in org.quickperf.sql.connection.ConnectionListenerRegistryTest
+[INFO] Running org.quickperf.sql.select.SameSelectsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.761 s - in org.quickperf.sql.select.SameSelectsTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------< org.quickperf:quick-perf-sql-memory-test-util >------------
+[INFO] Building quick-perf-sql-memory-test-util 1.1.1-SNAPSHOT           [9/40]
+[INFO]   from sql/sql-memory-test-util/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-sql-memory-test-util ---
+[INFO] Deleting /quickperf/sql/sql-memory-test-util/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-sql-memory-test-util ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-sql-memory-test-util ---
+[INFO] skip non existing resourceDirectory /quickperf/sql/sql-memory-test-util/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-sql-memory-test-util ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-sql-memory-test-util ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-sql-memory-test-util ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /quickperf/sql/sql-memory-test-util/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-sql-memory-test-util ---
+[INFO] 
+[INFO] ----------< org.quickperf:quick-perf-sql-hibernate-test-util >----------
+[INFO] Building quick-perf-sql-hibernate-test-util 1.1.1-SNAPSHOT       [10/40]
+[INFO]   from sql/sql-hibernate-test-util/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-sql-hibernate-test-util ---
+[INFO] Deleting /quickperf/sql/sql-hibernate-test-util/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-sql-hibernate-test-util ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-sql-hibernate-test-util ---
+[INFO] skip non existing resourceDirectory /quickperf/sql/sql-hibernate-test-util/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-sql-hibernate-test-util ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-sql-hibernate-test-util ---
+[INFO] skip non existing resourceDirectory /quickperf/sql/sql-hibernate-test-util/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-sql-hibernate-test-util ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /quickperf/sql/sql-hibernate-test-util/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-sql-hibernate-test-util ---
+[INFO] 
+[INFO] ---------------< org.quickperf:quick-perf-junit4-parent >---------------
+[INFO] Building quick-perf-junit4-parent 1.1.1-SNAPSHOT                 [11/40]
+[INFO]   from junit4/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-parent ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-parent ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] ------------------< org.quickperf:quick-perf-junit4 >-------------------
+[INFO] Building quick-perf-junit4 1.1.1-SNAPSHOT                        [12/40]
+[INFO]   from junit4/junit4-runner/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4 ---
+[INFO] Deleting /quickperf/junit4/junit4-runner/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4 ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4 ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-runner/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /quickperf/junit4/junit4-runner/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4 ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-runner/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /quickperf/junit4/junit4-runner/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.junit4.QuickPerfJUnitRunnerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.148 s - in org.quickperf.junit4.QuickPerfJUnitRunnerTest
+[INFO] Running org.quickperf.time.ExecutionTimeJUnit4Test
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.352 s - in org.quickperf.time.ExecutionTimeJUnit4Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-sql-memory-test >--------------
+[INFO] Building quick-perf-sql-memory-test 1.1.1-SNAPSHOT               [13/40]
+[INFO]   from sql/sql-memory-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-sql-memory-test ---
+[INFO] Deleting /quickperf/sql/sql-memory-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-sql-memory-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-sql-memory-test ---
+[INFO] skip non existing resourceDirectory /quickperf/sql/sql-memory-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-sql-memory-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-sql-memory-test ---
+[INFO] skip non existing resourceDirectory /quickperf/sql/sql-memory-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-sql-memory-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 26 source files to /quickperf/sql/sql-memory-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-sql-memory-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running DisableLikeWithLeadingWildcardTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.022 s - in DisableLikeWithLeadingWildcardTest
+[INFO] Running ExpectJdbcBatchingWithoutBatchSizeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.087 s - in ExpectJdbcBatchingWithoutBatchSizeTest
+[INFO] Running ExpectMaxInsertTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.461 s - in ExpectMaxInsertTest
+[INFO] Running DisableSameSelectTypesWithDifferentParamValuesTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.365 s - in DisableSameSelectTypesWithDifferentParamValuesTest
+[INFO] Running ExpectJdbcBatchingWithBatchSizeTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.377 s - in ExpectJdbcBatchingWithBatchSizeTest
+[INFO] Running ExpectMaxSelectTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.39 s - in ExpectMaxSelectTest
+[INFO] Running AnalyzeSqlTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.429 s - in AnalyzeSqlTest
+[INFO] Running ExpectSelectedColumnTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.519 s - in ExpectSelectedColumnTest
+[INFO] Running ExpectDeleteTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.234 s - in ExpectDeleteTest
+[INFO] Running DisableStatementsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.368 s - in DisableStatementsTest
+[INFO] Running ExecuteMethodOnStatementTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.609 s - in ExecuteMethodOnStatementTest
+[INFO] Running ExpectMaxUpdatedColumnTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.412 s - in ExpectMaxUpdatedColumnTest
+[INFO] Running ExpectMaxJdbcQueryExecutionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.363 s - in ExpectMaxJdbcQueryExecutionTest
+[INFO] Running DisableQueriesWithoutBindParametersTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.792 s - in DisableQueriesWithoutBindParametersTest
+[INFO] Running ExpectUpdatedColumnTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.483 s - in ExpectUpdatedColumnTest
+[INFO] Running ExpectSelectTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.462 s - in ExpectSelectTest
+[INFO] Running DisableQueriesWithoutBindParametersWithSelectTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.76 s - in DisableQueriesWithoutBindParametersWithSelectTest
+[INFO] Running ExpectJdbcQueryExecutionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.38 s - in ExpectJdbcQueryExecutionTest
+[INFO] Running DisableSameSelectsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.537 s - in DisableSameSelectsTest
+[INFO] Running ProfileConnectionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.67 s - in ProfileConnectionTest
+[INFO] Running ExpectMaxDeleteTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.28 s - in ExpectMaxDeleteTest
+[INFO] Running ExpectInsertTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.377 s - in ExpectInsertTest
+[INFO] Running ExpectMaxUpdateTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.347 s - in ExpectMaxUpdateTest
+[INFO] Running ConnectionLeakTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.159 s - in ConnectionLeakTest
+[INFO] Running ExpectUpdateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.489 s - in ExpectUpdateTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 116, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -------------< org.quickperf:quick-perf-junit4-5-jvm-test >-------------
+[INFO] Building quick-perf-junit4-5-jvm-test 1.1.1-SNAPSHOT             [14/40]
+[INFO]   from junit4/junit4-5-jvm-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-5-jvm-test ---
+[INFO] Deleting /quickperf/junit4/junit4-5-jvm-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-5-jvm-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-5-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-5-jvm-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-5-jvm-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-5-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-5-jvm-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-5-jvm-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /quickperf/junit4/junit4-5-jvm-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-5-jvm-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.jvm.AllocationAnnotationsJUnit4_5_Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.988 s - in org.quickperf.jvm.AllocationAnnotationsJUnit4_5_Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ------------< org.quickperf:quick-perf-junit4-12-jvm-test >-------------
+[INFO] Building quick-perf-junit4-12-jvm-test 1.1.1-SNAPSHOT            [15/40]
+[INFO]   from junit4/junit4-12-jvm-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-12-jvm-test ---
+[INFO] Deleting /quickperf/junit4/junit4-12-jvm-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-12-jvm-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-12-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-12-jvm-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-12-jvm-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-12-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-12-jvm-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-12-jvm-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /quickperf/junit4/junit4-12-jvm-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-12-jvm-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.jvm.allocation.AllocationWriterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.23 s - in org.quickperf.jvm.allocation.AllocationWriterTest
+[INFO] Running org.quickperf.jvm.rss.JUnit4RssTests
+[QUICK PERF] Measured RSS (process 896): 43.50 Mega bytes (45 608 960 bytes)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.538 s - in org.quickperf.jvm.rss.JUnit4RssTests
+[INFO] Running org.quickperf.jvm.allocation.AllocationAnnotationsJUnit4Test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.221 s - in org.quickperf.jvm.allocation.AllocationAnnotationsJUnit4Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ------------< org.quickperf:quick-perf-junit4-13-jvm-test >-------------
+[INFO] Building quick-perf-junit4-13-jvm-test 1.1.1-SNAPSHOT            [16/40]
+[INFO]   from junit4/junit4-13-jvm-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-13-jvm-test ---
+[INFO] Deleting /quickperf/junit4/junit4-13-jvm-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-13-jvm-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-13-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-13-jvm-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-13-jvm-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-13-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-13-jvm-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-13-jvm-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /quickperf/junit4/junit4-13-jvm-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-13-jvm-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.jvm.CheckAllocationJUnit4_13Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.991 s - in org.quickperf.jvm.CheckAllocationJUnit4_13Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------< org.quickperf:quick-perf-junit4-13-1-jvm-test >------------
+[INFO] Building quick-perf-junit4-13-1-jvm-test 1.1.1-SNAPSHOT          [17/40]
+[INFO]   from junit4/junit4-13-1-jvm-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-13-1-jvm-test ---
+[INFO] Deleting /quickperf/junit4/junit4-13-1-jvm-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-13-1-jvm-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-13-1-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-13-1-jvm-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-13-1-jvm-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-13-1-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-13-1-jvm-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-13-1-jvm-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /quickperf/junit4/junit4-13-1-jvm-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-13-1-jvm-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.jvm.CheckAllocationJUnit4_13_1Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.912 s - in org.quickperf.jvm.CheckAllocationJUnit4_13_1Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------< org.quickperf:quick-perf-junit4-13-2-jvm-test >------------
+[INFO] Building quick-perf-junit4-13-2-jvm-test 1.1.1-SNAPSHOT          [18/40]
+[INFO]   from junit4/junit4-13-2-jvm-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-13-2-jvm-test ---
+[INFO] Deleting /quickperf/junit4/junit4-13-2-jvm-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-13-2-jvm-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-13-2-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-13-2-jvm-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-13-2-jvm-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-13-2-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-13-2-jvm-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-13-2-jvm-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /quickperf/junit4/junit4-13-2-jvm-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-13-2-jvm-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.jvm.CheckAllocationJUnit4_13_2Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.908 s - in org.quickperf.jvm.CheckAllocationJUnit4_13_2Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-junit4-sql-test >--------------
+[INFO] Building quick-perf-junit4-sql-test 1.1.1-SNAPSHOT               [19/40]
+[INFO]   from junit4/junit4-sql-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-sql-test ---
+[INFO] Deleting /quickperf/junit4/junit4-sql-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-sql-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-sql-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-sql-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-sql-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-sql-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit4/junit4-sql-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-sql-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /quickperf/junit4/junit4-sql-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-sql-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.sql.SqlConcurrencyJUnit4Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.8 s - in org.quickperf.sql.SqlConcurrencyJUnit4Test
+[INFO] Running org.quickperf.sql.GlobalAnnotationJUnit4Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.7 s - in org.quickperf.sql.GlobalAnnotationJUnit4Test
+[INFO] Running org.quickperf.sql.DisableQuickPerfFeaturesJUnit4Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.799 s - in org.quickperf.sql.DisableQuickPerfFeaturesJUnit4Test
+[INFO] Running org.quickperf.sql.ProfileConnectionJUnit4Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.705 s - in org.quickperf.sql.ProfileConnectionJUnit4Test
+[INFO] Running org.quickperf.sql.DisableAnnotationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.69 s - in org.quickperf.sql.DisableAnnotationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ---------------< org.quickperf:quick-perf-junit5-parent >---------------
+[INFO] Building quick-perf-junit5-parent 1.1.1-SNAPSHOT                 [20/40]
+[INFO]   from junit5/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit5-parent ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit5-parent ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] -------------< org.quickperf:quick-perf-junit5-test-util >--------------
+[INFO] Building quick-perf-junit5-test-util 1.1.1-SNAPSHOT              [21/40]
+[INFO]   from junit5/junit5-test-util/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit5-test-util ---
+[INFO] Deleting /quickperf/junit5/junit5-test-util/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit5-test-util ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit5-test-util ---
+[INFO] skip non existing resourceDirectory /quickperf/junit5/junit5-test-util/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit5-test-util ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit5-test-util ---
+[INFO] skip non existing resourceDirectory /quickperf/junit5/junit5-test-util/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit5-test-util ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /quickperf/junit5/junit5-test-util/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit5-test-util ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ------------------< org.quickperf:quick-perf-junit5 >-------------------
+[INFO] Building quick-perf-junit5 1.1.1-SNAPSHOT                        [22/40]
+[INFO]   from junit5/junit5-extension/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit5 ---
+[INFO] Deleting /quickperf/junit5/junit5-extension/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit5 ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit5 ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit5 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /quickperf/junit5/junit5-extension/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit5 ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit5 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /quickperf/junit5/junit5-extension/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit5 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.junit5.JUnit5ExtensionTest
+[QUICK PERF] Measured heap allocation (test method thread): 180.02 Kilo bytes (184 336 bytes)
+
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.775 s - in org.quickperf.junit5.JUnit5ExtensionTest
+[INFO] Running org.quickperf.junit5.AutomaticJunit5ExtensionRegistrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.009 s - in org.quickperf.junit5.AutomaticJunit5ExtensionRegistrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-junit5-jvm-test >--------------
+[INFO] Building quick-perf-junit5-jvm-test 1.1.1-SNAPSHOT               [23/40]
+[INFO]   from junit5/junit5-jvm-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit5-jvm-test ---
+[INFO] Deleting /quickperf/junit5/junit5-jvm-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit5-jvm-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit5-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit5/junit5-jvm-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit5-jvm-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit5-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit5/junit5-jvm-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit5-jvm-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /quickperf/junit5/junit5-jvm-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit5-jvm-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.junit5.jvm.rss.JUnit5RssTests
+[QUICK PERF] Measured RSS (process 1515): 59.48 Mega bytes (62 369 792 bytes)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.572 s - in org.quickperf.junit5.jvm.rss.JUnit5RssTests
+[INFO] Running org.quickperf.junit5.jvm.testtemplate.AllocationJUnit5TestTemplateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.25 s - in org.quickperf.junit5.jvm.testtemplate.AllocationJUnit5TestTemplateTest
+[INFO] Running org.quickperf.junit5.jvm.jmc.JmcJunit5Tests
+[QUICK PERF] JVM was profiled with JDK Flight Recorder (JFR).
+The recording file is available here: /tmp/QuickPerf-9697693463798388289/jvm-profiling.jfr
+You can open it with JDK Mission Control (JMC).
+Where to find JDK Mission Control? 👉 https://tinyurl.com/jdkmc
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.687 s - in org.quickperf.junit5.jvm.jmc.JmcJunit5Tests
+[INFO] Running org.quickperf.junit5.jvm.allocation.AllocationAnnotationsJUnit5Test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.436 s - in org.quickperf.junit5.jvm.allocation.AllocationAnnotationsJUnit5Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-junit5-sql-test >--------------
+[INFO] Building quick-perf-junit5-sql-test 1.1.1-SNAPSHOT               [24/40]
+[INFO]   from junit5/junit5-sql-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit5-sql-test ---
+[INFO] Deleting /quickperf/junit5/junit5-sql-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit5-sql-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit5-sql-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit5/junit5-sql-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit5-sql-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit5-sql-test ---
+[INFO] skip non existing resourceDirectory /quickperf/junit5/junit5-sql-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit5-sql-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /quickperf/junit5/junit5-sql-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit5-sql-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.sql.GlobalAnnotationJUnit5Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.449 s - in org.quickperf.sql.GlobalAnnotationJUnit5Test
+[INFO] Running org.quickperf.sql.QuickPerfJUnit5SqlTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in org.quickperf.sql.QuickPerfJUnit5SqlTest
+[INFO] Running org.quickperf.sql.ProfileConnectionJUnit5Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.quickperf.sql.ProfileConnectionJUnit5Test
+[INFO] Running org.quickperf.sql.QuickPerfJUnit5SqlTestTemplateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s - in org.quickperf.sql.QuickPerfJUnit5SqlTestTemplateTest
+[INFO] Running org.quickperf.sql.QuickPerfJUnit5SqlDynamicTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.196 s - in org.quickperf.sql.QuickPerfJUnit5SqlDynamicTest
+[INFO] Running org.quickperf.sql.DisableQuickPerfFeaturesJUnit5Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in org.quickperf.sql.DisableQuickPerfFeaturesJUnit5Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ---------------< org.quickperf:quick-perf-testng-parent >---------------
+[INFO] Building quick-perf-testng-parent 1.1.1-SNAPSHOT                 [25/40]
+[INFO]   from testng/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-testng-parent ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-testng-parent ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] -------------< org.quickperf:quick-perf-testng-test-util >--------------
+[INFO] Building quick-perf-testng-test-util 1.1.1-SNAPSHOT              [26/40]
+[INFO]   from testng/testng-test-util/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-testng-test-util ---
+[INFO] Deleting /quickperf/testng/testng-test-util/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-testng-test-util ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-testng-test-util ---
+[INFO] skip non existing resourceDirectory /quickperf/testng/testng-test-util/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-testng-test-util ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-testng-test-util ---
+[INFO] skip non existing resourceDirectory /quickperf/testng/testng-test-util/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-testng-test-util ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /quickperf/testng/testng-test-util/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-testng-test-util ---
+[INFO] 
+[INFO] ------------------< org.quickperf:quick-perf-testng >-------------------
+[INFO] Building quick-perf-testng 1.1.1-SNAPSHOT                        [27/40]
+[INFO]   from testng/testng-listener/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-testng ---
+[INFO] Deleting /quickperf/testng/testng-listener/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-testng ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-testng ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-testng ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /quickperf/testng/testng-listener/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-testng ---
+[INFO] skip non existing resourceDirectory /quickperf/testng/testng-listener/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-testng ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /quickperf/testng/testng-listener/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-testng ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.testng.QuickPerfTestNGTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.628 s - in org.quickperf.testng.QuickPerfTestNGTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-testng-sql-test >--------------
+[INFO] Building quick-perf-testng-sql-test 1.1.1-SNAPSHOT               [28/40]
+[INFO]   from testng/testng-sql-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-testng-sql-test ---
+[INFO] Deleting /quickperf/testng/testng-sql-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-testng-sql-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-testng-sql-test ---
+[INFO] skip non existing resourceDirectory /quickperf/testng/testng-sql-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-testng-sql-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-testng-sql-test ---
+[INFO] skip non existing resourceDirectory /quickperf/testng/testng-sql-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-testng-sql-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /quickperf/testng/testng-sql-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-testng-sql-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.778 s - in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-testng-jvm-test >--------------
+[INFO] Building quick-perf-testng-jvm-test 1.1.1-SNAPSHOT               [29/40]
+[INFO]   from testng/testng-jvm-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-testng-jvm-test ---
+[INFO] Deleting /quickperf/testng/testng-jvm-test/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-testng-jvm-test ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-testng-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/testng/testng-jvm-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-testng-jvm-test ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-testng-jvm-test ---
+[INFO] skip non existing resourceDirectory /quickperf/testng/testng-jvm-test/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-testng-jvm-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /quickperf/testng/testng-jvm-test/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-testng-jvm-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running TestSuite
+[QUICK PERF] JVM was profiled with JDK Flight Recorder (JFR).
+The recording file is available here: /tmp/QuickPerf-2890898173307416044/jvm-profiling.jfr
+You can open it with JDK Mission Control (JMC).
+Where to find JDK Mission Control? 👉 https://tinyurl.com/jdkmc
+
+------------------------------------------------------------------------------
+ ALLOCATION (estimations)     |   GARBAGE COLLECTION           |  THROWABLE
+ Total       : 996 MiB        |   Total pause     : 13.507 ms  |  Exception: 0
+ Inside TLAB : 996 MiB        |   Longest GC pause: 2.895 ms   |  Error    : 0
+ Outside TLAB: 0              |   Young: 6                     |  Throwable: 0
+ Allocation rate: 4 GiB/s     |   Old  : 0                     |
+------------------------------------------------------------------------------
+ COMPILATION                  |   CODE CACHE
+ Number : 0                   |   The number of full code cache events: 0
+ Longest: 0                   |   
+------------------------------------------------------------------------------
+ JVM
+ Name     : OpenJDK 64-Bit Server VM
+ Version  : OpenJDK 64-Bit Server VM (11.0.19+7-alpine-r1) for linux-amd64-musl JRE (11.0.19+7-alpine-r1), built on May  3 2023 03:29:58 by "buildozer" with gcc 12.2.1 20220924
+ Arguments: -XX:+FlightRecorder -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/QuickPerf-2890898173307416044/heap-dump.hprof -DquickPerfToExecInASpecificJvm=true -DquickPerfWorkingFolder=/tmp/QuickPerf-2890898173307416044
+------------------------------------------------------------------------------
+ HARDWARE
+ Hardware threads: 12
+ Cores           : 16
+ Sockets         : 1
+ CPU
+		Brand: AMD Ryzen 5 5600G with Radeon Graphics         , Vendor: AuthenticAMD
+		Family: Unknown x86 (0x19), Model: <unknown> (0x50), Stepping: 0x0
+		Ext. family: 0xa, Ext. model: 0x5, Type: 0x0, Signature: 0x00a50f00
+		Features: ebx: 0x04100800, ecx: 0xfed83203, edx: 0x178bfbff
+		Ext. features: eax: 0x00a50f00, ebx: 0x20000000, ecx: 0x00c003f7, edx: 0x2fd3fbff
+		Supports: On-Chip FPU, Virtual Mode Extensions, Debugging Extensions, Page Size Extensions, Time Stamp Counter, Model Specific Registers, Physical Address Extension, Machine Check Exceptions, CMPXCHG8B Instruction, On-Chip APIC, Fast System Call, Memory Type Range Registers, Page Global Enable, Machine Check Architecture, Conditional Mov Instruction, Page Attribute Table, 36-bit Page Size Extension, CLFLUSH Instruction, Intel Architecture MMX Technology, Fast Float Point Save and Restore, Streaming SIMD extensions, Streaming SIMD extensions 2, Hyper Threading, Streaming SIMD Extensions 3, PCLMULQDQ, Supplemental Streaming SIMD Extensions 3, Fused Multiply-Add, CMPXCHG16B, Streaming SIMD extensions 4.1, Streaming SIMD extensions 4.2, MOVBE, Popcount instruction, AESNI, XSAVE, OSXSAVE, AVX, F16C, LAHF/SAHF instruction support, Core multi-processor leagacy mode, Advanced Bit Manipulations: LZCNT, SSE4A: MOVNTSS, MOVNTSD, EXTRQ, INSERTQ, Misaligned SSE mode, SYSCALL/SYSRET, Execute Disable Bit, RDTSCP, Intel 64 Architecture, Invariant TSC
+------------------------------------------------------------------------------
+ OS
+		NAME="Alpine Linux"
+		ID=alpine
+		VERSION_ID=3.18.2
+		PRETTY_NAME="Alpine Linux v3.18"
+		HOME_URL="https://alpinelinux.org/"
+		BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+		uname:Linux 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64
+		libc:musl - unknown musl - unknown 
+------------------------------------------------------------------------------
+
+[QUICK PERF] JVM was profiled with JDK Flight Recorder (JFR).
+The recording file is available here: /tmp/QuickPerf-805737087666599340/jvm-profiling.jfr
+You can open it with JDK Mission Control (JMC).
+Where to find JDK Mission Control? 👉 https://tinyurl.com/jdkmc
+
+------------------------------------------------------------------------------
+ ALLOCATION (estimations)     |   GARBAGE COLLECTION           |  THROWABLE
+ Total       : 514 KiB        |   Total pause     : 0          |  Exception: 0
+ Inside TLAB : 514 KiB        |   Longest GC pause: 0          |  Error    : 0
+ Outside TLAB: 0              |   Young: 0                     |  Throwable: 0
+ Allocation rate:             |   Old  : 0                     |
+------------------------------------------------------------------------------
+ COMPILATION                  |   CODE CACHE
+ Number : 0                   |   The number of full code cache events: 0
+ Longest: 0                   |   
+------------------------------------------------------------------------------
+ JVM
+ Name     : OpenJDK 64-Bit Server VM
+ Version  : OpenJDK 64-Bit Server VM (11.0.19+7-alpine-r1) for linux-amd64-musl JRE (11.0.19+7-alpine-r1), built on May  3 2023 03:29:58 by "buildozer" with gcc 12.2.1 20220924
+ Arguments: -XX:+FlightRecorder -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/QuickPerf-805737087666599340/heap-dump.hprof -DquickPerfToExecInASpecificJvm=true -DquickPerfWorkingFolder=/tmp/QuickPerf-805737087666599340
+------------------------------------------------------------------------------
+ HARDWARE
+ Hardware threads: 12
+ Cores           : 16
+ Sockets         : 1
+ CPU
+		Brand: AMD Ryzen 5 5600G with Radeon Graphics         , Vendor: AuthenticAMD
+		Family: Unknown x86 (0x19), Model: <unknown> (0x50), Stepping: 0x0
+		Ext. family: 0xa, Ext. model: 0x5, Type: 0x0, Signature: 0x00a50f00
+		Features: ebx: 0x02100800, ecx: 0xfed83203, edx: 0x178bfbff
+		Ext. features: eax: 0x00a50f00, ebx: 0x20000000, ecx: 0x00c003f7, edx: 0x2fd3fbff
+		Supports: On-Chip FPU, Virtual Mode Extensions, Debugging Extensions, Page Size Extensions, Time Stamp Counter, Model Specific Registers, Physical Address Extension, Machine Check Exceptions, CMPXCHG8B Instruction, On-Chip APIC, Fast System Call, Memory Type Range Registers, Page Global Enable, Machine Check Architecture, Conditional Mov Instruction, Page Attribute Table, 36-bit Page Size Extension, CLFLUSH Instruction, Intel Architecture MMX Technology, Fast Float Point Save and Restore, Streaming SIMD extensions, Streaming SIMD extensions 2, Hyper Threading, Streaming SIMD Extensions 3, PCLMULQDQ, Supplemental Streaming SIMD Extensions 3, Fused Multiply-Add, CMPXCHG16B, Streaming SIMD extensions 4.1, Streaming SIMD extensions 4.2, MOVBE, Popcount instruction, AESNI, XSAVE, OSXSAVE, AVX, F16C, LAHF/SAHF instruction support, Core multi-processor leagacy mode, Advanced Bit Manipulations: LZCNT, SSE4A: MOVNTSS, MOVNTSD, EXTRQ, INSERTQ, Misaligned SSE mode, SYSCALL/SYSRET, Execute Disable Bit, RDTSCP, Intel 64 Architecture, Invariant TSC
+------------------------------------------------------------------------------
+ OS
+		NAME="Alpine Linux"
+		ID=alpine
+		VERSION_ID=3.18.2
+		PRETTY_NAME="Alpine Linux v3.18"
+		HOME_URL="https://alpinelinux.org/"
+		BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+		uname:Linux 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64
+		libc:musl - unknown musl - unknown 
+------------------------------------------------------------------------------
+
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.496 s - in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ------------------< org.quickperf:quick-perf-spring >-------------------
+[INFO] Building quick-perf-spring 1.1.1-SNAPSHOT                        [30/40]
+[INFO]   from spring/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-spring ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-spring ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] ----------------< org.quickperf:quick-perf-sql-spring4 >----------------
+[INFO] Building quick-perf-sql-spring4 1.1.1-SNAPSHOT                   [31/40]
+[INFO]   from spring/sql-spring4/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-sql-spring4 ---
+[INFO] Deleting /quickperf/spring/sql-spring4/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-sql-spring4 ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-sql-spring4 ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/sql-spring4/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-sql-spring4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /quickperf/spring/sql-spring4/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-sql-spring4 ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/sql-spring4/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-sql-spring4 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-sql-spring4 ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ----------------< org.quickperf:quick-perf-sql-spring5 >----------------
+[INFO] Building quick-perf-sql-spring5 1.1.1-SNAPSHOT                   [32/40]
+[INFO]   from spring/sql-spring5/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-sql-spring5 ---
+[INFO] Deleting /quickperf/spring/sql-spring5/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-sql-spring5 ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-sql-spring5 ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/sql-spring5/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-sql-spring5 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /quickperf/spring/sql-spring5/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-sql-spring5 ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/sql-spring5/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-sql-spring5 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-sql-spring5 ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ---------< org.quickperf:quick-perf-junit4-spring-base-tests >----------
+[INFO] Building quick-perf-junit4-spring-base-tests 1.1.1-SNAPSHOT      [33/40]
+[INFO]   from spring/junit4-spring-base-tests/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-spring-base-tests ---
+[INFO] Deleting /quickperf/spring/junit4-spring-base-tests/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-spring-base-tests ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-spring-base-tests ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/junit4-spring-base-tests/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-spring-base-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-spring-base-tests ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/junit4-spring-base-tests/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-spring-base-tests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /quickperf/spring/junit4-spring-base-tests/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-spring-base-tests ---
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-junit4-spring3 >---------------
+[INFO] Building quick-perf-junit4-spring3 1.1.1-SNAPSHOT                [34/40]
+[INFO]   from spring/junit4-spring3/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-spring3 ---
+[INFO] Deleting /quickperf/spring/junit4-spring3/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-spring3 ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-spring3 ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/junit4-spring3/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-spring3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /quickperf/spring/junit4-spring3/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-spring3 ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-spring3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /quickperf/spring/junit4-spring3/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-spring3 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.spring.JUnit4Spring3Test
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.944 s - in org.quickperf.spring.JUnit4Spring3Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-junit4-spring4 >---------------
+[INFO] Building quick-perf-junit4-spring4 1.1.1-SNAPSHOT                [35/40]
+[INFO]   from spring/junit4-spring4/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-spring4 ---
+[INFO] Deleting /quickperf/spring/junit4-spring4/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-spring4 ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-spring4 ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/junit4-spring4/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-spring4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /quickperf/spring/junit4-spring4/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-spring4 ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-spring4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /quickperf/spring/junit4-spring4/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-spring4 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.spring.JUnit4Spring4Test
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.23 s - in org.quickperf.spring.JUnit4Spring4Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-junit4-spring5 >---------------
+[INFO] Building quick-perf-junit4-spring5 1.1.1-SNAPSHOT                [36/40]
+[INFO]   from spring/junit4-spring5/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-junit4-spring5 ---
+[INFO] Deleting /quickperf/spring/junit4-spring5/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-junit4-spring5 ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-junit4-spring5 ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/junit4-spring5/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-junit4-spring5 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /quickperf/spring/junit4-spring5/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-junit4-spring5 ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-junit4-spring5 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /quickperf/spring/junit4-spring5/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-junit4-spring5 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.spring.JUnit4Spring5Test
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.005 s - in org.quickperf.spring.JUnit4Spring5Test
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----------< org.quickperf:quick-perf-springboot1-sql-starter >----------
+[INFO] Building quick-perf-springboot1-sql-starter 1.1.1-SNAPSHOT       [37/40]
+[INFO]   from spring/spring-boot-1-sql-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-springboot1-sql-starter ---
+[INFO] Deleting /quickperf/spring/spring-boot-1-sql-starter/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-springboot1-sql-starter ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-springboot1-sql-starter ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-springboot1-sql-starter ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /quickperf/spring/spring-boot-1-sql-starter/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-springboot1-sql-starter ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/spring-boot-1-sql-starter/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-springboot1-sql-starter ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-springboot1-sql-starter ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ----------< org.quickperf:quick-perf-springboot2-sql-starter >----------
+[INFO] Building quick-perf-springboot2-sql-starter 1.1.1-SNAPSHOT       [38/40]
+[INFO]   from spring/spring-boot-2-sql-starter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-springboot2-sql-starter ---
+[INFO] Deleting /quickperf/spring/spring-boot-2-sql-starter/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-springboot2-sql-starter ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-springboot2-sql-starter ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-springboot2-sql-starter ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /quickperf/spring/spring-boot-2-sql-starter/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-springboot2-sql-starter ---
+[INFO] skip non existing resourceDirectory /quickperf/spring/spring-boot-2-sql-starter/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-springboot2-sql-starter ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-springboot2-sql-starter ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] ----------< org.quickperf:quick-perf-junit4-spring-boot-test >----------
+[INFO] Building quick-perf-junit4-spring-boot-test 1.1.1-SNAPSHOT       [39/40]
+[INFO]   from spring/junit4-spring-boot-test/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ quick-perf-junit4-spring-boot-test ---
+[INFO] Deleting /quickperf/spring/junit4-spring-boot-test/target
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ quick-perf-junit4-spring-boot-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /quickperf/spring/junit4-spring-boot-test/src/main/resources
+[INFO] skip non existing resourceDirectory /quickperf/spring/junit4-spring-boot-test/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ quick-perf-junit4-spring-boot-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /quickperf/spring/junit4-spring-boot-test/target/classes
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ quick-perf-junit4-spring-boot-test ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ quick-perf-junit4-spring-boot-test ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 15 source files to /quickperf/spring/junit4-spring-boot-test/target/test-classes
+[INFO] /quickperf/spring/junit4-spring-boot-test/src/test/java/org/quickperf/spring/springboottest/controller/DetectionOfNPlusOneSelectInWebService.java: /quickperf/spring/junit4-spring-boot-test/src/test/java/org/quickperf/spring/springboottest/controller/DetectionOfNPlusOneSelectInWebService.java uses unchecked or unsafe operations.
+[INFO] /quickperf/spring/junit4-spring-boot-test/src/test/java/org/quickperf/spring/springboottest/controller/DetectionOfNPlusOneSelectInWebService.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.22.1:test (default-test) @ quick-perf-junit4-spring-boot-test ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.646 s <<< FAILURE! - in org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test
+[ERROR] should_fail_if_select_number_is_greater_than_expected_from_web_service_and_with_test_launched_in_a_dedicated_jvm(org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test)  Time elapsed: 0.52 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting:
+ <"
+Time: 0.365
+There was 1 failure:
+1) should_find_all_players(org.quickperf.spring.springboottest.controller.DetectionOfNPlusOneSelectInWebService)
+java.lang.AssertionError: Performance-related and functional properties not respected
+
+PERFORMANCE-RELATED PROPERTIES(S)
+
+[PERF] You may think that <1> select statement was sent to the database
+       But there is in fact <0>...
+
+[JDBC QUERY EXECUTION (executeQuery, executeBatch, ...)]
+
+No SQL execution is detected.
+QuickPerf uses a proxy on the data source to intercept the SQL executions.
+
+To configure it, add the following dependency: 
+	* Maven
+		<dependency>
+			<groupId>org.quickperf</groupId>
+			<artifactId>quick-perf-springboot2-sql-starter</artifactId>
+			<scope>test</scope>
+		</dependency>
+	* Gradle
+		testCompile group: 'org.quickperf', name: 'quick-perf-springboot2-sql-starter'
+	* Other: https://search.maven.org/search?q=a:quick-perf-springboot2-sql-starter
+
+
+
+FUNCTIONAL PROPERTY
+org.apache.logging.log4j.spi.LoggerContextShutdownAware
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+">
+to contain:
+ <"Perhaps you are facing an N+1 select issue"> 
+	at org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected_from_web_service_and_with_test_launched_in_a_dedicated_jvm(SpringBootExpectSelectJunit4Test.java:37)
+
+[ERROR] should_fail_if_select_number_is_greater_than_expected_from_spring_service(org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test)  Time elapsed: 0.06 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting:
+ <"
+Time: 0.054
+There was 1 failure:
+1) org.quickperf.spring.springboottest.service.DetectionOfNPlusOneSelectInServiceWithExpectSelect
+java.lang.NoClassDefFoundError: org/apache/logging/log4j/spi/LoggerContextShutdownAware
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:800)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:698)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:621)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:579)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.createContextSelector(Log4jContextFactory.java:108)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.<init>(Log4jContextFactory.java:61)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at java.base/java.lang.Class.newInstance(Class.java:584)
+	at org.apache.logging.log4j.LogManager.<clinit>(LogManager.java:94)
+	at org.apache.commons.logging.LogAdapter$Log4jLog.<clinit>(LogAdapter.java:155)
+	at org.apache.commons.logging.LogAdapter$Log4jAdapter.createLog(LogAdapter.java:122)
+	at org.apache.commons.logging.LogAdapter.createLog(LogAdapter.java:89)
+	at org.apache.commons.logging.LogFactory.getLog(LogFactory.java:67)
+	at org.apache.commons.logging.LogFactory.getLog(LogFactory.java:59)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.<clinit>(SpringJUnit4ClassRunner.java:99)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:219)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:37)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.run(QuickPerfSpringRunner.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:36)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:29)
+	at org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected_from_spring_service(SpringBootExpectSelectJunit4Test.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: java.lang.ClassNotFoundException: org.apache.logging.log4j.spi.LoggerContextShutdownAware
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 62 more
+
+FAILURES!!!
+Tests run: 0,  Failures: 1
+
+">
+to contain:
+ <"You may think that <1> select statement was sent to the database"> 
+	at org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected_from_spring_service(SpringBootExpectSelectJunit4Test.java:56)
+
+[INFO] Running org.quickperf.spring.springboottest.SpringBootExpectMaxJdbcQueryExecutionJunit4Test
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.quickperf.spring.springboottest.SpringBootExpectMaxJdbcQueryExecutionJunit4Test
+[ERROR] should_fail_if_select_number_is_greater_than_expected(org.quickperf.spring.springboottest.SpringBootExpectMaxJdbcQueryExecutionJunit4Test)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting:
+ <"
+Time: 0.001
+There was 1 failure:
+1) org.quickperf.spring.springboottest.service.DetectionOfNPlusOneSelectInServiceWithExpectMaxJdbcQueryExecution
+java.lang.NoClassDefFoundError: Could not initialize class org.quickperf.spring.junit4.SpringRunnerWithQuickPerfFeatures
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:219)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:37)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.run(QuickPerfSpringRunner.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:36)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:29)
+	at org.quickperf.spring.springboottest.SpringBootExpectMaxJdbcQueryExecutionJunit4Test.should_fail_if_select_number_is_greater_than_expected(SpringBootExpectMaxJdbcQueryExecutionJunit4Test.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+FAILURES!!!
+Tests run: 0,  Failures: 1
+
+">
+to contain:
+ <"You may think that there was at most <1> JDBC query execution"> 
+	at org.quickperf.spring.springboottest.SpringBootExpectMaxJdbcQueryExecutionJunit4Test.should_fail_if_select_number_is_greater_than_expected(SpringBootExpectMaxJdbcQueryExecutionJunit4Test.java:36)
+
+[INFO] Running org.quickperf.spring.springboottest.SpringBootExpectMaxSelectJunit4Test
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.quickperf.spring.springboottest.SpringBootExpectMaxSelectJunit4Test
+[ERROR] should_fail_if_select_number_is_greater_than_expected(org.quickperf.spring.springboottest.SpringBootExpectMaxSelectJunit4Test)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting:
+ <"
+Time: 0.001
+There was 1 failure:
+1) org.quickperf.spring.springboottest.service.DetectionOfNPlusOneSelectInServiceWithExpectMaxSelect
+java.lang.NoClassDefFoundError: Could not initialize class org.quickperf.spring.junit4.SpringRunnerWithQuickPerfFeatures
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:219)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:37)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.run(QuickPerfSpringRunner.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:36)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:29)
+	at org.quickperf.spring.springboottest.SpringBootExpectMaxSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected(SpringBootExpectMaxSelectJunit4Test.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+FAILURES!!!
+Tests run: 0,  Failures: 1
+
+">
+to contain:
+ <"You may think that at most <1> select statement was sent to the database"> 
+	at org.quickperf.spring.springboottest.SpringBootExpectMaxSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected(SpringBootExpectMaxSelectJunit4Test.java:36)
+
+[INFO] Running org.quickperf.spring.springboottest.QuickPerfSpringRunnerDisableQuickPerfTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in org.quickperf.spring.springboottest.QuickPerfSpringRunnerDisableQuickPerfTest
+[ERROR] org.quickperf.spring.springboottest.QuickPerfSpringRunnerDisableQuickPerfTest  Time elapsed: 0.021 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.test.context.junit4.SpringJUnit4ClassRunner
+
+[INFO] Running org.quickperf.spring.springboottest.QuickPerfSpringRunnerDisableQuickPerfNewJvmTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.quickperf.spring.springboottest.QuickPerfSpringRunnerDisableQuickPerfNewJvmTest
+[ERROR] org.quickperf.spring.springboottest.QuickPerfSpringRunnerDisableQuickPerfNewJvmTest  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.quickperf.spring.junit4.SpringRunnerWithCallableProtectedMethods
+
+[INFO] Running org.quickperf.spring.springboottest.SpringBootExpectJdbcQueryExecutionJunit4Test
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.quickperf.spring.springboottest.SpringBootExpectJdbcQueryExecutionJunit4Test
+[ERROR] should_fail_if_select_number_is_greater_than_expected(org.quickperf.spring.springboottest.SpringBootExpectJdbcQueryExecutionJunit4Test)  Time elapsed: 0.005 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting:
+ <"
+Time: 0
+There was 1 failure:
+1) org.quickperf.spring.springboottest.service.DetectionOfNPlusOneSelectInServiceWithExpectJdbcQueryExecution
+java.lang.NoClassDefFoundError: Could not initialize class org.quickperf.spring.junit4.SpringRunnerWithQuickPerfFeatures
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:219)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:37)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.run(QuickPerfSpringRunner.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:36)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:29)
+	at org.quickperf.spring.springboottest.SpringBootExpectJdbcQueryExecutionJunit4Test.should_fail_if_select_number_is_greater_than_expected(SpringBootExpectJdbcQueryExecutionJunit4Test.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+FAILURES!!!
+Tests run: 0,  Failures: 1
+
+">
+to contain:
+ <"You may think that there was <1> JDBC query execution"> 
+	at org.quickperf.spring.springboottest.SpringBootExpectJdbcQueryExecutionJunit4Test.should_fail_if_select_number_is_greater_than_expected(SpringBootExpectJdbcQueryExecutionJunit4Test.java:36)
+
+[INFO] Running org.quickperf.spring.springboottest.QuickPerfSpringRunnerBeforeAfterTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.quickperf.spring.springboottest.QuickPerfSpringRunnerBeforeAfterTest
+[ERROR] org.quickperf.spring.springboottest.QuickPerfSpringRunnerBeforeAfterTest  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.quickperf.spring.junit4.SpringRunnerWithQuickPerfFeatures
+
+[INFO] Running org.quickperf.spring.springboottest.QuickPerfSpringRunnerBeforeAfterNewJvmTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.295 s <<< FAILURE! - in org.quickperf.spring.springboottest.QuickPerfSpringRunnerBeforeAfterNewJvmTest
+[ERROR] should_find_all_players(org.quickperf.spring.springboottest.QuickPerfSpringRunnerBeforeAfterNewJvmTest)  Time elapsed: 0.292 s  <<< ERROR!
+java.lang.ClassNotFoundException: org.apache.logging.log4j.spi.LoggerContextShutdownAware
+
+[INFO] Running org.quickperf.spring.springboottest.SpringConnectionProfilingTest
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.quickperf.spring.springboottest.SpringConnectionProfilingTest
+[ERROR] should_profile_connection(org.quickperf.spring.springboottest.SpringConnectionProfilingTest)  Time elapsed: 0.006 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[0]> but was:<[1]>
+	at org.quickperf.spring.springboottest.SpringConnectionProfilingTest.should_profile_connection(SpringConnectionProfilingTest.java:37)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   SpringBootExpectJdbcQueryExecutionJunit4Test.should_fail_if_select_number_is_greater_than_expected:36 
+Expecting:
+ <"
+Time: 0
+There was 1 failure:
+1) org.quickperf.spring.springboottest.service.DetectionOfNPlusOneSelectInServiceWithExpectJdbcQueryExecution
+java.lang.NoClassDefFoundError: Could not initialize class org.quickperf.spring.junit4.SpringRunnerWithQuickPerfFeatures
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:219)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:37)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.run(QuickPerfSpringRunner.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:36)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:29)
+	at org.quickperf.spring.springboottest.SpringBootExpectJdbcQueryExecutionJunit4Test.should_fail_if_select_number_is_greater_than_expected(SpringBootExpectJdbcQueryExecutionJunit4Test.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+FAILURES!!!
+Tests run: 0,  Failures: 1
+
+">
+to contain:
+ <"You may think that there was <1> JDBC query execution"> 
+[ERROR]   SpringBootExpectMaxJdbcQueryExecutionJunit4Test.should_fail_if_select_number_is_greater_than_expected:36 
+Expecting:
+ <"
+Time: 0.001
+There was 1 failure:
+1) org.quickperf.spring.springboottest.service.DetectionOfNPlusOneSelectInServiceWithExpectMaxJdbcQueryExecution
+java.lang.NoClassDefFoundError: Could not initialize class org.quickperf.spring.junit4.SpringRunnerWithQuickPerfFeatures
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:219)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:37)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.run(QuickPerfSpringRunner.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:36)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:29)
+	at org.quickperf.spring.springboottest.SpringBootExpectMaxJdbcQueryExecutionJunit4Test.should_fail_if_select_number_is_greater_than_expected(SpringBootExpectMaxJdbcQueryExecutionJunit4Test.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+FAILURES!!!
+Tests run: 0,  Failures: 1
+
+">
+to contain:
+ <"You may think that there was at most <1> JDBC query execution"> 
+[ERROR]   SpringBootExpectMaxSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected:36 
+Expecting:
+ <"
+Time: 0.001
+There was 1 failure:
+1) org.quickperf.spring.springboottest.service.DetectionOfNPlusOneSelectInServiceWithExpectMaxSelect
+java.lang.NoClassDefFoundError: Could not initialize class org.quickperf.spring.junit4.SpringRunnerWithQuickPerfFeatures
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:219)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:37)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.run(QuickPerfSpringRunner.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:36)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:29)
+	at org.quickperf.spring.springboottest.SpringBootExpectMaxSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected(SpringBootExpectMaxSelectJunit4Test.java:29)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+
+FAILURES!!!
+Tests run: 0,  Failures: 1
+
+">
+to contain:
+ <"You may think that at most <1> select statement was sent to the database"> 
+[ERROR]   SpringBootExpectSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected_from_spring_service:56 
+Expecting:
+ <"
+Time: 0.054
+There was 1 failure:
+1) org.quickperf.spring.springboottest.service.DetectionOfNPlusOneSelectInServiceWithExpectSelect
+java.lang.NoClassDefFoundError: org/apache/logging/log4j/spi/LoggerContextShutdownAware
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1017)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:800)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:698)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:621)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:579)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.createContextSelector(Log4jContextFactory.java:108)
+	at org.apache.logging.log4j.core.impl.Log4jContextFactory.<init>(Log4jContextFactory.java:61)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at java.base/java.lang.Class.newInstance(Class.java:584)
+	at org.apache.logging.log4j.LogManager.<clinit>(LogManager.java:94)
+	at org.apache.commons.logging.LogAdapter$Log4jLog.<clinit>(LogAdapter.java:155)
+	at org.apache.commons.logging.LogAdapter$Log4jAdapter.createLog(LogAdapter.java:122)
+	at org.apache.commons.logging.LogAdapter.createLog(LogAdapter.java:89)
+	at org.apache.commons.logging.LogFactory.getLog(LogFactory.java:67)
+	at org.apache.commons.logging.LogFactory.getLog(LogFactory.java:59)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.<clinit>(SpringJUnit4ClassRunner.java:99)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:219)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.runChild(QuickPerfSpringRunner.java:37)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.quickperf.spring.junit4.QuickPerfSpringRunner.run(QuickPerfSpringRunner.java:160)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:36)
+	at org.junit.experimental.results.PrintableResult.testResult(PrintableResult.java:29)
+	at org.quickperf.spring.springboottest.SpringBootExpectSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected_from_spring_service(SpringBootExpectSelectJunit4Test.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: java.lang.ClassNotFoundException: org.apache.logging.log4j.spi.LoggerContextShutdownAware
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 62 more
+
+FAILURES!!!
+Tests run: 0,  Failures: 1
+
+">
+to contain:
+ <"You may think that <1> select statement was sent to the database"> 
+[ERROR]   SpringBootExpectSelectJunit4Test.should_fail_if_select_number_is_greater_than_expected_from_web_service_and_with_test_launched_in_a_dedicated_jvm:37 
+Expecting:
+ <"
+Time: 0.365
+There was 1 failure:
+1) should_find_all_players(org.quickperf.spring.springboottest.controller.DetectionOfNPlusOneSelectInWebService)
+java.lang.AssertionError: Performance-related and functional properties not respected
+
+PERFORMANCE-RELATED PROPERTIES(S)
+
+[PERF] You may think that <1> select statement was sent to the database
+       But there is in fact <0>...
+
+[JDBC QUERY EXECUTION (executeQuery, executeBatch, ...)]
+
+No SQL execution is detected.
+QuickPerf uses a proxy on the data source to intercept the SQL executions.
+
+To configure it, add the following dependency: 
+	* Maven
+		<dependency>
+			<groupId>org.quickperf</groupId>
+			<artifactId>quick-perf-springboot2-sql-starter</artifactId>
+			<scope>test</scope>
+		</dependency>
+	* Gradle
+		testCompile group: 'org.quickperf', name: 'quick-perf-springboot2-sql-starter'
+	* Other: https://search.maven.org/search?q=a:quick-perf-springboot2-sql-starter
+
+
+
+FUNCTIONAL PROPERTY
+org.apache.logging.log4j.spi.LoggerContextShutdownAware
+
+FAILURES!!!
+Tests run: 1,  Failures: 1
+
+">
+to contain:
+ <"Perhaps you are facing an N+1 select issue"> 
+[ERROR]   SpringConnectionProfilingTest.should_profile_connection:37 expected:<[0]> but was:<[1]>
+[ERROR] Errors: 
+[ERROR]   QuickPerfSpringRunnerBeforeAfterNewJvmTest.should_find_all_players » ClassNotFound
+[ERROR]   QuickPerfSpringRunnerBeforeAfterTest.org.quickperf.spring.springboottest.QuickPerfSpringRunnerBeforeAfterTest » NoClassDefFound
+[ERROR]   QuickPerfSpringRunnerDisableQuickPerfNewJvmTest.org.quickperf.spring.springboottest.QuickPerfSpringRunnerDisableQuickPerfNewJvmTest » NoClassDefFound
+[ERROR]   QuickPerfSpringRunnerDisableQuickPerfTest.org.quickperf.spring.springboottest.QuickPerfSpringRunnerDisableQuickPerfTest » NoClassDefFound
+[INFO] 
+[ERROR] Tests run: 10, Failures: 6, Errors: 4, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for quick-perf 1.1.1-SNAPSHOT:
+[INFO] 
+[INFO] quick-perf ......................................... SUCCESS [  2.870 s]
+[INFO] quick-perf-core .................................... SUCCESS [  5.842 s]
+[INFO] quick-perf-jvm-parent .............................. SUCCESS [  0.018 s]
+[INFO] quick-perf-jvm-core ................................ SUCCESS [  0.227 s]
+[INFO] quick-perf-jvm-annotations ......................... SUCCESS [  2.889 s]
+[INFO] quick-perf-jfr-annotations ......................... SUCCESS [  2.647 s]
+[INFO] quick-perf-sql-parent .............................. SUCCESS [  0.004 s]
+[INFO] quick-perf-sql-annotations ......................... SUCCESS [  2.018 s]
+[INFO] quick-perf-sql-memory-test-util .................... SUCCESS [  0.185 s]
+[INFO] quick-perf-sql-hibernate-test-util ................. SUCCESS [  0.484 s]
+[INFO] quick-perf-junit4-parent ........................... SUCCESS [  0.006 s]
+[INFO] quick-perf-junit4 .................................. SUCCESS [  2.435 s]
+[INFO] quick-perf-sql-memory-test ......................... SUCCESS [ 13.775 s]
+[INFO] quick-perf-junit4-5-jvm-test ....................... SUCCESS [  1.594 s]
+[INFO] quick-perf-junit4-12-jvm-test ...................... SUCCESS [  1.984 s]
+[INFO] quick-perf-junit4-13-jvm-test ...................... SUCCESS [  1.693 s]
+[INFO] quick-perf-junit4-13-1-jvm-test .................... SUCCESS [  1.626 s]
+[INFO] quick-perf-junit4-13-2-jvm-test .................... SUCCESS [  1.609 s]
+[INFO] quick-perf-junit4-sql-test ......................... SUCCESS [  3.956 s]
+[INFO] quick-perf-junit5-parent ........................... SUCCESS [  0.004 s]
+[INFO] quick-perf-junit5-test-util ........................ SUCCESS [  0.885 s]
+[INFO] quick-perf-junit5 .................................. SUCCESS [  3.681 s]
+[INFO] quick-perf-junit5-jvm-test ......................... SUCCESS [  9.941 s]
+[INFO] quick-perf-junit5-sql-test ......................... SUCCESS [  3.156 s]
+[INFO] quick-perf-testng-parent ........................... SUCCESS [  0.003 s]
+[INFO] quick-perf-testng-test-util ........................ SUCCESS [  0.063 s]
+[INFO] quick-perf-testng .................................. SUCCESS [  1.370 s]
+[INFO] quick-perf-testng-sql-test ......................... SUCCESS [  2.563 s]
+[INFO] quick-perf-testng-jvm-test ......................... SUCCESS [  6.099 s]
+[INFO] quick-perf-spring .................................. SUCCESS [  0.003 s]
+[INFO] quick-perf-sql-spring4 ............................. SUCCESS [  0.103 s]
+[INFO] quick-perf-sql-spring5 ............................. SUCCESS [  0.098 s]
+[INFO] quick-perf-junit4-spring-base-tests ................ SUCCESS [  0.084 s]
+[INFO] quick-perf-junit4-spring3 .......................... SUCCESS [  2.965 s]
+[INFO] quick-perf-junit4-spring4 .......................... SUCCESS [  3.202 s]
+[INFO] quick-perf-junit4-spring5 .......................... SUCCESS [  4.130 s]
+[INFO] quick-perf-springboot1-sql-starter ................. SUCCESS [  0.138 s]
+[INFO] quick-perf-springboot2-sql-starter ................. SUCCESS [  0.152 s]
+[INFO] quick-perf-junit4-spring-boot-test ................. FAILURE [  2.873 s]
+[INFO] quick-perf-bom ..................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:28 min
+[INFO] Finished at: 2025-10-01T13:50:17Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 8 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.4.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project quick-perf-junit4-spring-boot-test: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /quickperf/spring/junit4-spring-boot-test/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :quick-perf-junit4-spring-boot-test

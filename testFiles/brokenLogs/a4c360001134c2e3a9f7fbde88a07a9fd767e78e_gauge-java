@@ -1,0 +1,93 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.thoughtworks.gauge:gauge-java:jar:0.7.15
+[WARNING] 'version' contains an expression but should be a constant. @ com.thoughtworks.gauge:gauge-java:${projectVersion}, /gauge-java/pom.xml, line 7, column 14
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: linux
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.bitness: 64
+[INFO] os.detected.version: 6.6
+[INFO] os.detected.version.major: 6
+[INFO] os.detected.version.minor: 6
+[INFO] os.detected.release: alpine
+[INFO] os.detected.release.version: 3.18.2
+[INFO] os.detected.release.like.alpine: true
+[INFO] os.detected.classifier: linux-x86_64
+[INFO] 
+[INFO] -----------------< com.thoughtworks.gauge:gauge-java >------------------
+[INFO] Building gauge-java 0.7.15
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/junit/junit-dep/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/junit/junit-dep/maven-metadata.xml (563 B at 581 B/s)
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ gauge-java ---
+[INFO] Deleting /gauge-java/target
+[INFO] 
+[INFO] --- checkstyle:3.1.2:check (validate) @ gauge-java ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ gauge-java ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /gauge-java/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ gauge-java ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 122 source files to /gauge-java/target/classes
+[INFO] /gauge-java/src/main/java/com/thoughtworks/gauge/execution/parameters/parsers/base/ParameterParsingChain.java: Some input files use or override a deprecated API.
+[INFO] /gauge-java/src/main/java/com/thoughtworks/gauge/execution/parameters/parsers/base/ParameterParsingChain.java: Recompile with -Xlint:deprecation for details.
+[INFO] /gauge-java/src/main/java/com/thoughtworks/gauge/scan/StaticScanner.java: Some input files use unchecked or unsafe operations.
+[INFO] /gauge-java/src/main/java/com/thoughtworks/gauge/scan/StaticScanner.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /gauge-java/src/main/java/com/thoughtworks/gauge/scan/ClasspathScanner.java:[64,61] cannot find symbol
+  symbol:   method apply(java.lang.String)
+  location: class org.reflections.util.FilterBuilder
+[ERROR] /gauge-java/src/main/java/com/thoughtworks/gauge/scan/ClasspathScanner.java:[69,51] cannot find symbol
+  symbol:   method apply(java.lang.String)
+  location: class org.reflections.util.FilterBuilder
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  24.307 s
+[INFO] Finished at: 2025-10-01T14:27:59Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.9.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.9.0:compile (default-compile) on project gauge-java: Compilation failure: Compilation failure: 
+[ERROR] /gauge-java/src/main/java/com/thoughtworks/gauge/scan/ClasspathScanner.java:[64,61] cannot find symbol
+[ERROR]   symbol:   method apply(java.lang.String)
+[ERROR]   location: class org.reflections.util.FilterBuilder
+[ERROR] /gauge-java/src/main/java/com/thoughtworks/gauge/scan/ClasspathScanner.java:[69,51] cannot find symbol
+[ERROR]   symbol:   method apply(java.lang.String)
+[ERROR]   location: class org.reflections.util.FilterBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

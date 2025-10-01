@@ -1,0 +1,50 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----< io.github.wmaarts:pitest-mutation-testing-elements-plugin >------
+[INFO] Building pitest-mutation-testing-elements-plugin MASTER-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ pitest-mutation-testing-elements-plugin ---
+[INFO] Deleting /pitest-mutation-testing-elements-plugin/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ pitest-mutation-testing-elements-plugin ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ pitest-mutation-testing-elements-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to /pitest-mutation-testing-elements-plugin/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /pitest-mutation-testing-elements-plugin/src/main/java/org/pitest/elements/MutationReportListener.java:[105,38] cannot find symbol
+  symbol:   method getClassInfo(java.util.Set<org.pitest.classinfo.ClassName>)
+  location: variable coverage of type org.pitest.coverage.CoverageDatabase
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.009 s
+[INFO] Finished at: 2025-10-01T12:30:43Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project pitest-mutation-testing-elements-plugin: Compilation failure
+[ERROR] /pitest-mutation-testing-elements-plugin/src/main/java/org/pitest/elements/MutationReportListener.java:[105,38] cannot find symbol
+[ERROR]   symbol:   method getClassInfo(java.util.Set<org.pitest.classinfo.ClassName>)
+[ERROR]   location: variable coverage of type org.pitest.coverage.CoverageDatabase
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

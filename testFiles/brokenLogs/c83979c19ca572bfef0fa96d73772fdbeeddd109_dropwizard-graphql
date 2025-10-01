@@ -1,0 +1,153 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 3 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 3 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] dropwizard-graphql                                                 [pom]
+[INFO] Dropwizard GraphQL Bundle                                          [jar]
+[INFO] Dropwizard GraphQL Example                                         [jar]
+[INFO] 
+[INFO] -----------< com.smoketurner.dropwizard:dropwizard-graphql >------------
+[INFO] Building dropwizard-graphql 2.0.12-2-SNAPSHOT                      [1/3]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ dropwizard-graphql ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ dropwizard-graphql ---
+[INFO] 
+[INFO] --- license:3.0:format (default) @ dropwizard-graphql ---
+[INFO] Updating license headers...
+[WARNING] Unknown file extension: /dropwizard-graphql/%s.log
+[WARNING] Unknown file extension: /dropwizard-graphql/c83979c19ca572bfef0fa96d73772fdbeeddd109.log
+[WARNING] Unable to find a comment style definition for some files. You may want to add a custom mapping for the relevant file extensions.
+[INFO] 
+[INFO] --- fmt:2.10:format (default) @ dropwizard-graphql ---
+[INFO] Skipping format check: project uses 'pom' packaging
+[INFO] 
+[INFO] --------------< com.smoketurner.dropwizard:graphql-core >---------------
+[INFO] Building Dropwizard GraphQL Bundle 2.0.12-2-SNAPSHOT               [2/3]
+[INFO]   from graphql-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ graphql-core ---
+[INFO] Deleting /dropwizard-graphql/graphql-core/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce) @ graphql-core ---
+[INFO] 
+[INFO] --- license:3.0:format (default) @ graphql-core ---
+[INFO] Updating license headers...
+[INFO] 
+[INFO] --- fmt:2.10:format (default) @ graphql-core ---
+[WARNING] Test source directory '/dropwizard-graphql/graphql-core/src/test/java' does not exist, ignoring.
+[INFO] File '/dropwizard-graphql/graphql-core/src/main/java' is a directory. Skipping.
+[INFO] File '/dropwizard-graphql/graphql-core/src/main/java/com/smoketurner' is a directory. Skipping.
+[INFO] File '/dropwizard-graphql/graphql-core/src/main/java/com' is a directory. Skipping.
+[INFO] File '/dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard' is a directory. Skipping.
+[INFO] File '/dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql' is a directory. Skipping.
+[INFO] Processed 5 files (0 reformatted).
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ graphql-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ graphql-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /dropwizard-graphql/graphql-core/target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/CachingPreparsedDocumentProvider.java:[53,33] getDocument(graphql.ExecutionInput,java.util.function.Function<graphql.ExecutionInput,graphql.execution.preparsed.PreparsedDocumentEntry>) in graphql.execution.preparsed.PreparsedDocumentProvider has been deprecated
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[19,35] cannot access graphql.kickstart.execution.GraphQLQueryInvoker
+  bad class file: /root/.m2/repository/com/graphql-java-kickstart/graphql-java-kickstart/15.0.0/graphql-java-kickstart-15.0.0.jar(/graphql/kickstart/execution/GraphQLQueryInvoker.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[20,33] cannot access graphql.kickstart.servlet.GraphQLHttpServlet
+  bad class file: /root/.m2/repository/com/graphql-java-kickstart/graphql-java-servlet/15.0.0/graphql-java-servlet-15.0.0.jar(/graphql/kickstart/servlet/GraphQLHttpServlet.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[45,11] cannot find symbol
+  symbol:   class GraphQLQueryInvoker
+  location: class com.smoketurner.dropwizard.graphql.GraphQLBundle<C>
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[46,9] cannot find symbol
+  symbol:   variable GraphQLQueryInvoker
+  location: class com.smoketurner.dropwizard.graphql.GraphQLBundle<C>
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[51,36] cannot access graphql.kickstart.servlet.GraphQLConfiguration
+  bad class file: /root/.m2/repository/com/graphql-java-kickstart/graphql-java-servlet/15.0.0/graphql-java-servlet-15.0.0.jar(/graphql/kickstart/servlet/GraphQLConfiguration.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[54,11] cannot find symbol
+  symbol:   class GraphQLHttpServlet
+  location: class com.smoketurner.dropwizard.graphql.GraphQLBundle<C>
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[54,40] cannot find symbol
+  symbol:   variable GraphQLHttpServlet
+  location: class com.smoketurner.dropwizard.graphql.GraphQLBundle<C>
+[INFO] 7 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for dropwizard-graphql 2.0.12-2-SNAPSHOT:
+[INFO] 
+[INFO] dropwizard-graphql ................................. SUCCESS [  5.084 s]
+[INFO] Dropwizard GraphQL Bundle .......................... FAILURE [  4.420 s]
+[INFO] Dropwizard GraphQL Example ......................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.216 s
+[INFO] Finished at: 2025-10-01T15:11:14Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 6 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * com.mycila:license-maven-plugin:3.0
+[WARNING]  * com.coveo:fmt-maven-plugin:2.10
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project graphql-core: Compilation failure: Compilation failure: 
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[19,35] cannot access graphql.kickstart.execution.GraphQLQueryInvoker
+[ERROR]   bad class file: /root/.m2/repository/com/graphql-java-kickstart/graphql-java-kickstart/15.0.0/graphql-java-kickstart-15.0.0.jar(/graphql/kickstart/execution/GraphQLQueryInvoker.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[20,33] cannot access graphql.kickstart.servlet.GraphQLHttpServlet
+[ERROR]   bad class file: /root/.m2/repository/com/graphql-java-kickstart/graphql-java-servlet/15.0.0/graphql-java-servlet-15.0.0.jar(/graphql/kickstart/servlet/GraphQLHttpServlet.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[45,11] cannot find symbol
+[ERROR]   symbol:   class GraphQLQueryInvoker
+[ERROR]   location: class com.smoketurner.dropwizard.graphql.GraphQLBundle<C>
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[46,9] cannot find symbol
+[ERROR]   symbol:   variable GraphQLQueryInvoker
+[ERROR]   location: class com.smoketurner.dropwizard.graphql.GraphQLBundle<C>
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[51,36] cannot access graphql.kickstart.servlet.GraphQLConfiguration
+[ERROR]   bad class file: /root/.m2/repository/com/graphql-java-kickstart/graphql-java-servlet/15.0.0/graphql-java-servlet-15.0.0.jar(/graphql/kickstart/servlet/GraphQLConfiguration.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[54,11] cannot find symbol
+[ERROR]   symbol:   class GraphQLHttpServlet
+[ERROR]   location: class com.smoketurner.dropwizard.graphql.GraphQLBundle<C>
+[ERROR] /dropwizard-graphql/graphql-core/src/main/java/com/smoketurner/dropwizard/graphql/GraphQLBundle.java:[54,40] cannot find symbol
+[ERROR]   symbol:   variable GraphQLHttpServlet
+[ERROR]   location: class com.smoketurner.dropwizard.graphql.GraphQLBundle<C>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :graphql-core

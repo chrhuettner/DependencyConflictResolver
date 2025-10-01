@@ -1,0 +1,162 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.pinterest.singer:singer:jar:0.8.0.66
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-surefire-plugin is missing. @ line 292, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-source-plugin is missing. @ line 280, column 21
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.pinterest.singer:thrift-logger:jar:0.8.0.66
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:build-helper-maven-plugin is missing. @ line 118, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-source-plugin is missing. @ line 152, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.pinterest.singer:singer-commons:jar:0.8.0.66
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-surefire-plugin is missing. @ line 212, column 15
+[WARNING] 'build.plugins.plugin.version' for org.codehaus.mojo:build-helper-maven-plugin is missing. @ line 166, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-source-plugin is missing. @ line 200, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Singer Logging Agent                                               [pom]
+[INFO] singer-commons                                                     [jar]
+[INFO] thrift-logger                                                      [jar]
+[INFO] singer                                                             [jar]
+[INFO] 
+[INFO] ----------------< com.pinterest.singer:singer-package >-----------------
+[INFO] Building Singer Logging Agent 0.8.0.66                             [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ singer-package ---
+[INFO] 
+[INFO] ----------------< com.pinterest.singer:singer-commons >-----------------
+[INFO] Building singer-commons 0.8.0.66                                   [2/4]
+[INFO]   from singer-commons/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ singer-commons ---
+[INFO] Deleting /singer/singer-commons/target
+[INFO] 
+[INFO] --- scrooge:4.18.0:compile (thrift-sources) @ singer-commons ---
+[INFO] finding thrift files in dependencies
+[INFO] finding thrift files in referenced (reactor) projects
+[INFO] compiling thrift files [/singer/singer-commons/src/main/thrift/loggingaudit_test.thrift, /singer/singer-commons/src/main/thrift/thrift_message.thrift, /singer/singer-commons/src/main/thrift/singer_if.thrift, /singer/singer-commons/src/main/thrift/singer.thrift, /singer/singer-commons/src/main/thrift/config.thrift, /singer/singer-commons/src/main/thrift/loggingaudit.thrift, /singer/singer-commons/src/main/thrift/loggingaudit_config.thrift, /singer/singer-commons/src/main/thrift/common.thrift, /singer/singer-commons/src/main/thrift/text_message.thrift] with Scrooge
+[INFO] 
+[INFO] --- build-helper:3.4.0:add-source (add-source) @ singer-commons ---
+[INFO] Source directory: /singer/singer-commons/target/generated-sources/thrift/scrooge added.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ singer-commons ---
+[INFO] skip non existing resourceDirectory /singer/singer-commons/src/main/resources
+[INFO] Copying 9 resources
+[INFO] skip non existing resourceDirectory /singer/singer-commons/target/generated-resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ singer-commons ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 64 source files to /singer/singer-commons/target/classes
+[INFO] /singer/singer-commons/target/generated-sources/thrift/scrooge/com/pinterest/singer/thrift/LogFile.java: Some input files use or override a deprecated API.
+[INFO] /singer/singer-commons/target/generated-sources/thrift/scrooge/com/pinterest/singer/thrift/LogFile.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- scrooge:4.18.0:testCompile (thrift-test-sources) @ singer-commons ---
+[INFO] finding thrift files in dependencies
+[INFO] finding thrift files in referenced (reactor) projects
+[INFO] No thrift files to compile.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ singer-commons ---
+[INFO] skip non existing resourceDirectory /singer/singer-commons/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ singer-commons ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ singer-commons ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] -----------------< com.pinterest.singer:thrift-logger >-----------------
+[INFO] Building thrift-logger 0.8.0.66                                    [3/4]
+[INFO]   from thrift-logger/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ thrift-logger ---
+[INFO] Deleting /singer/thrift-logger/target
+[INFO] 
+[INFO] --- scrooge:4.18.0:compile (thrift-sources) @ thrift-logger ---
+[INFO] finding thrift files in dependencies
+[INFO] finding thrift files in referenced (reactor) projects
+[INFO] copying /singer/singer-commons/target/classes/loggingaudit_config.thrift to /singer/thrift-logger/target/generated-resources/loggingaudit_config.thrift
+[INFO] copying /singer/singer-commons/target/classes/loggingaudit.thrift to /singer/thrift-logger/target/generated-resources/loggingaudit.thrift
+[INFO] copying /singer/singer-commons/target/classes/singer.thrift to /singer/thrift-logger/target/generated-resources/singer.thrift
+[INFO] copying /singer/singer-commons/target/classes/singer_if.thrift to /singer/thrift-logger/target/generated-resources/singer_if.thrift
+[INFO] copying /singer/singer-commons/target/classes/config.thrift to /singer/thrift-logger/target/generated-resources/config.thrift
+[INFO] copying /singer/singer-commons/target/classes/loggingaudit_test.thrift to /singer/thrift-logger/target/generated-resources/loggingaudit_test.thrift
+[INFO] copying /singer/singer-commons/target/classes/common.thrift to /singer/thrift-logger/target/generated-resources/common.thrift
+[INFO] copying /singer/singer-commons/target/classes/thrift_message.thrift to /singer/thrift-logger/target/generated-resources/thrift_message.thrift
+[INFO] copying /singer/singer-commons/target/classes/text_message.thrift to /singer/thrift-logger/target/generated-resources/text_message.thrift
+[INFO] compiling thrift files [/singer/thrift-logger/target/generated-resources/loggingaudit.thrift, /singer/thrift-logger/target/generated-resources/thrift_message.thrift, /singer/thrift-logger/target/generated-resources/loggingaudit_config.thrift, /singer/thrift-logger/target/generated-resources/text_message.thrift, /singer/thrift-logger/target/generated-resources/common.thrift, /singer/thrift-logger/target/generated-resources/singer.thrift, /singer/thrift-logger/target/generated-resources/loggingaudit_test.thrift, /singer/thrift-logger/target/generated-resources/config.thrift, /singer/thrift-logger/target/generated-resources/singer_if.thrift] with Scrooge
+[INFO] 
+[INFO] --- build-helper:3.4.0:add-source (add-source) @ thrift-logger ---
+[INFO] Source directory: /singer/thrift-logger/target/generated-sources/thrift/scrooge added.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ thrift-logger ---
+[INFO] skip non existing resourceDirectory /singer/thrift-logger/src/main/resources
+[INFO] skip non existing resourceDirectory /singer/thrift-logger/src/main/thrift
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ thrift-logger ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 57 source files to /singer/thrift-logger/target/classes
+[INFO] /singer/thrift-logger/target/generated-sources/thrift/scrooge/com/pinterest/singer/thrift/configuration/KafkaProducerConfig.java: Some input files use or override a deprecated API.
+[INFO] /singer/thrift-logger/target/generated-sources/thrift/scrooge/com/pinterest/singer/thrift/configuration/KafkaProducerConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO] /singer/thrift-logger/src/main/java/com/pinterest/singer/client/BaseThriftLogger.java: Some input files use unchecked or unsafe operations.
+[INFO] /singer/thrift-logger/src/main/java/com/pinterest/singer/client/BaseThriftLogger.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java:[30,35] cannot find symbol
+  symbol:   class TFastFramedTransport
+  location: package org.apache.thrift.transport
+[ERROR] /singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java:[63,29] cannot find symbol
+  symbol:   class TFastFramedTransport
+  location: class com.pinterest.singer.client.logback.AppenderUtils.LogMessageEncoder
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Singer Logging Agent 0.8.0.66:
+[INFO] 
+[INFO] Singer Logging Agent ............................... SUCCESS [  1.898 s]
+[INFO] singer-commons ..................................... SUCCESS [ 30.309 s]
+[INFO] thrift-logger ...................................... FAILURE [ 11.384 s]
+[INFO] singer ............................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  44.440 s
+[INFO] Finished at: 2025-10-01T09:22:53Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * com.twitter:scrooge-maven-plugin:4.18.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project thrift-logger: Compilation failure: Compilation failure: 
+[ERROR] /singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java:[30,35] cannot find symbol
+[ERROR]   symbol:   class TFastFramedTransport
+[ERROR]   location: package org.apache.thrift.transport
+[ERROR] /singer/thrift-logger/src/main/java/com/pinterest/singer/client/logback/AppenderUtils.java:[63,29] cannot find symbol
+[ERROR]   symbol:   class TFastFramedTransport
+[ERROR]   location: class com.pinterest.singer.client.logback.AppenderUtils.LogMessageEncoder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :thrift-logger

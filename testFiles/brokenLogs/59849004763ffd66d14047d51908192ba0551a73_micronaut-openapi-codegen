@@ -1,0 +1,128 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------< io.kokuwa.micronaut:micronaut-openapi-codegen >------------
+[INFO] Building OpenAPI codegen for Micronaut 3.1.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ micronaut-openapi-codegen ---
+[INFO] Deleting /micronaut-openapi-codegen/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ micronaut-openapi-codegen ---
+[INFO] Copying 25 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ micronaut-openapi-codegen ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /micronaut-openapi-codegen/target/classes
+[INFO] /micronaut-openapi-codegen/src/main/java/org/openapitools/codegen/languages/MicronautCodegen.java: /micronaut-openapi-codegen/src/main/java/org/openapitools/codegen/languages/MicronautCodegen.java uses unchecked or unsafe operations.
+[INFO] /micronaut-openapi-codegen/src/main/java/org/openapitools/codegen/languages/MicronautCodegen.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ micronaut-openapi-codegen ---
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ micronaut-openapi-codegen ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /micronaut-openapi-codegen/target/test-classes
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ micronaut-openapi-codegen ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.openapitools.codegen.languages.OtherCodegenTest
+[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 3.72 s - in org.openapitools.codegen.languages.OtherCodegenTest
+[INFO] Running org.openapitools.codegen.languages.MicronautCodegenTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.06 s - in org.openapitools.codegen.languages.MicronautCodegenTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 16, Failures: 0, Errors: 0, Skipped: 1
+[INFO] 
+[INFO] 
+[INFO] --- build-helper:3.3.0:add-test-source (default) @ micronaut-openapi-codegen ---
+[INFO] Test Source directory: /micronaut-openapi-codegen/gen/main/java added.
+[INFO] Test Source directory: /micronaut-openapi-codegen/gen/test/java added.
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default) @ micronaut-openapi-codegen ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 407 source files to /micronaut-openapi-codegen/target/test-classes
+[INFO] /micronaut-openapi-codegen/gen/test/java/testmodel/nomicronaut/ModelTestExample.java: /micronaut-openapi-codegen/gen/test/java/testmodel/nomicronaut/ModelTestExample.java uses unchecked or unsafe operations.
+[INFO] /micronaut-openapi-codegen/gen/test/java/testmodel/nomicronaut/ModelTestExample.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[19,45] cannot access org.springframework.format.annotation.DateTimeFormat
+  bad class file: /root/.m2/repository/org/springframework/spring-context/6.0.0/spring-context-6.0.0.jar(/org/springframework/format/annotation/DateTimeFormat.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[77,38] cannot access org.springframework.core.io.Resource
+  bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.0/spring-core-6.0.0.jar(/org/springframework/core/io/Resource.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[58,4] cannot find symbol
+  symbol:   class DateTimeFormat
+  location: class testmodel.spring.Model
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[58,39] package DateTimeFormat does not exist
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[62,4] cannot find symbol
+  symbol:   class DateTimeFormat
+  location: class testmodel.spring.Model
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[62,39] package DateTimeFormat does not exist
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[66,4] cannot find symbol
+  symbol:   class DateTimeFormat
+  location: class testmodel.spring.Model
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[66,39] package DateTimeFormat does not exist
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[70,4] cannot find symbol
+  symbol:   class DateTimeFormat
+  location: class testmodel.spring.Model
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[70,39] package DateTimeFormat does not exist
+[INFO] 10 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.202 s
+[INFO] Finished at: 2025-10-01T12:20:49Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.codehaus.mojo:build-helper-maven-plugin:3.3.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default) on project micronaut-openapi-codegen: Compilation failure: Compilation failure: 
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[19,45] cannot access org.springframework.format.annotation.DateTimeFormat
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-context/6.0.0/spring-context-6.0.0.jar(/org/springframework/format/annotation/DateTimeFormat.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[77,38] cannot access org.springframework.core.io.Resource
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.0/spring-core-6.0.0.jar(/org/springframework/core/io/Resource.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[58,4] cannot find symbol
+[ERROR]   symbol:   class DateTimeFormat
+[ERROR]   location: class testmodel.spring.Model
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[58,39] package DateTimeFormat does not exist
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[62,4] cannot find symbol
+[ERROR]   symbol:   class DateTimeFormat
+[ERROR]   location: class testmodel.spring.Model
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[62,39] package DateTimeFormat does not exist
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[66,4] cannot find symbol
+[ERROR]   symbol:   class DateTimeFormat
+[ERROR]   location: class testmodel.spring.Model
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[66,39] package DateTimeFormat does not exist
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[70,4] cannot find symbol
+[ERROR]   symbol:   class DateTimeFormat
+[ERROR]   location: class testmodel.spring.Model
+[ERROR] /micronaut-openapi-codegen/gen/main/java/testmodel/spring/Model.java:[70,39] package DateTimeFormat does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,782 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] onebusaway-gtfs-modules                                            [pom]
+[INFO] onebusaway-gtfs                                                    [jar]
+[INFO] onebusaway-gtfs-hibernate                                          [jar]
+[INFO] onebusaway-gtfs-hibernate-cli                                      [jar]
+[INFO] onebusaway-gtfs-transformer                                        [jar]
+[INFO] onebusaway-gtfs-transformer-cli                                    [jar]
+[INFO] onebusaway-gtfs-transformer-cli-aws                                [jar]
+[INFO] onebusaway-gtfs-merge                                              [jar]
+[INFO] onebusaway-gtfs-merge-cli                                          [jar]
+[INFO] 
+[INFO] ---------------< org.onebusaway:onebusaway-gtfs-modules >---------------
+[INFO] Building onebusaway-gtfs-modules 1.3.109-SNAPSHOT                  [1/9]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:2.6.1:clean (default-clean) @ onebusaway-gtfs-modules ---
+[INFO] 
+[INFO] -------------------< org.onebusaway:onebusaway-gtfs >-------------------
+[INFO] Building onebusaway-gtfs 1.3.109-SNAPSHOT                          [2/9]
+[INFO]   from onebusaway-gtfs/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:2.6.1:clean (default-clean) @ onebusaway-gtfs ---
+[INFO] Deleting /onebusaway-gtfs-modules/onebusaway-gtfs/target
+[INFO] 
+[INFO] --- resources:2.7:resources (default-resources) @ onebusaway-gtfs ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /onebusaway-gtfs-modules/onebusaway-gtfs/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ onebusaway-gtfs ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 100 source files to /onebusaway-gtfs-modules/onebusaway-gtfs/target/classes
+[INFO] /onebusaway-gtfs-modules/onebusaway-gtfs/src/main/java/org/onebusaway/gtfs/impl/GtfsRelationalDaoImpl.java: /onebusaway-gtfs-modules/onebusaway-gtfs/src/main/java/org/onebusaway/gtfs/impl/GtfsRelationalDaoImpl.java uses or overrides a deprecated API.
+[INFO] /onebusaway-gtfs-modules/onebusaway-gtfs/src/main/java/org/onebusaway/gtfs/impl/GtfsRelationalDaoImpl.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:2.7:testResources (default-testResources) @ onebusaway-gtfs ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 18 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ onebusaway-gtfs ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 27 source files to /onebusaway-gtfs-modules/onebusaway-gtfs/target/test-classes
+[INFO] /onebusaway-gtfs-modules/onebusaway-gtfs/src/test/java/org/onebusaway/gtfs/serialization/mappings/StopTimeFieldMappingFactoryTest.java: Some input files use or override a deprecated API.
+[INFO] /onebusaway-gtfs-modules/onebusaway-gtfs/src/test/java/org/onebusaway/gtfs/serialization/mappings/StopTimeFieldMappingFactoryTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:2.22.1:test (default-test) @ onebusaway-gtfs ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.onebusaway.gtfs.ExtensionsTest
+2025-10-01 13:04:30,312 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,358 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,360 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,365 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,366 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,367 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,371 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,375 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:30,376 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:30,385 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:30,387 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:30,389 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:30,392 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:30,396 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:30,399 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:30,400 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:30,402 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:30,403 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:30,404 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:30,406 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:30,407 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:30,408 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:30,409 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:30,410 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:30,429 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,430 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,430 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,431 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,432 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,432 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,433 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,433 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:30,434 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:30,435 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:30,435 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:30,435 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:30,437 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:30,438 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:30,439 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:30,439 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:30,439 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:30,440 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:30,440 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:30,440 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:30,441 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:30,441 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:30,441 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:30,442 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:30,447 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:30,448 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,450 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,451 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,451 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,451 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,451 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,451 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:30,452 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:30,453 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:30,454 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:30,454 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,454 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:30,454 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:30,454 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:30,454 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:30,455 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:30,455 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:30,455 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:30,455 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:30,455 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:30,455 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,456 INFO  [GtfsWriter.java:68] : writing entities: org.onebusaway.gtfs.model.Vehicle
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.284 s - in org.onebusaway.gtfs.ExtensionsTest
+[INFO] Running org.onebusaway.gtfs.model.AgencyAndIdTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.onebusaway.gtfs.model.AgencyAndIdTest
+[INFO] Running org.onebusaway.gtfs.model.calendar.ServiceDateTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.onebusaway.gtfs.model.calendar.ServiceDateTest
+[INFO] Running org.onebusaway.gtfs.model.calendar.ServiceIdIntervalsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.onebusaway.gtfs.model.calendar.ServiceIdIntervalsTest
+[INFO] Running org.onebusaway.gtfs.model.calendar.LocalizedServiceIdTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.onebusaway.gtfs.model.calendar.LocalizedServiceIdTest
+[INFO] Running org.onebusaway.gtfs.serialization.GtfsWriterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.onebusaway.gtfs.serialization.GtfsWriterTest
+[INFO] Running org.onebusaway.gtfs.serialization.GtfsReaderTest
+2025-10-01 13:04:30,562 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,563 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,563 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,563 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,564 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,564 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,564 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,570 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:30,570 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:30,571 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:30,572 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:30,572 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:30,576 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:30,583 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:30,584 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:30,584 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:30,584 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:30,584 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:30,585 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:30,585 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:30,585 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:30,586 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:30,586 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:30,586 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:30,589 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,589 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,590 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,590 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,590 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,590 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,591 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,596 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,596 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,597 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,597 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,598 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,598 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,598 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,599 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:30,599 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:30,600 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:30,600 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:30,600 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:30,601 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:30,601 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:30,602 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:30,602 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:30,602 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:30,602 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:30,602 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:30,603 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:30,603 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:30,603 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:30,603 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:30,603 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:30,608 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,608 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,608 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,609 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,609 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,609 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,609 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,653 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,654 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,656 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,657 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,657 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,658 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,658 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,658 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:30,660 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:30,661 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:30,661 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:30,661 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:30,662 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:30,663 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:30,664 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:30,666 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:30,667 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:30,669 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:30,671 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:30,673 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:30,675 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:30,677 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:30,680 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:30,680 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:30,684 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,685 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,686 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,686 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,686 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,686 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,687 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,690 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:30,691 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:30,703 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:30,703 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:30,703 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:30,717 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:30,854 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:30,855 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:30,856 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:30,857 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:30,857 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:30,858 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:30,858 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:30,858 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:30,859 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:30,859 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:30,859 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:30,863 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,864 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,864 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,898 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,898 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,899 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,899 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,900 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:30,901 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:30,903 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:30,903 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:30,903 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:30,909 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:30,959 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:30,960 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:30,960 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:30,961 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:30,963 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:30,963 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:30,963 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:30,963 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:30,964 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:30,964 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:30,964 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:30,968 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:30,969 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:30,969 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:30,970 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:30,970 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:30,970 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:30,971 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:30,971 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:30,971 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:30,972 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:30,972 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:30,973 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:30,985 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:31,203 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:31,205 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:31,206 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:31,209 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:31,212 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:31,212 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:31,213 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:31,213 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:31,213 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:31,214 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:31,214 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:31,217 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:31,219 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:31,219 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:31,220 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:31,220 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:31,221 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:31,221 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:31,221 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:31,222 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:31,223 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:31,223 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:31,223 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:31,230 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:31,333 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:31,334 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:31,334 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:31,335 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:31,337 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:31,337 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:31,338 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:31,338 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:31,338 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:31,338 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:31,339 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:31,386 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:31,387 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:31,387 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:31,407 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:31,408 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:31,408 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:31,409 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:31,410 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:31,410 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:31,411 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:31,411 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:31,411 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:31,413 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:31,426 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:31,427 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:31,428 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:31,428 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:31,428 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:31,428 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:31,428 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:31,429 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:31,429 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:31,429 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:31,430 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:31,430 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:31,431 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:31,431 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:31,432 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:31,432 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:31,432 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:31,432 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:31,433 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:31,433 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:31,434 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:31,434 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:31,434 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:31,434 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:31,435 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:31,435 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:31,435 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:31,436 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:31,436 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:31,436 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:31,436 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:31,437 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:31,437 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:31,437 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:31,441 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:31,466 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:31,467 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:31,467 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:31,468 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:31,468 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:31,468 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:31,468 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:31,469 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:31,469 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:31,470 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:31,470 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:31,470 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:31,470 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:31,471 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:31,471 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:31,471 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:31,472 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:31,472 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:31,472 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:31,473 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:31,473 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:31,473 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:31,474 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:31,474 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:31,488 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:31,489 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:31,489 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:31,489 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:31,489 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:31,490 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:31,490 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:31,490 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:31,491 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:31,491 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:31,491 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:31,491 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:31,492 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:31,492 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:31,493 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:31,493 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:31,493 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:31,494 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:31,494 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:31,494 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:31,494 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:31,494 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:31,494 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:31,494 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.944 s - in org.onebusaway.gtfs.serialization.GtfsReaderTest
+[INFO] Running org.onebusaway.gtfs.serialization.mappings.StopTimeFieldMappingFactoryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.onebusaway.gtfs.serialization.mappings.StopTimeFieldMappingFactoryTest
+[INFO] Running org.onebusaway.gtfs.serialization.mappings.ServiceDateFieldMappingFactoryTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.onebusaway.gtfs.serialization.mappings.ServiceDateFieldMappingFactoryTest
+[INFO] Running org.onebusaway.gtfs.serialization.mappings.LatLonFieldMappingFactoryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.onebusaway.gtfs.serialization.mappings.LatLonFieldMappingFactoryTest
+[INFO] Running org.onebusaway.gtfs.serialization.GtfsReaderStopsTest
+[WARNING] Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.003 s - in org.onebusaway.gtfs.serialization.GtfsReaderStopsTest
+[INFO] Running org.onebusaway.gtfs.serialization.GtfsReaderDefaultAgencyIdTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.onebusaway.gtfs.serialization.GtfsReaderDefaultAgencyIdTest
+[INFO] Running org.onebusaway.gtfs.serialization.LocationsGeoJSONReaderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.234 s - in org.onebusaway.gtfs.serialization.LocationsGeoJSONReaderTest
+[INFO] Running org.onebusaway.gtfs.impl.translation.TranslationServiceImplTest
+2025-10-01 13:04:31,753 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:31,754 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:31,754 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:31,755 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:31,755 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:31,756 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:31,756 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:31,756 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:31,756 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:31,757 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:31,757 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:31,757 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:31,758 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:31,759 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:31,759 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:31,760 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:31,760 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:31,760 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:31,760 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:31,760 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:31,762 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:31,763 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:31,763 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:31,764 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:31,772 ERROR [TranslationServiceDataFactoryImpl.java:95] : No entity type for table_name wrong_table_name, skipping.
+2025-10-01 13:04:31,772 ERROR [TranslationServiceDataFactoryImpl.java:100] : No property for field_name wrong_column_name, skipping.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.onebusaway.gtfs.impl.translation.TranslationServiceImplTest
+[INFO] Running org.onebusaway.gtfs.impl.GtfsDaoImplTest
+2025-10-01 13:04:31,777 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:31,777 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:31,777 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:31,779 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:31,779 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:31,779 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:31,779 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:31,780 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:31,780 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:31,781 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:31,781 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:31,781 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:31,796 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:31,936 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:31,937 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:31,938 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:31,938 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:31,940 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:31,942 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:31,943 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:31,943 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:31,944 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:31,944 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:31,944 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 s - in org.onebusaway.gtfs.impl.GtfsDaoImplTest
+[INFO] Running org.onebusaway.gtfs.impl.fares.FareAtrributeAgencyTest
+2025-10-01 13:04:31,949 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:31,949 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:31,950 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:31,950 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:31,951 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:31,951 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:31,952 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:31,952 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:31,952 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:31,953 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:31,953 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:31,953 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:31,957 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:32,033 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:32,034 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:32,035 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:32,035 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:32,037 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:32,037 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:32,037 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:32,038 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:32,038 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:32,038 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:32,038 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 s - in org.onebusaway.gtfs.impl.fares.FareAtrributeAgencyTest
+[INFO] Running org.onebusaway.gtfs.impl.GenericDaoImplTest
+2025-10-01 13:04:32,040 WARN  [GenericDaoImpl.java:108] : entity with id already exists: class=class org.onebusaway.gtfs.model.Stop id=1_stopA prev=<Stop 1_stopA> new=<Stop 1_stopA>
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.onebusaway.gtfs.impl.GenericDaoImplTest
+[INFO] Running org.onebusaway.gtfs.impl.calendar.CalendarServiceImplSyntheticTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.onebusaway.gtfs.impl.calendar.CalendarServiceImplSyntheticTest
+[INFO] Running org.onebusaway.gtfs.impl.calendar.CalendarServiceDataFactoryImplSyntheticTest
+2025-10-01 13:04:32,070 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=A_2 (1/1)
+2025-10-01 13:04:32,072 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=A_2 (1/1)
+2025-10-01 13:04:32,073 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=A_2 (1/3)
+2025-10-01 13:04:32,074 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=B_1 (2/3)
+2025-10-01 13:04:32,075 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=A_1 (3/3)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.onebusaway.gtfs.impl.calendar.CalendarServiceDataFactoryImplSyntheticTest
+[INFO] Running org.onebusaway.gtfs.impl.calendar.CalendarServiceDataFactoryImplTest
+2025-10-01 13:04:32,078 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:32,079 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:32,079 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:32,079 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:32,080 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:32,080 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:32,080 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:32,080 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:32,081 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:32,083 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:32,083 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:32,083 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:32,086 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:32,116 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:32,116 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:32,117 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:32,117 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:32,117 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:32,117 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:32,118 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:32,118 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:32,118 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:32,119 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:32,119 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:32,120 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_23 (1/6)
+2025-10-01 13:04:32,126 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_24 (2/6)
+2025-10-01 13:04:32,127 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_25 (3/6)
+2025-10-01 13:04:32,132 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_26 (4/6)
+2025-10-01 13:04:32,133 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_27 (5/6)
+2025-10-01 13:04:32,134 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_28 (6/6)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.onebusaway.gtfs.impl.calendar.CalendarServiceDataFactoryImplTest
+[INFO] Running org.onebusaway.gtfs.impl.calendar.CalendarServiceImplTest
+2025-10-01 13:04:32,137 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:32,137 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:32,137 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:32,138 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:32,138 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:32,138 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:32,138 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:32,139 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:32,139 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:32,141 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:32,141 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:32,142 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:32,144 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:32,174 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:32,175 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:32,175 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:32,175 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:32,176 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:32,176 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:32,176 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:32,176 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:32,176 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:32,176 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:32,177 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:32,177 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_23 (1/6)
+2025-10-01 13:04:32,179 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_24 (2/6)
+2025-10-01 13:04:32,180 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_25 (3/6)
+2025-10-01 13:04:32,182 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_26 (4/6)
+2025-10-01 13:04:32,183 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_27 (5/6)
+2025-10-01 13:04:32,183 INFO  [CalendarServiceDataFactoryImpl.java:98] : serviceId=26_28 (6/6)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in org.onebusaway.gtfs.impl.calendar.CalendarServiceImplTest
+[INFO] Running org.onebusaway.gtfs.impl.GtfsRelationalDaoImplTest
+2025-10-01 13:04:32,188 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:32,189 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:32,189 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:32,190 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:32,190 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:32,190 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:32,190 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:32,191 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:32,191 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:32,191 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:32,192 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:32,192 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:32,195 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:32,274 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:32,275 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:32,275 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:32,276 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:32,277 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:32,278 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:32,278 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:32,278 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:32,278 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:32,278 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:32,279 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:32,309 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:32,309 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:32,309 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:32,310 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:32,310 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:32,310 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:32,310 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:32,311 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:32,311 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:32,312 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:32,312 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:32,312 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:32,313 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:32,314 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:32,314 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:32,315 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:32,315 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:32,315 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:32,315 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:32,315 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:32,315 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:32,316 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:32,316 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:32,317 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s - in org.onebusaway.gtfs.impl.GtfsRelationalDaoImplTest
+[INFO] Running org.onebusaway.gtfs.services.MockGtfsTest
+2025-10-01 13:04:32,327 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:32,327 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:32,328 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:32,328 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:32,328 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:32,328 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:32,328 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:32,328 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:32,329 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:32,329 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:32,329 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:32,329 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:32,329 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:32,330 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:32,330 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:32,330 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:32,330 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:32,331 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:32,331 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:32,331 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:32,331 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:32,331 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:32,331 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:32,331 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:32,339 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:32,340 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:32,340 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:32,340 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:32,340 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:32,340 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:32,340 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:32,341 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:32,341 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:32,341 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:32,342 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:32,342 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:32,342 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:32,342 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:32,342 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:32,343 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:32,343 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:32,343 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:32,343 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:32,343 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:32,344 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:32,344 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:32,344 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:32,344 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+2025-10-01 13:04:32,353 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Agency
+2025-10-01 13:04:32,354 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Block
+2025-10-01 13:04:32,355 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ShapePoint
+2025-10-01 13:04:32,355 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Note
+2025-10-01 13:04:32,355 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Area
+2025-10-01 13:04:32,355 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.BookingRule
+2025-10-01 13:04:32,355 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Route
+2025-10-01 13:04:32,356 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Level
+2025-10-01 13:04:32,356 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Stop
+2025-10-01 13:04:32,356 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Location
+2025-10-01 13:04:32,356 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.LocationGroupElement
+2025-10-01 13:04:32,356 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Trip
+2025-10-01 13:04:32,357 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.StopTime
+2025-10-01 13:04:32,357 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendar
+2025-10-01 13:04:32,358 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.ServiceCalendarDate
+2025-10-01 13:04:32,359 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareAttribute
+2025-10-01 13:04:32,359 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FareRule
+2025-10-01 13:04:32,359 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Frequency
+2025-10-01 13:04:32,359 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Pathway
+2025-10-01 13:04:32,359 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Transfer
+2025-10-01 13:04:32,359 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.FeedInfo
+2025-10-01 13:04:32,359 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Ridership
+2025-10-01 13:04:32,359 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Translation
+2025-10-01 13:04:32,359 INFO  [GtfsReader.java:185] : reading entities: org.onebusaway.gtfs.model.Vehicle
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.onebusaway.gtfs.services.MockGtfsTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 84, Failures: 0, Errors: 0, Skipped: 2
+[INFO] 
+[INFO] 
+[INFO] --------------< org.onebusaway:onebusaway-gtfs-hibernate >--------------
+[INFO] Building onebusaway-gtfs-hibernate 1.3.109-SNAPSHOT                [3/9]
+[INFO]   from onebusaway-gtfs-hibernate/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:2.6.1:clean (default-clean) @ onebusaway-gtfs-hibernate ---
+[INFO] Deleting /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/target
+[INFO] 
+[INFO] --- resources:2.7:resources (default-resources) @ onebusaway-gtfs-hibernate ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.8.0:compile (default-compile) @ onebusaway-gtfs-hibernate ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/target/classes
+[INFO] /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/src/main/java/org/onebusaway/gtfs/impl/HibernateOperationsImpl.java: /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/src/main/java/org/onebusaway/gtfs/impl/HibernateOperationsImpl.java uses or overrides a deprecated API.
+[INFO] /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/src/main/java/org/onebusaway/gtfs/impl/HibernateOperationsImpl.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/src/main/java/org/onebusaway/gtfs/impl/ServiceDateUserType.java:[31,8] org.onebusaway.gtfs.impl.ServiceDateUserType is not abstract and does not override abstract method nullSafeSet(java.sql.PreparedStatement,java.lang.Object,int,org.hibernate.engine.spi.SharedSessionContractImplementor) in org.hibernate.usertype.UserType
+[ERROR] /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/src/main/java/org/onebusaway/gtfs/impl/ServiceDateUserType.java:[68,3] method does not override or implement a method from a supertype
+[ERROR] /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/src/main/java/org/onebusaway/gtfs/impl/ServiceDateUserType.java:[84,3] method does not override or implement a method from a supertype
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for onebusaway-gtfs-modules 1.3.109-SNAPSHOT:
+[INFO] 
+[INFO] onebusaway-gtfs-modules ............................ SUCCESS [  0.311 s]
+[INFO] onebusaway-gtfs .................................... SUCCESS [  7.561 s]
+[INFO] onebusaway-gtfs-hibernate .......................... FAILURE [  0.319 s]
+[INFO] onebusaway-gtfs-hibernate-cli ...................... SKIPPED
+[INFO] onebusaway-gtfs-transformer ........................ SKIPPED
+[INFO] onebusaway-gtfs-transformer-cli .................... SKIPPED
+[INFO] onebusaway-gtfs-transformer-cli-aws ................ SKIPPED
+[INFO] onebusaway-gtfs-merge .............................. SKIPPED
+[INFO] onebusaway-gtfs-merge-cli .......................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.763 s
+[INFO] Finished at: 2025-10-01T13:04:33Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:2.7
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.1
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:2.6.1
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:compile (default-compile) on project onebusaway-gtfs-hibernate: Compilation failure: Compilation failure: 
+[ERROR] /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/src/main/java/org/onebusaway/gtfs/impl/ServiceDateUserType.java:[31,8] org.onebusaway.gtfs.impl.ServiceDateUserType is not abstract and does not override abstract method nullSafeSet(java.sql.PreparedStatement,java.lang.Object,int,org.hibernate.engine.spi.SharedSessionContractImplementor) in org.hibernate.usertype.UserType
+[ERROR] /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/src/main/java/org/onebusaway/gtfs/impl/ServiceDateUserType.java:[68,3] method does not override or implement a method from a supertype
+[ERROR] /onebusaway-gtfs-modules/onebusaway-gtfs-hibernate/src/main/java/org/onebusaway/gtfs/impl/ServiceDateUserType.java:[84,3] method does not override or implement a method from a supertype
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :onebusaway-gtfs-hibernate

@@ -1,0 +1,181 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< io.zold:java-api >--------------------------
+[INFO] Building java-api 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ java-api ---
+[INFO] Deleting /java-api/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven) @ java-api ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] --- buildnumber:3.1.0:create (jcabi-build-number) @ java-api ---
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/java-api' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /java-api
+[INFO] Storing buildNumber: null at timestamp: 2025-10-01T09:24:05
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: not a git repository (or any of the parent directories): .git
+
+[INFO] ShortRevision tag detected. The value is '7'.
+[INFO] Executing: /bin/sh -c cd '/java-api' && 'git' 'rev-parse' '--verify' '--short=7' 'HEAD'
+[INFO] Working directory: /java-api
+[INFO] Storing scmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- buildnumber:3.1.0:create-timestamp (jcabi-build-number) @ java-api ---
+[INFO] Skipping because we are not in root module.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ java-api ---
+[INFO] skip non existing resourceDirectory /java-api/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ java-api ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 15 source files with javac [debug optimize deprecation target 1.8] to target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /java-api/src/main/java/io/zold/api/RtScore.java:[27,28] cannot find symbol
+  symbol:   class LengthOf
+  location: package org.cactoos.iterable
+[ERROR] /java-api/src/main/java/io/zold/api/Remote.java:[28,24] cannot find symbol
+  symbol:   class RandomText
+  location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/Wallet.java:[30,30] cannot find symbol
+  symbol:   class Filtered
+  location: package org.cactoos.collection
+[ERROR] /java-api/src/main/java/io/zold/api/Wallet.java:[36,26] cannot find symbol
+  symbol:   class CheckedScalar
+  location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/Wallet.java:[38,26] cannot find symbol
+  symbol:   class UncheckedScalar
+  location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/Wallet.java:[40,24] cannot find symbol
+  symbol:   class SplitText
+  location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/Copies.java:[30,30] cannot find symbol
+  symbol:   class CollectionOf
+  location: package org.cactoos.collection
+[ERROR] /java-api/src/main/java/io/zold/api/RtNetwork.java:[30,26] cannot find symbol
+  symbol:   class IoCheckedScalar
+  location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/TaxBeneficiaries.java:[29,28] cannot find symbol
+  symbol:   class LengthOf
+  location: package org.cactoos.iterable
+[ERROR] /java-api/src/main/java/io/zold/api/WalletsIn.java:[37,26] cannot find symbol
+  symbol:   class IoCheckedScalar
+  location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/WalletsIn.java:[38,26] cannot find symbol
+  symbol:   class SolidScalar
+  location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/WalletsIn.java:[40,24] cannot find symbol
+  symbol:   class JoinedText
+  location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/WalletsIn.java:[53,19] cannot find symbol
+  symbol:   class IoCheckedScalar
+  location: class io.zold.api.WalletsIn
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[33,28] cannot find symbol
+  symbol:   class LengthOf
+  location: package org.cactoos.iterable
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[35,26] cannot find symbol
+  symbol:   class IoCheckedScalar
+  location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[37,26] cannot find symbol
+  symbol:   class StickyScalar
+  location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[38,26] cannot find symbol
+  symbol:   class UncheckedScalar
+  location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[40,24] cannot find symbol
+  symbol:   class SplitText
+  location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[42,24] cannot find symbol
+  symbol:   class TrimmedText
+  location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[88,19] cannot find symbol
+  symbol:   class IoCheckedScalar
+  location: class io.zold.api.RtTransaction
+[INFO] 20 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.729 s
+[INFO] Finished at: 2025-10-01T09:24:13Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 1 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.11.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project java-api: Compilation failure: Compilation failure: 
+[ERROR] /java-api/src/main/java/io/zold/api/RtScore.java:[27,28] cannot find symbol
+[ERROR]   symbol:   class LengthOf
+[ERROR]   location: package org.cactoos.iterable
+[ERROR] /java-api/src/main/java/io/zold/api/Remote.java:[28,24] cannot find symbol
+[ERROR]   symbol:   class RandomText
+[ERROR]   location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/Wallet.java:[30,30] cannot find symbol
+[ERROR]   symbol:   class Filtered
+[ERROR]   location: package org.cactoos.collection
+[ERROR] /java-api/src/main/java/io/zold/api/Wallet.java:[36,26] cannot find symbol
+[ERROR]   symbol:   class CheckedScalar
+[ERROR]   location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/Wallet.java:[38,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedScalar
+[ERROR]   location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/Wallet.java:[40,24] cannot find symbol
+[ERROR]   symbol:   class SplitText
+[ERROR]   location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/Copies.java:[30,30] cannot find symbol
+[ERROR]   symbol:   class CollectionOf
+[ERROR]   location: package org.cactoos.collection
+[ERROR] /java-api/src/main/java/io/zold/api/RtNetwork.java:[30,26] cannot find symbol
+[ERROR]   symbol:   class IoCheckedScalar
+[ERROR]   location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/TaxBeneficiaries.java:[29,28] cannot find symbol
+[ERROR]   symbol:   class LengthOf
+[ERROR]   location: package org.cactoos.iterable
+[ERROR] /java-api/src/main/java/io/zold/api/WalletsIn.java:[37,26] cannot find symbol
+[ERROR]   symbol:   class IoCheckedScalar
+[ERROR]   location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/WalletsIn.java:[38,26] cannot find symbol
+[ERROR]   symbol:   class SolidScalar
+[ERROR]   location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/WalletsIn.java:[40,24] cannot find symbol
+[ERROR]   symbol:   class JoinedText
+[ERROR]   location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/WalletsIn.java:[53,19] cannot find symbol
+[ERROR]   symbol:   class IoCheckedScalar
+[ERROR]   location: class io.zold.api.WalletsIn
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[33,28] cannot find symbol
+[ERROR]   symbol:   class LengthOf
+[ERROR]   location: package org.cactoos.iterable
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[35,26] cannot find symbol
+[ERROR]   symbol:   class IoCheckedScalar
+[ERROR]   location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[37,26] cannot find symbol
+[ERROR]   symbol:   class StickyScalar
+[ERROR]   location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[38,26] cannot find symbol
+[ERROR]   symbol:   class UncheckedScalar
+[ERROR]   location: package org.cactoos.scalar
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[40,24] cannot find symbol
+[ERROR]   symbol:   class SplitText
+[ERROR]   location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[42,24] cannot find symbol
+[ERROR]   symbol:   class TrimmedText
+[ERROR]   location: package org.cactoos.text
+[ERROR] /java-api/src/main/java/io/zold/api/RtTransaction.java:[88,19] cannot find symbol
+[ERROR]   symbol:   class IoCheckedScalar
+[ERROR]   location: class io.zold.api.RtTransaction
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

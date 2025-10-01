@@ -1,0 +1,119 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.google.pubsub.kafka.connect:pubsub-group-kafka-connector:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 169, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: linux
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.bitness: 64
+[INFO] os.detected.version: 6.6
+[INFO] os.detected.version.major: 6
+[INFO] os.detected.version.minor: 6
+[INFO] os.detected.release: alpine
+[INFO] os.detected.release.version: 3.18.2
+[INFO] os.detected.release.like.alpine: true
+[INFO] os.detected.classifier: linux-x86_64
+[INFO] 
+[INFO] ----< com.google.pubsub.kafka.connect:pubsub-group-kafka-connector >----
+[INFO] Building Archetype - kafka-connector 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ pubsub-group-kafka-connector ---
+[INFO] Deleting /java-pubsub-group-kafka-connector/target
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile (default) @ pubsub-group-kafka-connector ---
+[INFO] /java-pubsub-group-kafka-connector/src/main/proto does not exist. Review the configuration or consider disabling the plugin.
+[INFO] 
+[INFO] --- protobuf:0.6.1:compile-custom (default) @ pubsub-group-kafka-connector ---
+[INFO] /java-pubsub-group-kafka-connector/src/main/proto does not exist. Review the configuration or consider disabling the plugin.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ pubsub-group-kafka-connector ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ pubsub-group-kafka-connector ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 26 source files to /java-pubsub-group-kafka-connector/target/classes
+[INFO] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsub/kafka/source/CloudPubSubSourceTask.java: /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsub/kafka/source/CloudPubSubSourceTask.java uses or overrides a deprecated API.
+[INFO] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsub/kafka/source/CloudPubSubSourceTask.java: Recompile with -Xlint:deprecation for details.
+[INFO] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/Schemas.java: Some input files use unchecked or unsafe operations.
+[INFO] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/Schemas.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactoryImpl.java:[20,35] cannot find symbol
+  symbol:   class PublishMetadata
+  location: package com.google.cloud.pubsublite
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactory.java:[18,35] cannot find symbol
+  symbol:   class PublishMetadata
+  location: package com.google.cloud.pubsublite
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactoryImpl.java:[36,20] cannot find symbol
+  symbol:   class PublishMetadata
+  location: class com.google.pubsublite.kafka.sink.PublisherFactoryImpl
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactory.java:[24,13] cannot find symbol
+  symbol:   class PublishMetadata
+  location: interface com.google.pubsublite.kafka.sink.PublisherFactory
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PubSubLiteSinkTask.java:[22,35] cannot find symbol
+  symbol:   class PublishMetadata
+  location: package com.google.cloud.pubsublite
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PubSubLiteSinkTask.java:[43,31] cannot find symbol
+  symbol:   class PublishMetadata
+  location: class com.google.pubsublite.kafka.sink.PubSubLiteSinkTask
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactoryImpl.java:[53,17] cannot find symbol
+  symbol:   method setContext(com.google.cloud.pubsublite.internal.wire.PubsubContext)
+  location: class com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherBuilder.Builder
+[INFO] 7 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.826 s
+[INFO] Finished at: 2025-10-01T15:19:42Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.xolstice.maven.plugins:protobuf-maven-plugin:0.6.1
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project pubsub-group-kafka-connector: Compilation failure: Compilation failure: 
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactoryImpl.java:[20,35] cannot find symbol
+[ERROR]   symbol:   class PublishMetadata
+[ERROR]   location: package com.google.cloud.pubsublite
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactory.java:[18,35] cannot find symbol
+[ERROR]   symbol:   class PublishMetadata
+[ERROR]   location: package com.google.cloud.pubsublite
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactoryImpl.java:[36,20] cannot find symbol
+[ERROR]   symbol:   class PublishMetadata
+[ERROR]   location: class com.google.pubsublite.kafka.sink.PublisherFactoryImpl
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactory.java:[24,13] cannot find symbol
+[ERROR]   symbol:   class PublishMetadata
+[ERROR]   location: interface com.google.pubsublite.kafka.sink.PublisherFactory
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PubSubLiteSinkTask.java:[22,35] cannot find symbol
+[ERROR]   symbol:   class PublishMetadata
+[ERROR]   location: package com.google.cloud.pubsublite
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PubSubLiteSinkTask.java:[43,31] cannot find symbol
+[ERROR]   symbol:   class PublishMetadata
+[ERROR]   location: class com.google.pubsublite.kafka.sink.PubSubLiteSinkTask
+[ERROR] /java-pubsub-group-kafka-connector/src/main/java/com/google/pubsublite/kafka/sink/PublisherFactoryImpl.java:[53,17] cannot find symbol
+[ERROR]   symbol:   method setContext(com.google.cloud.pubsublite.internal.wire.PubsubContext)
+[ERROR]   location: class com.google.cloud.pubsublite.internal.wire.SinglePartitionPublisherBuilder.Builder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

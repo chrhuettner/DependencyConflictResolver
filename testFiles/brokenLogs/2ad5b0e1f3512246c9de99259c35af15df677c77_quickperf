@@ -1,0 +1,307 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] quick-perf                                                         [pom]
+[INFO] quick-perf-core                                                    [jar]
+[INFO] quick-perf-jvm-parent                                              [pom]
+[INFO] quick-perf-jvm-core                                                [jar]
+[INFO] quick-perf-jvm-annotations                                         [jar]
+[INFO] quick-perf-jfr-annotations                                         [jar]
+[INFO] quick-perf-sql-parent                                              [pom]
+[INFO] quick-perf-sql-annotations                                         [jar]
+[INFO] quick-perf-sql-memory-test-util                                    [jar]
+[INFO] quick-perf-sql-hibernate-test-util                                 [jar]
+[INFO] quick-perf-junit4-parent                                           [pom]
+[INFO] quick-perf-junit4                                                  [jar]
+[INFO] quick-perf-sql-memory-test                                         [jar]
+[INFO] quick-perf-junit4-5-jvm-test                                       [jar]
+[INFO] quick-perf-junit4-12-jvm-test                                      [jar]
+[INFO] quick-perf-junit4-13-jvm-test                                      [jar]
+[INFO] quick-perf-junit4-13-1-jvm-test                                    [jar]
+[INFO] quick-perf-junit4-13-2-jvm-test                                    [jar]
+[INFO] quick-perf-junit4-sql-test                                         [jar]
+[INFO] quick-perf-junit5-parent                                           [pom]
+[INFO] quick-perf-junit5-test-util                                        [jar]
+[INFO] quick-perf-junit5                                                  [jar]
+[INFO] quick-perf-junit5-jvm-test                                         [jar]
+[INFO] quick-perf-junit5-sql-test                                         [jar]
+[INFO] quick-perf-testng-parent                                           [pom]
+[INFO] quick-perf-testng-test-util                                        [jar]
+[INFO] quick-perf-testng                                                  [jar]
+[INFO] quick-perf-testng-sql-test                                         [jar]
+[INFO] quick-perf-testng-jvm-test                                         [jar]
+[INFO] quick-perf-testng-sql-listener                                     [jar]
+[INFO] quick-perf-spring                                                  [pom]
+[INFO] quick-perf-sql-spring4                                             [jar]
+[INFO] quick-perf-sql-spring5                                             [jar]
+[INFO] quick-perf-junit4-spring-base-tests                                [jar]
+[INFO] quick-perf-junit4-spring3                                          [jar]
+[INFO] quick-perf-junit4-spring4                                          [jar]
+[INFO] quick-perf-junit4-spring5                                          [jar]
+[INFO] quick-perf-springboot1-sql-starter                                 [jar]
+[INFO] quick-perf-springboot2-sql-starter                                 [jar]
+[INFO] quick-perf-junit4-spring-boot-test                                 [jar]
+[INFO] quick-perf-bom                                                     [pom]
+[INFO] 
+[INFO] ----------------------< org.quickperf:quick-perf >----------------------
+[INFO] Building quick-perf 1.1.1-SNAPSHOT                                [1/41]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- license:4.1:check (default) @ quick-perf ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] -------------------< org.quickperf:quick-perf-core >--------------------
+[INFO] Building quick-perf-core 1.1.1-SNAPSHOT                           [2/41]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-core ---
+[INFO] Deleting /quickperf/core/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-core ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- license:4.1:check (default) @ quick-perf-core ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-core ---
+[INFO] skip non existing resourceDirectory /quickperf/core/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 79 source files to /quickperf/core/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-core ---
+[INFO] skip non existing resourceDirectory /quickperf/core/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /quickperf/core/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.time.FormatExecutionTimeTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.463 s - in org.quickperf.time.FormatExecutionTimeTest
+[INFO] Running org.quickperf.AnnotationsMergerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.478 s - in org.quickperf.AnnotationsMergerTest
+[INFO] Running org.quickperf.time.ExecutionTimeComparisonTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.331 s - in org.quickperf.time.ExecutionTimeComparisonTest
+[INFO] Running org.quickperf.AnnotationFormatterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.444 s - in org.quickperf.AnnotationFormatterTest
+[INFO] Running org.quickperf.repository.TestIssueRepositoryTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.205 s - in org.quickperf.repository.TestIssueRepositoryTest
+[INFO] Running org.quickperf.time.FormatExecutionTimeAndAppendNsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.494 s - in org.quickperf.time.FormatExecutionTimeAndAppendNsTest
+[INFO] Running org.quickperf.testlauncher.AllJvmOptionsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.243 s - in org.quickperf.testlauncher.AllJvmOptionsTest
+[INFO] Running org.quickperf.time.MaxExecutionTimeVerifierTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.439 s - in org.quickperf.time.MaxExecutionTimeVerifierTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----------------< org.quickperf:quick-perf-jvm-parent >-----------------
+[INFO] Building quick-perf-jvm-parent 1.1.1-SNAPSHOT                     [3/41]
+[INFO]   from jvm/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-jvm-parent ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-jvm-parent ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- license:4.1:check (default) @ quick-perf-jvm-parent ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] -----------------< org.quickperf:quick-perf-jvm-core >------------------
+[INFO] Building quick-perf-jvm-core 1.1.1-SNAPSHOT                       [4/41]
+[INFO]   from jvm/jvm-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-jvm-core ---
+[INFO] Deleting /quickperf/jvm/jvm-core/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-jvm-core ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- license:4.1:check (default) @ quick-perf-jvm-core ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-jvm-core ---
+[INFO] skip non existing resourceDirectory /quickperf/jvm/jvm-core/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-jvm-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /quickperf/jvm/jvm-core/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-jvm-core ---
+[INFO] skip non existing resourceDirectory /quickperf/jvm/jvm-core/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-jvm-core ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-jvm-core ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-jvm-annotations >--------------
+[INFO] Building quick-perf-jvm-annotations 1.1.1-SNAPSHOT                [5/41]
+[INFO]   from jvm/jvm-annotations/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-jvm-annotations ---
+[INFO] Deleting /quickperf/jvm/jvm-annotations/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-jvm-annotations ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] 
+[INFO] --- license:4.1:check (default) @ quick-perf-jvm-annotations ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ quick-perf-jvm-annotations ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ quick-perf-jvm-annotations ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 36 source files to /quickperf/jvm/jvm-annotations/target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ quick-perf-jvm-annotations ---
+[INFO] skip non existing resourceDirectory /quickperf/jvm/jvm-annotations/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ quick-perf-jvm-annotations ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /quickperf/jvm/jvm-annotations/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ quick-perf-jvm-annotations ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.quickperf.jvm.allocation.format.FormatAllocationTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.648 s - in org.quickperf.jvm.allocation.format.FormatAllocationTest
+[INFO] Running org.quickperf.jvm.allocation.AllocationComparisonTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.606 s - in org.quickperf.jvm.allocation.AllocationComparisonTest
+[INFO] Running org.quickperf.jvm.JvmOptionConverterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.78 s - in org.quickperf.jvm.JvmOptionConverterTest
+[INFO] Running org.quickperf.jvm.allocation.format.FormatAndAppendAllocationInBytesTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.673 s - in org.quickperf.jvm.allocation.format.FormatAndAppendAllocationInBytesTest
+[INFO] Running org.quickperf.jvm.allocation.AllocationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.597 s - in org.quickperf.jvm.allocation.AllocationTest
+[INFO] Running org.quickperf.jvm.allocation.MaxHeapAllocationPerfVerifierTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.605 s - in org.quickperf.jvm.allocation.MaxHeapAllocationPerfVerifierTest
+[INFO] Running org.quickperf.jvm.allocation.format.ShortFormatAllocationTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.609 s - in org.quickperf.jvm.allocation.format.ShortFormatAllocationTest
+[INFO] Running org.quickperf.jvm.heap.HeapDumperTest
+
+[QUICK PERF] Heap dump file 
+👉 /quickperf/jvm/jvm-annotations/target/heap-dump-test.hprof
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.322 s - in org.quickperf.jvm.heap.HeapDumperTest
+[INFO] Running org.quickperf.jvm.allocation.AllocationUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.479 s - in org.quickperf.jvm.allocation.AllocationUnitTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.quickperf:quick-perf-jfr-annotations >--------------
+[INFO] Building quick-perf-jfr-annotations 1.1.1-SNAPSHOT                [6/41]
+[INFO]   from jvm/jfr-annotations/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ quick-perf-jfr-annotations ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-bytecode-version) @ quick-perf-jfr-annotations ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: module-info
+[INFO] Restricted to JDK 1.7 yet org.jsoup:jsoup:jar:1.15.3:compile contains org/jsoup/SerializationException.class targeted to JDK 8
+[WARNING] Rule 1: org.apache.maven.plugins.enforcer.EnforceBytecodeVersion failed with message:
+Found Banned Dependency: org.jsoup:jsoup:jar:1.15.3
+Use 'mvn dependency:tree' to locate the source of the banned dependencies.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for quick-perf 1.1.1-SNAPSHOT:
+[INFO] 
+[INFO] quick-perf ......................................... SUCCESS [  5.189 s]
+[INFO] quick-perf-core .................................... SUCCESS [ 16.839 s]
+[INFO] quick-perf-jvm-parent .............................. SUCCESS [  0.021 s]
+[INFO] quick-perf-jvm-core ................................ SUCCESS [  0.417 s]
+[INFO] quick-perf-jvm-annotations ......................... SUCCESS [  7.899 s]
+[INFO] quick-perf-jfr-annotations ......................... FAILURE [  0.415 s]
+[INFO] quick-perf-sql-parent .............................. SKIPPED
+[INFO] quick-perf-sql-annotations ......................... SKIPPED
+[INFO] quick-perf-sql-memory-test-util .................... SKIPPED
+[INFO] quick-perf-sql-hibernate-test-util ................. SKIPPED
+[INFO] quick-perf-junit4-parent ........................... SKIPPED
+[INFO] quick-perf-junit4 .................................. SKIPPED
+[INFO] quick-perf-sql-memory-test ......................... SKIPPED
+[INFO] quick-perf-junit4-5-jvm-test ....................... SKIPPED
+[INFO] quick-perf-junit4-12-jvm-test ...................... SKIPPED
+[INFO] quick-perf-junit4-13-jvm-test ...................... SKIPPED
+[INFO] quick-perf-junit4-13-1-jvm-test .................... SKIPPED
+[INFO] quick-perf-junit4-13-2-jvm-test .................... SKIPPED
+[INFO] quick-perf-junit4-sql-test ......................... SKIPPED
+[INFO] quick-perf-junit5-parent ........................... SKIPPED
+[INFO] quick-perf-junit5-test-util ........................ SKIPPED
+[INFO] quick-perf-junit5 .................................. SKIPPED
+[INFO] quick-perf-junit5-jvm-test ......................... SKIPPED
+[INFO] quick-perf-junit5-sql-test ......................... SKIPPED
+[INFO] quick-perf-testng-parent ........................... SKIPPED
+[INFO] quick-perf-testng-test-util ........................ SKIPPED
+[INFO] quick-perf-testng .................................. SKIPPED
+[INFO] quick-perf-testng-sql-test ......................... SKIPPED
+[INFO] quick-perf-testng-jvm-test ......................... SKIPPED
+[INFO] quick-perf-testng-sql-listener ..................... SKIPPED
+[INFO] quick-perf-spring .................................. SKIPPED
+[INFO] quick-perf-sql-spring4 ............................. SKIPPED
+[INFO] quick-perf-sql-spring5 ............................. SKIPPED
+[INFO] quick-perf-junit4-spring-base-tests ................ SKIPPED
+[INFO] quick-perf-junit4-spring3 .......................... SKIPPED
+[INFO] quick-perf-junit4-spring4 .......................... SKIPPED
+[INFO] quick-perf-junit4-spring5 .......................... SKIPPED
+[INFO] quick-perf-springboot1-sql-starter ................. SKIPPED
+[INFO] quick-perf-springboot2-sql-starter ................. SKIPPED
+[INFO] quick-perf-junit4-spring-boot-test ................. SKIPPED
+[INFO] quick-perf-bom ..................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  33.189 s
+[INFO] Finished at: 2025-10-01T09:14:24Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.4.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * com.mycila:license-maven-plugin:4.1
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:1.4.1:enforce (enforce-bytecode-version) on project quick-perf-jfr-annotations: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :quick-perf-jfr-annotations

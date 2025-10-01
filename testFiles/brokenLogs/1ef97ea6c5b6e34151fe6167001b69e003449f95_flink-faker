@@ -1,0 +1,54 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.github.knaufk:flink-faker >--------------------
+[INFO] Building flink-faker 0.5.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ flink-faker ---
+[INFO] Deleting /flink-faker/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ flink-faker ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ flink-faker ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /flink-faker/target/classes
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /flink-faker/src/main/java/com/github/knaufk/flink/faker/DateTime.java:[43,3] method does not override or implement a method from a supertype
+[ERROR] /flink-faker/src/main/java/com/github/knaufk/flink/faker/DateTime.java:[45,40] incompatible types: java.util.Date cannot be converted to java.sql.Timestamp
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.919 s
+[INFO] Finished at: 2025-10-01T09:01:13Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project flink-faker: Compilation failure: Compilation failure: 
+[ERROR] /flink-faker/src/main/java/com/github/knaufk/flink/faker/DateTime.java:[43,3] method does not override or implement a method from a supertype
+[ERROR] /flink-faker/src/main/java/com/github/knaufk/flink/faker/DateTime.java:[45,40] incompatible types: java.util.Date cannot be converted to java.sql.Timestamp
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

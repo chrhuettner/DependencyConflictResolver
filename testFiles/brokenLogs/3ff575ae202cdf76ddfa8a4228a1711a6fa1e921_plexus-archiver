@@ -1,0 +1,78 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< org.codehaus.plexus:plexus-archiver >-----------------
+[INFO] Building Plexus Archiver Component 4.2.7-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ plexus-archiver ---
+[INFO] Deleting /plexus-archiver/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven) @ plexus-archiver ---
+[INFO] 
+[INFO] --- resources:2.7:resources (default-resources) @ plexus-archiver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ plexus-archiver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 100 source files to /plexus-archiver/target/classes
+[INFO] /plexus-archiver/src/main/java/org/codehaus/plexus/archiver/filters/JarSecurityFileFilter.java: Some input files use or override a deprecated API.
+[INFO] /plexus-archiver/src/main/java/org/codehaus/plexus/archiver/filters/JarSecurityFileFilter.java: Recompile with -Xlint:deprecation for details.
+[INFO] /plexus-archiver/src/main/java/org/codehaus/plexus/archiver/util/AbstractFileSet.java: /plexus-archiver/src/main/java/org/codehaus/plexus/archiver/util/AbstractFileSet.java uses unchecked or unsafe operations.
+[INFO] /plexus-archiver/src/main/java/org/codehaus/plexus/archiver/util/AbstractFileSet.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-metadata (process-classes) @ plexus-archiver ---
+[INFO] Merging 1 manually-crafted descriptor file(s)
+[INFO] 
+[INFO] --- plexus-component-metadata:2.1.0:generate-metadata (default) @ plexus-archiver ---
+[INFO] Merging 1 manually-crafted descriptor file(s)
+[INFO] 
+[INFO] --- resources:2.7:testResources (default-testResources) @ plexus-archiver ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 67 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ plexus-archiver ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 41 source files to /plexus-archiver/target/test-classes
+[INFO] /plexus-archiver/src/test/java/org/codehaus/plexus/archiver/manager/ArchiverManagerTest.java: Some input files use or override a deprecated API.
+[INFO] /plexus-archiver/src/test/java/org/codehaus/plexus/archiver/manager/ArchiverManagerTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /plexus-archiver/src/test/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiverTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /plexus-archiver/src/test/java/org/codehaus/plexus/archiver/jar/JarToolModularJarArchiverTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /plexus-archiver/src/test/java/org/codehaus/plexus/archiver/DuplicateFilesTest.java:[37,23] cannot find symbol
+  symbol:   method getLoggerManager()
+  location: interface org.codehaus.plexus.PlexusContainer
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  32.242 s
+[INFO] Finished at: 2025-10-01T09:32:35Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 6 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-site-plugin:3.9.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:2.7
+[WARNING]  * org.codehaus.plexus:plexus-component-metadata:2.1.0
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project plexus-archiver: Compilation failure
+[ERROR] /plexus-archiver/src/test/java/org/codehaus/plexus/archiver/DuplicateFilesTest.java:[37,23] cannot find symbol
+[ERROR]   symbol:   method getLoggerManager()
+[ERROR]   location: interface org.codehaus.plexus.PlexusContainer
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

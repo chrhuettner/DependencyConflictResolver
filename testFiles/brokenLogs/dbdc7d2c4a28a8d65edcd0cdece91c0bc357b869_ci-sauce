@@ -1,0 +1,58 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] -----------------------< com.saucelabs:ci-sauce >-----------------------
+[INFO] Building ci-sauce 1.160-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ ci-sauce ---
+[INFO] Deleting /ci-sauce/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ ci-sauce ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/ci-sauce/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ ci-sauce ---
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ ci-sauce ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /ci-sauce/target/classes
+[INFO] /ci-sauce/src/main/java/com/saucelabs/ci/SODSeleniumConfiguration.java: /ci-sauce/src/main/java/com/saucelabs/ci/SODSeleniumConfiguration.java uses or overrides a deprecated API.
+[INFO] /ci-sauce/src/main/java/com/saucelabs/ci/SODSeleniumConfiguration.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /ci-sauce/src/main/java/com/saucelabs/ci/sauceconnect/SauceConnectFourManager.java:[307,19] cannot find symbol
+  symbol:   method enableLogging(org.codehaus.plexus.logging.console.ConsoleLogger)
+  location: variable unArchiver of type org.codehaus.plexus.archiver.AbstractUnArchiver
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.555 s
+[INFO] Finished at: 2025-10-01T15:31:46Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project ci-sauce: Compilation failure
+[ERROR] /ci-sauce/src/main/java/com/saucelabs/ci/sauceconnect/SauceConnectFourManager.java:[307,19] cannot find symbol
+[ERROR]   symbol:   method enableLogging(org.codehaus.plexus.logging.console.ConsoleLogger)
+[ERROR]   location: variable unArchiver of type org.codehaus.plexus.archiver.AbstractUnArchiver
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

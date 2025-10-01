@@ -1,0 +1,182 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 4 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 3 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] fluxtion :: poms :: parent root                                    [pom]
+[INFO] fluxtion :: runtime                                             [bundle]
+[INFO] fluxtion :: compiler                                               [jar]
+[INFO] fluxtion                                                           [pom]
+[INFO] 
+[INFO] --------------------< com.fluxtion:root-parent-pom >--------------------
+[INFO] Building fluxtion :: poms :: parent root 7.2.7                     [1/4]
+[INFO]   from parent-root/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ root-parent-pom ---
+[INFO] 
+[INFO] ------------------------< com.fluxtion:runtime >------------------------
+[INFO] Building fluxtion :: runtime 7.2.7                                 [2/4]
+[INFO]   from runtime/pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/junit/junit-dep/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/junit/junit-dep/maven-metadata.xml (563 B at 866 B/s)
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ runtime ---
+[INFO] Deleting /fluxtion/runtime/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ runtime ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ runtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 159 source files to /fluxtion/runtime/target/classes
+[INFO] /fluxtion/runtime/src/main/java/com/fluxtion/runtime/stream/AbstractEventStream.java: Some input files use unchecked or unsafe operations.
+[INFO] /fluxtion/runtime/src/main/java/com/fluxtion/runtime/stream/AbstractEventStream.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ runtime ---
+[INFO] skip non existing resourceDirectory /fluxtion/runtime/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ runtime ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /fluxtion/runtime/target/test-classes
+[INFO] /fluxtion/runtime/src/test/java/com/fluxtion/runtime/partition/PartitionerTest.java: /fluxtion/runtime/src/test/java/com/fluxtion/runtime/partition/PartitionerTest.java uses unchecked or unsafe operations.
+[INFO] /fluxtion/runtime/src/test/java/com/fluxtion/runtime/partition/PartitionerTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.18.1:test (default-test) @ runtime ---
+[INFO] Surefire report directory: /fluxtion/runtime/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.fluxtion.runtime.partition.AggregateTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.fluxtion.runtime.partition.AggregateTest
+Running com.fluxtion.runtime.partition.PartitionerTest
+single filter
+testInitialiser
+testSingleAndMultiKey
+testMultiKey
+single filter
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in com.fluxtion.runtime.partition.PartitionerTest
+Running com.fluxtion.runtime.stream.groupby.GroupByWindowedCollectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in com.fluxtion.runtime.stream.groupby.GroupByWindowedCollectionTest
+
+Results :
+
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -----------------------< com.fluxtion:compiler >------------------------
+[INFO] Building fluxtion :: compiler 7.2.7                                [3/4]
+[INFO]   from compiler/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ compiler ---
+[INFO] Deleting /fluxtion/compiler/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ compiler ---
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ compiler ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 72 source files to /fluxtion/compiler/target/classes
+[INFO] /fluxtion/compiler/src/main/java/com/fluxtion/compiler/generation/targets/JavaSourceGenerator.java: Some input files use or override a deprecated API.
+[INFO] /fluxtion/compiler/src/main/java/com/fluxtion/compiler/generation/targets/JavaSourceGenerator.java: Recompile with -Xlint:deprecation for details.
+[INFO] /fluxtion/compiler/src/main/java/com/fluxtion/compiler/generation/targets/InMemoryEventProcessor.java: Some input files use unchecked or unsafe operations.
+[INFO] /fluxtion/compiler/src/main/java/com/fluxtion/compiler/generation/targets/InMemoryEventProcessor.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ compiler ---
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ compiler ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 199 source files to /fluxtion/compiler/target/test-classes
+[INFO] /fluxtion/compiler/src/test/java/com/fluxtion/compiler/generation/targets/JavaTestGeneratorHelper.java: Some input files use or override a deprecated API.
+[INFO] /fluxtion/compiler/src/test/java/com/fluxtion/compiler/generation/targets/JavaTestGeneratorHelper.java: Recompile with -Xlint:deprecation for details.
+[INFO] /fluxtion/compiler/src/test/java/com/fluxtion/compiler/generation/util/MultipleSepTargetInProcessTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /fluxtion/compiler/src/test/java/com/fluxtion/compiler/generation/util/MultipleSepTargetInProcessTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /fluxtion/compiler/src/test/java/com/fluxtion/compiler/builder/factory/GraphOfInstancesTest.java:[78,39] no suitable constructor found for Constructor(no arguments)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(java.lang.Class<? extends java.lang.Object>,org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.TypeDescription,org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.TypeDescription,java.util.Collection<org.yaml.snakeyaml.TypeDescription>,org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(java.lang.String,org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /fluxtion/compiler/src/test/java/com/fluxtion/compiler/builder/factory/GraphOfInstancesTest.java:[114,39] no suitable constructor found for Constructor(no arguments)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(java.lang.Class<? extends java.lang.Object>,org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.TypeDescription,org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.TypeDescription,java.util.Collection<org.yaml.snakeyaml.TypeDescription>,org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(java.lang.String,org.yaml.snakeyaml.LoaderOptions) is not applicable
+      (actual and formal argument lists differ in length)
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for fluxtion 7.2.7:
+[INFO] 
+[INFO] fluxtion :: poms :: parent root .................... SUCCESS [  0.075 s]
+[INFO] fluxtion :: runtime ................................ SUCCESS [  6.039 s]
+[INFO] fluxtion :: compiler ............................... FAILURE [ 12.695 s]
+[INFO] fluxtion ........................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.887 s
+[INFO] Finished at: 2025-10-01T14:47:29Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 4 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.7.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.18.1
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project compiler: Compilation failure: Compilation failure: 
+[ERROR] /fluxtion/compiler/src/test/java/com/fluxtion/compiler/builder/factory/GraphOfInstancesTest.java:[78,39] no suitable constructor found for Constructor(no arguments)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(java.lang.Class<? extends java.lang.Object>,org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.TypeDescription,org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.TypeDescription,java.util.Collection<org.yaml.snakeyaml.TypeDescription>,org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(java.lang.String,org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /fluxtion/compiler/src/test/java/com/fluxtion/compiler/builder/factory/GraphOfInstancesTest.java:[114,39] no suitable constructor found for Constructor(no arguments)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(java.lang.Class<? extends java.lang.Object>,org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.TypeDescription,org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(org.yaml.snakeyaml.TypeDescription,java.util.Collection<org.yaml.snakeyaml.TypeDescription>,org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor org.yaml.snakeyaml.constructor.Constructor.Constructor(java.lang.String,org.yaml.snakeyaml.LoaderOptions) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :compiler

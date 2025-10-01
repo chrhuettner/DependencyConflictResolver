@@ -1,0 +1,70 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ----------------< de.gwdg.metadataqa:metadata-qa-marc >-----------------
+[INFO] Building Quality assessment for MARC 0.6.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'destfile' is unknown for plugin 'jacoco-maven-plugin:0.8.6:prepare-agent (prepare-agent)'
+[WARNING] Parameter 'datafile' is unknown for plugin 'jacoco-maven-plugin:0.8.6:prepare-agent (prepare-agent)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ metadata-qa-marc ---
+[INFO] Deleting /qa-catalogue/target
+[INFO] 
+[INFO] --- jacoco:0.8.6:prepare-agent (prepare-agent) @ metadata-qa-marc ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar=destfile=/qa-catalogue/target/jacoco.exec -Duser.timezone=UTC -Dfile.encoding=UTF-8 -Duser.language=en -Duser.region=US
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ metadata-qa-marc ---
+[INFO] Copying 11 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ metadata-qa-marc ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 967 source files to /qa-catalogue/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/MarcFactory.java:[3,35] cannot find symbol
+  symbol:   class JsonBranch
+  location: package de.gwdg.metadataqa.api.json
+[ERROR] /qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/MarcFactory.java:[313,64] cannot find symbol
+  symbol:   class JsonBranch
+  location: class de.gwdg.metadataqa.marc.MarcFactory
+[ERROR] /qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/MarcFactory.java:[322,59] cannot find symbol
+  symbol:   class JsonBranch
+  location: class de.gwdg.metadataqa.marc.MarcFactory
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  32.326 s
+[INFO] Finished at: 2025-10-01T09:45:09Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.6
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project metadata-qa-marc: Compilation failure: Compilation failure: 
+[ERROR] /qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/MarcFactory.java:[3,35] cannot find symbol
+[ERROR]   symbol:   class JsonBranch
+[ERROR]   location: package de.gwdg.metadataqa.api.json
+[ERROR] /qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/MarcFactory.java:[313,64] cannot find symbol
+[ERROR]   symbol:   class JsonBranch
+[ERROR]   location: class de.gwdg.metadataqa.marc.MarcFactory
+[ERROR] /qa-catalogue/src/main/java/de/gwdg/metadataqa/marc/MarcFactory.java:[322,59] cannot find symbol
+[ERROR]   symbol:   class JsonBranch
+[ERROR]   location: class de.gwdg.metadataqa.marc.MarcFactory
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

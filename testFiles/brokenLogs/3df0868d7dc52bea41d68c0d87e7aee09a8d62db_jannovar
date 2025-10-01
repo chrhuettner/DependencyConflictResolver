@@ -1,0 +1,425 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Jannovar                                                           [pom]
+[INFO] de.charite.compbio:jannovar-hgvs                                   [jar]
+[INFO] de.charite.compbio:jannovar-core                                   [jar]
+[INFO] de.charite.compbio:jannovar-htsjdk                                 [jar]
+[INFO] de.charite.compbio:jannovar-vardbs                                 [jar]
+[INFO] de.charite.compbio:jannovar-filter                                 [jar]
+[INFO] de.charite.compbio:jannovar-stats                                  [jar]
+[INFO] de.charite.compbio:jannovar-cli                                    [jar]
+[INFO] 
+[INFO] --------------------< de.charite.compbio:Jannovar >---------------------
+[INFO] Building Jannovar 0.42-SNAPSHOT                                    [1/8]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ Jannovar ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-maven) @ Jannovar ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce) @ Jannovar ---
+[INFO] 
+[INFO] --- jacoco:0.8.3:prepare-agent (pre-unit-test) @ Jannovar ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.3/org.jacoco.agent-0.8.3-runtime.jar=destfile=/jannovar/target/jacoco.exec
+[INFO] 
+[INFO] --- jacoco:0.8.3:report (post-unit-test) @ Jannovar ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] ------------------< de.charite.compbio:jannovar-hgvs >------------------
+[INFO] Building de.charite.compbio:jannovar-hgvs 0.42-SNAPSHOT            [2/8]
+[INFO]   from jannovar-hgvs/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jannovar-hgvs ---
+[INFO] Deleting /jannovar/jannovar-hgvs/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-maven) @ jannovar-hgvs ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce) @ jannovar-hgvs ---
+[INFO] 
+[INFO] --- resources:2.6:copy-resources (copy-resources) @ jannovar-hgvs ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /jannovar/jannovar-hgvs/src/main/resources
+[INFO] 
+[INFO] --- jacoco:0.8.3:prepare-agent (pre-unit-test) @ jannovar-hgvs ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.3/org.jacoco.agent-0.8.3-runtime.jar=destfile=/jannovar/jannovar-hgvs/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper:3.0.0:add-source (add-source) @ jannovar-hgvs ---
+[INFO] Source directory: /jannovar/jannovar-hgvs/target/generated-sources/antlr4 added.
+[INFO] 
+[INFO] --- antlr4:4.7.2:antlr4 (default) @ jannovar-hgvs ---
+[INFO] ANTLR 4: Processing source directory /jannovar/jannovar-hgvs/src/main/antlr4
+[INFO] Processing grammar: de/charite/compbio/jannovar/hgvs/parser/Antlr4HGVSLexer.g4
+[INFO] Processing grammar: de/charite/compbio/jannovar/hgvs/parser/Antlr4HGVSParser.g4
+[INFO] 
+[INFO] --- resources:2.6:resources (default-resources) @ jannovar-hgvs ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /jannovar/jannovar-hgvs/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ jannovar-hgvs ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 64 source files to /jannovar/jannovar-hgvs/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 
+[INFO] --- resources:2.6:testResources (default-testResources) @ jannovar-hgvs ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /jannovar/jannovar-hgvs/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ jannovar-hgvs ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 92 source files to /jannovar/jannovar-hgvs/target/test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[WARNING] No processor claimed any of these annotations: org.junit.jupiter.api.Test,org.junit.jupiter.api.BeforeEach
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ jannovar-hgvs ---
+[WARNING] The system property user.language is configured twice! The property appears in <argLine/> and any of <systemPropertyVariables/>, <systemProperties/> or user property.
+[WARNING] The system property user.region is configured twice! The property appears in <argLine/> and any of <systemPropertyVariables/>, <systemProperties/> or user property.
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running de.charite.compbio.jannovar.hgvs.legacy.LegacyInsertionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.legacy.LegacyLocationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.legacy.LegacySubstitutionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.953 s - in de.charite.compbio.jannovar.hgvs.legacy.LegacyInsertionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.change.ProteinInsertionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.433 s - in de.charite.compbio.jannovar.hgvs.legacy.LegacyLocationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.legacy.LegacyDeletionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in de.charite.compbio.jannovar.hgvs.legacy.LegacyDeletionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.legacy.LegacyLoationTypeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.legacy.LegacyLoationTypeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.legacy.LegacyIndelTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.428 s - in de.charite.compbio.jannovar.hgvs.legacy.LegacySubstitutionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.VariantConfigurationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in de.charite.compbio.jannovar.hgvs.protein.change.ProteinInsertionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in de.charite.compbio.jannovar.hgvs.legacy.LegacyIndelTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.HGVSParserNucleotidePointLocationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in de.charite.compbio.jannovar.hgvs.VariantConfigurationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.variant.NucleotideChangeAlleleTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.variant.SingleAlleleNucleotideVariantTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.269 s - in de.charite.compbio.jannovar.hgvs.nts.variant.SingleAlleleNucleotideVariantTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.NucleotidePointLocationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 s - in de.charite.compbio.jannovar.hgvs.nts.variant.NucleotideChangeAlleleTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in de.charite.compbio.jannovar.hgvs.nts.NucleotidePointLocationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.variant.MultiAlleleNucleotideVariantTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideSequencedRepeatTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in de.charite.compbio.jannovar.hgvs.nts.variant.MultiAlleleNucleotideVariantTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.NucleotideSeqSpecificationTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 s - in de.charite.compbio.jannovar.hgvs.nts.NucleotideSeqSpecificationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideInversionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideSequencedRepeatTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideDuplicationTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideInversionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideSubstitutionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideDuplicationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideNotSequencedRepeatTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideSubstitutionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideNotSequencedRepeatTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideIndelTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideShortSequenceRepeatVariabilityTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideShortSequenceRepeatVariabilityTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideIndelTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.NucleotideRangeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.nts.NucleotideRangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideRepeatSequenceTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.variant.ProteinChangeAlleleTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideRepeatSequenceTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideInsertionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideInsertionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideDeletionTest
+NucleotideDeletion [range=NucleotideRange [firstPos=NucleotidePointLocation [basePos=123, offset=0, downstreamOfCDS=false], lastPos=NucleotidePointLocation [basePos=124, offset=0, downstreamOfCDS=false]], seq=NucleotideSeqDescription [nts=null, ntCount=2]]
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideDeletionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideMiscChangeTypeTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideMiscChangeTypeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.nts.change.NucleotideMiscChangeTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.072 s - in de.charite.compbio.jannovar.hgvs.parser.nts.HGVSParserNucleotidePointLocationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.nts.change.NucleotideMiscChangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.ProteinSeqSpecificationTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in de.charite.compbio.jannovar.hgvs.protein.ProteinSeqSpecificationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.257 s - in de.charite.compbio.jannovar.hgvs.protein.variant.ProteinChangeAlleleTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.change.ProteinDuplicationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.variant.SingleAlleleProteinVariantTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in de.charite.compbio.jannovar.hgvs.protein.variant.SingleAlleleProteinVariantTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in de.charite.compbio.jannovar.hgvs.protein.change.ProteinDuplicationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.change.ProteinExtensionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideMultiAlleleSingleChangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.variant.MultiAlleleProteinVariantTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in de.charite.compbio.jannovar.hgvs.protein.variant.MultiAlleleProteinVariantTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.ProteinRangeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in de.charite.compbio.jannovar.hgvs.protein.change.ProteinExtensionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.change.ProteinFrameshiftTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in de.charite.compbio.jannovar.hgvs.protein.ProteinRangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.change.ProteinShortSequenceRepeatVariabilityTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in de.charite.compbio.jannovar.hgvs.protein.change.ProteinFrameshiftTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.variant.HGVSparserNucleotideSingleAlleleVariantTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in de.charite.compbio.jannovar.hgvs.protein.change.ProteinShortSequenceRepeatVariabilityTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.change.ProteinSubstitutionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in de.charite.compbio.jannovar.hgvs.protein.change.ProteinSubstitutionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.change.ProteinIndelTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in de.charite.compbio.jannovar.hgvs.protein.change.ProteinIndelTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.change.ProteinMiscChangeTypeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in de.charite.compbio.jannovar.hgvs.protein.change.ProteinMiscChangeTypeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.change.ProteinDeletionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in de.charite.compbio.jannovar.hgvs.protein.change.ProteinDeletionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.protein.ProteinPointLocationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in de.charite.compbio.jannovar.hgvs.protein.ProteinPointLocationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.variant.HGVSparserNucleotideMultiAlleleVariantTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.249 s - in de.charite.compbio.jannovar.hgvs.parser.nts.variant.HGVSparserNucleotideSingleAlleleVariantTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideMiscChangeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideMiscChangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideDuplicationTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideDuplicationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideDeletionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideDeletionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideIndelTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.286 s - in de.charite.compbio.jannovar.hgvs.parser.nts.variant.HGVSparserNucleotideMultiAlleleVariantTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.HGVSParserNucleotideRangeTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.193 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideIndelTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideStringTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in de.charite.compbio.jannovar.hgvs.parser.nts.HGVSParserNucleotideRangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideInsertionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideStringTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideNotSequencedRepeatTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideInsertionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideShortSequenceRepeatVariabilityTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideNotSequencedRepeatTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.NucleotideParsingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideShortSequenceRepeatVariabilityTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideInversionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideInversionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideSequencedRepeatTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideSequencedRepeatTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideSubstitutionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in de.charite.compbio.jannovar.hgvs.parser.nts.NucleotideParsingTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.variant.HGVSparserProteinMultiAlleleVariantTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in de.charite.compbio.jannovar.hgvs.parser.nts.change.HGVSParserNucleotideSubstitutionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.LegacyMutationParserInsertionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in de.charite.compbio.jannovar.hgvs.parser.protein.variant.HGVSparserProteinMultiAlleleVariantTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.variant.HGVSParserProteinSingleAlleleVariantTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.365 s - in de.charite.compbio.jannovar.hgvs.parser.protein.variant.HGVSParserProteinSingleAlleleVariantTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.AntlrHGVSParserJustParseTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.371 s - in de.charite.compbio.jannovar.hgvs.parser.AntlrHGVSParserJustParseTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideInsertionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.557 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideMultiAlleleSingleChangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.HGVSParserProteinPointLocationTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in de.charite.compbio.jannovar.hgvs.parser.protein.HGVSParserProteinPointLocationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.HGVSParserProteinRangeTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.318 s - in de.charite.compbio.jannovar.hgvs.parser.protein.HGVSParserProteinRangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinShortSequenceRepeatVariabilityTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinShortSequenceRepeatVariabilityTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinExtensionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinExtensionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideSequencedRepeatTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideSequencedRepeatTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideIndelTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.364 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideIndelTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideShortSequenceVariabilityTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideShortSequenceVariabilityTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.AntlrHGVSLexerJustLexTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in de.charite.compbio.jannovar.hgvs.parser.AntlrHGVSLexerJustLexTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideSingleAlleleMultiChangeTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.906 s - in de.charite.compbio.jannovar.hgvs.parser.LegacyMutationParserInsertionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.187 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideSingleAlleleMultiChangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideNotSequencedRepeatTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideNotSequencedRepeatTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.LegacyMutationParserDeletionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.LegacyMutationParserSubstitutionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in de.charite.compbio.jannovar.hgvs.parser.LegacyMutationParserSubstitutionTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in de.charite.compbio.jannovar.hgvs.parser.LegacyMutationParserDeletionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.ProteinParsingTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.168 s - in de.charite.compbio.jannovar.hgvs.parser.protein.ProteinParsingTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinInsertionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinInsertionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinFrameshiftTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinFrameshiftTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinSubstitutionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinSubstitutionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinDeletionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinDeletionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinDuplicationTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinDuplicationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinMiscChangeTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinMiscChangeTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinIndelTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in de.charite.compbio.jannovar.hgvs.parser.protein.change.HGVSParserProteinIndelTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideDuplicationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideDuplicationTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideSubstitutionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideSubstitutionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.LegacyMutationParserIndelTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in de.charite.compbio.jannovar.hgvs.parser.LegacyMutationParserIndelTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideInversionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideInversionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideDeletionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.714 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideInsertionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverTranscriptParsingTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideDeletionTest
+[INFO] Running de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideMiscChangeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverTranscriptParsingTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in de.charite.compbio.jannovar.hgvs.parser.HGVSParserDriverNucleotideMiscChangeTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 352, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.3:report (post-unit-test) @ jannovar-hgvs ---
+[INFO] Loading execution data file /jannovar/jannovar-hgvs/target/jacoco.exec
+[INFO] Analyzed bundle 'de.charite.compbio:jannovar-hgvs' with 125 classes
+[INFO] 
+[INFO] ------------------< de.charite.compbio:jannovar-core >------------------
+[INFO] Building de.charite.compbio:jannovar-core 0.42-SNAPSHOT            [3/8]
+[INFO]   from jannovar-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/apache/commons/commons-compress/maven-metadata.xml
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/maven-metadata.xml
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/maven-metadata.xml (1.4 kB at 1.0 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.24.0/commons-compress-1.24.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.24.0/commons-compress-1.24.0.pom (22 kB at 208 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/61/commons-parent-61.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/61/commons-parent-61.pom (81 kB at 713 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/30/apache-30.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/30/apache-30.pom (23 kB at 138 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.0/junit-bom-5.10.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.0/junit-bom-5.10.0.pom (5.6 kB at 50 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.25.0/commons-compress-1.25.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.25.0/commons-compress-1.25.0.pom (22 kB at 170 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/64/commons-parent-64.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/64/commons-parent-64.pom (78 kB at 690 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.0/commons-compress-1.26.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.0/commons-compress-1.26.0.pom (22 kB at 324 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/66/commons-parent-66.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/66/commons-parent-66.pom (77 kB at 385 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/31/apache-31.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/31/apache-31.pom (24 kB at 245 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.1/junit-bom-5.10.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.1/junit-bom-5.10.1.pom (5.6 kB at 57 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.15.1/commons-io-2.15.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.15.1/commons-io-2.15.1.pom (20 kB at 175 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/65/commons-parent-65.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/65/commons-parent-65.pom (78 kB at 735 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.pom (31 kB at 278 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.1/commons-compress-1.26.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.1/commons-compress-1.26.1.pom (22 kB at 148 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.16.1/commons-codec-1.16.1.pom (16 kB at 182 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.2/commons-compress-1.26.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.2/commons-compress-1.26.2.pom (23 kB at 328 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/69/commons-parent-69.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/69/commons-parent-69.pom (77 kB at 802 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.2/junit-bom-5.10.2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.2/junit-bom-5.10.2.pom (5.6 kB at 59 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.17.0/commons-codec-1.17.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.17.0/commons-codec-1.17.0.pom (18 kB at 182 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1.pom (20 kB at 231 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.27.0/commons-compress-1.27.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.27.0/commons-compress-1.27.0.pom (23 kB at 244 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/72/commons-parent-72.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/72/commons-parent-72.pom (78 kB at 728 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/33/apache-33.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/33/apache-33.pom (24 kB at 295 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.11.0-M2/junit-bom-5.11.0-M2.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.11.0-M2/junit-bom-5.11.0-M2.pom (5.7 kB at 66 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.17.1/commons-codec-1.17.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.17.1/commons-codec-1.17.1.pom (18 kB at 189 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/71/commons-parent-71.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/71/commons-parent-71.pom (78 kB at 864 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/32/apache-32.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/32/apache-32.pom (24 kB at 203 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.15.0/commons-lang3-3.15.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.15.0/commons-lang3-3.15.0.pom (31 kB at 411 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.27.1/commons-compress-1.27.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.27.1/commons-compress-1.27.1.pom (23 kB at 230 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.16.0/commons-lang3-3.16.0.pom (31 kB at 434 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.pom (25 kB at 266 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/85/commons-parent-85.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/85/commons-parent-85.pom (78 kB at 922 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/35/apache-35.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/35/apache-35.pom (24 kB at 303 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.13.1/junit-bom-5.13.1.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.13.1/junit-bom-5.13.1.pom (5.6 kB at 70 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.pom (18 kB at 269 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.20.0/commons-io-2.20.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-io/commons-io/2.20.0/commons-io-2.20.0.pom (20 kB at 284 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.pom
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.pom (32 kB at 341 kB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar (1.1 MB at 4.3 MB/s)
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.jar
+[INFO] Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.jar (375 kB at 3.4 MB/s)
+[INFO] Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.18.0/commons-lang3-3.18.0.jar (703 kB at 1.9 MB/s)
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jannovar-core ---
+[INFO] Deleting /jannovar/jannovar-core/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-maven) @ jannovar-core ---
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce) @ jannovar-core ---
+[WARNING] 
+Dependency convergence error for commons-io:commons-io:2.7 paths to dependency are:
++-de.charite.compbio:jannovar-core:0.42-SNAPSHOT
+  +-commons-io:commons-io:2.7
+and
++-de.charite.compbio:jannovar-core:0.42-SNAPSHOT
+  +-org.apache.commons:commons-compress:1.28.0
+    +-commons-io:commons-io:2.20.0
+
+[WARNING] Rule 0: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+Failed while enforcing releasability the error(s) are [
+Dependency convergence error for commons-io:commons-io:2.7 paths to dependency are:
++-de.charite.compbio:jannovar-core:0.42-SNAPSHOT
+  +-commons-io:commons-io:2.7
+and
++-de.charite.compbio:jannovar-core:0.42-SNAPSHOT
+  +-org.apache.commons:commons-compress:1.28.0
+    +-commons-io:commons-io:2.20.0
+]
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Jannovar 0.42-SNAPSHOT:
+[INFO] 
+[INFO] Jannovar ........................................... SUCCESS [  6.369 s]
+[INFO] de.charite.compbio:jannovar-hgvs ................... SUCCESS [ 38.394 s]
+[INFO] de.charite.compbio:jannovar-core ................... FAILURE [  8.540 s]
+[INFO] de.charite.compbio:jannovar-htsjdk ................. SKIPPED
+[INFO] de.charite.compbio:jannovar-vardbs ................. SKIPPED
+[INFO] de.charite.compbio:jannovar-filter ................. SKIPPED
+[INFO] de.charite.compbio:jannovar-stats .................. SKIPPED
+[INFO] de.charite.compbio:jannovar-cli .................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  54.338 s
+[INFO] Finished at: 2025-10-01T09:30:41Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 7 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:2.6
+[WARNING]  * org.codehaus.mojo:build-helper-maven-plugin:3.0.0
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.4.1
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.3
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING]  * org.antlr:antlr4-maven-plugin:4.7.2
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.3
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:1.4.1:enforce (enforce) on project jannovar-core: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :jannovar-core

@@ -1,0 +1,941 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache WSS4J                                                       [pom]
+[INFO] Apache WSS4J parent                                                [pom]
+[INFO] Apache WSS4J WS-Security Bindings                                  [jar]
+[INFO] Apache WSS4J WS-SecurityPolicy model                               [jar]
+[INFO] Apache WSS4J WS-Security Common                                    [jar]
+[INFO] Apache WSS4J DOM WS-Security                                       [jar]
+[INFO] Apache WSS4J Streaming WS-Security                                 [jar]
+[INFO] Apache WSS4J Web WS-Security                                       [jar]
+[INFO] Apache WSS4J WS-Security Integration                               [jar]
+[INFO] Apache WSS4J Streaming WS-SecurityPolicy                           [jar]
+[INFO] 
+[INFO] -----------------------< org.apache.wss4j:wss4j >-----------------------
+[INFO] Building Apache WSS4J 3.0.2-SNAPSHOT                              [1/10]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:check (validate)'
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:pmd (pmd)'
+[WARNING] Parameter 'encoding' is unknown for plugin 'maven-checkstyle-plugin:3.3.0:check (validate)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ wss4j ---
+[INFO] Deleting /ws-wss4j/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ wss4j ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ wss4j ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] 
+[INFO] >>> pmd:3.19.0:check (validate) > :pmd @ wss4j >>>
+[INFO] 
+[INFO] --- pmd:3.19.0:pmd (pmd) @ wss4j ---
+[INFO] 
+[INFO] <<< pmd:3.19.0:check (validate) < :pmd @ wss4j <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.19.0:check (validate) @ wss4j ---
+[INFO] 
+[INFO] --- checkstyle:3.3.0:check (validate) @ wss4j ---
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ wss4j ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] -------------------< org.apache.wss4j:wss4j-parent >--------------------
+[INFO] Building Apache WSS4J parent 3.0.2-SNAPSHOT                       [2/10]
+[INFO]   from parent/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:check (validate)'
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:pmd (pmd)'
+[WARNING] Parameter 'encoding' is unknown for plugin 'maven-checkstyle-plugin:3.3.0:check (validate)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ wss4j-parent ---
+[INFO] Deleting /ws-wss4j/parent/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ wss4j-parent ---
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ wss4j-parent ---
+[INFO] 
+[INFO] >>> pmd:3.19.0:check (validate) > :pmd @ wss4j-parent >>>
+[INFO] 
+[INFO] --- pmd:3.19.0:pmd (pmd) @ wss4j-parent ---
+[INFO] 
+[INFO] <<< pmd:3.19.0:check (validate) < :pmd @ wss4j-parent <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.19.0:check (validate) @ wss4j-parent ---
+[INFO] 
+[INFO] --- checkstyle:3.3.0:check (validate) @ wss4j-parent ---
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- bundle:5.1.9:cleanVersions (versions) @ wss4j-parent ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ wss4j-parent ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- bundle:5.1.9:manifest (bundle-manifest) @ wss4j-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] ------------------< org.apache.wss4j:wss4j-bindings >-------------------
+[INFO] Building Apache WSS4J WS-Security Bindings 3.0.2-SNAPSHOT         [3/10]
+[INFO]   from bindings/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:check (validate)'
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:pmd (pmd)'
+[WARNING] Parameter 'encoding' is unknown for plugin 'maven-checkstyle-plugin:3.3.0:check (validate)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ wss4j-bindings ---
+[INFO] Deleting /ws-wss4j/bindings/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ wss4j-bindings ---
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ wss4j-bindings ---
+[INFO] 
+[INFO] >>> pmd:3.19.0:check (validate) > :pmd @ wss4j-bindings >>>
+[INFO] 
+[INFO] --- pmd:3.19.0:pmd (pmd) @ wss4j-bindings ---
+[INFO] PMD version: 6.49.0
+[WARNING] Removed misconfigured rule: LoosePackageCoupling  cause: No packages or classes specified
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] 
+[INFO] <<< pmd:3.19.0:check (validate) < :pmd @ wss4j-bindings <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.19.0:check (validate) @ wss4j-bindings ---
+[INFO] PMD version: 6.49.0
+[INFO] 
+[INFO] 
+[INFO] --- checkstyle:3.3.0:check (validate) @ wss4j-bindings ---
+[INFO] 
+[INFO] --- bundle:5.1.9:cleanVersions (versions) @ wss4j-bindings ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ wss4j-bindings ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ wss4j-bindings ---
+[INFO] Copying 0 resource from src/main/java to target/classes
+[INFO] skip non existing resourceDirectory /ws-wss4j/bindings/src/main/resources
+[INFO] skip non existing resourceDirectory /ws-wss4j/bindings/src/main/resources-filtered
+[INFO] skip non existing resourceDirectory /ws-wss4j/bindings/target/generated/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ wss4j-bindings ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 36 source files with javac [debug target 11] to target/classes
+[INFO] 
+[INFO] --- bundle:5.1.9:manifest (bundle-manifest) @ wss4j-bindings ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[INFO] Writing manifest: /ws-wss4j/bindings/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ wss4j-bindings ---
+[INFO] skip non existing resourceDirectory /ws-wss4j/bindings/src/test/java
+[INFO] skip non existing resourceDirectory /ws-wss4j/bindings/src/test/resources
+[INFO] skip non existing resourceDirectory /ws-wss4j/bindings/target/generated/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ wss4j-bindings ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ wss4j-bindings ---
+[INFO] 
+[INFO] -------------------< org.apache.wss4j:wss4j-policy >--------------------
+[INFO] Building Apache WSS4J WS-SecurityPolicy model 3.0.2-SNAPSHOT      [4/10]
+[INFO]   from policy/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:check (validate)'
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:pmd (pmd)'
+[WARNING] Parameter 'encoding' is unknown for plugin 'maven-checkstyle-plugin:3.3.0:check (validate)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ wss4j-policy ---
+[INFO] Deleting /ws-wss4j/policy/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ wss4j-policy ---
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ wss4j-policy ---
+[INFO] 
+[INFO] >>> pmd:3.19.0:check (validate) > :pmd @ wss4j-policy >>>
+[INFO] 
+[INFO] --- pmd:3.19.0:pmd (pmd) @ wss4j-policy ---
+[INFO] PMD version: 6.49.0
+[WARNING] Removed misconfigured rule: LoosePackageCoupling  cause: No packages or classes specified
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] 
+[INFO] <<< pmd:3.19.0:check (validate) < :pmd @ wss4j-policy <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.19.0:check (validate) @ wss4j-policy ---
+[INFO] PMD version: 6.49.0
+[INFO] 
+[INFO] 
+[INFO] --- checkstyle:3.3.0:check (validate) @ wss4j-policy ---
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- bundle:5.1.9:cleanVersions (versions) @ wss4j-policy ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ wss4j-policy ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ wss4j-policy ---
+[INFO] Copying 0 resource from src/main/java to target/classes
+[INFO] skip non existing resourceDirectory /ws-wss4j/policy/src/main/resources
+[INFO] skip non existing resourceDirectory /ws-wss4j/policy/src/main/resources-filtered
+[INFO] skip non existing resourceDirectory /ws-wss4j/policy/target/generated/src/main/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ wss4j-policy ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 95 source files with javac [debug target 11] to target/classes
+[INFO] 
+[INFO] --- bundle:5.1.9:manifest (bundle-manifest) @ wss4j-policy ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[INFO] Writing manifest: /ws-wss4j/policy/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ wss4j-policy ---
+[INFO] Copying 0 resource from src/test/java to target/test-classes
+[INFO] Copying 108 resources from src/test/resources to target/test-classes
+[INFO] skip non existing resourceDirectory /ws-wss4j/policy/target/generated/src/test/resources
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ wss4j-policy ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 32 source files with javac [debug target 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ wss4j-policy ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.wss4j.policy.tests.Trust10Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.245 s -- in org.apache.wss4j.policy.tests.Trust10Test
+[INFO] Running org.apache.wss4j.policy.tests.IssuedTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in org.apache.wss4j.policy.tests.IssuedTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.UsernameTokenTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in org.apache.wss4j.policy.tests.UsernameTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.ContentEncryptedElementsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in org.apache.wss4j.policy.tests.ContentEncryptedElementsTest
+[INFO] Running org.apache.wss4j.policy.tests.PolicyNormalizationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 s -- in org.apache.wss4j.policy.tests.PolicyNormalizationTest
+[INFO] Running org.apache.wss4j.policy.tests.HttpsTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in org.apache.wss4j.policy.tests.HttpsTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.Trust13Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s -- in org.apache.wss4j.policy.tests.Trust13Test
+[INFO] Running org.apache.wss4j.policy.tests.SpnegoContextTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in org.apache.wss4j.policy.tests.SpnegoContextTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.KerberosTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in org.apache.wss4j.policy.tests.KerberosTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.TransportBindingTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in org.apache.wss4j.policy.tests.TransportBindingTest
+[INFO] Running org.apache.wss4j.policy.tests.X509TokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in org.apache.wss4j.policy.tests.X509TokenTest
+[INFO] Running org.apache.wss4j.policy.tests.SecureConversationTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in org.apache.wss4j.policy.tests.SecureConversationTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.SamlTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in org.apache.wss4j.policy.tests.SamlTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.SecurityContextTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in org.apache.wss4j.policy.tests.SecurityContextTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.RequiredPartsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in org.apache.wss4j.policy.tests.RequiredPartsTest
+[INFO] Running org.apache.wss4j.policy.tests.KeyValueTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in org.apache.wss4j.policy.tests.KeyValueTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.InitiatorTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in org.apache.wss4j.policy.tests.InitiatorTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.Wss11Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in org.apache.wss4j.policy.tests.Wss11Test
+[INFO] Running org.apache.wss4j.policy.tests.EncryptedElementsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in org.apache.wss4j.policy.tests.EncryptedElementsTest
+[INFO] Running org.apache.wss4j.policy.tests.AsymmetricBindingTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s -- in org.apache.wss4j.policy.tests.AsymmetricBindingTest
+[INFO] Running org.apache.wss4j.policy.tests.RequiredElementsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in org.apache.wss4j.policy.tests.RequiredElementsTest
+[INFO] Running org.apache.wss4j.policy.tests.LayoutTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in org.apache.wss4j.policy.tests.LayoutTest
+[INFO] Running org.apache.wss4j.policy.tests.SymmetricBindingTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in org.apache.wss4j.policy.tests.SymmetricBindingTest
+[INFO] Running org.apache.wss4j.policy.tests.EncryptedPartsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in org.apache.wss4j.policy.tests.EncryptedPartsTest
+[INFO] Running org.apache.wss4j.policy.tests.SignedPartsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s -- in org.apache.wss4j.policy.tests.SignedPartsTest
+[INFO] Running org.apache.wss4j.policy.tests.RelTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in org.apache.wss4j.policy.tests.RelTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.Wss10Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in org.apache.wss4j.policy.tests.Wss10Test
+[INFO] Running org.apache.wss4j.policy.tests.RecipientTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in org.apache.wss4j.policy.tests.RecipientTokenTest
+[INFO] Running org.apache.wss4j.policy.tests.SignedElementsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s -- in org.apache.wss4j.policy.tests.SignedElementsTest
+[INFO] Running org.apache.wss4j.policy.tests.SupportingTokensTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in org.apache.wss4j.policy.tests.SupportingTokensTest
+[INFO] Running org.apache.wss4j.policy.tests.AlgorithmSuiteTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in org.apache.wss4j.policy.tests.AlgorithmSuiteTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -------------< org.apache.wss4j:wss4j-ws-security-common >--------------
+[INFO] Building Apache WSS4J WS-Security Common 3.0.2-SNAPSHOT           [5/10]
+[INFO]   from ws-security-common/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:check (validate)'
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:pmd (pmd)'
+[WARNING] Parameter 'encoding' is unknown for plugin 'maven-checkstyle-plugin:3.3.0:check (validate)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ wss4j-ws-security-common ---
+[INFO] Deleting /ws-wss4j/ws-security-common/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ wss4j-ws-security-common ---
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ wss4j-ws-security-common ---
+[INFO] 
+[INFO] >>> pmd:3.19.0:check (validate) > :pmd @ wss4j-ws-security-common >>>
+[INFO] 
+[INFO] --- pmd:3.19.0:pmd (pmd) @ wss4j-ws-security-common ---
+[INFO] PMD version: 6.49.0
+[WARNING] Removed misconfigured rule: LoosePackageCoupling  cause: No packages or classes specified
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] 
+[INFO] <<< pmd:3.19.0:check (validate) < :pmd @ wss4j-ws-security-common <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.19.0:check (validate) @ wss4j-ws-security-common ---
+[INFO] PMD version: 6.49.0
+[INFO] 
+[INFO] 
+[INFO] --- checkstyle:3.3.0:check (validate) @ wss4j-ws-security-common ---
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- bundle:5.1.9:cleanVersions (versions) @ wss4j-ws-security-common ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ wss4j-ws-security-common ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ wss4j-ws-security-common ---
+[INFO] Copying 0 resource from src/main/java to target/classes
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ wss4j-ws-security-common ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 117 source files with javac [debug target 11] to target/classes
+[INFO] 
+[INFO] --- bundle:5.1.9:manifest (bundle-manifest) @ wss4j-ws-security-common ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[INFO] Writing manifest: /ws-wss4j/ws-security-common/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ wss4j-ws-security-common ---
+[INFO] Copying 0 resource from src/test/java to target/test-classes
+[INFO] Copying 97 resources from src/test/resources to target/test-classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ wss4j-ws-security-common ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 13 source files with javac [debug target 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ wss4j-ws-security-common ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.wss4j.common.saml.OpenSAMLUtilTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.944 s -- in org.apache.wss4j.common.saml.OpenSAMLUtilTest
+[INFO] Running org.apache.wss4j.common.attachment.CRLFOutputStreamTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.260 s -- in org.apache.wss4j.common.attachment.CRLFOutputStreamTest
+[INFO] Running org.apache.wss4j.common.attachment.AttachmentTest
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s -- in org.apache.wss4j.common.attachment.AttachmentTest
+[INFO] Running org.apache.wss4j.common.token.DOMX509IssuerSerialTest
+CN=EOIR, OU=Some Unit
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in org.apache.wss4j.common.token.DOMX509IssuerSerialTest
+[INFO] Running org.apache.wss4j.common.crypto.NameConstraintsTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.208 s -- in org.apache.wss4j.common.crypto.NameConstraintsTest
+[INFO] Running org.apache.wss4j.common.crypto.SKITest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.272 s -- in org.apache.wss4j.common.crypto.SKITest
+[INFO] Running org.apache.wss4j.common.crypto.PasswordEncryptorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s -- in org.apache.wss4j.common.crypto.PasswordEncryptorTest
+[INFO] Running org.apache.wss4j.common.crypto.AuthorityKeyIdentifierTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in org.apache.wss4j.common.crypto.AuthorityKeyIdentifierTest
+[INFO] Running org.apache.wss4j.common.crypto.MerlinTest
+[INFO] Tests run: 4000, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.829 s -- in org.apache.wss4j.common.crypto.MerlinTest
+[INFO] Running org.apache.wss4j.common.util.CommaDelimiterRfc2253NameTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.142 s -- in org.apache.wss4j.common.util.CommaDelimiterRfc2253NameTest
+[INFO] Running org.apache.wss4j.common.cache.EHCacheExpiryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in org.apache.wss4j.common.cache.EHCacheExpiryTest
+[INFO] Running org.apache.wss4j.common.cache.ReplayCacheTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.597 s -- in org.apache.wss4j.common.cache.ReplayCacheTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4075, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ---------------< org.apache.wss4j:wss4j-ws-security-dom >---------------
+[INFO] Building Apache WSS4J DOM WS-Security 3.0.2-SNAPSHOT              [6/10]
+[INFO]   from ws-security-dom/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:check (validate)'
+[WARNING] Parameter 'sourceEncoding' is unknown for plugin 'maven-pmd-plugin:3.19.0:pmd (pmd)'
+[WARNING] Parameter 'encoding' is unknown for plugin 'maven-checkstyle-plugin:3.3.0:check (validate)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ wss4j-ws-security-dom ---
+[INFO] Deleting /ws-wss4j/ws-security-dom/target
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-maven-version) @ wss4j-ws-security-dom ---
+[INFO] 
+[INFO] --- enforcer:3.3.0:enforce (enforce-java-version) @ wss4j-ws-security-dom ---
+[INFO] 
+[INFO] >>> pmd:3.19.0:check (validate) > :pmd @ wss4j-ws-security-dom >>>
+[INFO] 
+[INFO] --- pmd:3.19.0:pmd (pmd) @ wss4j-ws-security-dom ---
+[INFO] PMD version: 6.49.0
+[WARNING] Removed misconfigured rule: LoosePackageCoupling  cause: No packages or classes specified
+[INFO] Rendering content with org.apache.maven.skins:maven-default-skin:jar:1.3 skin.
+[INFO] 
+[INFO] <<< pmd:3.19.0:check (validate) < :pmd @ wss4j-ws-security-dom <<<
+[INFO] 
+[INFO] 
+[INFO] --- pmd:3.19.0:check (validate) @ wss4j-ws-security-dom ---
+[INFO] PMD version: 6.49.0
+[INFO] 
+[INFO] 
+[INFO] --- checkstyle:3.3.0:check (validate) @ wss4j-ws-security-dom ---
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- bundle:5.1.9:cleanVersions (versions) @ wss4j-ws-security-dom ---
+[INFO] 
+[INFO] --- remote-resources:3.1.0:process (process-resource-bundles) @ wss4j-ws-security-dom ---
+[INFO] Preparing remote bundle org.apache.apache.resources:apache-jar-resource-bundle:1.5
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ wss4j-ws-security-dom ---
+[INFO] Copying 0 resource from src/main/java to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ wss4j-ws-security-dom ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 98 source files with javac [debug target 11] to target/classes
+[INFO] /ws-wss4j/ws-security-dom/src/main/java/org/apache/wss4j/dom/util/WSSecurityUtil.java: /ws-wss4j/ws-security-dom/src/main/java/org/apache/wss4j/dom/util/WSSecurityUtil.java uses or overrides a deprecated API.
+[INFO] /ws-wss4j/ws-security-dom/src/main/java/org/apache/wss4j/dom/util/WSSecurityUtil.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- bundle:5.1.9:manifest (bundle-manifest) @ wss4j-ws-security-dom ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[WARNING] Manifest org.apache.wss4j:wss4j-ws-security-dom:jar:3.0.2-SNAPSHOT : Unused Import-Package instructions: [*~] 
+[INFO] Writing manifest: /ws-wss4j/ws-security-dom/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ wss4j-ws-security-dom ---
+[INFO] Copying 0 resource from src/test/java to target/test-classes
+[INFO] Copying 10 resources from src/test/resources to target/test-classes
+[INFO] Copying 3 resources from target/maven-shared-archive-resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ wss4j-ws-security-dom ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 95 source files with javac [debug target 11] to target/test-classes
+[INFO] /ws-wss4j/ws-security-dom/src/test/java/org/apache/wss4j/dom/util/WSSecurityUtilTest.java: /ws-wss4j/ws-security-dom/src/test/java/org/apache/wss4j/dom/util/WSSecurityUtilTest.java uses or overrides a deprecated API.
+[INFO] /ws-wss4j/ws-security-dom/src/test/java/org/apache/wss4j/dom/util/WSSecurityUtilTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /ws-wss4j/ws-security-dom/src/test/java/org/apache/wss4j/dom/message/SignaturePartsTest.java: /ws-wss4j/ws-security-dom/src/test/java/org/apache/wss4j/dom/message/SignaturePartsTest.java uses unchecked or unsafe operations.
+[INFO] /ws-wss4j/ws-security-dom/src/test/java/org/apache/wss4j/dom/message/SignaturePartsTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:3.1.2:test (default-test) @ wss4j-ws-security-dom ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.wss4j.dom.saml.SignedSamlTokenHOKTest
+[WARNING] Tests run: 11, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 3.383 s -- in org.apache.wss4j.dom.saml.SignedSamlTokenHOKTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlTokenDerivedTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s -- in org.apache.wss4j.dom.saml.SamlTokenDerivedTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlTokenActionTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.309 s -- in org.apache.wss4j.dom.saml.SamlTokenActionTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlTokenCustomSignatureTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s -- in org.apache.wss4j.dom.saml.SamlTokenCustomSignatureTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlTokenTest
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.483 s -- in org.apache.wss4j.dom.saml.SamlTokenTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlNegativeTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s -- in org.apache.wss4j.dom.saml.SamlNegativeTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlConditionsTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s -- in org.apache.wss4j.dom.saml.SamlConditionsTest
+[INFO] Running org.apache.wss4j.dom.saml.ext.AssertionSigningTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in org.apache.wss4j.dom.saml.ext.AssertionSigningTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlAuthnTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s -- in org.apache.wss4j.dom.saml.SamlAuthnTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlReferenceTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.315 s -- in org.apache.wss4j.dom.saml.SamlReferenceTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlTokenHOKTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s -- in org.apache.wss4j.dom.saml.SamlTokenHOKTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlAlgorithmSuiteTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s -- in org.apache.wss4j.dom.saml.SamlAlgorithmSuiteTest
+[INFO] Running org.apache.wss4j.dom.saml.SamlTokenSVTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s -- in org.apache.wss4j.dom.saml.SamlTokenSVTest
+[INFO] Running org.apache.wss4j.dom.components.crypto.WSSConfigTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s -- in org.apache.wss4j.dom.components.crypto.WSSConfigTest
+[INFO] Running org.apache.wss4j.dom.components.crypto.CryptoProviderTest
+[ERROR] Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.210 s <<< FAILURE! -- in org.apache.wss4j.dom.components.crypto.CryptoProviderTest
+[ERROR] org.apache.wss4j.dom.components.crypto.CryptoProviderTest.testSignatureOID -- Time elapsed: 0.026 s <<< ERROR!
+org.apache.wss4j.common.ext.WSSecurityException: The provided certificate is invalid
+Original Exception was java.security.cert.CertificateExpiredException: NotAfter: Sat Sep 06 15:07:31 GMT 2025
+	at org.apache.wss4j.common.crypto.Merlin.verifyTrust(Merlin.java:779)
+	at org.apache.wss4j.common.crypto.Merlin.verifyTrust(Merlin.java:906)
+	at org.apache.wss4j.dom.validate.SignatureTrustValidator.verifyTrustInCerts(SignatureTrustValidator.java:112)
+	at org.apache.wss4j.dom.validate.SignatureTrustValidator.validate(SignatureTrustValidator.java:64)
+	at org.apache.wss4j.dom.processor.SignatureProcessor.handleToken(SignatureProcessor.java:189)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:340)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:221)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:168)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:127)
+	at org.apache.wss4j.dom.components.crypto.CryptoProviderTest.verify(CryptoProviderTest.java:293)
+	at org.apache.wss4j.dom.components.crypto.CryptoProviderTest.testSignatureOID(CryptoProviderTest.java:99)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.security.cert.CertificateExpiredException: NotAfter: Sat Sep 06 15:07:31 GMT 2025
+	at java.base/sun.security.x509.CertificateValidity.valid(CertificateValidity.java:277)
+	at java.base/sun.security.x509.X509CertImpl.checkValidity(X509CertImpl.java:675)
+	at java.base/sun.security.x509.X509CertImpl.checkValidity(X509CertImpl.java:648)
+	at org.apache.wss4j.common.crypto.Merlin.verifyTrust(Merlin.java:777)
+	... 81 more
+
+[ERROR] org.apache.wss4j.dom.components.crypto.CryptoProviderTest.testSignatureEmailAddress -- Time elapsed: 0.008 s <<< ERROR!
+org.apache.wss4j.common.ext.WSSecurityException: The provided certificate is invalid
+Original Exception was java.security.cert.CertificateExpiredException: NotAfter: Sat Sep 06 15:07:31 GMT 2025
+	at org.apache.wss4j.common.crypto.Merlin.verifyTrust(Merlin.java:779)
+	at org.apache.wss4j.common.crypto.Merlin.verifyTrust(Merlin.java:906)
+	at org.apache.wss4j.dom.validate.SignatureTrustValidator.verifyTrustInCerts(SignatureTrustValidator.java:112)
+	at org.apache.wss4j.dom.validate.SignatureTrustValidator.validate(SignatureTrustValidator.java:64)
+	at org.apache.wss4j.dom.processor.SignatureProcessor.handleToken(SignatureProcessor.java:189)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:340)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:221)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:168)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:127)
+	at org.apache.wss4j.dom.components.crypto.CryptoProviderTest.verify(CryptoProviderTest.java:293)
+	at org.apache.wss4j.dom.components.crypto.CryptoProviderTest.testSignatureEmailAddress(CryptoProviderTest.java:127)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.security.cert.CertificateExpiredException: NotAfter: Sat Sep 06 15:07:31 GMT 2025
+	at java.base/sun.security.x509.CertificateValidity.valid(CertificateValidity.java:277)
+	at java.base/sun.security.x509.X509CertImpl.checkValidity(X509CertImpl.java:675)
+	at java.base/sun.security.x509.X509CertImpl.checkValidity(X509CertImpl.java:648)
+	at org.apache.wss4j.common.crypto.Merlin.verifyTrust(Merlin.java:777)
+	... 81 more
+
+[ERROR] org.apache.wss4j.dom.components.crypto.CryptoProviderTest.testSignatureOtherEmailAddress -- Time elapsed: 0.008 s <<< ERROR!
+org.apache.wss4j.common.ext.WSSecurityException: The provided certificate is invalid
+Original Exception was java.security.cert.CertificateExpiredException: NotAfter: Sat Sep 06 15:07:31 GMT 2025
+	at org.apache.wss4j.common.crypto.Merlin.verifyTrust(Merlin.java:779)
+	at org.apache.wss4j.common.crypto.Merlin.verifyTrust(Merlin.java:906)
+	at org.apache.wss4j.dom.validate.SignatureTrustValidator.verifyTrustInCerts(SignatureTrustValidator.java:112)
+	at org.apache.wss4j.dom.validate.SignatureTrustValidator.validate(SignatureTrustValidator.java:64)
+	at org.apache.wss4j.dom.processor.SignatureProcessor.handleToken(SignatureProcessor.java:189)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:340)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:221)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:168)
+	at org.apache.wss4j.dom.engine.WSSecurityEngine.processSecurityHeader(WSSecurityEngine.java:127)
+	at org.apache.wss4j.dom.components.crypto.CryptoProviderTest.verify(CryptoProviderTest.java:293)
+	at org.apache.wss4j.dom.components.crypto.CryptoProviderTest.testSignatureOtherEmailAddress(CryptoProviderTest.java:155)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.security.cert.CertificateExpiredException: NotAfter: Sat Sep 06 15:07:31 GMT 2025
+	at java.base/sun.security.x509.CertificateValidity.valid(CertificateValidity.java:277)
+	at java.base/sun.security.x509.X509CertImpl.checkValidity(X509CertImpl.java:675)
+	at java.base/sun.security.x509.X509CertImpl.checkValidity(X509CertImpl.java:648)
+	at org.apache.wss4j.common.crypto.Merlin.verifyTrust(Merlin.java:777)
+	... 81 more
+
+[INFO] Running org.apache.wss4j.dom.components.crypto.CertificateStoreTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s -- in org.apache.wss4j.dom.components.crypto.CertificateStoreTest
+[INFO] Running org.apache.wss4j.dom.components.crypto.CryptoTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in org.apache.wss4j.dom.components.crypto.CryptoTest
+[INFO] Running org.apache.wss4j.dom.message.TimestampTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.080 s -- in org.apache.wss4j.dom.message.TimestampTest
+[INFO] Running org.apache.wss4j.dom.message.SignatureAKITest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in org.apache.wss4j.dom.message.SignatureAKITest
+[INFO] Running org.apache.wss4j.dom.message.SignatureWSS651Test
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in org.apache.wss4j.dom.message.SignatureWSS651Test
+[INFO] Running org.apache.wss4j.dom.message.SignatureEncryptionTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.140 s -- in org.apache.wss4j.dom.message.SignatureEncryptionTest
+[INFO] Running org.apache.wss4j.dom.message.UsernameTokenTest
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s -- in org.apache.wss4j.dom.message.UsernameTokenTest
+[INFO] Running org.apache.wss4j.dom.message.CertErrorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in org.apache.wss4j.dom.message.CertErrorTest
+[INFO] Running org.apache.wss4j.dom.message.SignatureCRLTest
+[WARNING] Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.012 s -- in org.apache.wss4j.dom.message.SignatureCRLTest
+[INFO] Running org.apache.wss4j.dom.message.EncryptionPartsTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s -- in org.apache.wss4j.dom.message.EncryptionPartsTest
+[INFO] Running org.apache.wss4j.dom.message.SignatureProviderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s -- in org.apache.wss4j.dom.message.SignatureProviderTest
+[INFO] Running org.apache.wss4j.dom.message.EncryptionCRLTest
+[WARNING] Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.022 s -- in org.apache.wss4j.dom.message.EncryptionCRLTest
+[INFO] Running org.apache.wss4j.dom.message.SignatureCertConstraintsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in org.apache.wss4j.dom.message.SignatureCertConstraintsTest
+[INFO] Running org.apache.wss4j.dom.message.RequireSignedEncryptedDataElementsTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.277 s -- in org.apache.wss4j.dom.message.RequireSignedEncryptedDataElementsTest
+[INFO] Running org.apache.wss4j.dom.message.DerivedKeyActionTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 s -- in org.apache.wss4j.dom.message.DerivedKeyActionTest
+[INFO] Running org.apache.wss4j.dom.message.PasswordEncryptorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s -- in org.apache.wss4j.dom.message.PasswordEncryptorTest
+[INFO] Running org.apache.wss4j.dom.message.SecurityContextTokenTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s -- in org.apache.wss4j.dom.message.SecurityContextTokenTest
+[INFO] Running org.apache.wss4j.dom.message.token.ReferenceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in org.apache.wss4j.dom.message.token.ReferenceTest
+[INFO] Running org.apache.wss4j.dom.message.token.DerivedKeyTokenTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in org.apache.wss4j.dom.message.token.DerivedKeyTokenTest
+[INFO] Running org.apache.wss4j.dom.message.token.SecurityTokenReferenceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in org.apache.wss4j.dom.message.token.SecurityTokenReferenceTest
+[INFO] Running org.apache.wss4j.dom.message.token.BinarySecurityTokenTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in org.apache.wss4j.dom.message.token.BinarySecurityTokenTest
+[INFO] Running org.apache.wss4j.dom.message.token.BSTKerberosTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s -- in org.apache.wss4j.dom.message.token.BSTKerberosTest
+[INFO] Running org.apache.wss4j.dom.message.token.WCFUsernameTokenTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in org.apache.wss4j.dom.message.token.WCFUsernameTokenTest
+[INFO] Running org.apache.wss4j.dom.message.STRSignatureTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s -- in org.apache.wss4j.dom.message.STRSignatureTest
+[INFO] Running org.apache.wss4j.dom.message.SignatureCertTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s -- in org.apache.wss4j.dom.message.SignatureCertTest
+[INFO] Running org.apache.wss4j.dom.message.ReplayTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.710 s -- in org.apache.wss4j.dom.message.ReplayTest
+[INFO] Running org.apache.wss4j.dom.message.SignatureKeyValueTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s -- in org.apache.wss4j.dom.message.SignatureKeyValueTest
+[INFO] Running org.apache.wss4j.dom.message.UTSignatureTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in org.apache.wss4j.dom.message.UTSignatureTest
+[INFO] Running org.apache.wss4j.dom.message.SignatureAlgorithmSuiteTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.040 s -- in org.apache.wss4j.dom.message.SignatureAlgorithmSuiteTest
+[INFO] Running org.apache.wss4j.dom.message.PasswordTypeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in org.apache.wss4j.dom.message.PasswordTypeTest
+[INFO] Running org.apache.wss4j.dom.message.SignaturePrefixListTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in org.apache.wss4j.dom.message.SignaturePrefixListTest
+[INFO] Running org.apache.wss4j.dom.message.EncryptionGCMTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in org.apache.wss4j.dom.message.EncryptionGCMTest
+[INFO] Running org.apache.wss4j.dom.message.SymmetricSignatureTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in org.apache.wss4j.dom.message.SymmetricSignatureTest
+[INFO] Running org.apache.wss4j.dom.message.ModifiedRequestTest
+[Fatal Error] :1:482: Invalid byte 2 of 2-byte UTF-8 sequence.
+[Fatal Error] :1:244: Invalid byte 1 of 1-byte UTF-8 sequence.
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s -- in org.apache.wss4j.dom.message.ModifiedRequestTest
+[INFO] Running org.apache.wss4j.dom.message.NoSoapPrefixSignatureTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in org.apache.wss4j.dom.message.NoSoapPrefixSignatureTest
+[INFO] Running org.apache.wss4j.dom.message.DerivedKeyTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in org.apache.wss4j.dom.message.DerivedKeyTest
+[INFO] Running org.apache.wss4j.dom.message.EncryptionTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s -- in org.apache.wss4j.dom.message.EncryptionTest
+[INFO] Running org.apache.wss4j.dom.message.EncryptionAlgorithmSuiteTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in org.apache.wss4j.dom.message.EncryptionAlgorithmSuiteTest
+[INFO] Running org.apache.wss4j.dom.message.XOPAttachmentTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 s -- in org.apache.wss4j.dom.message.XOPAttachmentTest
+[INFO] Running org.apache.wss4j.dom.message.SignaturePartsTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s -- in org.apache.wss4j.dom.message.SignaturePartsTest
+[INFO] Running org.apache.wss4j.dom.message.AttachmentTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s -- in org.apache.wss4j.dom.message.AttachmentTest
+[INFO] Running org.apache.wss4j.dom.message.SignatureTest
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s -- in org.apache.wss4j.dom.message.SignatureTest
+[INFO] Running org.apache.wss4j.dom.message.SignedBSTTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in org.apache.wss4j.dom.message.SignedBSTTest
+[INFO] Running org.apache.wss4j.dom.message.SKISignatureTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in org.apache.wss4j.dom.message.SKISignatureTest
+[INFO] Running org.apache.wss4j.dom.message.UTDerivedKeyTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s -- in org.apache.wss4j.dom.message.UTDerivedKeyTest
+[INFO] Running org.apache.wss4j.dom.message.EncryptedDataInHeaderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in org.apache.wss4j.dom.message.EncryptedDataInHeaderTest
+[INFO] Running org.apache.wss4j.dom.message.SignatureIssuerCertConstraintsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in org.apache.wss4j.dom.message.SignatureIssuerCertConstraintsTest
+[INFO] Running org.apache.wss4j.dom.util.WSSecurityUtilTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in org.apache.wss4j.dom.util.WSSecurityUtilTest
+[INFO] Running org.apache.wss4j.dom.validate.ValidatorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.030 s -- in org.apache.wss4j.dom.validate.ValidatorTest
+[INFO] Running org.apache.wss4j.dom.misc.FaultCodeTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in org.apache.wss4j.dom.misc.FaultCodeTest
+[INFO] Running org.apache.wss4j.dom.misc.SecurityHeaderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in org.apache.wss4j.dom.misc.SecurityHeaderTest
+[INFO] Running org.apache.wss4j.dom.misc.PrincipalTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in org.apache.wss4j.dom.misc.PrincipalTest
+[INFO] Running org.apache.wss4j.dom.handler.WSHandlerGetPasswordTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in org.apache.wss4j.dom.handler.WSHandlerGetPasswordTest
+[INFO] Running org.apache.wss4j.dom.handler.SignatureUTAliasTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in org.apache.wss4j.dom.handler.SignatureUTAliasTest
+[INFO] Running org.apache.wss4j.dom.handler.UseReqSigCertTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in org.apache.wss4j.dom.handler.UseReqSigCertTest
+[INFO] Running org.apache.wss4j.dom.handler.CustomActionProcessorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in org.apache.wss4j.dom.handler.CustomActionProcessorTest
+[INFO] Running org.apache.wss4j.dom.handler.CustomTokenTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in org.apache.wss4j.dom.handler.CustomTokenTest
+[INFO] Running org.apache.wss4j.dom.handler.SignatureConfirmationTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s -- in org.apache.wss4j.dom.handler.SignatureConfirmationTest
+[INFO] Running org.apache.wss4j.dom.handler.CallbackRefTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in org.apache.wss4j.dom.handler.CallbackRefTest
+[INFO] Running org.apache.wss4j.dom.handler.ResultsOrderTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s -- in org.apache.wss4j.dom.handler.ResultsOrderTest
+[INFO] Running org.apache.wss4j.dom.handler.SecurityActionTokenTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s -- in org.apache.wss4j.dom.handler.SecurityActionTokenTest
+[INFO] Running org.apache.wss4j.dom.processor.EncryptedKeyDataRefTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in org.apache.wss4j.dom.processor.EncryptedKeyDataRefTest
+[INFO] Running org.apache.wss4j.dom.processor.ReferenceListDataRefTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in org.apache.wss4j.dom.processor.ReferenceListDataRefTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   CryptoProviderTest.testSignatureEmailAddress:127->verify:293 » WSSecurity The provided certificate is invalid
+[ERROR]   CryptoProviderTest.testSignatureOID:99->verify:293 » WSSecurity The provided certificate is invalid
+[ERROR]   CryptoProviderTest.testSignatureOtherEmailAddress:155->verify:293 » WSSecurity The provided certificate is invalid
+[INFO] 
+[ERROR] Tests run: 531, Failures: 0, Errors: 3, Skipped: 5
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache WSS4J 3.0.2-SNAPSHOT:
+[INFO] 
+[INFO] Apache WSS4J ....................................... SUCCESS [  5.396 s]
+[INFO] Apache WSS4J parent ................................ SUCCESS [  0.956 s]
+[INFO] Apache WSS4J WS-Security Bindings .................. SUCCESS [  6.489 s]
+[INFO] Apache WSS4J WS-SecurityPolicy model ............... SUCCESS [  8.009 s]
+[INFO] Apache WSS4J WS-Security Common .................... SUCCESS [ 26.060 s]
+[INFO] Apache WSS4J DOM WS-Security ....................... FAILURE [ 19.187 s]
+[INFO] Apache WSS4J Streaming WS-Security ................. SKIPPED
+[INFO] Apache WSS4J Web WS-Security ....................... SKIPPED
+[INFO] Apache WSS4J WS-Security Integration ............... SKIPPED
+[INFO] Apache WSS4J Streaming WS-SecurityPolicy ........... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:06 min
+[INFO] Finished at: 2025-10-01T14:29:39Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-site-plugin:3.12.1
+[WARNING]  * org.apache.felix:maven-bundle-plugin:5.1.9
+[WARNING]  * org.apache.maven.plugins:maven-pmd-plugin:3.19.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (default-test) on project wss4j-ws-security-dom: 
+[ERROR] 
+[ERROR] Please refer to /ws-wss4j/ws-security-dom/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :wss4j-ws-security-dom

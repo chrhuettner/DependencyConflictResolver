@@ -1,0 +1,238 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for edu.ksu.ome.lti:lti-launch:jar:1.5.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.logging.log4j:log4j-core:jar -> duplicate declaration of version (?) @ line 361, column 17
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------------< edu.ksu.ome.lti:lti-launch >---------------------
+[INFO] Building LTI Launch 1.5.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ lti-launch ---
+[INFO] Deleting /lti-launch/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven) @ lti-launch ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ lti-launch ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ lti-launch ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 18 source files to /lti-launch/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[9,52] cannot access org.springframework.beans.factory.annotation.Autowired
+  bad class file: /root/.m2/repository/org/springframework/spring-beans/6.0.0/spring-beans-6.0.0.jar(/org/springframework/beans/factory/annotation/Autowired.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[12,43] cannot access org.springframework.core.annotation.Order
+  bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.0/spring-core-6.0.0.jar(/org/springframework/core/annotation/Order.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/service/LtiSessionService.java:[6,47] cannot access org.springframework.web.context.request.RequestContextHolder
+  bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/context/request/RequestContextHolder.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/service/LtiSessionService.java:[7,47] cannot access org.springframework.web.context.request.ServletRequestAttributes
+  bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/context/request/ServletRequestAttributes.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[17,47] cannot access org.springframework.web.bind.annotation.ModelAttribute
+  bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/bind/annotation/ModelAttribute.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[18,47] cannot access org.springframework.web.bind.annotation.RequestMapping
+  bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/bind/annotation/RequestMapping.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[11,47] cannot access org.springframework.web.bind.annotation.RequestMethod
+  bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/bind/annotation/RequestMethod.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[42,6] cannot find symbol
+  symbol:   class Order
+  location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[44,10] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig.LTISecurityConfigurerAdapter
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[46,10] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig.LTISecurityConfigurerAdapter
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[48,10] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig.LTISecurityConfigurerAdapter
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[51,10] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig.LTISecurityConfigurerAdapter
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiConsumerDetailsService.java:[28,6] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.oauth.LtiConsumerDetailsService
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiLaunch.java:[30,6] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.oauth.LtiLaunch
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiLaunch.java:[32,6] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.oauth.LtiLaunch
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiLaunch.java:[34,6] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.oauth.LtiLaunch
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiLaunch.java:[36,6] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.oauth.LtiLaunch
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/security/CanvasInstanceChecker.java:[25,6] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.security.CanvasInstanceChecker
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[44,6] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[51,6] cannot find symbol
+  symbol:   class RequestMapping
+  location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[88,18] cannot find symbol
+  symbol:   class ModelAttribute
+  location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[89,18] cannot find symbol
+  symbol:   class ModelAttribute
+  location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[90,18] cannot find symbol
+  symbol:   class ModelAttribute
+  location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[85,6] cannot find symbol
+  symbol:   class RequestMapping
+  location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[28,6] cannot find symbol
+  symbol:   class Autowired
+  location: class edu.ksu.lti.launch.controller.LtiLaunchController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[32,30] cannot find symbol
+  symbol:   class ModelAttribute
+  location: class edu.ksu.lti.launch.controller.LtiLaunchController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[31,6] cannot find symbol
+  symbol:   class RequestMapping
+  location: class edu.ksu.lti.launch.controller.LtiLaunchController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[31,49] cannot find symbol
+  symbol:   variable RequestMethod
+  location: class edu.ksu.lti.launch.controller.LtiLaunchController
+[INFO] 28 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.435 s
+[INFO] Finished at: 2025-10-01T09:38:50Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project lti-launch: Compilation failure: Compilation failure: 
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[9,52] cannot access org.springframework.beans.factory.annotation.Autowired
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-beans/6.0.0/spring-beans-6.0.0.jar(/org/springframework/beans/factory/annotation/Autowired.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[12,43] cannot access org.springframework.core.annotation.Order
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.0/spring-core-6.0.0.jar(/org/springframework/core/annotation/Order.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/service/LtiSessionService.java:[6,47] cannot access org.springframework.web.context.request.RequestContextHolder
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/context/request/RequestContextHolder.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/service/LtiSessionService.java:[7,47] cannot access org.springframework.web.context.request.ServletRequestAttributes
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/context/request/ServletRequestAttributes.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[17,47] cannot access org.springframework.web.bind.annotation.ModelAttribute
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/bind/annotation/ModelAttribute.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[18,47] cannot access org.springframework.web.bind.annotation.RequestMapping
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/bind/annotation/RequestMapping.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[11,47] cannot access org.springframework.web.bind.annotation.RequestMethod
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-web/6.0.0/spring-web-6.0.0.jar(/org/springframework/web/bind/annotation/RequestMethod.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[42,6] cannot find symbol
+[ERROR]   symbol:   class Order
+[ERROR]   location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[44,10] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig.LTISecurityConfigurerAdapter
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[46,10] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig.LTISecurityConfigurerAdapter
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[48,10] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig.LTISecurityConfigurerAdapter
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/spring/config/LtiLaunchSecurityConfig.java:[51,10] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.spring.config.LtiLaunchSecurityConfig.LTISecurityConfigurerAdapter
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiConsumerDetailsService.java:[28,6] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.oauth.LtiConsumerDetailsService
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiLaunch.java:[30,6] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.oauth.LtiLaunch
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiLaunch.java:[32,6] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.oauth.LtiLaunch
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiLaunch.java:[34,6] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.oauth.LtiLaunch
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/oauth/LtiLaunch.java:[36,6] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.oauth.LtiLaunch
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/security/CanvasInstanceChecker.java:[25,6] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.security.CanvasInstanceChecker
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[44,6] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[51,6] cannot find symbol
+[ERROR]   symbol:   class RequestMapping
+[ERROR]   location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[88,18] cannot find symbol
+[ERROR]   symbol:   class ModelAttribute
+[ERROR]   location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[89,18] cannot find symbol
+[ERROR]   symbol:   class ModelAttribute
+[ERROR]   location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[90,18] cannot find symbol
+[ERROR]   symbol:   class ModelAttribute
+[ERROR]   location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/OauthController.java:[85,6] cannot find symbol
+[ERROR]   symbol:   class RequestMapping
+[ERROR]   location: class edu.ksu.lti.launch.controller.OauthController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[28,6] cannot find symbol
+[ERROR]   symbol:   class Autowired
+[ERROR]   location: class edu.ksu.lti.launch.controller.LtiLaunchController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[32,30] cannot find symbol
+[ERROR]   symbol:   class ModelAttribute
+[ERROR]   location: class edu.ksu.lti.launch.controller.LtiLaunchController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[31,6] cannot find symbol
+[ERROR]   symbol:   class RequestMapping
+[ERROR]   location: class edu.ksu.lti.launch.controller.LtiLaunchController
+[ERROR] /lti-launch/src/main/java/edu/ksu/lti/launch/controller/LtiLaunchController.java:[31,49] cannot find symbol
+[ERROR]   symbol:   variable RequestMethod
+[ERROR]   location: class edu.ksu.lti.launch.controller.LtiLaunchController
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

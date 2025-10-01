@@ -1,0 +1,100 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] messaging-services                                                 [pom]
+[INFO] core                                                               [jar]
+[INFO] messaging                                                          [jar]
+[INFO] clearinghouse                                                      [jar]
+[INFO] broker                                                             [jar]
+[INFO] vocol                                                              [jar]
+[INFO] paris                                                              [jar]
+[INFO] appstore                                                           [jar]
+[INFO] 
+[INFO] ------------------< ids.messaging:messaging-services >------------------
+[INFO] Building messaging-services 7.0.1                                  [1/8]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] Downloading from sovity-public: https://pkgs.dev.azure.com/sovity/5bec6cbd-c80a-47ac-86ce-1deb26cee853/_packaging/artifact/maven/v1/de/fraunhofer/iais/eis/infomodel/util/4.2.7-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from eis-ids-public: https://maven.iais.fraunhofer.de/artifactory/eis-ids-public/de/fraunhofer/iais/eis/infomodel/util/4.2.7-SNAPSHOT/maven-metadata.xml
+[WARNING] Could not transfer metadata de.fraunhofer.iais.eis.infomodel:util:4.2.7-SNAPSHOT/maven-metadata.xml from/to eis-ids-public (https://maven.iais.fraunhofer.de/artifactory/eis-ids-public): maven.iais.fraunhofer.de: Name does not resolve
+[WARNING] de.fraunhofer.iais.eis.infomodel:util:4.2.7-SNAPSHOT/maven-metadata.xml failed to transfer from https://maven.iais.fraunhofer.de/artifactory/eis-ids-public during a previous attempt. This failure was cached in the local repository and resolution will not be reattempted until the update interval of eis-ids-public has elapsed or updates are forced. Original error: Could not transfer metadata de.fraunhofer.iais.eis.infomodel:util:4.2.7-SNAPSHOT/maven-metadata.xml from/to eis-ids-public (https://maven.iais.fraunhofer.de/artifactory/eis-ids-public): maven.iais.fraunhofer.de: Name does not resolve
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ messaging-services ---
+[INFO] 
+[INFO] --- flatten:1.3.0:clean (flatten.clean) @ messaging-services ---
+[INFO] Deleting /IDS-Messaging-Services/.flattened-pom.xml
+[INFO] 
+[INFO] --- flatten:1.3.0:flatten (flatten) @ messaging-services ---
+[INFO] Generating flattened POM of project ids.messaging:messaging-services:pom:7.0.1...
+[INFO] 
+[INFO] -------------------------< ids.messaging:core >-------------------------
+[INFO] Building core 7.0.1                                                [2/8]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ core ---
+[INFO] Deleting /IDS-Messaging-Services/core/target
+[INFO] 
+[INFO] --- flatten:1.3.0:clean (flatten.clean) @ core ---
+[INFO] Deleting /IDS-Messaging-Services/core/.flattened-pom.xml
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ core ---
+[INFO] skip non existing resourceDirectory /IDS-Messaging-Services/core/src/main/resources
+[INFO] 
+[INFO] --- flatten:1.3.0:flatten (flatten) @ core ---
+[INFO] Generating flattened POM of project ids.messaging:core:jar:7.0.1...
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 29 source files to /IDS-Messaging-Services/core/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /IDS-Messaging-Services/core/src/main/java/ids/messaging/core/config/ssl/keystore/KeyStoreManager.java:[61,35] cannot access org.springframework.core.io.ClassPathResource
+  bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.4/spring-core-6.0.4.jar(/org/springframework/core/io/ClassPathResource.class)
+    class file has wrong version 61.0, should be 55.0
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for messaging-services 7.0.1:
+[INFO] 
+[INFO] messaging-services ................................. SUCCESS [  3.471 s]
+[INFO] core ............................................... FAILURE [  2.474 s]
+[INFO] messaging .......................................... SKIPPED
+[INFO] clearinghouse ...................................... SKIPPED
+[INFO] broker ............................................. SKIPPED
+[INFO] vocol .............................................. SKIPPED
+[INFO] paris .............................................. SKIPPED
+[INFO] appstore ........................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.373 s
+[INFO] Finished at: 2025-10-01T13:50:30Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.codehaus.mojo:flatten-maven-plugin:1.3.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project core: Compilation failure
+[ERROR] /IDS-Messaging-Services/core/src/main/java/ids/messaging/core/config/ssl/keystore/KeyStoreManager.java:[61,35] cannot access org.springframework.core.io.ClassPathResource
+[ERROR]   bad class file: /root/.m2/repository/org/springframework/spring-core/6.0.4/spring-core-6.0.4.jar(/org/springframework/core/io/ClassPathResource.class)
+[ERROR]     class file has wrong version 61.0, should be 55.0
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :core

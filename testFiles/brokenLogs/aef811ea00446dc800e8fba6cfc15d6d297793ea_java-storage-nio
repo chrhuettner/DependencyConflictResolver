@@ -1,0 +1,97 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 4 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 4 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Storage Parent                                                     [pom]
+[INFO] Google Cloud NIO                                                   [jar]
+[INFO] Google Cloud NIO Retrofit Example                                  [jar]
+[INFO] Google Cloud NIO Examples                                          [jar]
+[INFO] 
+[INFO] --------------< com.google.cloud:google-cloud-nio-parent >--------------
+[INFO] Building Storage Parent 0.124.11-SNAPSHOT                          [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ google-cloud-nio-parent ---
+[INFO] Deleting /java-storage-nio/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ google-cloud-nio-parent ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[INFO] 
+[INFO] --- checkstyle:3.1.2:check (checkstyle) @ google-cloud-nio-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ google-cloud-nio-parent ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/java-storage-nio/target/jacoco.exec
+[INFO] 
+[INFO] --- build-helper:3.3.0:add-resource (add-main-proto-resources) @ google-cloud-nio-parent ---
+[INFO] 
+[INFO] --- build-helper:3.3.0:add-test-resource (add-test-proto-resources) @ google-cloud-nio-parent ---
+[INFO] 
+[INFO] --- animal-sniffer:1.21:check (java8) @ google-cloud-nio-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- jacoco:0.8.8:report (report) @ google-cloud-nio-parent ---
+[INFO] Skipping JaCoCo execution due to missing execution data file.
+[INFO] 
+[INFO] -----------------< com.google.cloud:google-cloud-nio >------------------
+[INFO] Building Google Cloud NIO 0.124.11-SNAPSHOT                        [2/4]
+[INFO]   from google-cloud-nio/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ google-cloud-nio ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ google-cloud-nio ---
+[INFO] Adding ignore: module-info
+[INFO] Adding ignore: META-INF/versions/*/module-info
+[ERROR] Rule 2: org.apache.maven.plugins.enforcer.RequireUpperBoundDeps failed with message:
+Failed while enforcing RequireUpperBoundDeps. The error(s) are [
+Require upper bound dependencies error for com.google.api-client:google-api-client:1.35.1 paths to dependency are:
++-com.google.cloud:google-cloud-nio:0.124.11-SNAPSHOT
+  +-com.google.cloud:google-cloud-storage:2.10.0
+    +-com.google.api-client:google-api-client:1.35.1 (managed) <-- com.google.api-client:google-api-client:1.35.1
+and
++-com.google.cloud:google-cloud-nio:0.124.11-SNAPSHOT
+  +-com.google.apis:google-api-services-storage:v1-rev20220705-2.0.0
+    +-com.google.api-client:google-api-client:1.35.1 (managed) <-- com.google.api-client:google-api-client:2.0.0
+]
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Storage Parent 0.124.11-SNAPSHOT:
+[INFO] 
+[INFO] Storage Parent ..................................... SUCCESS [  4.301 s]
+[INFO] Google Cloud NIO ................................... FAILURE [  1.087 s]
+[INFO] Google Cloud NIO Retrofit Example .................. SKIPPED
+[INFO] Google Cloud NIO Examples .......................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.095 s
+[INFO] Finished at: 2025-10-01T14:46:02Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING]  * org.codehaus.mojo:build-helper-maven-plugin:3.3.0
+[WARNING]  * org.codehaus.mojo:animal-sniffer-maven-plugin:1.21
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.1.0:enforce (enforce) on project google-cloud-nio: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :google-cloud-nio

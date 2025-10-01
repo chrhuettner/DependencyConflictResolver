@@ -1,0 +1,41 @@
+[INFO] Scanning for projects...
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.44 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.44 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.44/maven-hpi-plugin-3.44.pom
+[WARNING] The POM for org.jenkins-ci.tools:maven-hpi-plugin:jar:3.44 is missing, no dependency information available
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.44 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.44 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.44/maven-hpi-plugin-3.44.jar
+[WARNING] Failed to build parent project for org.jvnet.hudson.plugins:analysis-pom:pom:6.8.0
+[WARNING] Failed to build parent project for io.jenkins.plugins:forensics-api:hpi:2.3.0-SNAPSHOT
+[INFO] 
+[INFO] ------------------< io.jenkins.plugins:forensics-api >------------------
+[INFO] Building Forensics API Plugin 2.3.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ forensics-api ---
+[INFO] 
+[INFO] --- hpi:3.44:validate (default-validate) @ forensics-api ---
+[INFO] 
+[INFO] --- hpi:3.44:validate-hpi (default-validate-hpi) @ forensics-api ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.169 s
+[INFO] Finished at: 2025-10-01T13:42:26Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 1 plugin(s)
+[WARNING] 
+[WARNING]  * org.jenkins-ci.tools:maven-hpi-plugin:3.44
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.jenkins-ci.tools:maven-hpi-plugin:3.44:validate-hpi (default-validate-hpi) on project forensics-api: Dependency io.jenkins.plugins:echarts-api:jar:5.4.0-5 requires Jenkins 2.387.3 or higher. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

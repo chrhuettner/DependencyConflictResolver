@@ -1,0 +1,284 @@
+[INFO] Scanning for projects...
+[WARNING] The project org.apache.myfaces.tobago:tobago:pom:2.5.1-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache Tobago                                                      [pom]
+[INFO] Tobago Tool                                                        [pom]
+[INFO] Tobago Tool Annotation                                             [jar]
+[INFO] Tobago Tool Apt                                                    [jar]
+[INFO] Tobago Maven Theme Plugin                                 [maven-plugin]
+[INFO] Tobago Core                                                        [jar]
+[INFO] Tobago Themes                                                      [pom]
+[INFO] Tobago Theme Standard                                              [jar]
+[INFO] Tobago Theme Scarborough                                           [jar]
+[INFO] Tobago Theme Speyside                                              [jar]
+[INFO] Tobago Theme Richmond                                              [jar]
+[INFO] Tobago Theme Charlotteville                                        [jar]
+[INFO] Tobago Theme Example                                               [jar]
+[INFO] Tobago Extensions                                                  [pom]
+[INFO] Tobago Deprecation                                                 [jar]
+[INFO] Tobago Fileupload                                                  [jar]
+[INFO] Tobago Sandbox                                                     [jar]
+[INFO] Tobago Security                                                    [jar]
+[INFO] Tobago Examples                                                    [pom]
+[INFO] Tobago Example Addressbook (Java EE 6)                             [war]
+[INFO] Tobago Example Blank                                               [war]
+[INFO] Tobago Example Data                                                [jar]
+[INFO] Tobago Example Demo                                                [war]
+[INFO] Tobago Example for Portlets                                        [war]
+[INFO] Tobago Example Sandbox                                             [war]
+[INFO] Tobago Example Security                                            [war]
+[INFO] Tobago Example Test                                                [war]
+[INFO] Tobago Example Assembly                                            [pom]
+[INFO] Tobago Assembly                                                    [pom]
+[INFO] 
+[INFO] ------------------< org.apache.myfaces.tobago:tobago >------------------
+[INFO] Building Apache Tobago 2.5.1-SNAPSHOT                             [1/29]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ tobago ---
+[INFO] Deleting /myfaces-tobago/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ---------------< org.apache.myfaces.tobago:tobago-tool >----------------
+[INFO] Building Tobago Tool 2.5.1-SNAPSHOT                               [2/29]
+[INFO]   from tobago-tool/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ tobago-tool ---
+[INFO] Deleting /myfaces-tobago/tobago-tool/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago-tool ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago-tool ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago-tool ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago-tool ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] ----------< org.apache.myfaces.tobago:tobago-tool-annotation >----------
+[INFO] Building Tobago Tool Annotation 2.5.1-SNAPSHOT                    [3/29]
+[INFO]   from tobago-tool/tobago-tool-annotation/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ tobago-tool-annotation ---
+[INFO] Deleting /myfaces-tobago/tobago-tool/tobago-tool-annotation/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago-tool-annotation ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago-tool-annotation ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago-tool-annotation ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago-tool-annotation ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ tobago-tool-annotation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /myfaces-tobago/tobago-tool/tobago-tool-annotation/src/main/resources
+[INFO] Copying 3 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ tobago-tool-annotation ---
+[INFO] Compiling 16 source files to /myfaces-tobago/tobago-tool/tobago-tool-annotation/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 7
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ tobago-tool-annotation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /myfaces-tobago/tobago-tool/tobago-tool-annotation/src/test/resources
+[INFO] Copying 3 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ tobago-tool-annotation ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ tobago-tool-annotation ---
+[INFO] 
+[INFO] -------------< org.apache.myfaces.tobago:tobago-tool-apt >--------------
+[INFO] Building Tobago Tool Apt 2.5.1-SNAPSHOT                           [4/29]
+[INFO]   from tobago-tool/tobago-tool-apt/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ tobago-tool-apt ---
+[INFO] Deleting /myfaces-tobago/tobago-tool/tobago-tool-apt/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago-tool-apt ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago-tool-apt ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago-tool-apt ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago-tool-apt ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ tobago-tool-apt ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 5 resources
+[INFO] Copying 3 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ tobago-tool-apt ---
+[INFO] Compiling 16 source files to /myfaces-tobago/tobago-tool/tobago-tool-apt/target/classes
+[WARNING] bootstrap class path not set in conjunction with -source 7
+[INFO] /myfaces-tobago/tobago-tool/tobago-tool-apt/src/main/java/org/apache/myfaces/tobago/apt/processor/TaglibGenerator.java: /myfaces-tobago/tobago-tool/tobago-tool-apt/src/main/java/org/apache/myfaces/tobago/apt/processor/TaglibGenerator.java uses or overrides a deprecated API.
+[INFO] /myfaces-tobago/tobago-tool/tobago-tool-apt/src/main/java/org/apache/myfaces/tobago/apt/processor/TaglibGenerator.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ tobago-tool-apt ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /myfaces-tobago/tobago-tool/tobago-tool-apt/src/test/resources
+[INFO] Copying 3 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ tobago-tool-apt ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ tobago-tool-apt ---
+[INFO] 
+[INFO] -----------< org.apache.myfaces.tobago:tobago-theme-plugin >------------
+[INFO] Building Tobago Maven Theme Plugin 2.5.1-SNAPSHOT                 [5/29]
+[INFO]   from tobago-tool/tobago-theme-plugin/pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ tobago-theme-plugin ---
+[INFO] Deleting /myfaces-tobago/tobago-tool/tobago-theme-plugin/target
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven-version) @ tobago-theme-plugin ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce) @ tobago-theme-plugin ---
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (default) @ tobago-theme-plugin ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ tobago-theme-plugin ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ tobago-theme-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 2 resources
+[INFO] Copying 3 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ tobago-theme-plugin ---
+[INFO] Compiling 3 source files to /myfaces-tobago/tobago-tool/tobago-theme-plugin/target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] bootstrap class path not set in conjunction with -source 7
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[22,33] cannot find symbol
+  symbol:   class DependencyResolutionRequiredException
+  location: package org.apache.maven.artifact
+[ERROR] /myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/AbstractThemeMojo.java:[24,32] package org.apache.maven.project does not exist
+[ERROR] /myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/AbstractThemeMojo.java:[35,11] cannot find symbol
+  symbol:   class MavenProject
+  location: class org.apache.myfaces.tobago.maven.plugin.AbstractThemeMojo
+[ERROR] /myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/AbstractThemeMojo.java:[47,10] cannot find symbol
+  symbol:   class MavenProject
+  location: class org.apache.myfaces.tobago.maven.plugin.AbstractThemeMojo
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache Tobago 2.5.1-SNAPSHOT:
+[INFO] 
+[INFO] Apache Tobago ...................................... SUCCESS [  3.857 s]
+[INFO] Tobago Tool ........................................ SUCCESS [  0.166 s]
+[INFO] Tobago Tool Annotation ............................. SUCCESS [  2.498 s]
+[INFO] Tobago Tool Apt .................................... SUCCESS [  2.148 s]
+[INFO] Tobago Maven Theme Plugin .......................... FAILURE [  0.931 s]
+[INFO] Tobago Core ........................................ SKIPPED
+[INFO] Tobago Themes ...................................... SKIPPED
+[INFO] Tobago Theme Standard .............................. SKIPPED
+[INFO] Tobago Theme Scarborough ........................... SKIPPED
+[INFO] Tobago Theme Speyside .............................. SKIPPED
+[INFO] Tobago Theme Richmond .............................. SKIPPED
+[INFO] Tobago Theme Charlotteville ........................ SKIPPED
+[INFO] Tobago Theme Example ............................... SKIPPED
+[INFO] Tobago Extensions .................................. SKIPPED
+[INFO] Tobago Deprecation ................................. SKIPPED
+[INFO] Tobago Fileupload .................................. SKIPPED
+[INFO] Tobago Sandbox ..................................... SKIPPED
+[INFO] Tobago Security .................................... SKIPPED
+[INFO] Tobago Examples .................................... SKIPPED
+[INFO] Tobago Example Addressbook (Java EE 6) ............. SKIPPED
+[INFO] Tobago Example Blank ............................... SKIPPED
+[INFO] Tobago Example Data ................................ SKIPPED
+[INFO] Tobago Example Demo ................................ SKIPPED
+[INFO] Tobago Example for Portlets ........................ SKIPPED
+[INFO] Tobago Example Sandbox ............................. SKIPPED
+[INFO] Tobago Example Security ............................ SKIPPED
+[INFO] Tobago Example Test ................................ SKIPPED
+[INFO] Tobago Example Assembly ............................ SKIPPED
+[INFO] Tobago Assembly .................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.400 s
+[INFO] Finished at: 2025-10-01T15:55:24Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 6 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-site-plugin:3.12.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-remote-resources-plugin:1.7.0
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.22.2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project tobago-theme-plugin: Compilation failure: Compilation failure: 
+[ERROR] /myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/UnPackThemeMojo.java:[22,33] cannot find symbol
+[ERROR]   symbol:   class DependencyResolutionRequiredException
+[ERROR]   location: package org.apache.maven.artifact
+[ERROR] /myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/AbstractThemeMojo.java:[24,32] package org.apache.maven.project does not exist
+[ERROR] /myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/AbstractThemeMojo.java:[35,11] cannot find symbol
+[ERROR]   symbol:   class MavenProject
+[ERROR]   location: class org.apache.myfaces.tobago.maven.plugin.AbstractThemeMojo
+[ERROR] /myfaces-tobago/tobago-tool/tobago-theme-plugin/src/main/java/org/apache/myfaces/tobago/maven/plugin/AbstractThemeMojo.java:[47,10] cannot find symbol
+[ERROR]   symbol:   class MavenProject
+[ERROR]   location: class org.apache.myfaces.tobago.maven.plugin.AbstractThemeMojo
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :tobago-theme-plugin

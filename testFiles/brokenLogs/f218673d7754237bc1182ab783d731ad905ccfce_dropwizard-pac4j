@@ -1,0 +1,108 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< org.pac4j:dropwizard-pac4j >---------------------
+[INFO] Building Dropwizard pac4j Support 5.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ dropwizard-pac4j ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven) @ dropwizard-pac4j ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (dependency-convergence) @ dropwizard-pac4j ---
+[WARNING] 
+Dependency convergence error for org.glassfish.jersey.core:jersey-common:2.32 paths to dependency are:
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-core:2.0.17
+    +-io.dropwizard:dropwizard-jersey:2.0.17
+      +-org.glassfish.jersey.ext:jersey-metainf-services:2.32
+        +-org.glassfish.jersey.core:jersey-common:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-core:2.0.17
+    +-io.dropwizard:dropwizard-jersey:2.0.17
+      +-org.glassfish.jersey.inject:jersey-hk2:2.32
+        +-org.glassfish.jersey.core:jersey-common:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-core:2.0.17
+    +-io.dropwizard:dropwizard-jersey:2.0.17
+      +-org.glassfish.jersey.containers:jersey-container-servlet:2.32
+        +-org.glassfish.jersey.core:jersey-common:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-core:2.0.17
+    +-io.dropwizard:dropwizard-jersey:2.0.17
+      +-org.glassfish.jersey.core:jersey-common:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-core:2.0.17
+    +-org.glassfish.jersey.core:jersey-common:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-core:2.0.17
+    +-org.glassfish.jersey.ext:jersey-bean-validation:2.32
+      +-org.glassfish.jersey.core:jersey-common:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-testing:2.0.17
+    +-org.glassfish.jersey.containers:jersey-container-servlet-core:2.32
+      +-org.glassfish.jersey.core:jersey-common:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-testing:2.0.17
+    +-org.glassfish.jersey.core:jersey-client:2.32
+      +-org.glassfish.jersey.core:jersey-common:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-testing:2.0.17
+    +-org.glassfish.jersey.core:jersey-common:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-testing:2.0.17
+    +-org.glassfish.jersey.core:jersey-server:2.35
+      +-org.glassfish.jersey.core:jersey-common:2.35
+
+[WARNING] 
+Dependency convergence error for org.glassfish.jersey.core:jersey-client:2.32 paths to dependency are:
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-core:2.0.17
+    +-io.dropwizard:dropwizard-jersey:2.0.17
+      +-org.glassfish.jersey.core:jersey-client:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-testing:2.0.17
+    +-org.glassfish.jersey.core:jersey-client:2.32
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-testing:2.0.17
+    +-org.glassfish.jersey.core:jersey-server:2.35
+      +-org.glassfish.jersey.core:jersey-client:2.35
+and
++-org.pac4j:dropwizard-pac4j:5.0.1-SNAPSHOT
+  +-io.dropwizard:dropwizard-testing:2.0.17
+    +-org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-inmemory:2.32
+      +-org.glassfish.jersey.core:jersey-client:2.32
+
+[WARNING] Rule 0: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+Failed while enforcing releasability. See above detailed error message.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.632 s
+[INFO] Finished at: 2025-10-01T15:53:49Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 1 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.0.0-M3:enforce (dependency-convergence) on project dropwizard-pac4j: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

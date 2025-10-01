@@ -1,0 +1,103 @@
+[INFO] Scanning for projects...
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.35 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.35 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.35/maven-hpi-plugin-3.35.pom
+[WARNING] The POM for org.jenkins-ci.tools:maven-hpi-plugin:jar:3.35 is missing, no dependency information available
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.35 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.35 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.35/maven-hpi-plugin-3.35.jar
+[WARNING] Failed to build parent project for sp.sd:nexus-artifact-uploader:hpi:2.14-SNAPSHOT
+[INFO] 
+[INFO] -------------------< sp.sd:nexus-artifact-uploader >--------------------
+[INFO] Building Nexus Artifact Uploader 2.14-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.35:validate (default-validate)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.35:validate-hpi (default-validate-hpi)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.35:initialize (default-initialize)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.35:insert-test (default-insert-test)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.35:test-hpl (default-test-hpl)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.35:resolve-test-dependencies (default-resolve-test-dependencies)'
+[WARNING] Parameter 'showDeprecation' is unknown for plugin 'maven-hpi-plugin:3.35:test-runtime (default-test-runtime)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ nexus-artifact-uploader ---
+[INFO] 
+[INFO] --- hpi:3.35:validate (default-validate) @ nexus-artifact-uploader ---
+[INFO] 
+[INFO] --- hpi:3.35:validate-hpi (default-validate-hpi) @ nexus-artifact-uploader ---
+[INFO] 
+[INFO] --- enforcer:3.1.0:display-info (display-info) @ nexus-artifact-uploader ---
+[INFO] Maven Version: 3.9.2
+[INFO] JDK Version: 11.0.19 normalized as: 11.0.19
+[INFO] Java Vendor: Alpine
+[INFO] OS Info: Arch: amd64 Family: unix Name: linux Version: 6.6.87.2-microsoft-standard-wsl2
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (display-info) @ nexus-artifact-uploader ---
+[INFO] Ignoring requireUpperBoundDeps in com.google.guava:guava
+[ERROR] Rule 5: org.apache.maven.plugins.enforcer.RequireUpperBoundDeps failed with message:
+Failed while enforcing RequireUpperBoundDeps. The error(s) are [
+Require upper bound dependencies error for org.codehaus.plexus:plexus-component-annotations:1.5.5 paths to dependency are:
++-sp.sd:nexus-artifact-uploader:2.14-SNAPSHOT
+  +-org.sonatype.aether:aether-impl:1.13.1
+    +-org.codehaus.plexus:plexus-component-annotations:1.5.5
+and
++-sp.sd:nexus-artifact-uploader:2.14-SNAPSHOT
+  +-org.apache.maven:maven-aether-provider:3.3.9
+    +-org.codehaus.plexus:plexus-component-annotations:1.6
+and
++-sp.sd:nexus-artifact-uploader:2.14-SNAPSHOT
+  +-org.sonatype.aether:aether-impl:1.13.1
+    +-org.sonatype.sisu:sisu-inject-plexus:2.2.3
+      +-org.codehaus.plexus:plexus-component-annotations:1.5.5
+and
++-sp.sd:nexus-artifact-uploader:2.14-SNAPSHOT
+  +-org.apache.maven:maven-aether-provider:3.3.9
+    +-org.apache.maven:maven-model-builder:3.3.9
+      +-org.codehaus.plexus:plexus-component-annotations:1.6
+, 
+Require upper bound dependencies error for org.apache.commons:commons-lang3:3.4 paths to dependency are:
++-sp.sd:nexus-artifact-uploader:2.14-SNAPSHOT
+  +-org.apache.maven:maven-aether-provider:3.3.9
+    +-org.apache.commons:commons-lang3:3.4
+and
++-sp.sd:nexus-artifact-uploader:2.14-SNAPSHOT
+  +-io.jenkins.plugins:commons-lang3-api:3.12.0-36.vd97de6465d5b_
+    +-org.apache.commons:commons-lang3:3.12.0
+and
++-sp.sd:nexus-artifact-uploader:2.14-SNAPSHOT
+  +-org.apache.maven:maven-aether-provider:3.3.9
+    +-org.apache.maven:maven-model:3.3.9
+      +-org.apache.commons:commons-lang3:3.4
+and
++-sp.sd:nexus-artifact-uploader:2.14-SNAPSHOT
+  +-org.apache.maven:maven-aether-provider:3.3.9
+    +-org.apache.maven:maven-model-builder:3.3.9
+      +-org.apache.commons:commons-lang3:3.4
+and
++-sp.sd:nexus-artifact-uploader:2.14-SNAPSHOT
+  +-org.apache.maven:maven-aether-provider:3.3.9
+    +-org.apache.maven:maven-model-builder:3.3.9
+      +-org.apache.maven:maven-artifact:3.3.9
+        +-org.apache.commons:commons-lang3:3.4
+]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  23.727 s
+[INFO] Finished at: 2025-10-01T09:43:51Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.jenkins-ci.tools:maven-hpi-plugin:3.35
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.1.0:enforce (display-info) on project nexus-artifact-uploader: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

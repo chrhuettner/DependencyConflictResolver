@@ -1,0 +1,87 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.github.spoonlabs:flacoco:jar:1.0.6-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-surefire-plugin is missing. @ line 219, column 29
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] --------------------< com.github.spoonlabs:flacoco >--------------------
+[INFO] Building flacoco 1.0.6-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ flacoco ---
+[INFO] Deleting /flacoco/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ flacoco ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/flacoco/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ flacoco ---
+[INFO] skip non existing resourceDirectory /flacoco/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ flacoco ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 47 source files to /flacoco/target/classes
+[INFO] /flacoco/src/main/java/fr/spoonlabs/flacoco/cli/FlacocoMain.java: /flacoco/src/main/java/fr/spoonlabs/flacoco/cli/FlacocoMain.java uses unchecked or unsafe operations.
+[INFO] /flacoco/src/main/java/fr/spoonlabs/flacoco/cli/FlacocoMain.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/test/strategies/classloader/finder/classes/impl/SourceFolderFinder.java:[25,97] cannot find symbol
+  symbol:   method getWildcard()
+  location: class org.apache.maven.surefire.api.testset.TestListResolver
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/coverage/CoverageMatrix.java:[199,101] cannot find symbol
+  symbol:   method getWildcard()
+  location: class org.apache.maven.surefire.api.testset.TestListResolver
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/coverage/CoverageMatrix.java:[205,101] cannot find symbol
+  symbol:   method getWildcard()
+  location: class org.apache.maven.surefire.api.testset.TestListResolver
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/coverage/framework/TestFrameworkStrategy.java:[92,119] cannot find symbol
+  symbol:   method getWildcard()
+  location: class org.apache.maven.surefire.api.testset.TestListResolver
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/coverage/framework/TestFrameworkStrategy.java:[97,127] cannot find symbol
+  symbol:   method getWildcard()
+  location: class org.apache.maven.surefire.api.testset.TestListResolver
+[INFO] 5 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.834 s
+[INFO] Finished at: 2025-10-01T14:53:53Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project flacoco: Compilation failure: Compilation failure: 
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/test/strategies/classloader/finder/classes/impl/SourceFolderFinder.java:[25,97] cannot find symbol
+[ERROR]   symbol:   method getWildcard()
+[ERROR]   location: class org.apache.maven.surefire.api.testset.TestListResolver
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/coverage/CoverageMatrix.java:[199,101] cannot find symbol
+[ERROR]   symbol:   method getWildcard()
+[ERROR]   location: class org.apache.maven.surefire.api.testset.TestListResolver
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/coverage/CoverageMatrix.java:[205,101] cannot find symbol
+[ERROR]   symbol:   method getWildcard()
+[ERROR]   location: class org.apache.maven.surefire.api.testset.TestListResolver
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/coverage/framework/TestFrameworkStrategy.java:[92,119] cannot find symbol
+[ERROR]   symbol:   method getWildcard()
+[ERROR]   location: class org.apache.maven.surefire.api.testset.TestListResolver
+[ERROR] /flacoco/src/main/java/fr/spoonlabs/flacoco/core/coverage/framework/TestFrameworkStrategy.java:[97,127] cannot find symbol
+[ERROR]   symbol:   method getWildcard()
+[ERROR]   location: class org.apache.maven.surefire.api.testset.TestListResolver
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

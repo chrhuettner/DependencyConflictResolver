@@ -1,0 +1,1515 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] NEM Core                                                           [jar]
+[INFO] NEM Deploy                                                         [jar]
+[INFO] NEM Peer                                                           [jar]
+[INFO] NEM Infrastructure Server                                          [jar]
+[INFO] NEM Infrastructure Server - ALL                                    [pom]
+[INFO] 
+[INFO] -----------------------< org.nem.core:nem-core >------------------------
+[INFO] Building NEM Core 0.6.101                                          [1/5]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ nem-core ---
+[INFO] Deleting /nem/core/target
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ nem-core ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/nem/core/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ nem-core ---
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ nem-core ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 280 source files with javac [debug release 11] to target/classes
+[INFO] 
+[INFO] --- build-helper:3.4.0:add-test-source (add-test-source) @ nem-core ---
+[INFO] Test Source directory: /nem/core/src/it/java added.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ nem-core ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ nem-core ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 278 source files with javac [debug release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.0:test (default-test) @ nem-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.nem.core.connect.HttpMethodClientTest
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Oct 01, 2025 11:52:57 AM org.nem.core.connect.HttpMethodClient lambda$sendRequest$2
+WARNING: forcibly aborting request to http://10.255.255.1
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.mockito.cglib.core.ReflectUtils$2 (file:/root/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.mockito.cglib.core.ReflectUtils$2
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+Oct 01, 2025 11:53:00 AM org.nem.core.connect.HttpMethodClient lambda$sendRequest$2
+WARNING: forcibly aborting request to http://10.255.255.1
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.187 s - in org.nem.core.connect.HttpMethodClientTest
+[INFO] Running org.nem.core.connect.HttpDeserializerResponseStrategyTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.nem.core.connect.HttpDeserializerResponseStrategyTest
+[INFO] Running org.nem.core.connect.HttpVoidResponseStrategyTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.connect.HttpVoidResponseStrategyTest
+[INFO] Running org.nem.core.connect.HttpJsonPostRequestTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.connect.HttpJsonPostRequestTest
+[INFO] Running org.nem.core.connect.HttpErrorResponseDeserializerUnionStrategyTest
+Oct 01, 2025 11:53:02 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 700: badness
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.nem.core.connect.HttpErrorResponseDeserializerUnionStrategyTest
+[INFO] Running org.nem.core.connect.ErrorResponseDeserializerUnionTest
+Oct 01, 2025 11:53:02 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 700: badness
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.connect.ErrorResponseDeserializerUnionTest
+[INFO] Running org.nem.core.connect.HttpJsonResponseStrategyTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.nem.core.connect.HttpJsonResponseStrategyTest
+[INFO] Running org.nem.core.connect.VersionProviderTest
+Oct 01, 2025 11:53:02 AM org.nem.core.connect.VersionProvider getLatestVersion
+WARNING: unable to determine latest version: java.util.concurrent.CompletionException: java.lang.IllegalStateException: cannot retrieve deserializer when an error has occurred
+Oct 01, 2025 11:53:02 AM org.nem.core.connect.VersionProvider getLatestVersion
+WARNING: unable to determine latest version: java.lang.IllegalStateException: other error
+Oct 01, 2025 11:53:02 AM org.nem.core.connect.VersionProvider getLatestVersion
+WARNING: unable to determine latest version: java.util.concurrent.CompletionException: java.lang.IllegalStateException: cannot retrieve deserializer when an error has occurred
+Oct 01, 2025 11:53:02 AM org.nem.core.metadata.CodeSourceFacade <init>
+WARNING: no certificate found for (file:/nem/core/target/classes/ <no signer certificates>)
+Oct 01, 2025 11:53:02 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <classes>
+Oct 01, 2025 11:53:02 AM org.nem.core.metadata.JarFacade loadAttributes
+WARNING: could not find manifest for classes
+Oct 01, 2025 11:53:02 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.28 s - in org.nem.core.connect.VersionProviderTest
+[INFO] Running org.nem.core.connect.client.DefaultAsyncNemConnectorTest
+Oct 01, 2025 11:53:02 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+Oct 01, 2025 11:53:02 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+Oct 01, 2025 11:53:02 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.327 s - in org.nem.core.connect.client.DefaultAsyncNemConnectorTest
+[INFO] Running org.nem.core.connect.HttpBinaryPostRequestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.connect.HttpBinaryPostRequestTest
+[INFO] Running org.nem.core.connect.HttpBinaryResponseStrategyTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.connect.HttpBinaryResponseStrategyTest
+[INFO] Running org.nem.core.connect.ErrorResponseTest
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code 404: exception message
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code 404: badness
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code 404: Not Found
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code -123: badness
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code -123
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 890
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+INFO: Http Status Code -123: exception message
+Oct 01, 2025 11:53:03 AM org.nem.core.connect.ErrorResponse <init>
+SEVERE: Http Status Code 500: badness
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.nem.core.connect.ErrorResponseTest
+[INFO] Running org.nem.core.metadata.MetaDataFactoryTest
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <test-title>, version <test-version>
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.nem.core.metadata.MetaDataFactoryTest
+[INFO] Running org.nem.core.metadata.CodeSourceFacadeTest
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.CodeSourceFacade <init>
+WARNING: no certificate found for (http://nem.com/foo/n.jar <no signer certificates>)
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.CodeSourceFacade <init>
+WARNING: no certificate found for (http://nem.com/foo/n.jar <no signer certificates>)
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.217 s - in org.nem.core.metadata.CodeSourceFacadeTest
+[INFO] Running org.nem.core.metadata.ApplicationMetaDataTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.metadata.ApplicationMetaDataTest
+[INFO] Running org.nem.core.metadata.JarFacadeTest
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade loadAttributes
+WARNING: could not find manifest for nem.jar
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+WARNING: Analyzing meta data not possible <null>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+WARNING: Analyzing meta data not possible <null>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <test-title>, version <test-version>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <test-title>, version <test-version>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+WARNING: Analyzing meta data not possible <null>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Analyzing meta data in <nem.jar>
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade loadAttributes
+WARNING: unexpected implementation vendor for manifest in nem.jar
+Oct 01, 2025 11:53:03 AM org.nem.core.metadata.JarFacade <init>
+INFO: Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD>
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.metadata.JarFacadeTest
+[INFO] Running org.nem.core.utils.FormatUtilsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.FormatUtilsTest
+[INFO] Running org.nem.core.utils.StringEncoderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.StringEncoderTest
+[INFO] Running org.nem.core.utils.ByteUtilsTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.utils.ByteUtilsTest
+[INFO] Running org.nem.core.utils.AbstractTwoLevelMapTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.AbstractTwoLevelMapTest
+[INFO] Running org.nem.core.utils.ArrayUtilsTest
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.nem.core.utils.ArrayUtilsTest
+[INFO] Running org.nem.core.utils.SetOnceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.SetOnceTest
+[INFO] Running org.nem.core.utils.Base64EncoderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.utils.Base64EncoderTest
+[INFO] Running org.nem.core.utils.LockFileTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.nem.core.utils.LockFileTest
+[INFO] Running org.nem.core.utils.CircularStackTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.CircularStackTest
+[INFO] Running org.nem.core.utils.MustBeTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.utils.MustBeTest
+[INFO] Running org.nem.core.utils.HexEncoderTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.HexEncoderTest
+[INFO] Running org.nem.core.utils.StringUtilsTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.StringUtilsTest
+[INFO] Running org.nem.core.utils.Base32EncoderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.utils.Base32EncoderTest
+[INFO] Running org.nem.core.utils.ExceptionUtilsTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.nem.core.utils.ExceptionUtilsTest
+[INFO] Running org.nem.core.i18n.UTF8ResourceBundleControlTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.i18n.UTF8ResourceBundleControlTest
+[INFO] Running org.nem.core.time.SystemTimeProviderTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.time.SystemTimeProviderTest
+[INFO] Running org.nem.core.time.UnixTimeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.time.UnixTimeTest
+[INFO] Running org.nem.core.time.TimeSynchronizationResultTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.time.TimeSynchronizationResultTest
+[INFO] Running org.nem.core.time.synchronization.CommunicationTimeStampsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.time.synchronization.CommunicationTimeStampsTest
+[INFO] Running org.nem.core.time.synchronization.TimeSynchronizationSampleTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.nem.core.time.synchronization.TimeSynchronizationSampleTest
+[INFO] Running org.nem.core.time.NetworkTimeStampTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.time.NetworkTimeStampTest
+[INFO] Running org.nem.core.time.TimeInstantTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.time.TimeInstantTest
+[INFO] Running org.nem.core.math.SparseBitmapTest
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.nem.core.math.SparseBitmapTest
+[INFO] Running org.nem.core.math.SparseMatrixTest
+[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 s - in org.nem.core.math.SparseMatrixTest
+[INFO] Running org.nem.core.math.DenseMatrixTest
+[INFO] Tests run: 54, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.nem.core.math.DenseMatrixTest
+[INFO] Running org.nem.core.math.ColumnVectorTest
+[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.nem.core.math.ColumnVectorTest
+[INFO] Running org.nem.core.math.MatrixElementTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.math.MatrixElementTest
+[INFO] Running org.nem.core.messages.PlainMessageTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.messages.PlainMessageTest
+[INFO] Running org.nem.core.messages.SecureMessageTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in org.nem.core.messages.SecureMessageTest
+[INFO] Running org.nem.core.messages.MessageFactoryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.nem.core.messages.MessageFactoryTest
+[INFO] Running org.nem.core.model.NemesisBlockInfoTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.NemesisBlockInfoTest
+[INFO] Running org.nem.core.model.HashMetaDataTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.HashMetaDataTest
+[INFO] Running org.nem.core.model.NemesisBlockTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.492 s - in org.nem.core.model.NemesisBlockTest
+[INFO] Running org.nem.core.model.primitive.AmountTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.AmountTest
+[INFO] Running org.nem.core.model.primitive.NodeIdTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.NodeIdTest
+[INFO] Running org.nem.core.model.primitive.AbstractPrimitiveBigIntegerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.AbstractPrimitiveBigIntegerTest
+[INFO] Running org.nem.core.model.primitive.ClusterIdTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.ClusterIdTest
+[INFO] Running org.nem.core.model.primitive.SupplyTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.primitive.SupplyTest
+[INFO] Running org.nem.core.model.primitive.BlockAmountTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.BlockAmountTest
+[INFO] Running org.nem.core.model.primitive.AbstractPrimitiveLongTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.AbstractPrimitiveLongTest
+[INFO] Running org.nem.core.model.primitive.NodeAgeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.NodeAgeTest
+[INFO] Running org.nem.core.model.primitive.ReferenceCountTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.ReferenceCountTest
+[INFO] Running org.nem.core.model.primitive.QuantityTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.QuantityTest
+[INFO] Running org.nem.core.model.primitive.BlockDifficultyTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.primitive.BlockDifficultyTest
+[INFO] Running org.nem.core.model.primitive.TimeOffsetTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.TimeOffsetTest
+[INFO] Running org.nem.core.model.primitive.BlockHeightTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.BlockHeightTest
+[INFO] Running org.nem.core.model.primitive.BlockChainScoreTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.primitive.BlockChainScoreTest
+[INFO] Running org.nem.core.model.primitive.HashShortIdTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.primitive.HashShortIdTest
+[INFO] Running org.nem.core.model.NemGlobalsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.NemGlobalsTest
+[INFO] Running org.nem.core.model.BlockChainConfigurationBuilderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.BlockChainConfigurationBuilderTest
+[INFO] Running org.nem.core.model.AddressTest
+[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.nem.core.model.AddressTest
+[INFO] Running org.nem.core.model.MosaicSupplyTypeTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.MosaicSupplyTypeTest
+[INFO] Running org.nem.core.model.VerifiableEntityTest
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.nem.core.model.VerifiableEntityTest
+[INFO] Running org.nem.core.model.NemStatusTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.NemStatusTest
+[INFO] Running org.nem.core.model.MosaicDefinitionCreationTransactionTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.nem.core.model.MosaicDefinitionCreationTransactionTest
+[INFO] Running org.nem.core.model.BlockedHarvesterPublicKeysTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.model.BlockedHarvesterPublicKeysTest
+[INFO] Running org.nem.core.model.MosaicSupplyChangeTransactionTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.model.MosaicSupplyChangeTransactionTest
+[INFO] Running org.nem.core.model.BlockChainFeatureTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.BlockChainFeatureTest
+[INFO] Running org.nem.core.model.TransferTransactionTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in org.nem.core.model.TransferTransactionTest
+[INFO] Running org.nem.core.model.MultisigMinCosignatoriesModificationTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.MultisigMinCosignatoriesModificationTest
+[INFO] Running org.nem.core.model.NemesisBlockMainnetTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.031 s - in org.nem.core.model.NemesisBlockMainnetTest
+[INFO] Running org.nem.core.model.namespace.NamespaceIdTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.model.namespace.NamespaceIdTest
+[INFO] Running org.nem.core.model.namespace.ReservedNamespaceFilterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.namespace.ReservedNamespaceFilterTest
+[INFO] Running org.nem.core.model.namespace.NamespaceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.model.namespace.NamespaceTest
+[INFO] Running org.nem.core.model.namespace.NamespaceIdPartTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.namespace.NamespaceIdPartTest
+[INFO] Running org.nem.core.model.MultisigCosignatoryModificationTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.MultisigCosignatoryModificationTest
+[INFO] Running org.nem.core.model.AccountRemoteStatusTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.AccountRemoteStatusTest
+[INFO] Running org.nem.core.model.FeeUnitAwareTransactionFeeCalculatorTest
+[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in org.nem.core.model.FeeUnitAwareTransactionFeeCalculatorTest
+[INFO] Running org.nem.core.model.AccountStatusTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.AccountStatusTest
+[INFO] Running org.nem.core.model.BlockTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.nem.core.model.BlockTest
+[INFO] Running org.nem.core.model.BlockExtensionsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.nem.core.model.BlockExtensionsTest
+[INFO] Running org.nem.core.model.KeyPairViewModelTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.model.KeyPairViewModelTest
+[INFO] Running org.nem.core.model.TransactionExecutionStateTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.TransactionExecutionStateTest
+[INFO] Running org.nem.core.model.ZeroTransactionFeeCalculatorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.nem.core.model.ZeroTransactionFeeCalculatorTest
+[INFO] Running org.nem.core.model.NetworkInfoTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.NetworkInfoTest
+[INFO] Running org.nem.core.model.MultisigTransactionTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.nem.core.model.MultisigTransactionTest
+[INFO] Running org.nem.core.model.transactions.extensions.AggregateTransactionValidationExtensionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.nem.core.model.transactions.extensions.AggregateTransactionValidationExtensionTest
+[INFO] Running org.nem.core.model.transactions.extensions.AggregateTransactionSerializationExtensionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.nem.core.model.transactions.extensions.AggregateTransactionSerializationExtensionTest
+[INFO] Running org.nem.core.model.MultisigSignatureTransactionComparatorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.MultisigSignatureTransactionComparatorTest
+[INFO] Running org.nem.core.model.NetworkInfosTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.nem.core.model.NetworkInfosTest
+[INFO] Running org.nem.core.model.AccountTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.nem.core.model.AccountTest
+[INFO] Running org.nem.core.model.BlockChainConfigurationTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.BlockChainConfigurationTest
+[INFO] Running org.nem.core.model.BlockFactoryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.BlockFactoryTest
+[INFO] Running org.nem.core.model.ncc.PublicKeyBuilderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.PublicKeyBuilderTest
+[INFO] Running org.nem.core.model.ncc.MultisigInfoTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.MultisigInfoTest
+[INFO] Running org.nem.core.model.ncc.NemRequestResultTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.NemRequestResultTest
+[INFO] Running org.nem.core.model.ncc.SerializableAccountIdTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.SerializableAccountIdTest
+[INFO] Running org.nem.core.model.ncc.RequestAnnounceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.ncc.RequestAnnounceTest
+[INFO] Running org.nem.core.model.ncc.AccountInfoTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.ncc.AccountInfoTest
+[INFO] Running org.nem.core.model.ncc.AccountMetaDataTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.ncc.AccountMetaDataTest
+[INFO] Running org.nem.core.model.ncc.TransactionMetaDataTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.TransactionMetaDataTest
+[INFO] Running org.nem.core.model.ncc.MosaicIdSupplyPairTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.ncc.MosaicIdSupplyPairTest
+[INFO] Running org.nem.core.model.ncc.MosaicDefinitionMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.ncc.MosaicDefinitionMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.HarvestInfoTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.HarvestInfoTest
+[INFO] Running org.nem.core.model.ncc.TransactionMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.ncc.TransactionMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.MosaicDefinitionSupplyPairTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.model.ncc.MosaicDefinitionSupplyPairTest
+[INFO] Running org.nem.core.model.ncc.RequestPrepareTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.RequestPrepareTest
+[INFO] Running org.nem.core.model.ncc.NemAnnounceResultTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.ncc.NemAnnounceResultTest
+[INFO] Running org.nem.core.model.ncc.UnconfirmedTransactionMetaDataTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.UnconfirmedTransactionMetaDataTest
+[INFO] Running org.nem.core.model.ncc.AccountIdBuilderTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.AccountIdBuilderTest
+[INFO] Running org.nem.core.model.ncc.NamespaceMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.ncc.NamespaceMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.RequestPrepareAnnounceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.RequestPrepareAnnounceTest
+[INFO] Running org.nem.core.model.ncc.UnconfirmedTransactionMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.ncc.UnconfirmedTransactionMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.AccountMetaDataPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.ncc.AccountMetaDataPairTest
+[INFO] Running org.nem.core.model.ncc.AccountIdTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.ncc.AccountIdTest
+[INFO] Running org.nem.core.model.ncc.DefaultMetaDataTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ncc.DefaultMetaDataTest
+[INFO] Running org.nem.core.model.observers.ImportanceTransferNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.ImportanceTransferNotificationTest
+[INFO] Running org.nem.core.model.observers.BalanceAdjustmentNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.BalanceAdjustmentNotificationTest
+[INFO] Running org.nem.core.model.observers.MultisigCosignatoryModificationNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.MultisigCosignatoryModificationNotificationTest
+[INFO] Running org.nem.core.model.observers.ProvisionNamespaceNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.ProvisionNamespaceNotificationTest
+[INFO] Running org.nem.core.model.observers.MultisigMinCosignatoriesModificationNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.MultisigMinCosignatoriesModificationNotificationTest
+[INFO] Running org.nem.core.model.observers.TransactionHashesNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.TransactionHashesNotificationTest
+[INFO] Running org.nem.core.model.observers.AccountNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.AccountNotificationTest
+[INFO] Running org.nem.core.model.observers.NamedObserverTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.NamedObserverTest
+[INFO] Running org.nem.core.model.observers.MosaicTransferNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.MosaicTransferNotificationTest
+[INFO] Running org.nem.core.model.observers.MosaicSupplyChangeNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.MosaicSupplyChangeNotificationTest
+[INFO] Running org.nem.core.model.observers.BalanceTransferNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.BalanceTransferNotificationTest
+[INFO] Running org.nem.core.model.observers.MosaicDefinitionCreationNotificationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.MosaicDefinitionCreationNotificationTest
+[INFO] Running org.nem.core.model.observers.ReverseTransactionObserverTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.observers.ReverseTransactionObserverTest
+[INFO] Running org.nem.core.model.DefaultTransactionFeeCalculatorTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.nem.core.model.DefaultTransactionFeeCalculatorTest
+[INFO] Running org.nem.core.model.TransactionFeeCalculatorBeforeForkTest
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in org.nem.core.model.TransactionFeeCalculatorBeforeForkTest
+[INFO] Running org.nem.core.model.MessageTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.MessageTest
+[INFO] Running org.nem.core.model.mosaic.MosaicDefinitionTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.nem.core.model.mosaic.MosaicDefinitionTest
+[INFO] Running org.nem.core.model.mosaic.MosaicUtilsTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.model.mosaic.MosaicUtilsTest
+[INFO] Running org.nem.core.model.mosaic.MosaicConstantsTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.mosaic.MosaicConstantsTest
+[INFO] Running org.nem.core.model.mosaic.MosaicDescriptorTest
+Oct 01, 2025 11:53:06 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'description' string from 'abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd!' to 'abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd'
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.nem.core.model.mosaic.MosaicDescriptorTest
+[INFO] Running org.nem.core.model.mosaic.MosaicTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.mosaic.MosaicTest
+[INFO] Running org.nem.core.model.mosaic.MosaicLevyTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.mosaic.MosaicLevyTest
+[INFO] Running org.nem.core.model.mosaic.DefaultMosaicTransferFeeCalculatorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.mosaic.DefaultMosaicTransferFeeCalculatorTest
+[INFO] Running org.nem.core.model.mosaic.MosaicFeeInformationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.mosaic.MosaicFeeInformationTest
+[INFO] Running org.nem.core.model.mosaic.DefaultMosaicPropertiesTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.mosaic.DefaultMosaicPropertiesTest
+[INFO] Running org.nem.core.model.mosaic.MosaicTransferFeeTypeTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.mosaic.MosaicTransferFeeTypeTest
+[INFO] Running org.nem.core.model.mosaic.MosaicIdTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.model.mosaic.MosaicIdTest
+[INFO] Running org.nem.core.model.BlockMultisigTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.BlockMultisigTest
+[INFO] Running org.nem.core.model.NemPropertiesTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.model.NemPropertiesTest
+[INFO] Running org.nem.core.model.MultisigAggregateModificationTransactionTest
+[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.nem.core.model.MultisigAggregateModificationTransactionTest
+[INFO] Running org.nem.core.model.TransferTransactionAttachmentTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.TransferTransactionAttachmentTest
+[INFO] Running org.nem.core.model.MultisigModificationTypeTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.MultisigModificationTypeTest
+[INFO] Running org.nem.core.model.MultisigSignatureTransactionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.model.MultisigSignatureTransactionTest
+[INFO] Running org.nem.core.model.HashMetaDataPairTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.HashMetaDataPairTest
+[INFO] Running org.nem.core.model.NemPropertyTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.NemPropertyTest
+[INFO] Running org.nem.core.model.ProvisionNamespaceTransactionTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.ProvisionNamespaceTransactionTest
+[INFO] Running org.nem.core.model.TransactionFactoryTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.nem.core.model.TransactionFactoryTest
+[INFO] Running org.nem.core.model.ImportanceTransferTransactionTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.model.ImportanceTransferTransactionTest
+[INFO] Running org.nem.core.model.ValidationResultTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.model.ValidationResultTest
+[INFO] Running org.nem.core.model.TransactionExtensionsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.core.model.TransactionExtensionsTest
+[INFO] Running org.nem.core.model.TransactionTypesTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.TransactionTypesTest
+[INFO] Running org.nem.core.model.TransactionTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.nem.core.model.TransactionTest
+[INFO] Running org.nem.core.model.TransactionFeeCalculatorAfterForkTest
+[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.nem.core.model.TransactionFeeCalculatorAfterForkTest
+[INFO] Running org.nem.core.model.HashUtilsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.model.HashUtilsTest
+[INFO] Running org.nem.core.node.NodeIdentityTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.node.NodeIdentityTest
+[INFO] Running org.nem.core.node.NodeTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.node.NodeTest
+[INFO] Running org.nem.core.node.NodeFeatureTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.node.NodeFeatureTest
+[INFO] Running org.nem.core.node.NisNodeInfoTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.node.NisNodeInfoTest
+[INFO] Running org.nem.core.node.NodeCollectionTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.nem.core.node.NodeCollectionTest
+[INFO] Running org.nem.core.node.NodeEndpointTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in org.nem.core.node.NodeEndpointTest
+[INFO] Running org.nem.core.node.NodeMetaDataTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.node.NodeMetaDataTest
+[INFO] Running org.nem.core.node.NodeVersionTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.node.NodeVersionTest
+[INFO] Running org.nem.core.crypto.KeyPairTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.nem.core.crypto.KeyPairTest
+[INFO] Running org.nem.core.crypto.HashChainTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.crypto.HashChainTest
+[INFO] Running org.nem.core.crypto.HashTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.crypto.HashTest
+[INFO] Running org.nem.core.crypto.CipherTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.crypto.CipherTest
+[INFO] Running org.nem.core.crypto.HashesTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.crypto.HashesTest
+[INFO] Running org.nem.core.crypto.SignerTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.crypto.SignerTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1DsaSignerTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 s - in org.nem.core.crypto.secp256k1.SecP256K1DsaSignerTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1KeyGeneratorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.nem.core.crypto.secp256k1.SecP256K1KeyGeneratorTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1KeyAnalyzerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.core.crypto.secp256k1.SecP256K1KeyAnalyzerTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1BlockCipherTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.nem.core.crypto.secp256k1.SecP256K1BlockCipherTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1CryptoEngineTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.nem.core.crypto.secp256k1.SecP256K1CryptoEngineTest
+[INFO] Running org.nem.core.crypto.secp256k1.SepP256K1CurveTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.secp256k1.SepP256K1CurveTest
+[INFO] Running org.nem.core.crypto.secp256k1.SecP256K1UtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.core.crypto.secp256k1.SecP256K1UtilsTest
+[INFO] Running org.nem.core.crypto.PrivateKeyTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.PrivateKeyTest
+[INFO] Running org.nem.core.crypto.PublicKeyTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.PublicKeyTest
+[INFO] Running org.nem.core.crypto.SignatureTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.SignatureTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519CurveTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.ed25519.Ed25519CurveTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519GroupTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519GroupTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519FieldTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519FieldTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519EncodedGroupElementTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519EncodedGroupElementTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519FieldElementTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519FieldElementTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519GroupElementTest
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.738 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519GroupElementTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.Ed25519EncodedFieldElementTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in org.nem.core.crypto.ed25519.arithmetic.Ed25519EncodedFieldElementTest
+[INFO] Running org.nem.core.crypto.ed25519.arithmetic.MathUtilsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.nem.core.crypto.ed25519.arithmetic.MathUtilsTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519UtilsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.ed25519.Ed25519UtilsTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519KeyAnalyzerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.ed25519.Ed25519KeyAnalyzerTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519KeyGeneratorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.222 s - in org.nem.core.crypto.ed25519.Ed25519KeyGeneratorTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519BlockCipherTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.nem.core.crypto.ed25519.Ed25519BlockCipherTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519CryptoEngineTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.crypto.ed25519.Ed25519CryptoEngineTest
+[INFO] Running org.nem.core.crypto.ed25519.Ed25519DsaSignerTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.258 s - in org.nem.core.crypto.ed25519.Ed25519DsaSignerTest
+[INFO] Running org.nem.core.serialization.JsonSerializerTest
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.serialization.JsonSerializerTest
+[INFO] Running org.nem.core.serialization.SerializableListTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.serialization.SerializableListTest
+[INFO] Running org.nem.core.serialization.BinarySerializerTest
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.serialization.BinarySerializerTest
+[INFO] Running org.nem.core.serialization.primitive.JsonPrimitiveSerializationTest
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.serialization.primitive.JsonPrimitiveSerializationTest
+[INFO] Running org.nem.core.serialization.primitive.BinaryPrimitiveSerializationTest
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.serialization.primitive.BinaryPrimitiveSerializationTest
+[INFO] Running org.nem.core.serialization.primitive.BinaryPrimitiveTruncationTest
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'val' string from 'phgrtvdxccufazhsvtsqcqonfobbdzcqigvhmvlonrhpmkniyejoqpyxkopzgfjfyvepxcxcjpluqgcdrxrjdreaqdnfwbtnpqlynidiryzfagukzmbhddoilzrmvrbazlnsumiwkkutiendjgbkffuyhvhejoimzmfayzngvyusqoearribburymxtunxgpvhqgaeaarmqdflerqkohfncipiuwffvawurrzyjjbojpoltfidtldwviskvcfinxmvnyxdgvvcxuewvespfxnhhunxhxhyciktocvljmdypqnjdnyywfevvcpvrnbvbzkvqhfaswrsrbzvrcsgyvewkecrpxhmubdgaikztyjtcxbuuberzfixotccbxefjf' to 'phgrtvdxccufazhsvtsqcqonfobbdzcqigvhmvlonrhpmkniyejoqpyxkopzgfjfyvepxcxcjpluqgcdrxrjdreaqdnfwbtnpqlynidiryzfagukzmbhddoilzrmvrba'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'val' string from 'sjenhwkvobdxunmatmcx' to 'sjenh'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Serializer writeString
+INFO: truncated 'val' string from 'cgewdgkehohxorurgeguxhubeqyuapoarfnkjzcuxfeptvansparxpameqrdfirfokawwwglsokbuxzrapfunpsmpppmudvsblxjwfubsjmgwiwmykirqyttqeceqevpxqolwflmksrncghzpqgucuewgiconhraxlipxoxjpgqjmajshmhuofbhvupehmqhpkcwvrjcbadpfuupqxyojdsdqxnnfhqhcdsilwaojaixkqzkcybdfglquzmwcddpnkiruvkyzevlqgnfsrvcuvasougkgektsigmgflghscaakugqxeezgwkuvuzgynlaycgkjesxgeffbmenxoifonoostujpqcibjwqmafkfuhcqlssjfdohsenbqxbgjk' to 'cgewdgkehohxorurgeguxhubeqyuapoarfnkjzcuxfeptvansparxpameqrdfirfokawwwglsokbuxzrapfunpsmpppmudvsblxjwfubsjmgwiwmykirqyttqeceqevp'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Serializer writeString
+INFO: truncated 'val' string from 'lgdnrbyzfpbqexqczyhe' to 'lgdnr'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Deserializer readOptionalBytes
+INFO: truncated 'val' bytes from '6144' to '2048'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Deserializer readOptionalBytes
+INFO: truncated 'val' bytes from '20' to '5'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Serializer writeBytes
+INFO: truncated 'val' bytes from '6144' to '2048'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Serializer writeBytes
+INFO: truncated 'val' bytes from '20' to '5'
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.nem.core.serialization.primitive.BinaryPrimitiveTruncationTest
+[INFO] Running org.nem.core.serialization.primitive.JsonPrimitiveTruncationTest
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'val' string from 'kzqwtxanxwlpddbdwwyquysyqhszhqksgxrezjcflggwuacyuuqgltkjjsnxsghzafndyljbqlrtsxsltgkoddkiyphmgmohrwqhdollmlpkkxioxhufpbluyezckvksiiqhdndjwntbvlivzijxxjwdooavlylgafhsmpkjbcvuoprosmvehkokolmeoxvauhmdtijvqfvuigxsmgrxmzmwmrcefjrxzpitikzzrtntcsyftndzanenknygnokiabxzlwgognecdctmylhofypnhcdtdgbopvuoqyjgqwupumyddklreciphvskwayyfmlugrwfoamuraukzjqpkndtyzyjugpnmslqugfkdmqhxdvhopgwvwkkbzbdgkef' to 'kzqwtxanxwlpddbdwwyquysyqhszhqksgxrezjcflggwuacyuuqgltkjjsnxsghzafndyljbqlrtsxsltgkoddkiyphmgmohrwqhdollmlpkkxioxhufpbluyezckvks'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Deserializer readOptionalString
+INFO: truncated 'val' string from 'lgwenzaklboqvcvcogoe' to 'lgwen'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Serializer writeString
+INFO: truncated 'val' string from 'wsxlginfjnbvzrqdlkgbikvtofpsnwpkvhijslatblhthfxmwrflcgmqsnplvbuaowebjhxqwaabrfbrvfzlialxxtsbddwlxnheqahshwiisidncxisgyrlfuoatdyfkpisywjdgdzwvdiimdvixjyppwjiczehpqrcxscsptbyjbneslwtwfzqxwrwafbvvrqfdzwvznsxeryjqheirqkhcqkrbefgdyqffkdzsaxqlaujofkuuciujkhdnamdlbdehxbbpiopqnnezodouipkmlhoyebvuowcspiioqqpxmkhgvhhfmpgndhotshkirluiinfedfmocjnzrbqgatwrmpihvmybqycqxttuaxvzqxhflbrtmasuxbjjmnk' to 'wsxlginfjnbvzrqdlkgbikvtofpsnwpkvhijslatblhthfxmwrflcgmqsnplvbuaowebjhxqwaabrfbrvfzlialxxtsbddwlxnheqahshwiisidncxisgyrlfuoatdyf'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Serializer writeString
+INFO: truncated 'val' string from 'moodolrqopykoyzchvzy' to 'moodo'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Deserializer readOptionalBytes
+INFO: truncated 'val' bytes from '6144' to '2048'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Deserializer readOptionalBytes
+INFO: truncated 'val' bytes from '20' to '5'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Serializer writeBytes
+INFO: truncated 'val' bytes from '6144' to '2048'
+Oct 01, 2025 11:53:11 AM org.nem.core.serialization.Serializer writeBytes
+INFO: truncated 'val' bytes from '20' to '5'
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.core.serialization.primitive.JsonPrimitiveTruncationTest
+[INFO] Running org.nem.core.serialization.SerializationContextTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.core.serialization.SerializationContextTest
+[INFO] Running org.nem.core.serialization.DeserializationContextTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.core.serialization.DeserializationContextTest
+[INFO] Running org.nem.core.async.SleepFutureTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.24 s - in org.nem.core.async.SleepFutureTest
+[INFO] Running org.nem.core.async.NemAsyncTimerVisitorTest
+Oct 01, 2025 11:53:11 AM org.nem.core.async.NemAsyncTimerVisitor notifyOperationCompleteExceptionally
+WARNING: Timer timer a raised exception: test exception
+java.lang.RuntimeException: test exception
+	at org.nem.core.async.NemAsyncTimerVisitorTest.averageOperationTimeIsCalculatedCorrectlyWhenThereAreMultipleCompletions(NemAsyncTimerVisitorTest.java:98)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+Oct 01, 2025 11:53:11 AM org.nem.core.async.NemAsyncTimerVisitor notifyOperationCompleteExceptionally
+WARNING: Timer timer a raised exception: test exception
+java.lang.RuntimeException: test exception
+	at org.nem.core.async.NemAsyncTimerVisitorTest.assertVisitorSerialization(NemAsyncTimerVisitorTest.java:152)
+	at org.nem.core.async.NemAsyncTimerVisitorTest.visitorCanBeSerializedWhileNotExecuting(NemAsyncTimerVisitorTest.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+Oct 01, 2025 11:53:11 AM org.nem.core.async.NemAsyncTimerVisitor notifyOperationCompleteExceptionally
+WARNING: Timer timer a raised exception: test exception
+java.lang.RuntimeException: test exception
+	at org.nem.core.async.NemAsyncTimerVisitorTest.assertVisitorSerialization(NemAsyncTimerVisitorTest.java:152)
+	at org.nem.core.async.NemAsyncTimerVisitorTest.visitorCanBeSerializedWhileExecuting(NemAsyncTimerVisitorTest.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+Oct 01, 2025 11:53:11 AM org.nem.core.async.NemAsyncTimerVisitor notifyOperationCompleteExceptionally
+WARNING: Timer timer a raised exception: test exception
+java.lang.RuntimeException: test exception
+	at org.nem.core.async.NemAsyncTimerVisitorTest.notifyOperationCompleteExceptionallyUpdatesVisitorStateCorrectly(NemAsyncTimerVisitorTest.java:74)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:316)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:240)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:214)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.core.async.NemAsyncTimerVisitorTest
+[INFO] Running org.nem.core.async.AsyncTimerTest
+Oct 01, 2025 11:53:12 AM org.nem.core.async.AsyncTimer getNextChainLink
+WARNING: Timer unknown timer raised exception during start: java.lang.RuntimeException: CountableExceptionFuture
+Oct 01, 2025 11:53:13 AM org.nem.core.async.AsyncTimer getNextChainLink
+WARNING: Timer unknown timer raised exception during start: java.lang.RuntimeException: CountableExceptionFuture
+Oct 01, 2025 11:53:13 AM org.nem.core.async.AsyncTimer getNextChainLink
+WARNING: Timer unknown timer raised exception during start: java.lang.RuntimeException: CountableExceptionFuture
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.259 s - in org.nem.core.async.AsyncTimerTest
+[INFO] Running org.nem.core.async.AsyncTimerOptionsBuilderTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.545 s - in org.nem.core.async.AsyncTimerOptionsBuilderTest
+[INFO] Running org.nem.core.async.DelayStrategyTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.core.async.DelayStrategyTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2361, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.10:report (jacoco-report) @ nem-core ---
+[INFO] Loading execution data file /nem/core/target/jacoco.exec
+[INFO] Analyzed bundle 'NEM Core' with 274 classes
+[INFO] 
+[INFO] ---------------------< org.nem.deploy:nem-deploy >----------------------
+[INFO] Building NEM Deploy 0.6.101                                        [2/5]
+[INFO]   from deploy/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ nem-deploy ---
+[INFO] Deleting /nem/deploy/target
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ nem-deploy ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/nem/deploy/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ nem-deploy ---
+[INFO] skip non existing resourceDirectory /nem/deploy/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ nem-deploy ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 18 source files with javac [debug release 11] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ nem-deploy ---
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ nem-deploy ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 12 source files with javac [debug release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.0:test (default-test) @ nem-deploy ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.nem.deploy.CommonStarterTest
+2025-10-01 11:53:22.254 INFO NEM logging has been bootstrapped! (org.nem.deploy.LoggingBootstrapper bootstrap)
+2025-10-01 11:53:22.262 INFO Acquiring exclusive lock to lock file: /root/nem/nis.lock (org.nem.deploy.CommonStarter tryAcquireLock)
+2025-10-01 11:53:22.267 WARNING no certificate found for (file:/nem/deploy/target/classes/ <no signer certificates>) (org.nem.core.metadata.CodeSourceFacade <init>)
+2025-10-01 11:53:22.269 INFO Analyzing meta data in <classes> (org.nem.core.metadata.JarFacade <init>)
+2025-10-01 11:53:22.284 WARNING could not find manifest for classes (org.nem.core.metadata.JarFacade loadAttributes)
+2025-10-01 11:53:22.284 INFO Meta data title <NEM>, version <0.6.0-DEVELOPER BUILD> (org.nem.core.metadata.JarFacade <init>)
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.mockito.cglib.core.ReflectUtils$2 (file:/root/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.mockito.cglib.core.ReflectUtils$2
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2025-10-01 11:53:22.498 INFO Async shut-down initiated in 200 msec. (org.nem.deploy.CommonStarter stopServerAsync)
+2025-10-01 11:53:22.716 INFO Async shut-down initiated in 200 msec. (org.nem.deploy.CommonStarter stopServerAsync)
+2025-10-01 11:53:22.923 INFO Async shut-down initiated in 200 msec. (org.nem.deploy.CommonStarter stopServerAsync)
+Exception in thread "Thread-4" java.lang.RuntimeException
+	at org.nem.deploy.CommonStarter.lambda$stopServerAsync$2(CommonStarter.java:147)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.468 s - in org.nem.deploy.CommonStarterTest
+[INFO] Running org.nem.deploy.PropertiesExtensionsTest
+2025-10-01 11:53:23.138 SEVERE unable to load configuration from 'imaginary.properties' (org.nem.deploy.PropertiesExtensions loadFromResource)
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.nem.deploy.PropertiesExtensionsTest
+[INFO] Running org.nem.deploy.JsonErrorHandlerTest
+2025-10-01 11:53:23.199:INFO::main: Logging initialized @2007ms to org.eclipse.jetty.util.log.StdErrLog
+2025-10-01 11:53:23.317 INFO Http Status Code 0 (org.nem.core.connect.ErrorResponse <init>)
+2025-10-01 11:53:23.344 INFO Http Status Code 0 (org.nem.core.connect.ErrorResponse <init>)
+2025-10-01 11:53:23.349 INFO Http Status Code 0 (org.nem.core.connect.ErrorResponse <init>)
+2025-10-01 11:53:23.352 INFO Http Status Code 0 (org.nem.core.connect.ErrorResponse <init>)
+2025-10-01 11:53:23.376 INFO Http Status Code 123: badness (org.nem.core.connect.ErrorResponse <init>)
+2025-10-01 11:53:23.385 INFO Http Status Code 123 (org.nem.core.connect.ErrorResponse <init>)
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.244 s - in org.nem.deploy.JsonErrorHandlerTest
+[INFO] Running org.nem.deploy.BinarySerializationPolicyTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.nem.deploy.BinarySerializationPolicyTest
+[INFO] Running org.nem.deploy.CommonConfigurationTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.nem.deploy.CommonConfigurationTest
+[INFO] Running org.nem.deploy.DeserializableEntityMessageConverterTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.nem.deploy.DeserializableEntityMessageConverterTest
+[INFO] Running org.nem.deploy.DeserializerHttpMessageConverterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.deploy.DeserializerHttpMessageConverterTest
+[INFO] Running org.nem.deploy.SerializableEntityHttpMessageConverterTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.deploy.SerializableEntityHttpMessageConverterTest
+[INFO] Running org.nem.deploy.JsonSerializationPolicyTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.deploy.JsonSerializationPolicyTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 65, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.10:report (jacoco-report) @ nem-deploy ---
+[INFO] Loading execution data file /nem/deploy/target/jacoco.exec
+[INFO] Analyzed bundle 'NEM Deploy' with 22 classes
+[INFO] 
+[INFO] -----------------------< org.nem.peer:nem-peer >------------------------
+[INFO] Building NEM Peer 0.6.101                                          [3/5]
+[INFO]   from peer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ nem-peer ---
+[INFO] Deleting /nem/peer/target
+[INFO] 
+[INFO] --- jacoco:0.8.10:prepare-agent (default) @ nem-peer ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.10/org.jacoco.agent-0.8.10-runtime.jar=destfile=/nem/peer/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ nem-peer ---
+[INFO] skip non existing resourceDirectory /nem/peer/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ nem-peer ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 61 source files with javac [debug release 11] to target/classes
+[INFO] 
+[INFO] --- build-helper:3.4.0:add-test-source (add-test-source) @ nem-peer ---
+[INFO] Test Source directory: /nem/peer/src/it/java added.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ nem-peer ---
+[INFO] skip non existing resourceDirectory /nem/peer/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ nem-peer ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 58 source files with javac [debug release 11] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.1.0:test (default-test) @ nem-peer ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.nem.peer.LocalNodeDeserializerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.714 s - in org.nem.peer.LocalNodeDeserializerTest
+[INFO] Running org.nem.peer.PeerNetworkBroadcastBufferTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.mockito.cglib.core.ReflectUtils$2 (file:/root/.m2/repository/org/mockito/mockito-all/1.10.19/mockito-all-1.10.19.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of org.mockito.cglib.core.ReflectUtils$2
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.271 s - in org.nem.peer.PeerNetworkBroadcastBufferTest
+[INFO] Running org.nem.peer.PeerNetworkStateTest
+Oct 01, 2025 11:53:26 AM org.nem.peer.PeerNetworkState updateExperience
+INFO: Updating experience with Node [(Weak Id) p] @ [127.0.0.1]: FAILURE
+Oct 01, 2025 11:53:26 AM org.nem.peer.PeerNetworkState updateExperience
+INFO: Updating experience with Node [(Weak Id) p] @ [127.0.0.1]: FAILURE
+Oct 01, 2025 11:53:26 AM org.nem.peer.PeerNetworkState updateExperience
+INFO: Updating experience with Node [(Weak Id) p] @ [127.0.0.1]: FAILURE
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 s - in org.nem.peer.PeerNetworkStateTest
+[INFO] Running org.nem.peer.PeerNetworkTest
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 s - in org.nem.peer.PeerNetworkTest
+[INFO] Running org.nem.peer.SecureSerializableEntityTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.nem.peer.SecureSerializableEntityTest
+[INFO] Running org.nem.peer.requests.ChainRequestTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.nem.peer.requests.ChainRequestTest
+[INFO] Running org.nem.peer.requests.UnconfirmedTransactionsRequestTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.nem.peer.requests.UnconfirmedTransactionsRequestTest
+[INFO] Running org.nem.peer.NisPeerIdAndEntityListPairTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.nem.peer.NisPeerIdAndEntityListPairTest
+[INFO] Running org.nem.peer.BroadcastBufferTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.nem.peer.BroadcastBufferTest
+[INFO] Running org.nem.peer.trust.PreTrustAwareNodeSelectorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.nem.peer.trust.PreTrustAwareNodeSelectorTest
+[INFO] Running org.nem.peer.trust.score.RealDoubleTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.peer.trust.score.RealDoubleTest
+[INFO] Running org.nem.peer.trust.score.ScoreTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.peer.trust.score.ScoreTest
+[INFO] Running org.nem.peer.trust.score.ScoresTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.nem.peer.trust.score.ScoresTest
+[INFO] Running org.nem.peer.trust.score.NodeExperiencesPairTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.peer.trust.score.NodeExperiencesPairTest
+[INFO] Running org.nem.peer.trust.score.NodeExperienceTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.peer.trust.score.NodeExperienceTest
+[INFO] Running org.nem.peer.trust.score.TrustScoreTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.peer.trust.score.TrustScoreTest
+[INFO] Running org.nem.peer.trust.score.CredibilityScoreTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.peer.trust.score.CredibilityScoreTest
+[INFO] Running org.nem.peer.trust.score.TrustScoresTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.peer.trust.score.TrustScoresTest
+[INFO] Running org.nem.peer.trust.score.PositiveLongTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.peer.trust.score.PositiveLongTest
+[INFO] Running org.nem.peer.trust.score.NodeExperiencesTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.nem.peer.trust.score.NodeExperiencesTest
+[INFO] Running org.nem.peer.trust.score.NodeExperiencePairTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.nem.peer.trust.score.NodeExperiencePairTest
+[INFO] Running org.nem.peer.trust.EigenTrustTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.nem.peer.trust.EigenTrustTest
+[INFO] Running org.nem.peer.trust.PreTrustedNodesTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.nem.peer.trust.PreTrustedNodesTest
+[INFO] Running org.nem.peer.trust.CachedTrustProviderTest
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (20 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider truncateContext
+INFO: truncating trust calculation from 220 nodes
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (220 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProviderTest assertTopTrustedNodeTruncationSelection
+INFO: names of selected initial nodes: i10,i13,i12,i15,i14,i16,i18,i0,i1,i2,i3,i4,i5,i6,i8,i9
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (20 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider truncateContext
+INFO: truncating trust calculation from 210 nodes
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (210 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProviderTest assertTopTrustedNodeTruncationSelection
+INFO: names of selected initial nodes: i11,i10,i12,i14,i6,i8
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (20 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider truncateContext
+INFO: truncating trust calculation from 200 nodes
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (200 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProviderTest assertTopTrustedNodeTruncationSelection
+INFO: names of selected initial nodes: 
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider truncateContext
+INFO: truncating trust calculation from 200 nodes
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (1 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider truncateContext
+INFO: truncating trust calculation from 200 nodes
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (1 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider truncateContext
+INFO: truncating trust calculation from 200 nodes
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (1 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (2 values)
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: calculating trust values
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider truncateContext
+INFO: truncating trust calculation from 200 nodes
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.CachedTrustProvider computeTrust
+INFO: trust calculation finished (1 values)
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.374 s - in org.nem.peer.trust.CachedTrustProviderTest
+[INFO] Running org.nem.peer.trust.EigenTrustConvergencePolicyTest
+Oct 01, 2025 11:53:26 AM org.nem.peer.trust.EigenTrustConvergencePolicy converge
+SEVERE: trust algorithm did not converge within 1 iterations
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.nem.peer.trust.EigenTrustConvergencePolicyTest
+[INFO] Running org.nem.peer.trust.TrustResultTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.nem.peer.trust.TrustResultTest
+[INFO] Running org.nem.peer.trust.TrustProviderMaskDecoratorTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.nem.peer.trust.TrustProviderMaskDecoratorTest
+[INFO] Running org.nem.peer.trust.LowComTrustProviderTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.nem.peer.trust.LowComTrustProviderTest
+[INFO] Running org.nem.peer.trust.TrustContextTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.peer.trust.TrustContextTest
+[INFO] Running org.nem.peer.trust.EigenTrustPlusPlusTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.nem.peer.trust.EigenTrustPlusPlusTest
+[INFO] Running org.nem.peer.trust.BasicNodeSelectorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.nem.peer.trust.BasicNodeSelectorTest
+[INFO] Running org.nem.peer.trust.TrustParametersTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.peer.trust.TrustParametersTest
+[INFO] Running org.nem.peer.node.DefaultNodeCompatibilityCheckerTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.peer.node.DefaultNodeCompatibilityCheckerTest
+[INFO] Running org.nem.peer.node.NodeChallengeFactoryTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.nem.peer.node.NodeChallengeFactoryTest
+[INFO] Running org.nem.peer.node.AuthenticatedResponseTest
+Oct 01, 2025 11:53:27 AM org.nem.peer.node.AuthenticatedResponse getEntity
+INFO: couldn't verify response from node '<TDOT2CJLXXNFPJTCM4HLGOIZ7TA2X7JEXFGGE4M7>'
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.nem.peer.node.AuthenticatedResponseTest
+[INFO] Running org.nem.peer.node.AuthenticatedRequestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.nem.peer.node.AuthenticatedRequestTest
+[INFO] Running org.nem.peer.node.NodeChallengeTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.nem.peer.node.NodeChallengeTest
+[INFO] Running org.nem.peer.NodeInteractionResultTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.nem.peer.NodeInteractionResultTest
+[INFO] Running org.nem.peer.services.NodeBroadcasterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.nem.peer.services.NodeBroadcasterTest
+[INFO] Running org.nem.peer.services.NodeSynchronizerTest
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+WARNING: no suitable peers found to sync with
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+WARNING: no suitable peers found to sync with
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+INFO: synchronizing with Node [(Weak Id) p] @ [127.0.0.1]
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+INFO: synchronizing with Node [(Weak Id) p] @ [127.0.0.1] finished
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+INFO: synchronizing with Node [(Weak Id) p] @ [127.0.0.1]
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+INFO: synchronizing with Node [(Weak Id) p] @ [127.0.0.1] finished
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+INFO: synchronizing with Node [(Weak Id) p] @ [127.0.0.1]
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+INFO: synchronizing with Node [(Weak Id) p] @ [127.0.0.1] finished
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+INFO: synchronizing with Node [(Weak Id) p] @ [127.0.0.1]
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeSynchronizer synchronize
+INFO: synchronizing with Node [(Weak Id) p] @ [127.0.0.1] finished
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.nem.peer.services.NodeSynchronizerTest
+[INFO] Running org.nem.peer.services.NodeExperiencesUpdaterTest
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeExperiencesUpdater update
+WARNING: no suitable peers found to pull node experiences from
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeExperiencesUpdater update
+INFO: pulling node experiences from Node [(Weak Id) p] @ [127.0.0.1]
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeExperiencesUpdater lambda$update$0
+INFO: node Node [(Weak Id) p] @ [127.0.0.1] supplied too many experiences (110)
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeExperiencesUpdater update
+WARNING: no suitable peers found to pull node experiences from
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeExperiencesUpdater update
+INFO: pulling node experiences from Node [(Weak Id) p] @ [127.0.0.1]
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeExperiencesUpdater update
+INFO: pulling node experiences from Node [(Weak Id) p] @ [127.0.0.1]
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.nem.peer.services.NodeExperiencesUpdaterTest
+[INFO] Running org.nem.peer.services.LocalNodeEndpointUpdaterTest
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.LocalNodeEndpointUpdater setLocalEndpoint
+INFO: updating local node endpoint from <http://127.0.0.1:7890/> to <http://127.0.0.10:7890/>
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.LocalNodeEndpointUpdater setLocalEndpoint
+INFO: updating local node endpoint from <http://127.0.0.1:7890/> to <http://127.0.0.10:7890/>
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.LocalNodeEndpointUpdater setLocalEndpoint
+INFO: updating local node endpoint from <http://127.0.0.1:7890/> to <http://127.0.0.10:7890/>
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.LocalNodeEndpointUpdater setLocalEndpoint
+INFO: updating local node endpoint from <http://127.0.0.1:7890/> to <http://127.0.0.101:7890/>
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.LocalNodeEndpointUpdater setLocalEndpoint
+INFO: updating local node endpoint from <http://127.0.0.1:7890/> to <http://127.0.0.20:7890/>
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.LocalNodeEndpointUpdater setLocalEndpoint
+INFO: updating local node endpoint from <http://127.0.0.1:7890/> to <http://127.0.0.30:7890/>
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.nem.peer.services.LocalNodeEndpointUpdaterTest
+[INFO] Running org.nem.peer.services.InactiveNodePrunerTest
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.InactiveNodePruner prune
+INFO: 8 inactive node(s) were pruned
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.InactiveNodePruner prune
+INFO: 0 inactive node(s) were pruned
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.nem.peer.services.InactiveNodePrunerTest
+[INFO] Running org.nem.peer.services.NodeRefresherTest
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: DIRECT fatal error encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: fatal
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> FAILURE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) d] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: fatal
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) e] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher getNodeInfo
+INFO: skipping refresh of blacklisted node: Node [(Weak Id) f] @ [127.0.0.1]
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher getNodeInfo
+INFO: skipping refresh of blacklisted node: Node [(Weak Id) g] @ [127.0.0.1]
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) a] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (INACTIVE) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.InactivePeerException: inactive
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> INACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [10.0.0.125]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) d] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: fatal
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) e] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+INFO: INDIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) f] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) y] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) z] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) z] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) w] @ [10.0.0.100]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: node response is not compatible with node identity
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) x] @ [10.0.0.101]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: node response is not compatible with node identity
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) y] @ [10.0.0.102]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: node response is not compatible with node identity
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) z] @ [10.0.0.103]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: node response is not compatible with node identity
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:27 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) d] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) c] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: DIRECT fatal error encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: the local and remote nodes are not compatible
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> FAILURE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) d] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: fatal
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) e] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: INDIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) f] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) g] @ [127.0.0.1]>: java.util.concurrent.CompletionException: java.lang.RuntimeException: runtime exception
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) a] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: DIRECT fatal error encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: fatal
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> FAILURE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (INACTIVE) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.InactivePeerException: inactive
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> INACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher getNodeInfo
+INFO: skipping refresh of blacklisted node: Node [(Weak Id) a] @ [127.0.0.1]
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher getNodeInfo
+INFO: skipping refresh of blacklisted node: Node [(Weak Id) d] @ [127.0.0.1]
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) e] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher getNodeInfo
+INFO: skipping refresh of blacklisted node: Node [(Weak Id) f] @ [127.0.0.1]
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher getNodeInfo
+INFO: skipping refresh of blacklisted node: Node [(Weak Id) c] @ [127.0.0.1]
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) d] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: fatal
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) e] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: INDIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) f] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) g] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: fatal
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: INDIRECT fatal error encountered while communicating with <Node [(Weak Id) y] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: fatal
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher logException
+INFO: INDIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) z] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:28 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) d] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:29 AM org.nem.peer.services.NodeRefresher logException
+INFO: DIRECT warning (BUSY) encountered while communicating with <Node [(Weak Id) c] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.BusyPeerException: busy
+Oct 01, 2025 11:53:29 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> BUSY
+Oct 01, 2025 11:53:29 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:29 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:29 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:29 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) a] @ [127.0.0.1]" -> ACTIVE
+Oct 01, 2025 11:53:29 AM org.nem.peer.services.NodeRefresher logException
+SEVERE: DIRECT fatal error encountered while communicating with <Node [(Weak Id) b] @ [127.0.0.1]>: java.util.concurrent.CompletionException: org.nem.core.connect.FatalPeerException: node response is not compatible with node identity
+Oct 01, 2025 11:53:29 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) b] @ [127.0.0.1]" -> FAILURE
+Oct 01, 2025 11:53:29 AM org.nem.peer.services.NodeRefresher update
+INFO: Updating "Node [(Weak Id) c] @ [127.0.0.1]" -> ACTIVE
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.919 s - in org.nem.peer.services.NodeRefresherTest
+[INFO] Running org.nem.peer.ConfigTest
+Oct 01, 2025 11:53:34 AM org.nem.peer.Config lambda$parseWellKnownPeers$0
+WARNING: Skipping invalid known peer: org.nem.core.node.InvalidNodeEndpointException: host is unknown
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.014 s - in org.nem.peer.ConfigTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 306, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco:0.8.10:report (jacoco-report) @ nem-peer ---
+[INFO] Loading execution data file /nem/peer/target/jacoco.exec
+[INFO] Analyzed bundle 'NEM Peer' with 55 classes
+[INFO] 
+[INFO] ---------------< org.nem.nis:nem-infrastructure-server >----------------
+[INFO] Building NEM Infrastructure Server 0.6.101                         [4/5]
+[INFO]   from nis/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ nem-infrastructure-server ---
+[INFO] Deleting /nem/nis/target
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (default) @ nem-infrastructure-server ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/nem/nis/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ nem-infrastructure-server ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 13 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ nem-infrastructure-server ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 473 source files to /nem/nis/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[108,57] constructor Flyway in class org.flywaydb.core.Flyway cannot be applied to given types;
+  required: org.flywaydb.core.api.configuration.Configuration
+  found: no arguments
+  reason: actual and formal argument lists differ in length
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[109,23] cannot find symbol
+  symbol:   method setDataSource(javax.sql.DataSource)
+  location: variable flyway of type org.flywaydb.core.Flyway
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[110,23] cannot find symbol
+  symbol:   method setClassLoader(java.lang.ClassLoader)
+  location: variable flyway of type org.flywaydb.core.Flyway
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[111,23] cannot find symbol
+  symbol:   method setLocations(java.lang.String)
+  location: variable flyway of type org.flywaydb.core.Flyway
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[112,23] cannot find symbol
+  symbol:   method setValidateOnMigrate(java.lang.Boolean)
+  location: variable flyway of type org.flywaydb.core.Flyway
+[INFO] 5 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for NEM Infrastructure Server - ALL 0.6.101:
+[INFO] 
+[INFO] NEM Core ........................................... SUCCESS [ 32.403 s]
+[INFO] NEM Deploy ......................................... SUCCESS [  2.989 s]
+[INFO] NEM Peer ........................................... SUCCESS [ 10.710 s]
+[INFO] NEM Infrastructure Server .......................... FAILURE [  1.574 s]
+[INFO] NEM Infrastructure Server - ALL .................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  47.785 s
+[INFO] Finished at: 2025-10-01T11:53:35Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.10
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.2.0
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project nem-infrastructure-server: Compilation failure: Compilation failure: 
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[108,57] constructor Flyway in class org.flywaydb.core.Flyway cannot be applied to given types;
+[ERROR]   required: org.flywaydb.core.api.configuration.Configuration
+[ERROR]   found: no arguments
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[109,23] cannot find symbol
+[ERROR]   symbol:   method setDataSource(javax.sql.DataSource)
+[ERROR]   location: variable flyway of type org.flywaydb.core.Flyway
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[110,23] cannot find symbol
+[ERROR]   symbol:   method setClassLoader(java.lang.ClassLoader)
+[ERROR]   location: variable flyway of type org.flywaydb.core.Flyway
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[111,23] cannot find symbol
+[ERROR]   symbol:   method setLocations(java.lang.String)
+[ERROR]   location: variable flyway of type org.flywaydb.core.Flyway
+[ERROR] /nem/nis/src/main/java/org/nem/specific/deploy/appconfig/NisAppConfig.java:[112,23] cannot find symbol
+[ERROR]   symbol:   method setValidateOnMigrate(java.lang.Boolean)
+[ERROR]   location: variable flyway of type org.flywaydb.core.Flyway
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :nem-infrastructure-server

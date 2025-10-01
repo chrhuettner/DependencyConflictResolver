@@ -1,0 +1,35 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.github.sitture:env-config >--------------------
+[INFO] Building env-config 0.10.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ env-config ---
+[INFO] Deleting /env-config/target
+[INFO] 
+[INFO] --- checkstyle:3.1.2:check (validate) @ env-config ---
+[INFO] Starting audit...
+[ERROR] /env-config/src/main/java/com/github/sitture/env/config/EnvConfig.java:30:17: 'synchronized' is not followed by whitespace. [WhitespaceAfter]
+[ERROR] /env-config/src/main/java/com/github/sitture/env/config/EnvConfig.java:39:17: 'synchronized' is not followed by whitespace. [WhitespaceAfter]
+Audit done.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.703 s
+[INFO] Finished at: 2025-10-01T15:26:23Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 1 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-checkstyle-plugin:3.1.2:check (validate) on project env-config: Failed during checkstyle execution: There are 2 errors reported by Checkstyle 10.2 with src/main/resources/config/checkstyle/checkstyle.xml ruleset. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

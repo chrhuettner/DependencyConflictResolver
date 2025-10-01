@@ -1,0 +1,41 @@
+[INFO] Scanning for projects...
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.43 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:pom:3.43 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.43/maven-hpi-plugin-3.43.pom
+[WARNING] The POM for org.jenkins-ci.tools:maven-hpi-plugin:jar:3.43 is missing, no dependency information available
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.43 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact org.jenkins-ci.tools:maven-hpi-plugin:jar:3.43 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [incrementals (https://repo.jenkins-ci.org/incrementals/, default, releases), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Downloading from incrementals: https://repo.jenkins-ci.org/incrementals/org/jenkins-ci/tools/maven-hpi-plugin/3.43/maven-hpi-plugin-3.43.jar
+[WARNING] Failed to build parent project for com.cloudbees.jenkins.plugins:amazon-ecr:hpi:1.999999-SNAPSHOT
+[INFO] 
+[INFO] --------------< com.cloudbees.jenkins.plugins:amazon-ecr >--------------
+[INFO] Building Amazon ECR plugin 1.999999-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ hpi ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ amazon-ecr ---
+[INFO] 
+[INFO] --- hpi:3.43:validate (default-validate) @ amazon-ecr ---
+[WARNING] <developerConnection>scm:git:ssh://git@github.com/${gitHubRepo}.git</developerConnection> is invalid because ssh:// URLs do not work well with PCT. Replace it with <developerConnection>scm:git:git@github.com:${gitHubRepo}.git</developerConnection>. In the future this warning will be changed to an error and will break the build.
+[INFO] 
+[INFO] --- hpi:3.43:validate-hpi (default-validate-hpi) @ amazon-ecr ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  28.675 s
+[INFO] Finished at: 2025-10-01T08:52:42Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 1 plugin(s)
+[WARNING] 
+[WARNING]  * org.jenkins-ci.tools:maven-hpi-plugin:3.43
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.jenkins-ci.tools:maven-hpi-plugin:3.43:validate-hpi (default-validate-hpi) on project amazon-ecr: Dependency org.jenkins-ci.plugins:docker-commons:jar:422.v9d1a_89cede51 requires Jenkins 2.387.3 or higher. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

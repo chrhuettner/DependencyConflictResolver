@@ -1,0 +1,107 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] billy                                                              [pom]
+[INFO] billy core                                                         [jar]
+[INFO] billy core JPA                                                     [jar]
+[INFO] billy GIN                                                          [jar]
+[INFO] billy portugal (PT Pack)                                           [jar]
+[INFO] billy spain (ES Pack)                                              [jar]
+[INFO] billy france (FR Pack)                                             [jar]
+[INFO] billy andorra (AD Pack)                                            [jar]
+[INFO] 
+[INFO] -----------------------< com.premiumminds:billy >-----------------------
+[INFO] Building billy 9.2.1-SNAPSHOT                                      [1/8]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ billy ---
+[INFO] Deleting /billy/target
+[INFO] 
+[INFO] --- license:4.2:format (format-headers) @ billy ---
+[INFO] Updating license headers...
+[INFO] 
+[INFO] --------------------< com.premiumminds:billy-core >---------------------
+[INFO] Building billy core 9.2.1-SNAPSHOT                                 [2/8]
+[INFO]   from billy-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ billy-core ---
+[INFO] Deleting /billy/billy-core/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ billy-core ---
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ billy-core ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 120 source files with javac [debug release 11] to target/classes
+[INFO] /billy/billy-core/src/main/java/com/premiumminds/billy/core/services/builders/impl/GenericInvoiceBuilderImpl.java: /billy/billy-core/src/main/java/com/premiumminds/billy/core/services/builders/impl/GenericInvoiceBuilderImpl.java uses or overrides a deprecated API.
+[INFO] /billy/billy-core/src/main/java/com/premiumminds/billy/core/services/builders/impl/GenericInvoiceBuilderImpl.java: Recompile with -Xlint:deprecation for details.
+[INFO] /billy/billy-core/src/main/java/com/premiumminds/billy/core/services/builders/impl/AbstractBuilder.java: Some input files use unchecked or unsafe operations.
+[INFO] /billy/billy-core/src/main/java/com/premiumminds/billy/core/services/builders/impl/AbstractBuilder.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- license:4.2:format (format-headers) @ billy-core ---
+[INFO] Updating license headers...
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ billy-core ---
+[INFO] Copying 19 resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ billy-core ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 35 source files with javac [debug release 11] to target/test-classes
+[INFO] /billy/billy-core/src/test/java/com/premiumminds/billy/core/test/fixtures/MockContextEntity.java: Some input files use unchecked or unsafe operations.
+[INFO] /billy/billy-core/src/test/java/com/premiumminds/billy/core/test/fixtures/MockContextEntity.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /billy/billy-core/src/test/java/com/premiumminds/billy/core/test/AbstractTest.java:[36,36] cannot find symbol
+  symbol:   class TrustedTagInspector
+  location: package org.yaml.snakeyaml.inspector
+[ERROR] /billy/billy-core/src/test/java/com/premiumminds/billy/core/test/AbstractTest.java:[66,43] cannot find symbol
+  symbol:   class TrustedTagInspector
+  location: class com.premiumminds.billy.core.test.AbstractTest
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for billy 9.2.1-SNAPSHOT:
+[INFO] 
+[INFO] billy .............................................. SUCCESS [  1.831 s]
+[INFO] billy core ......................................... FAILURE [  6.897 s]
+[INFO] billy core JPA ..................................... SKIPPED
+[INFO] billy GIN .......................................... SKIPPED
+[INFO] billy portugal (PT Pack) ........................... SKIPPED
+[INFO] billy spain (ES Pack) .............................. SKIPPED
+[INFO] billy france (FR Pack) ............................. SKIPPED
+[INFO] billy andorra (AD Pack) ............................ SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.114 s
+[INFO] Finished at: 2025-10-01T16:01:08Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * com.mycila:license-maven-plugin:4.2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:testCompile (default-testCompile) on project billy-core: Compilation failure: Compilation failure: 
+[ERROR] /billy/billy-core/src/test/java/com/premiumminds/billy/core/test/AbstractTest.java:[36,36] cannot find symbol
+[ERROR]   symbol:   class TrustedTagInspector
+[ERROR]   location: package org.yaml.snakeyaml.inspector
+[ERROR] /billy/billy-core/src/test/java/com/premiumminds/billy/core/test/AbstractTest.java:[66,43] cannot find symbol
+[ERROR]   symbol:   class TrustedTagInspector
+[ERROR]   location: class com.premiumminds.billy.core.test.AbstractTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :billy-core

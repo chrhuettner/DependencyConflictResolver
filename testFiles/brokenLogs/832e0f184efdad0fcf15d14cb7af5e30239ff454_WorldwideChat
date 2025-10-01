@@ -1,0 +1,174 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< com.expl0itz.worldwidechat:WorldwideChat >--------------
+[INFO] Building WorldwideChat 1.8.5-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from jitpack.io: https://jitpack.io/org/spigotmc/spigot-api/1.18-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.18-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-oss-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/spigotmc/spigot-api/1.18-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.18-R0.1-SNAPSHOT/maven-metadata.xml (1.4 kB at 986 B/s)
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/kyori/adventure-platform-common/4.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/kyori/adventure-platform-common/4.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-oss-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/kyori/adventure-platform-common/4.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/kyori/adventure-platform-api/4.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-oss-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/kyori/adventure-platform-api/4.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/kyori/adventure-platform-api/4.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/kyori/adventure-platform-api/4.0.0-SNAPSHOT/adventure-platform-api-4.0.0-SNAPSHOT.pom
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/kyori/adventure-platform-api/4.0.0-SNAPSHOT/adventure-platform-api-4.0.0-SNAPSHOT.pom
+[INFO] Downloading from sonatype-oss-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/kyori/adventure-platform-api/4.0.0-SNAPSHOT/adventure-platform-api-4.0.0-SNAPSHOT.pom
+[WARNING] The POM for net.kyori:adventure-platform-api:jar:4.0.0-SNAPSHOT is missing, no dependency information available
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/kyori/adventure-nbt/4.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/kyori/adventure-nbt/4.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-oss-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/kyori/adventure-nbt/4.0.0-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/kyori/adventure-nbt/4.0.0-SNAPSHOT/adventure-nbt-4.0.0-SNAPSHOT.pom
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/kyori/adventure-nbt/4.0.0-SNAPSHOT/adventure-nbt-4.0.0-SNAPSHOT.pom
+[INFO] Downloading from sonatype-oss-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/kyori/adventure-nbt/4.0.0-SNAPSHOT/adventure-nbt-4.0.0-SNAPSHOT.pom
+[WARNING] The POM for net.kyori:adventure-nbt:jar:4.0.0-SNAPSHOT is missing, no dependency information available
+[INFO] Downloading from jitpack.io: https://jitpack.io/org/spigotmc/spigot-api/1.8.8-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.8.8-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-oss-snapshots: https://oss.sonatype.org/content/repositories/snapshots/org/spigotmc/spigot-api/1.8.8-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.8.8-R0.1-SNAPSHOT/maven-metadata.xml (1.4 kB at 1.7 kB/s)
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/md-5/bungeecord-chat/1.8-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/bungeecord-chat/1.8-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-oss-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-chat/1.8-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-chat/1.8-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/md-5/bungeecord-parent/1.8-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-oss-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-parent/1.8-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/bungeecord-parent/1.8-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-parent/1.8-SNAPSHOT/maven-metadata.xml
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ WorldwideChat ---
+[INFO] Deleting /WorldwideChat/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ WorldwideChat ---
+[INFO] Copying 79 resources to .
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ WorldwideChat ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 68 source files to /WorldwideChat/target/classes
+[INFO] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/util/CommonDefinitions.java: Some input files use or override a deprecated API.
+[INFO] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/util/CommonDefinitions.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/configuration/ConfigurationMessagesOverridePossibleListGUI.java:[72,114] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/WWCInventoryManager.java:[79,98] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[86,105] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[127,114] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[149,114] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[173,114] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[196,114] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[217,116] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[241,114] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUISourceLanguage.java:[73,113] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUISourceLanguage.java:[76,113] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUISourceLanguage.java:[122,112] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUISourceLanguage.java:[125,112] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIChatMenu.java:[71,114] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIChatMenu.java:[93,106] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUITargetLanguage.java:[81,113] cannot find symbol
+  symbol:   method parseEnchantment()
+  location: class com.cryptomorin.xseries.XEnchantment
+[INFO] 16 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.459 s
+[INFO] Finished at: 2025-10-01T13:27:00Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project WorldwideChat: Compilation failure: Compilation failure: 
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/configuration/ConfigurationMessagesOverridePossibleListGUI.java:[72,114] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/WWCInventoryManager.java:[79,98] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[86,105] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[127,114] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[149,114] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[173,114] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[196,114] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[217,116] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIMainMenu.java:[241,114] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUISourceLanguage.java:[73,113] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUISourceLanguage.java:[76,113] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUISourceLanguage.java:[122,112] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUISourceLanguage.java:[125,112] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIChatMenu.java:[71,114] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUIChatMenu.java:[93,106] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] /WorldwideChat/src/main/java/com/expl0itz/worldwidechat/inventory/wwctranslategui/WWCTranslateGUITargetLanguage.java:[81,113] cannot find symbol
+[ERROR]   symbol:   method parseEnchantment()
+[ERROR]   location: class com.cryptomorin.xseries.XEnchantment
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

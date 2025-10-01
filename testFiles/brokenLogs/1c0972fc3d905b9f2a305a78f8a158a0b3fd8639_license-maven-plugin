@@ -1,0 +1,123 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] license-maven-plugin-parent                                        [pom]
+[INFO] license-maven-plugin                                      [maven-plugin]
+[INFO] license-maven-plugin-git                                           [jar]
+[INFO] license-maven-plugin-svn                                           [jar]
+[INFO] 
+[INFO] ---------------< com.mycila:license-maven-plugin-parent >---------------
+[INFO] Building license-maven-plugin-parent 4.2-SNAPSHOT                  [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[WARNING] Parameter 'encoding' is unknown for plugin 'maven-checkstyle-plugin:3.2.0:check (validate)'
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ license-maven-plugin-parent ---
+[INFO] Deleting /license-maven-plugin/target
+[INFO] Deleting /license-maven-plugin (includes = [dependency-reduced-pom.xml, dependency-reduced-pom-*.xml], excludes = [])
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven) @ license-maven-plugin-parent ---
+[INFO] 
+[INFO] --- license:4.2.rc2:check (default) @ license-maven-plugin-parent ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- checkstyle:3.2.0:check (validate) @ license-maven-plugin-parent ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (prepare-agent) @ license-maven-plugin-parent ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/license-maven-plugin/target/jacoco.exec
+[INFO] 
+[INFO] ------------------< com.mycila:license-maven-plugin >-------------------
+[INFO] Building license-maven-plugin 4.2-SNAPSHOT                         [2/4]
+[INFO]   from license-maven-plugin/pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[WARNING] Parameter 'encoding' is unknown for plugin 'maven-checkstyle-plugin:3.2.0:check (validate)'
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ license-maven-plugin ---
+[INFO] Deleting /license-maven-plugin/license-maven-plugin/target
+[INFO] Deleting /license-maven-plugin/license-maven-plugin (includes = [dependency-reduced-pom.xml, dependency-reduced-pom-*.xml], excludes = [])
+[INFO] 
+[INFO] --- enforcer:3.1.0:enforce (enforce-maven) @ license-maven-plugin ---
+[INFO] 
+[INFO] --- license:4.2.rc2:check (default) @ license-maven-plugin ---
+[INFO] Checking licenses...
+[INFO] 
+[INFO] --- checkstyle:3.2.0:check (validate) @ license-maven-plugin ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] 
+[INFO] --- jacoco:0.8.8:prepare-agent (prepare-agent) @ license-maven-plugin ---
+[INFO] argLine set to -javaagent:/root/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/license-maven-plugin/license-maven-plugin/target/jacoco.exec
+[INFO] 
+[INFO] --- plugin:3.7.0:helpmojo (generate-helpmojo) @ license-maven-plugin ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ license-maven-plugin ---
+[INFO] Copying 23 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ license-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 43 source files to /license-maven-plugin/license-maven-plugin/target/classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[WARNING] /license-maven-plugin/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/util/Selection.java:[20,40] org.apache.maven.shared.utils.io.DirectoryScanner in org.apache.maven.shared.utils.io has been deprecated
+[WARNING] /license-maven-plugin/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/util/Selection.java:[21,40] org.apache.maven.shared.utils.io.MatchPatterns in org.apache.maven.shared.utils.io has been deprecated
+[WARNING] /license-maven-plugin/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/util/Selection.java:[22,40] org.apache.maven.shared.utils.io.ScanConductor in org.apache.maven.shared.utils.io has been deprecated
+[WARNING] /license-maven-plugin/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/util/Selection.java:[20,40] org.apache.maven.shared.utils.io.DirectoryScanner in org.apache.maven.shared.utils.io has been deprecated
+[WARNING] /license-maven-plugin/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/util/Selection.java:[21,40] org.apache.maven.shared.utils.io.MatchPatterns in org.apache.maven.shared.utils.io has been deprecated
+[WARNING] /license-maven-plugin/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/util/Selection.java:[22,40] org.apache.maven.shared.utils.io.ScanConductor in org.apache.maven.shared.utils.io has been deprecated
+[INFO] 7 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /license-maven-plugin/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/dependencies/MavenProjectLicenses.java:[33,57] cannot find symbol
+  symbol:   class Maven31DependencyGraphBuilder
+  location: package org.apache.maven.shared.dependency.graph.internal
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for license-maven-plugin-parent 4.2-SNAPSHOT:
+[INFO] 
+[INFO] license-maven-plugin-parent ........................ SUCCESS [ 22.888 s]
+[INFO] license-maven-plugin ............................... FAILURE [ 28.966 s]
+[INFO] license-maven-plugin-git ........................... SKIPPED
+[INFO] license-maven-plugin-svn ........................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  52.960 s
+[INFO] Finished at: 2025-10-01T08:57:05Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 7 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-site-plugin:3.12.1
+[WARNING]  * org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[WARNING]  * org.jacoco:jacoco-maven-plugin:0.8.8
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:3.1.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * com.mycila:license-maven-plugin:4.2.rc2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project license-maven-plugin: Compilation failure
+[ERROR] /license-maven-plugin/license-maven-plugin/src/main/java/com/mycila/maven/plugin/license/dependencies/MavenProjectLicenses.java:[33,57] cannot find symbol
+[ERROR]   symbol:   class Maven31DependencyGraphBuilder
+[ERROR]   location: package org.apache.maven.shared.dependency.graph.internal
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :license-maven-plugin

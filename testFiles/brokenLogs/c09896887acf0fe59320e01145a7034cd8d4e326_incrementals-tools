@@ -1,0 +1,78 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 5 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 5 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Incrementals Tools POM                                             [pom]
+[INFO] lib                                                                [jar]
+[INFO] incrementals-maven-plugin                                 [maven-plugin]
+[INFO] Git Changelist Maven Extension                                     [jar]
+[INFO] incrementals-enforcer-rules                                        [jar]
+[INFO] 
+[INFO] ----------------< io.jenkins.tools.incrementals:parent >----------------
+[INFO] Building Incrementals Tools POM 1.7-SNAPSHOT                       [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ parent ---
+[INFO] 
+[INFO] --- groovy:1.4:testCompile (default) @ parent ---
+[INFO] No sources found to compile
+[INFO] 
+[INFO] -----------------< io.jenkins.tools.incrementals:lib >------------------
+[INFO] Building lib 1.7-SNAPSHOT                                          [2/5]
+[INFO]   from lib/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ lib ---
+[INFO] Deleting /incrementals-tools/lib/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ lib ---
+[INFO] skip non existing resourceDirectory /incrementals-tools/lib/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ lib ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /incrementals-tools/lib/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /incrementals-tools/lib/src/main/java/io/jenkins/tools/incrementals/lib/UpdateChecker.java:[239,126] status has private access in org.kohsuke.github.GHCompare
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Incrementals Tools POM 1.7-SNAPSHOT:
+[INFO] 
+[INFO] Incrementals Tools POM ............................. SUCCESS [  0.516 s]
+[INFO] lib ................................................ FAILURE [  1.009 s]
+[INFO] incrementals-maven-plugin .......................... SKIPPED
+[INFO] Git Changelist Maven Extension ..................... SKIPPED
+[INFO] incrementals-enforcer-rules ........................ SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.251 s
+[INFO] Finished at: 2025-10-01T15:02:32Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.codehaus.gmaven:gmaven-plugin:1.4
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.3
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.3:compile (default-compile) on project lib: Compilation failure
+[ERROR] /incrementals-tools/lib/src/main/java/io/jenkins/tools/incrementals/lib/UpdateChecker.java:[239,126] status has private access in org.kohsuke.github.GHCompare
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :lib

@@ -1,0 +1,1760 @@
+[INFO] Scanning for projects...
+[WARNING] The project com.google.inject:guice-parent:pom:5.0.2-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Google Guice                                                       [pom]
+[INFO] Google Guice - Bill of Materials                                   [pom]
+[INFO] Google Guice - Core Library                                        [jar]
+[INFO] Google Guice - Extensions                                          [pom]
+[INFO] Google Guice - Extensions - AssistedInject                         [jar]
+[INFO] Google Guice - Extensions - Dagger Adapter                         [jar]
+[INFO] Google Guice - Extensions - Grapher                                [jar]
+[INFO] Google Guice - Extensions - JMX                                    [jar]
+[INFO] Google Guice - Extensions - JNDI                                   [jar]
+[INFO] Google Guice - Extensions - Persist                                [jar]
+[INFO] Google Guice - Extensions - Servlet                                [jar]
+[INFO] Google Guice - Extensions - Spring                                 [jar]
+[INFO] Google Guice - Extensions - Struts2                                [jar]
+[INFO] Google Guice - Extensions - ThrowingProviders                      [jar]
+[INFO] Google Guice - Extensions - TestLib                                [jar]
+[INFO] Google Guice - JDK8 Tests                                          [jar]
+[INFO] 
+[INFO] -------------------< com.google.inject:guice-parent >-------------------
+[INFO] Building Google Guice 5.0.2-SNAPSHOT                              [1/16]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-parent ---
+[INFO] 
+[INFO] --------------------< com.google.inject:guice-bom >---------------------
+[INFO] Building Google Guice - Bill of Materials 5.0.2-SNAPSHOT          [2/16]
+[INFO]   from bom/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-bom ---
+[INFO] 
+[INFO] ----------------------< com.google.inject:guice >-----------------------
+[INFO] Building Google Guice - Core Library 5.0.2-SNAPSHOT               [3/16]
+[INFO]   from core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice ---
+[INFO] Deleting /guice/core/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice ---
+[INFO] Setting property: classpath.resource.loader.class => 'org.codehaus.plexus.velocity.ContextClassLoaderResourceLoader'.
+[INFO] Setting property: velocimacro.messages.on => 'false'.
+[INFO] Setting property: resource.loader => 'classpath'.
+[INFO] Setting property: resource.manager.logwhenfound => 'false'.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice ---
+[INFO] Compiling 251 source files to /guice/core/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice ---
+[INFO] Copying 26 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice ---
+[INFO] Compiling 114 source files to /guice/core/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.5:test (default-test) @ guice ---
+[INFO] Surefire report directory: /guice/core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.587 sec
+Running com.google.inject.util.TypesTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.inject.spi.SpiBindingsTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec
+Running com.google.inject.LoggerInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+Running com.google.inject.spi.SourcesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.IntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.internal.aop.ImmutableStringTrieTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.893 sec
+Running com.google.inject.DuplicateBindingsTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 sec
+Running com.google.inject.TypeListenerTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec
+Running com.google.inject.spi.ElementApplyToTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 sec
+Running com.google.inject.spi.ElementSourceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.spi.InjectionPointTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
+Running com.google.inject.ReflectionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.BoundInstanceInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.multibindings.ProvidesIntoTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec
+Running com.google.inject.internal.ProxyFactoryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.internal.MessagesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.TypeLiteralTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.SuperclassTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.internal.UniqueAnnotationsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.spi.BindingSourceRestrictionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.util.ProvidersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.errors.BindingAlreadySetErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec
+Running com.google.inject.spi.BindingTargetVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.internal.MapBinderTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.496 sec
+Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec
+Running com.google.inject.internal.RealElementTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.inject.BindingTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 sec
+Running com.google.inject.internal.MoreTypesTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running com.google.inject.PrivateModuleTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 sec
+Running com.google.inject.spi.ElementsTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.inject.TypeLiteralTypeResolutionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.internal.PackageNameCompressorTest
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.errors.MissingImplementationErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.inject.BinderTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 sec
+Running com.google.inject.ProviderInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+Running com.googlecode.guice.BytecodeGenTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 sec
+Running com.google.inject.NullableInjectionPointTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 sec
+Running com.google.inject.internal.util.ContinuousStopwatchTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.MethodInterceptionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 sec
+Running com.google.inject.spi.InjectorSpiTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.289 sec
+Running com.google.inject.RestrictedBindingSourceTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.222 sec
+Running com.google.inject.spi.ToolStageInjectorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.inject.ParentInjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
+Running com.google.inject.BindingOrderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec
+Running com.google.inject.ProvisionExceptionsTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec
+Running com.google.inject.name.NamesTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.KeyTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 sec
+Running com.google.inject.internal.CycleDetectingLockTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.errors.ErrorMessagesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.util.NoopOverrideTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec
+Running com.google.inject.name.NamedEquivalanceTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
+Running com.google.inject.util.OverrideModuleTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 sec
+Running com.google.inject.spi.HasDependenciesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.matcher.MatcherTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Running com.google.inject.BindingAnnotationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Running com.google.inject.ProvisionListenerTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 sec
+Running com.google.inject.TypeLiteralInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+Running com.google.inject.errors.GenericErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.internal.OptionalBinderTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.537 sec
+Running com.google.inject.spi.ModuleSourceTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.errors.DuplicateMapKeyErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec
+Running com.google.inject.InjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 sec
+Running com.google.inject.spi.ProviderMethodsTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.181 sec
+Running com.google.inject.BoundProviderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.errors.MissingConstructorErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+Running com.google.inject.internal.util.LineNumbersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec
+Running com.google.inject.spi.ModuleRewriterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.OptionalBindingTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec
+Running com.google.inject.ImplicitBindingTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec
+Running com.google.inject.ProvisionExceptionTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec
+Running com.google.inject.RequestInjectionTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+Running com.google.inject.ModuleTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.CircularDependencyTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 sec
+Running com.google.inject.spi.MessageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.SerializationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.errors.ScopeNotFoundErrorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.inject.internal.MultibinderTest
+Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.323 sec
+Running com.google.inject.MembersInjectorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.054 sec
+Running com.google.inject.EagerSingletonTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.641 sec
+Running com.google.inject.errors.DuplicateElementErrorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.internal.InternalProvisionExceptionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running com.google.inject.RequireAtInjectOnConstructorsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running com.google.inject.internal.WeakKeySetTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.404 sec
+Running com.google.inject.JitBindingsTest
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 sec
+Running com.googlecode.guice.Jsr330Test
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 sec
+Running com.google.inject.GenericInjectionTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec
+Running com.google.inject.ModulesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+
+Results :
+
+Tests run: 967, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (stack-traces-off) @ guice ---
+[INFO] Surefire report directory: /guice/core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.423 sec
+Running com.google.inject.util.TypesTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+Running com.google.inject.spi.SpiBindingsTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec
+Running com.google.inject.LoggerInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec
+Running com.google.inject.spi.SourcesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.IntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.inject.internal.aop.ImmutableStringTrieTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.119 sec
+Running com.google.inject.DuplicateBindingsTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 sec
+Running com.google.inject.TypeListenerTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec
+Running com.google.inject.spi.ElementApplyToTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec
+Running com.google.inject.spi.ElementSourceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.spi.InjectionPointTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+Running com.google.inject.ReflectionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.BoundInstanceInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.inject.multibindings.ProvidesIntoTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 sec
+Running com.google.inject.internal.ProxyFactoryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.internal.MessagesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+Running com.google.inject.TypeLiteralTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running com.google.inject.SuperclassTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.internal.UniqueAnnotationsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.spi.BindingSourceRestrictionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.util.ProvidersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.errors.BindingAlreadySetErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.spi.BindingTargetVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.internal.MapBinderTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.335 sec
+Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.internal.RealElementTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.BindingTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec
+Running com.google.inject.internal.MoreTypesTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.PrivateModuleTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec
+Running com.google.inject.spi.ElementsTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.TypeLiteralTypeResolutionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.internal.PackageNameCompressorTest
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.errors.MissingImplementationErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.BinderTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec
+Running com.google.inject.ProviderInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.googlecode.guice.BytecodeGenTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 sec
+Running com.google.inject.NullableInjectionPointTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+Running com.google.inject.internal.util.ContinuousStopwatchTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.MethodInterceptionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
+Running com.google.inject.spi.InjectorSpiTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec
+Running com.google.inject.RestrictedBindingSourceTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 sec
+Running com.google.inject.spi.ToolStageInjectorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.ParentInjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec
+Running com.google.inject.BindingOrderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.ProvisionExceptionsTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+Running com.google.inject.name.NamesTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.KeyTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 sec
+Running com.google.inject.internal.CycleDetectingLockTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.errors.ErrorMessagesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.util.NoopOverrideTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.inject.name.NamedEquivalanceTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.util.OverrideModuleTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 sec
+Running com.google.inject.spi.HasDependenciesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.matcher.MatcherTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running com.google.inject.BindingAnnotationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.ProvisionListenerTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec
+Running com.google.inject.TypeLiteralInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.errors.GenericErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.internal.OptionalBinderTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 sec
+Running com.google.inject.spi.ModuleSourceTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running com.google.inject.errors.DuplicateMapKeyErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running com.google.inject.InjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec
+Running com.google.inject.spi.ProviderMethodsTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 sec
+Running com.google.inject.BoundProviderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.inject.errors.MissingConstructorErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.internal.util.LineNumbersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.spi.ModuleRewriterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.OptionalBindingTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+Running com.google.inject.ImplicitBindingTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+Running com.google.inject.ProvisionExceptionTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+Running com.google.inject.RequestInjectionTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.ModuleTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.CircularDependencyTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 sec
+Running com.google.inject.spi.MessageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.SerializationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running com.google.inject.errors.ScopeNotFoundErrorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.internal.MultibinderTest
+Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 sec
+Running com.google.inject.MembersInjectorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.036 sec
+Running com.google.inject.EagerSingletonTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.591 sec
+Running com.google.inject.errors.DuplicateElementErrorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.internal.InternalProvisionExceptionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.RequireAtInjectOnConstructorsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.internal.WeakKeySetTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.695 sec
+Running com.google.inject.JitBindingsTest
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec
+Running com.googlecode.guice.Jsr330Test
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec
+Running com.google.inject.GenericInjectionTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.inject.ModulesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+
+Results :
+
+Tests run: 967, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (anonymous-class-loading) @ guice ---
+[INFO] Surefire report directory: /guice/core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.556 sec
+Running com.google.inject.util.TypesTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.inject.spi.SpiBindingsTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec
+Running com.google.inject.LoggerInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.spi.SourcesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.IntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.internal.aop.ImmutableStringTrieTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.915 sec
+Running com.google.inject.DuplicateBindingsTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec
+Running com.google.inject.TypeListenerTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec
+Running com.google.inject.spi.ElementApplyToTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec
+Running com.google.inject.spi.ElementSourceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.spi.InjectionPointTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec
+Running com.google.inject.ReflectionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.BoundInstanceInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.multibindings.ProvidesIntoTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec
+Running com.google.inject.internal.ProxyFactoryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.internal.MessagesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.TypeLiteralTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.SuperclassTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.internal.UniqueAnnotationsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.spi.BindingSourceRestrictionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running com.google.inject.util.ProvidersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.errors.BindingAlreadySetErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec
+Running com.google.inject.spi.BindingTargetVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.internal.MapBinderTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.429 sec
+Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+Running com.google.inject.internal.RealElementTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.BindingTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec
+Running com.google.inject.internal.MoreTypesTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.PrivateModuleTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec
+Running com.google.inject.spi.ElementsTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.TypeLiteralTypeResolutionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.inject.internal.PackageNameCompressorTest
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running com.google.inject.errors.MissingImplementationErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.inject.BinderTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec
+Running com.google.inject.ProviderInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.googlecode.guice.BytecodeGenTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec
+Running com.google.inject.NullableInjectionPointTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec
+Running com.google.inject.internal.util.ContinuousStopwatchTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.MethodInterceptionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+Running com.google.inject.spi.InjectorSpiTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec
+Running com.google.inject.RestrictedBindingSourceTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 sec
+Running com.google.inject.spi.ToolStageInjectorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.ParentInjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+Running com.google.inject.BindingOrderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.inject.ProvisionExceptionsTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running com.google.inject.name.NamesTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.KeyTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
+Running com.google.inject.internal.CycleDetectingLockTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.inject.errors.ErrorMessagesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.util.NoopOverrideTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec
+Running com.google.inject.name.NamedEquivalanceTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec
+Running com.google.inject.util.OverrideModuleTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 sec
+Running com.google.inject.spi.HasDependenciesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.matcher.MatcherTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.BindingAnnotationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+Running com.google.inject.ProvisionListenerTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec
+Running com.google.inject.TypeLiteralInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.errors.GenericErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.internal.OptionalBinderTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 sec
+Running com.google.inject.spi.ModuleSourceTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.errors.DuplicateMapKeyErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.InjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec
+Running com.google.inject.spi.ProviderMethodsTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec
+Running com.google.inject.BoundProviderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.errors.MissingConstructorErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.internal.util.LineNumbersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.spi.ModuleRewriterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.OptionalBindingTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 sec
+Running com.google.inject.ImplicitBindingTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.inject.ProvisionExceptionTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.RequestInjectionTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.245 sec
+Running com.google.inject.ModuleTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.25 sec
+Running com.google.inject.CircularDependencyTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 sec
+Running com.google.inject.spi.MessageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.SerializationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.errors.ScopeNotFoundErrorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.inject.internal.MultibinderTest
+Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.27 sec
+Running com.google.inject.MembersInjectorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.028 sec
+Running com.google.inject.EagerSingletonTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.041 sec
+Running com.google.inject.errors.DuplicateElementErrorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec
+Running com.google.inject.internal.InternalProvisionExceptionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.RequireAtInjectOnConstructorsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.internal.WeakKeySetTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.958 sec
+Running com.google.inject.JitBindingsTest
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec
+Running com.googlecode.guice.Jsr330Test
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec
+Running com.google.inject.GenericInjectionTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec
+Running com.google.inject.ModulesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+
+Results :
+
+Tests run: 967, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (child-class-loading) @ guice ---
+[INFO] Surefire report directory: /guice/core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.934 sec
+Running com.google.inject.util.TypesTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.inject.spi.SpiBindingsTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec
+Running com.google.inject.LoggerInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.spi.SourcesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.IntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec
+Running com.google.inject.internal.aop.ImmutableStringTrieTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.068 sec
+Running com.google.inject.DuplicateBindingsTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 sec
+Running com.google.inject.TypeListenerTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec
+Running com.google.inject.spi.ElementApplyToTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec
+Running com.google.inject.spi.ElementSourceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.spi.InjectionPointTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec
+Running com.google.inject.ReflectionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.BoundInstanceInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.multibindings.ProvidesIntoTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec
+Running com.google.inject.internal.ProxyFactoryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.internal.MessagesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.TypeLiteralTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.SuperclassTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.internal.UniqueAnnotationsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.spi.BindingSourceRestrictionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.inject.util.ProvidersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.errors.BindingAlreadySetErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running com.google.inject.spi.BindingTargetVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.internal.MapBinderTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.359 sec
+Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.inject.internal.RealElementTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.BindingTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec
+Running com.google.inject.internal.MoreTypesTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.PrivateModuleTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec
+Running com.google.inject.spi.ElementsTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.TypeLiteralTypeResolutionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.internal.PackageNameCompressorTest
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.errors.MissingImplementationErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.inject.BinderTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec
+Running com.google.inject.ProviderInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.googlecode.guice.BytecodeGenTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec
+Running com.google.inject.NullableInjectionPointTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec
+Running com.google.inject.internal.util.ContinuousStopwatchTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.MethodInterceptionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 sec
+Running com.google.inject.spi.InjectorSpiTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec
+Running com.google.inject.RestrictedBindingSourceTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec
+Running com.google.inject.spi.ToolStageInjectorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.ParentInjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+Running com.google.inject.BindingOrderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.ProvisionExceptionsTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.name.NamesTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.KeyTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec
+Running com.google.inject.internal.CycleDetectingLockTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.errors.ErrorMessagesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.util.NoopOverrideTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.name.NamedEquivalanceTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.util.OverrideModuleTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
+Running com.google.inject.spi.HasDependenciesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.matcher.MatcherTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.BindingAnnotationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.ProvisionListenerTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec
+Running com.google.inject.TypeLiteralInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.errors.GenericErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.internal.OptionalBinderTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.24 sec
+Running com.google.inject.spi.ModuleSourceTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.errors.DuplicateMapKeyErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Running com.google.inject.InjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec
+Running com.google.inject.spi.ProviderMethodsTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec
+Running com.google.inject.BoundProviderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.errors.MissingConstructorErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.internal.util.LineNumbersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.spi.ModuleRewriterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.OptionalBindingTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+Running com.google.inject.ImplicitBindingTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+Running com.google.inject.ProvisionExceptionTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec
+Running com.google.inject.RequestInjectionTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running com.google.inject.ModuleTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.CircularDependencyTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec
+Running com.google.inject.spi.MessageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.SerializationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.errors.ScopeNotFoundErrorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.internal.MultibinderTest
+Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.221 sec
+Running com.google.inject.MembersInjectorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.044 sec
+Running com.google.inject.EagerSingletonTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.428 sec
+Running com.google.inject.errors.DuplicateElementErrorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.internal.InternalProvisionExceptionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running com.google.inject.RequireAtInjectOnConstructorsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.internal.WeakKeySetTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.792 sec
+Running com.google.inject.JitBindingsTest
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 sec
+Running com.googlecode.guice.Jsr330Test
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec
+Running com.google.inject.GenericInjectionTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+Running com.google.inject.ModulesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+
+Results :
+
+Tests run: 967, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (without-bytecode-generation) @ guice ---
+[INFO] Surefire report directory: /guice/core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.spi.ModuleAnnotatedMethodScannerTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.952 sec
+Running com.google.inject.util.TypesTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec
+Running com.google.inject.spi.SpiBindingsTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 sec
+Running com.google.inject.LoggerInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.spi.SourcesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.IntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.internal.aop.ImmutableStringTrieTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.219 sec
+Running com.google.inject.DuplicateBindingsTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 sec
+Running com.google.inject.TypeListenerTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+Running com.google.inject.spi.ElementApplyToTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec
+Running com.google.inject.spi.ElementSourceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.spi.InjectionPointTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec
+Running com.google.inject.ReflectionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.BoundInstanceInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running com.google.inject.multibindings.ProvidesIntoTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec
+Running com.google.inject.internal.ProxyFactoryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+Running com.google.inject.internal.MessagesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.TypeLiteralTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.SuperclassTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.internal.UniqueAnnotationsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.spi.BindingSourceRestrictionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.util.ProvidersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.errors.BindingAlreadySetErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running com.google.inject.spi.BindingTargetVisitorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.internal.MapBinderTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.346 sec
+Running com.google.inject.errors.NullInjectedIntoNonNullableTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.internal.RealElementTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.BindingTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec
+Running com.google.inject.internal.MoreTypesTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.PrivateModuleTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+Running com.google.inject.spi.ElementsTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.TypeLiteralTypeResolutionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.internal.PackageNameCompressorTest
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.errors.MissingImplementationErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.BinderTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+Running com.google.inject.ProviderInjectionTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.googlecode.guice.BytecodeGenTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.NullableInjectionPointTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec
+Running com.google.inject.internal.util.ContinuousStopwatchTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.MethodInterceptionTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.spi.InjectorSpiTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+Running com.google.inject.RestrictedBindingSourceTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec
+Running com.google.inject.spi.ToolStageInjectorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.ParentInjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.BindingOrderTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.ProvisionExceptionsTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.inject.name.NamesTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.KeyTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec
+Running com.google.inject.internal.CycleDetectingLockTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.errors.ErrorMessagesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.util.NoopOverrideTest
+Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.name.NamedEquivalanceTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.util.OverrideModuleTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec
+Running com.google.inject.spi.HasDependenciesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.matcher.MatcherTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.BindingAnnotationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.ProvisionListenerTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec
+Running com.google.inject.TypeLiteralInjectionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.errors.GenericErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.internal.OptionalBinderTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 sec
+Running com.google.inject.spi.ModuleSourceTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.errors.DuplicateMapKeyErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running com.google.inject.InjectorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec
+Running com.google.inject.spi.ProviderMethodsTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec
+Running com.google.inject.BoundProviderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.errors.MissingConstructorErrorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.internal.util.LineNumbersTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.spi.ModuleRewriterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.OptionalBindingTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec
+Running com.google.inject.ImplicitBindingTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec
+Running com.google.inject.ProvisionExceptionTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+Running com.google.inject.RequestInjectionTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+Running com.google.inject.errors.ChildBindingAlreadySetErrorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.ModuleTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.CircularDependencyTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec
+Running com.google.inject.spi.MessageTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.SerializationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.errors.ScopeNotFoundErrorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.inject.internal.MultibinderTest
+Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 sec
+Running com.google.inject.MembersInjectorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.02 sec
+Running com.google.inject.EagerSingletonTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.391 sec
+Running com.google.inject.errors.DuplicateElementErrorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.internal.InternalProvisionExceptionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running com.google.inject.RequireAtInjectOnConstructorsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.inject.internal.WeakKeySetTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.511 sec
+Running com.google.inject.JitBindingsTest
+Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 sec
+Running com.googlecode.guice.Jsr330Test
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.GenericInjectionTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.ModulesTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+
+Results :
+
+Tests run: 967, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -----------< com.google.inject.extensions:extensions-parent >-----------
+[INFO] Building Google Guice - Extensions 5.0.2-SNAPSHOT                 [4/16]
+[INFO]   from extensions/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ extensions-parent ---
+[INFO] Deleting /guice/extensions/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ extensions-parent ---
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ extensions-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] ---------< com.google.inject.extensions:guice-assistedinject >----------
+[INFO] Building Google Guice - Extensions - AssistedInject 5.0.2-SNAPSHOT [5/16]
+[INFO]   from extensions/assistedinject/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-assistedinject ---
+[INFO] Deleting /guice/extensions/assistedinject/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-assistedinject ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice-assistedinject ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-assistedinject ---
+[INFO] Compiling 13 source files to /guice/extensions/assistedinject/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice-assistedinject ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice-assistedinject ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice-assistedinject ---
+[INFO] Compiling 6 source files to /guice/extensions/assistedinject/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.5:test (default-test) @ guice-assistedinject ---
+[INFO] Surefire report directory: /guice/extensions/assistedinject/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.assistedinject.ExtensionSpiTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.303 sec
+Running com.google.inject.assistedinject.FactoryProviderTest
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.166 sec
+Running com.google.inject.assistedinject.ManyConstructorsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec
+Running com.google.inject.assistedinject.FactoryModuleBuilderTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 sec
+Running com.google.inject.assistedinject.FactoryProvider2Test
+Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.264 sec
+Running com.google.inject.assistedinject.subpkg.SubpackageTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec
+
+Results :
+
+Tests run: 96, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (stack-traces-off) @ guice-assistedinject ---
+[INFO] Surefire report directory: /guice/extensions/assistedinject/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.assistedinject.ExtensionSpiTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.299 sec
+Running com.google.inject.assistedinject.FactoryProviderTest
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 sec
+Running com.google.inject.assistedinject.ManyConstructorsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+Running com.google.inject.assistedinject.FactoryModuleBuilderTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec
+Running com.google.inject.assistedinject.FactoryProvider2Test
+Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.205 sec
+Running com.google.inject.assistedinject.subpkg.SubpackageTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec
+
+Results :
+
+Tests run: 96, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] ---------< com.google.inject.extensions:guice-dagger-adapter >----------
+[INFO] Building Google Guice - Extensions - Dagger Adapter 5.0.2-SNAPSHOT [6/16]
+[INFO]   from extensions/dagger-adapter/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-dagger-adapter ---
+[INFO] Deleting /guice/extensions/dagger-adapter/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-dagger-adapter ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice-dagger-adapter ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-dagger-adapter ---
+[INFO] Compiling 5 source files to /guice/extensions/dagger-adapter/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice-dagger-adapter ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice-dagger-adapter ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice-dagger-adapter ---
+[INFO] Compiling 8 source files to /guice/extensions/dagger-adapter/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.5:test (default-test) @ guice-dagger-adapter ---
+[INFO] Surefire report directory: /guice/extensions/dagger-adapter/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.daggeradapter.BindsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.298 sec
+Running com.google.inject.daggeradapter.ModuleSubcomponentsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec
+Running com.google.inject.daggeradapter.ModuleIncludesTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec
+Running com.google.inject.daggeradapter.MultibindsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+Running com.google.inject.daggeradapter.DaggerAdapterTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 sec
+Running com.google.inject.daggeradapter.IntoMapTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+Running com.google.inject.daggeradapter.OptionalBindingsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+
+Results :
+
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (stack-traces-off) @ guice-dagger-adapter ---
+[INFO] Surefire report directory: /guice/extensions/dagger-adapter/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.daggeradapter.BindsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.292 sec
+Running com.google.inject.daggeradapter.ModuleSubcomponentsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Running com.google.inject.daggeradapter.ModuleIncludesTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running com.google.inject.daggeradapter.MultibindsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.inject.daggeradapter.DaggerAdapterTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec
+Running com.google.inject.daggeradapter.IntoMapTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 sec
+Running com.google.inject.daggeradapter.OptionalBindingsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+
+Results :
+
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-grapher >-------------
+[INFO] Building Google Guice - Extensions - Grapher 5.0.2-SNAPSHOT       [7/16]
+[INFO]   from extensions/grapher/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-grapher ---
+[INFO] Deleting /guice/extensions/grapher/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-grapher ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice-grapher ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-grapher ---
+[INFO] Compiling 34 source files to /guice/extensions/grapher/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice-grapher ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice-grapher ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice-grapher ---
+[INFO] Compiling 28 source files to /guice/extensions/grapher/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.5:test (default-test) @ guice-grapher ---
+[INFO] Surefire report directory: /guice/extensions/grapher/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.grapher.ShortNameFactoryTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.257 sec
+Running com.google.inject.grapher.TransitiveDependencyVisitorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec
+Running com.google.inject.grapher.AbstractInjectorGrapherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+
+Results :
+
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (stack-traces-off) @ guice-grapher ---
+[INFO] Surefire report directory: /guice/extensions/grapher/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.grapher.ShortNameFactoryTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.346 sec
+Running com.google.inject.grapher.TransitiveDependencyVisitorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+Running com.google.inject.grapher.AbstractInjectorGrapherTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec
+
+Results :
+
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] ---------------< com.google.inject.extensions:guice-jmx >---------------
+[INFO] Building Google Guice - Extensions - JMX 5.0.2-SNAPSHOT           [8/16]
+[INFO]   from extensions/jmx/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-jmx ---
+[INFO] Deleting /guice/extensions/jmx/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-jmx ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice-jmx ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-jmx ---
+[INFO] Compiling 4 source files to /guice/extensions/jmx/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice-jmx ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice-jmx ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice-jmx ---
+[INFO] Compiling 1 source file to /guice/extensions/jmx/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.5:test (default-test) @ guice-jmx ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- surefire:2.5:test (stack-traces-off) @ guice-jmx ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --------------< com.google.inject.extensions:guice-jndi >---------------
+[INFO] Building Google Guice - Extensions - JNDI 5.0.2-SNAPSHOT          [9/16]
+[INFO]   from extensions/jndi/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-jndi ---
+[INFO] Deleting /guice/extensions/jndi/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-jndi ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice-jndi ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-jndi ---
+[INFO] Compiling 2 source files to /guice/extensions/jndi/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice-jndi ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice-jndi ---
+[INFO] skip non existing resourceDirectory /guice/extensions/jndi/test
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice-jndi ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.5:test (default-test) @ guice-jndi ---
+[INFO] Surefire report directory: /guice/extensions/jndi/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+There are no tests to run.
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (stack-traces-off) @ guice-jndi ---
+[INFO] Surefire report directory: /guice/extensions/jndi/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+There are no tests to run.
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-persist >-------------
+[INFO] Building Google Guice - Extensions - Persist 5.0.2-SNAPSHOT      [10/16]
+[INFO]   from extensions/persist/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-persist ---
+[INFO] Deleting /guice/extensions/persist/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-persist ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice-persist ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-persist ---
+[INFO] Compiling 17 source files to /guice/extensions/persist/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice-persist ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice-persist ---
+[INFO] Copying 2 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice-persist ---
+[INFO] Compiling 19 source files to /guice/extensions/persist/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.5:test (default-test) @ guice-persist ---
+[INFO] Surefire report directory: /guice/extensions/persist/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.persist.jpa.EntityManagerProvisionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.261 sec
+Running com.google.inject.persist.EdslTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.inject.persist.jpa.ManagedLocalTransactionsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.301 sec
+Running com.google.inject.persist.jpa.ManualLocalTransactionsConfidenceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 sec
+Running com.google.inject.persist.jpa.JoiningLocalTransactionsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.129 sec
+Running com.google.inject.persist.jpa.EntityManagerFactoryProvisionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+Running com.google.inject.persist.jpa.EntityManagerPerRequestProvisionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec
+Running com.google.inject.persist.jpa.ManualLocalTransactionsWithCustomMatcherTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec
+Running com.google.inject.persist.jpa.JpaWorkManagerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 sec
+Running com.google.inject.persist.jpa.ClassLevelManagedLocalTransactionsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 sec
+Running com.google.inject.persist.jpa.ManagedLocalTransactionsAcrossRequestTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 sec
+Running com.google.inject.persist.jpa.DynamicFinderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+Running com.google.inject.persist.jpa.EnsureJpaCanTakeObjectsInPropertiesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec
+Running com.google.inject.persist.jpa.CustomPropsEntityManagerFactoryProvisionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+Running com.google.inject.persist.jpa.ManualLocalTransactionsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec
+Running com.google.inject.persist.jpa.JpaPersistServiceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 sec
+
+Results :
+
+Tests run: 31, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (stack-traces-off) @ guice-persist ---
+[INFO] Surefire report directory: /guice/extensions/persist/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.persist.jpa.EntityManagerProvisionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.386 sec
+Running com.google.inject.persist.EdslTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.persist.jpa.ManagedLocalTransactionsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.346 sec
+Running com.google.inject.persist.jpa.ManualLocalTransactionsConfidenceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 sec
+Running com.google.inject.persist.jpa.JoiningLocalTransactionsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 sec
+Running com.google.inject.persist.jpa.EntityManagerFactoryProvisionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec
+Running com.google.inject.persist.jpa.EntityManagerPerRequestProvisionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+Running com.google.inject.persist.jpa.ManualLocalTransactionsWithCustomMatcherTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 sec
+Running com.google.inject.persist.jpa.JpaWorkManagerTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
+Running com.google.inject.persist.jpa.ClassLevelManagedLocalTransactionsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 sec
+Running com.google.inject.persist.jpa.ManagedLocalTransactionsAcrossRequestTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 sec
+Running com.google.inject.persist.jpa.DynamicFinderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec
+Running com.google.inject.persist.jpa.EnsureJpaCanTakeObjectsInPropertiesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 sec
+Running com.google.inject.persist.jpa.CustomPropsEntityManagerFactoryProvisionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.inject.persist.jpa.ManualLocalTransactionsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+Running com.google.inject.persist.jpa.JpaPersistServiceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 sec
+
+Results :
+
+Tests run: 31, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-servlet >-------------
+[INFO] Building Google Guice - Extensions - Servlet 5.0.2-SNAPSHOT      [11/16]
+[INFO]   from extensions/servlet/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-servlet ---
+[INFO] Deleting /guice/extensions/servlet/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-servlet ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice-servlet ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-servlet ---
+[INFO] Compiling 36 source files to /guice/extensions/servlet/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice-servlet ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice-servlet ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice-servlet ---
+[INFO] Compiling 30 source files to /guice/extensions/servlet/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.5:test (default-test) @ guice-servlet ---
+[INFO] Surefire report directory: /guice/extensions/servlet/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.servlet.ServletScopesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.311 sec
+Running com.google.inject.servlet.FilterDispatchIntegrationTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 sec
+Running com.google.inject.servlet.ContinuingRequestIntegrationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec
+Running com.google.inject.servlet.InjectedFilterPipelineTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.servlet.TransferRequestIntegrationTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 sec
+Running com.google.inject.servlet.FilterPipelineTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.servlet.ServletDefinitionPathsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.servlet.ContextPathTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+Running com.google.inject.servlet.ServletTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 sec
+Running com.google.inject.servlet.VarargsFilterDispatchIntegrationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.servlet.EdslTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.inject.servlet.ServletDispatchIntegrationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.inject.servlet.VarargsServletDispatchIntegrationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.inject.servlet.ScopeRequestIntegrationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.inject.servlet.ServletPipelineRequestDispatcherTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.servlet.ServletUtilsTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.servlet.ServletModuleTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.servlet.UriPatternTypeTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.servlet.InvalidScopeBindingTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.inject.servlet.ExtensionSpiTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.servlet.MultiModuleDispatchIntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.servlet.ServletDefinitionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.inject.servlet.FilterDefinitionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.servlet.ContinuingHttpServletRequestTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.servlet.MultipleServletInjectorsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+
+Results :
+
+Tests run: 93, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (stack-traces-off) @ guice-servlet ---
+[INFO] Surefire report directory: /guice/extensions/servlet/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.servlet.ServletScopesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.297 sec
+Running com.google.inject.servlet.FilterDispatchIntegrationTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 sec
+Running com.google.inject.servlet.ContinuingRequestIntegrationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec
+Running com.google.inject.servlet.InjectedFilterPipelineTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.servlet.TransferRequestIntegrationTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.217 sec
+Running com.google.inject.servlet.FilterPipelineTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.inject.servlet.ServletDefinitionPathsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.inject.servlet.ContextPathTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+Running com.google.inject.servlet.ServletTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 sec
+Running com.google.inject.servlet.VarargsFilterDispatchIntegrationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.servlet.EdslTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.inject.servlet.ServletDispatchIntegrationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.inject.servlet.VarargsServletDispatchIntegrationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.inject.servlet.ScopeRequestIntegrationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.inject.servlet.ServletPipelineRequestDispatcherTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.servlet.ServletUtilsTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.servlet.ServletModuleTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.servlet.UriPatternTypeTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.inject.servlet.InvalidScopeBindingTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.inject.servlet.ExtensionSpiTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.inject.servlet.MultiModuleDispatchIntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.inject.servlet.ServletDefinitionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.servlet.FilterDefinitionTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.inject.servlet.ContinuingHttpServletRequestTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.inject.servlet.MultipleServletInjectorsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+
+Results :
+
+Tests run: 93, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-spring >--------------
+[INFO] Building Google Guice - Extensions - Spring 5.0.2-SNAPSHOT       [12/16]
+[INFO]   from extensions/spring/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-spring ---
+[INFO] Deleting /guice/extensions/spring/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-spring ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice-spring ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-spring ---
+[INFO] Compiling 2 source files to /guice/extensions/spring/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice-spring ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice-spring ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice-spring ---
+[INFO] Compiling 1 source file to /guice/extensions/spring/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.5:test (default-test) @ guice-spring ---
+[INFO] Surefire report directory: /guice/extensions/spring/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.spring.SpringIntegrationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.273 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- surefire:2.5:test (stack-traces-off) @ guice-spring ---
+[INFO] Surefire report directory: /guice/extensions/spring/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.inject.spring.SpringIntegrationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.271 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -------------< com.google.inject.extensions:guice-struts2 >-------------
+[INFO] Building Google Guice - Extensions - Struts2 5.0.2-SNAPSHOT      [13/16]
+[INFO]   from extensions/struts2/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:compile (default-compile)'
+[WARNING] Parameter 'compilerArgs' is unknown for plugin 'maven-compiler-plugin:2.3.2:testCompile (default-testCompile)'
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ guice-struts2 ---
+[INFO] Deleting /guice/extensions/struts2/target
+[INFO] 
+[INFO] --- remote-resources:1.1:process (default) @ guice-struts2 ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ guice-struts2 ---
+[INFO] Copying 1 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ guice-struts2 ---
+[INFO] Compiling 3 source files to /guice/extensions/struts2/target/classes
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (check-java-1.8-compat) @ guice-struts2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ guice-struts2 ---
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ guice-struts2 ---
+[INFO] Compiling 1 source file to /guice/extensions/struts2/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /guice/extensions/struts2/test/com/google/inject/struts2/Struts2FactoryTest.java:[19,46] error: package org.apache.struts2.dispatcher.ng.filter does not exist
+[ERROR] /guice/extensions/struts2/test/com/google/inject/struts2/Struts2FactoryTest.java:[55,19] error: cannot find symbol
+[ERROR]  class StrutsPrepareAndExecuteFilter
+/guice/extensions/struts2/test/com/google/inject/struts2/Struts2FactoryTest.java:[57,35] error: cannot find symbol
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Google Guice 5.0.2-SNAPSHOT:
+[INFO] 
+[INFO] Google Guice ....................................... SUCCESS [  0.427 s]
+[INFO] Google Guice - Bill of Materials ................... SUCCESS [  0.004 s]
+[INFO] Google Guice - Core Library ........................ SUCCESS [01:03 min]
+[INFO] Google Guice - Extensions .......................... SUCCESS [  0.368 s]
+[INFO] Google Guice - Extensions - AssistedInject ......... SUCCESS [  3.014 s]
+[INFO] Google Guice - Extensions - Dagger Adapter ......... SUCCESS [  2.164 s]
+[INFO] Google Guice - Extensions - Grapher ................ SUCCESS [  1.817 s]
+[INFO] Google Guice - Extensions - JMX .................... SUCCESS [  0.624 s]
+[INFO] Google Guice - Extensions - JNDI ................... SUCCESS [  0.867 s]
+[INFO] Google Guice - Extensions - Persist ................ SUCCESS [  6.551 s]
+[INFO] Google Guice - Extensions - Servlet ................ SUCCESS [  3.433 s]
+[INFO] Google Guice - Extensions - Spring ................. SUCCESS [  1.383 s]
+[INFO] Google Guice - Extensions - Struts2 ................ FAILURE [  0.615 s]
+[INFO] Google Guice - Extensions - ThrowingProviders ...... SKIPPED
+[INFO] Google Guice - Extensions - TestLib ................ SKIPPED
+[INFO] Google Guice - JDK8 Tests .......................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:25 min
+[INFO] Finished at: 2025-10-01T14:42:15Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.codehaus.mojo:animal-sniffer-maven-plugin:1.16
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.5
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.apache.maven.plugins:maven-remote-resources-plugin:1.1
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:2.3.2
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile (default-testCompile) on project guice-struts2: Compilation failure: Compilation failure: 
+[ERROR] /guice/extensions/struts2/test/com/google/inject/struts2/Struts2FactoryTest.java:[19,46] error: package org.apache.struts2.dispatcher.ng.filter does not exist
+[ERROR] /guice/extensions/struts2/test/com/google/inject/struts2/Struts2FactoryTest.java:[55,19] error: cannot find symbol
+[ERROR]  class StrutsPrepareAndExecuteFilter
+[ERROR] /guice/extensions/struts2/test/com/google/inject/struts2/Struts2FactoryTest.java:[57,35] error: cannot find symbol
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :guice-struts2

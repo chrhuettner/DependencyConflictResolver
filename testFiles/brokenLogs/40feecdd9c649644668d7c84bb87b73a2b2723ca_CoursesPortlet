@@ -1,0 +1,89 @@
+[INFO] Scanning for projects...
+[WARNING] The project org.jasig.portlet.courses:courses-portlet-parent:pom:2.1.1-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] CoursePortlet                                                      [pom]
+[INFO] CoursePortlet - API                                                [jar]
+[INFO] CoursePortlet - Data Access Objects for SIS/LMS integration        [jar]
+[INFO] CoursePortlet - Webapp                                             [war]
+[INFO] 
+[INFO] ----------< org.jasig.portlet.courses:courses-portlet-parent >----------
+[INFO] Building CoursePortlet 2.1.1-SNAPSHOT                              [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ courses-portlet-parent ---
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ courses-portlet-parent ---
+[INFO] 
+[INFO] -----------< org.jasig.portlet.courses:courses-portlet-api >------------
+[INFO] Building CoursePortlet - API 2.1.1-SNAPSHOT                        [2/4]
+[INFO]   from courses-portlet-api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ courses-portlet-api ---
+[INFO] Deleting /CoursesPortlet/courses-portlet-api/target
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ courses-portlet-api ---
+[INFO] 
+[INFO] --- jaxb2:0.14.0:generate (default) @ courses-portlet-api ---
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.sun.xml.bind.v2.runtime.reflect.opt.Injector (file:/root/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.0/jaxb-runtime-2.3.0.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int)
+WARNING: Please consider reporting this to the maintainers of com.sun.xml.bind.v2.runtime.reflect.opt.Injector
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Sources are not up-to-date, XJC will be executed.
+[INFO] Episode file [/CoursesPortlet/courses-portlet-api/target/generated-sources/xjc/META-INF/sun-jaxb.episode] was augmented with if-exists="true" attributes.
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ courses-portlet-api ---
+[INFO] Copying 5 resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ courses-portlet-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 58 source files to /CoursesPortlet/courses-portlet-api/target/classes
+[INFO] /CoursesPortlet/courses-portlet-api/target/generated-sources/xjc/org/jasig/portlet/courses/model/xml/CourseMeeting.java: Some input files use or override a deprecated API.
+[INFO] /CoursesPortlet/courses-portlet-api/target/generated-sources/xjc/org/jasig/portlet/courses/model/xml/CourseMeeting.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /CoursesPortlet/courses-portlet-api/src/main/java/org/jasig/portlet/courses/model/xml/CourseMeetingWrapper.java:[65,13] exception java.io.IOException is never thrown in body of corresponding try statement
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for CoursePortlet 2.1.1-SNAPSHOT:
+[INFO] 
+[INFO] CoursePortlet ...................................... SUCCESS [  2.944 s]
+[INFO] CoursePortlet - API ................................ FAILURE [ 17.683 s]
+[INFO] CoursePortlet - Data Access Objects for SIS/LMS integration SKIPPED
+[INFO] CoursePortlet - Webapp ............................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.448 s
+[INFO] Finished at: 2025-10-01T09:34:52Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 5 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.10.1
+[WARNING]  * org.jasig.maven:maven-site-plugin:3.1.r1174614
+[WARNING]  * org.jvnet.jaxb2.maven2:maven-jaxb2-plugin:0.14.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:compile (default-compile) on project courses-portlet-api: Compilation failure
+[ERROR] /CoursesPortlet/courses-portlet-api/src/main/java/org/jasig/portlet/courses/model/xml/CourseMeetingWrapper.java:[65,13] exception java.io.IOException is never thrown in body of corresponding try statement
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :courses-portlet-api

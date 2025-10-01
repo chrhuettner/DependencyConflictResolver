@@ -1,0 +1,85 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.github.sabomichal:liquibase-mssql >----------------
+[INFO] Building Liquibase MS SQL Server Extensions 0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ liquibase-mssql ---
+[INFO] Deleting /liquibase-mssql/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ liquibase-mssql ---
+[INFO] skip non existing resourceDirectory /liquibase-mssql/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.6.1:compile (default-compile) @ liquibase-mssql ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to /liquibase-mssql/target/classes
+[INFO] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/InsertGenerator.java: Some input files use unchecked or unsafe operations.
+[INFO] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/InsertGenerator.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] bootstrap class path not set in conjunction with -source 6
+[WARNING] source value 6 is obsolete and will be removed in a future release
+[WARNING] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] To suppress warnings about obsolete options, use -Xlint:-options.
+[WARNING] /liquibase-mssql/src/java/liquibase/ext/mssql/statement/AddPrimaryKeyStatementMSSQL.java:[16,5] AddPrimaryKeyStatement(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) in liquibase.statement.core.AddPrimaryKeyStatement has been deprecated
+[INFO] 5 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/CreateIndexGeneratorMSSQL.java:[12,22] cannot find symbol
+  symbol:   class StringUtils
+  location: package liquibase.util
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/AddPrimaryKeyGeneratorMSSQL.java:[12,22] cannot find symbol
+  symbol:   class StringUtils
+  location: package liquibase.util
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/CreateIndexGeneratorMSSQL.java:[77,9] cannot find symbol
+  symbol:   variable StringUtils
+  location: class liquibase.ext.mssql.sqlgenerator.CreateIndexGeneratorMSSQL
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/AddPrimaryKeyGeneratorMSSQL.java:[67,9] cannot find symbol
+  symbol:   variable StringUtils
+  location: class liquibase.ext.mssql.sqlgenerator.AddPrimaryKeyGeneratorMSSQL
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/database/MSSQLDatabase.java:[18,24] cannot find symbol
+  symbol:   method getInstance()
+  location: class liquibase.executor.ExecutorService
+[INFO] 5 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.512 s
+[INFO] Finished at: 2025-10-01T16:27:53Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.6.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:compile (default-compile) on project liquibase-mssql: Compilation failure: Compilation failure: 
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/CreateIndexGeneratorMSSQL.java:[12,22] cannot find symbol
+[ERROR]   symbol:   class StringUtils
+[ERROR]   location: package liquibase.util
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/AddPrimaryKeyGeneratorMSSQL.java:[12,22] cannot find symbol
+[ERROR]   symbol:   class StringUtils
+[ERROR]   location: package liquibase.util
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/CreateIndexGeneratorMSSQL.java:[77,9] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class liquibase.ext.mssql.sqlgenerator.CreateIndexGeneratorMSSQL
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/sqlgenerator/AddPrimaryKeyGeneratorMSSQL.java:[67,9] cannot find symbol
+[ERROR]   symbol:   variable StringUtils
+[ERROR]   location: class liquibase.ext.mssql.sqlgenerator.AddPrimaryKeyGeneratorMSSQL
+[ERROR] /liquibase-mssql/src/java/liquibase/ext/mssql/database/MSSQLDatabase.java:[18,24] cannot find symbol
+[ERROR]   symbol:   method getInstance()
+[ERROR]   location: class liquibase.executor.ExecutorService
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

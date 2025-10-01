@@ -1,0 +1,237 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for it.geosolutions.geostore:geostore-rest-impl:jar:1.9-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.mockito:mockito-core:jar -> duplicate declaration of version (?) @ line 231, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Master GeoStore POM                                                [pom]
+[INFO] GeoStore - 0 Server Root                                           [pom]
+[INFO] GeoStore - Core                                                    [pom]
+[INFO] GeoStore - Core - Model                                            [jar]
+[INFO] GeoStore - Core - Security                                         [jar]
+[INFO] GeoStore - Core - Persistence                                      [jar]
+[INFO] GeoStore - Core - Services API                                     [jar]
+[INFO] GeoStore - Core - Services implementation                          [jar]
+[INFO] GeoStore - Modules                                                 [pom]
+[INFO] GeoStore - Modules - REST root                                     [pom]
+[INFO] GeoStore - Modules - REST API                                      [jar]
+[INFO] GeoStore - Modules - REST services                                 [jar]
+[INFO] GeoStore - Modules - REST client                                   [jar]
+[INFO] GeoStore - Modules - REST EXTJS services                           [jar]
+[INFO] GeoStore - Modules - REST services test                            [war]
+[INFO] GeoStore - Modules - REST auditing                                 [jar]
+[INFO] GeoStore - Web                                                     [pom]
+[INFO] GeoStore - Webapp                                                  [war]
+[INFO] 
+[INFO] ----------------------< it.geosolutions:geostore >----------------------
+[INFO] Building Master GeoStore POM 1.9-SNAPSHOT                         [1/18]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore ---
+[INFO] 
+[INFO] ---------------< it.geosolutions.geostore:geostore-root >---------------
+[INFO] Building GeoStore - 0 Server Root 1.9-SNAPSHOT                    [2/18]
+[INFO]   from src/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore-root ---
+[INFO] 
+[INFO] ---------------< it.geosolutions.geostore:geostore-core >---------------
+[INFO] Building GeoStore - Core 1.9-SNAPSHOT                             [3/18]
+[INFO]   from src/core/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore-core ---
+[INFO] 
+[INFO] --------------< it.geosolutions.geostore:geostore-model >---------------
+[INFO] Building GeoStore - Core - Model 1.9-SNAPSHOT                     [4/18]
+[INFO]   from src/core/model/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore-model ---
+[INFO] Deleting /geostore/src/core/model/target
+[INFO] 
+[INFO] --- resources:3.0.1:resources (default-resources) @ geostore-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /geostore/src/core/model/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.5.1:compile (default-compile) @ geostore-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /geostore/src/core/model/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] 
+[INFO] --- resources:3.0.1:testResources (default-testResources) @ geostore-model ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /geostore/src/core/model/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.5.1:testCompile (default-testCompile) @ geostore-model ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /geostore/src/core/model/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] 
+[INFO] --- surefire:2.4.2:test (default-test) @ geostore-model ---
+[INFO] Surefire report directory: /geostore/src/core/model/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running it.geosolutions.geostore.core.model.SecurityRuleTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1 (file:/root/.m2/repository/com/sun/xml/bind/jaxb-impl/2.1.2/jaxb-impl-2.1.2.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int)
+WARNING: Please consider reporting this to the maintainers of com.sun.xml.bind.v2.runtime.reflect.opt.Injector$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.535 sec
+Running it.geosolutions.geostore.core.model.UserGroupTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec
+Running it.geosolutions.geostore.core.model.AttributeTest
+Attribute[id is null, name=testatt, numberValue=42.0, type=NUMBER]
+Attribute[id is null, name=testatt, numberValue=42.0, type=NUMBER]
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Attribute type="NUMBER">
+    <name>testatt</name>
+    <value>42.0</value>
+</Attribute>
+
+Attribute[id is null, name=testatt, textValue=test, type=STRING]
+Attribute[id is null, name=testatt, textValue=test, type=STRING]
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Attribute type="STRING">
+    <name>testatt</name>
+    <value>test</value>
+</Attribute>
+
+Attribute[id is null, name=testatt, dateValue=Wed Oct 01 14:07:53 GMT 2025, type=DATE]
+Attribute[id is null, name=testatt, dateValue=Wed Oct 01 14:07:53 GMT 2025, type=DATE]
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Attribute type="DATE">
+    <name>testatt</name>
+    <value>2025-10-01T14:07:53.606+0000</value>
+</Attribute>
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 sec
+Running it.geosolutions.geostore.core.model.UserTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec
+Running it.geosolutions.geostore.core.model.CategoryTest
+Category[id=1, name=testatt]
+Category[id=1, name=testatt]
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Category>
+    <id>1</id>
+    <name>testatt</name>
+</Category>
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running it.geosolutions.geostore.core.model.GroupReservedNamesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+
+Results :
+
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] -------------< it.geosolutions.geostore:geostore-security >-------------
+[INFO] Building GeoStore - Core - Security 1.9-SNAPSHOT                  [5/18]
+[INFO]   from src/core/security/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ geostore-security ---
+[INFO] Deleting /geostore/src/core/security/target
+[INFO] 
+[INFO] --- resources:3.0.1:resources (default-resources) @ geostore-security ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.5.1:compile (default-compile) @ geostore-security ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 26 source files to /geostore/src/core/security/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStorePBEPasswordEncoder.java:[33,33] error: package org.jasypt.spring.security does not exist
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStoreDigestPasswordEncoder.java:[24,33] error: package org.jasypt.spring.security does not exist
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStoreDigestPasswordEncoder.java:[44,15] error: cannot find symbol
+[ERROR]   symbol:   class PasswordEncoder
+  location: class GeoStoreDigestPasswordEncoder
+/geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStorePBEPasswordEncoder.java:[102,3] error: cannot find symbol
+[ERROR]   symbol:   class PBEPasswordEncoder
+  location: class GeoStorePBEPasswordEncoder
+/geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStorePBEPasswordEncoder.java:[102,36] error: cannot find symbol
+[ERROR]   symbol:   class PBEPasswordEncoder
+  location: class GeoStorePBEPasswordEncoder
+/geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStoreDigestPasswordEncoder.java:[45,9] error: cannot find symbol
+[ERROR]   symbol:   class PasswordEncoder
+  location: class GeoStoreDigestPasswordEncoder
+/geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStoreDigestPasswordEncoder.java:[45,39] error: cannot find symbol
+[INFO] 7 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Master GeoStore POM 1.9-SNAPSHOT:
+[INFO] 
+[INFO] Master GeoStore POM ................................ SUCCESS [  0.285 s]
+[INFO] GeoStore - 0 Server Root ........................... SUCCESS [  0.066 s]
+[INFO] GeoStore - Core .................................... SUCCESS [  0.014 s]
+[INFO] GeoStore - Core - Model ............................ SUCCESS [  5.303 s]
+[INFO] GeoStore - Core - Security ......................... FAILURE [  1.625 s]
+[INFO] GeoStore - Core - Persistence ...................... SKIPPED
+[INFO] GeoStore - Core - Services API ..................... SKIPPED
+[INFO] GeoStore - Core - Services implementation .......... SKIPPED
+[INFO] GeoStore - Modules ................................. SKIPPED
+[INFO] GeoStore - Modules - REST root ..................... SKIPPED
+[INFO] GeoStore - Modules - REST API ...................... SKIPPED
+[INFO] GeoStore - Modules - REST services ................. SKIPPED
+[INFO] GeoStore - Modules - REST client ................... SKIPPED
+[INFO] GeoStore - Modules - REST EXTJS services ........... SKIPPED
+[INFO] GeoStore - Modules - REST services test ............ SKIPPED
+[INFO] GeoStore - Modules - REST auditing ................. SKIPPED
+[INFO] GeoStore - Web ..................................... SKIPPED
+[INFO] GeoStore - Webapp .................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.212 s
+[INFO] Finished at: 2025-10-01T14:07:55Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.0.1
+[WARNING]  * org.apache.maven.plugins:maven-surefire-plugin:2.4.2
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.5.1
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.5.1:compile (default-compile) on project geostore-security: Compilation failure: Compilation failure: 
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStorePBEPasswordEncoder.java:[33,33] error: package org.jasypt.spring.security does not exist
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStoreDigestPasswordEncoder.java:[24,33] error: package org.jasypt.spring.security does not exist
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStoreDigestPasswordEncoder.java:[44,15] error: cannot find symbol
+[ERROR]   symbol:   class PasswordEncoder
+[ERROR]   location: class GeoStoreDigestPasswordEncoder
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStorePBEPasswordEncoder.java:[102,3] error: cannot find symbol
+[ERROR]   symbol:   class PBEPasswordEncoder
+[ERROR]   location: class GeoStorePBEPasswordEncoder
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStorePBEPasswordEncoder.java:[102,36] error: cannot find symbol
+[ERROR]   symbol:   class PBEPasswordEncoder
+[ERROR]   location: class GeoStorePBEPasswordEncoder
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStoreDigestPasswordEncoder.java:[45,9] error: cannot find symbol
+[ERROR]   symbol:   class PasswordEncoder
+[ERROR]   location: class GeoStoreDigestPasswordEncoder
+[ERROR] /geostore/src/core/security/src/main/java/it/geosolutions/geostore/core/security/password/GeoStoreDigestPasswordEncoder.java:[45,39] error: cannot find symbol
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :geostore-security

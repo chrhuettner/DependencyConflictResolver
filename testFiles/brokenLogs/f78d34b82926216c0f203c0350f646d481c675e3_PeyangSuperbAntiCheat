@@ -1,0 +1,215 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< ml.peya.plugins:PeyangSuperbAntiCheat >----------------
+[INFO] Building PeyangSuperbAntiCheat 0.2.1a
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/net/md-5/bungeecord-api/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/md-5/bungeecord-api/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/bungeecord-api/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/net/md-5/bungeecord-api/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-api/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/net/md-5/bungeecord-api/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/net/md-5/bungeecord-api/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-api/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-api/1.12-SNAPSHOT/maven-metadata.xml (1.2 kB at 1.2 kB/s)
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/net/md-5/bungeecord-parent/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/bungeecord-parent/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/md-5/bungeecord-parent/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/net/md-5/bungeecord-parent/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-parent/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/net/md-5/bungeecord-parent/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/net/md-5/bungeecord-parent/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-parent/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-parent/1.12-SNAPSHOT/maven-metadata.xml (602 B at 1.7 kB/s)
+[INFO] Artifact net.md-5:bungeecord-parent:pom:1.12-20180712.114540-97 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [spigot-repo (https://hub.spigotmc.org/nexus/content/repositories/snapshots/, default, releases+snapshots), dmulloy2-repo (https://repo.dmulloy2.net/content/groups/public/, default, releases+snapshots), minecraft-repo (https://libraries.minecraft.net/, default, releases+snapshots), jitpack.io (https://jitpack.io, default, releases+snapshots), bungeecord-repo (https://oss.sonatype.org/content/repositories/snapshots, default, releases+snapshots), md_5-snapshots (https://repo.md-5.net/content/repositories/snapshots/, default, releases+snapshots), md_5-releases (https://repo.md-5.net/content/repositories/releases/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases), sonatype-repo (https://oss.sonatype.org/content/groups/public/, default, releases+snapshots)]
+[INFO] Artifact net.md-5:bungeecord-parent:pom:1.12-20180712.114540-97 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [spigot-repo (https://hub.spigotmc.org/nexus/content/repositories/snapshots/, default, releases+snapshots), dmulloy2-repo (https://repo.dmulloy2.net/content/groups/public/, default, releases+snapshots), minecraft-repo (https://libraries.minecraft.net/, default, releases+snapshots), jitpack.io (https://jitpack.io, default, releases+snapshots), bungeecord-repo (https://oss.sonatype.org/content/repositories/snapshots, default, releases+snapshots), md_5-snapshots (https://repo.md-5.net/content/repositories/snapshots/, default, releases+snapshots), md_5-releases (https://repo.md-5.net/content/repositories/releases/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases), sonatype-repo (https://oss.sonatype.org/content/groups/public/, default, releases+snapshots)]
+[INFO] Downloading from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-parent/1.12-SNAPSHOT/bungeecord-parent-1.12-20180712.114540-97.pom
+[INFO] Downloaded from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-parent/1.12-SNAPSHOT/bungeecord-parent-1.12-20180712.114540-97.pom (0 B at 0 B/s)
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.9 kB/s)
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/bungeecord-config/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/net/md-5/bungeecord-config/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/net/md-5/bungeecord-config/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/md-5/bungeecord-config/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-config/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/net/md-5/bungeecord-config/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/net/md-5/bungeecord-config/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-config/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-config/1.12-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.3 kB/s)
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/bungeecord-event/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/net/md-5/bungeecord-event/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/net/md-5/bungeecord-event/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/md-5/bungeecord-event/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-event/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/net/md-5/bungeecord-event/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/net/md-5/bungeecord-event/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-event/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-event/1.12-SNAPSHOT/maven-metadata.xml (1.2 kB at 4.0 kB/s)
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from sonatype-repo: https://oss.sonatype.org/content/groups/public/net/md-5/bungeecord-protocol/1.12-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.9 kB/s)
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml (1.5 kB at 1.8 kB/s)
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/org/spigotmc/spigot/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/org/spigotmc/spigot/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/org/spigotmc/spigot/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/org/spigotmc/spigot/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/org/spigotmc/spigot/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/org/spigotmc/spigot/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-parent/dev-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/org/spigotmc/spigot-parent/dev-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/org/spigotmc/spigot-parent/dev-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/org/spigotmc/spigot-parent/dev-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/org/spigotmc/spigot-parent/dev-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/org/spigotmc/spigot-parent/dev-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/org/spigotmc/spigot-parent/dev-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigotmc-public: https://hub.spigotmc.org/nexus/content/groups/public/org/spigotmc/spigot-parent/dev-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/org/spigotmc/spigot-parent/dev-SNAPSHOT/maven-metadata.xml (604 B at 1.7 kB/s)
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/org/spigotmc/spigot-parent/dev-SNAPSHOT/spigot-parent-dev-20140904.092435-1106.pom
+[INFO] Downloaded from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/org/spigotmc/spigot-parent/dev-SNAPSHOT/spigot-parent-dev-20140904.092435-1106.pom (1.6 kB at 4.7 kB/s)
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/bukkit/bukkit/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/org/bukkit/bukkit/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/org/bukkit/bukkit/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/org/bukkit/bukkit/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/org/bukkit/bukkit/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/org/bukkit/bukkit/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/org/bukkit/bukkit/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/bukkit/bukkit/1.12.2-R0.1-SNAPSHOT/maven-metadata.xml (1.5 kB at 1.7 kB/s)
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/brigadier/1.0.16-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/net/md-5/brigadier/1.0.16-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/net/md-5/brigadier/1.0.16-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/net/md-5/brigadier/1.0.16-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/brigadier/1.0.16-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/net/md-5/brigadier/1.0.16-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/net/md-5/brigadier/1.0.16-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from sonatype-nexus-snapshots: https://oss.sonatype.org/content/repositories/snapshots/net/md-5/brigadier/1.0.16-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from spigot-repo: https://hub.spigotmc.org/nexus/content/repositories/snapshots/fr/neatmonster/nocheatplus/3.16.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from dmulloy2-repo: https://repo.dmulloy2.net/content/groups/public/fr/neatmonster/nocheatplus/3.16.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from jitpack.io: https://jitpack.io/fr/neatmonster/nocheatplus/3.16.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from minecraft-repo: https://libraries.minecraft.net/fr/neatmonster/nocheatplus/3.16.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from bungeecord-repo: https://oss.sonatype.org/content/repositories/snapshots/fr/neatmonster/nocheatplus/3.16.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/fr/neatmonster/nocheatplus/3.16.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloading from md_5-releases: https://repo.md-5.net/content/repositories/releases/fr/neatmonster/nocheatplus/3.16.1-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from md_5-snapshots: https://repo.md-5.net/content/repositories/snapshots/fr/neatmonster/nocheatplus/3.16.1-SNAPSHOT/maven-metadata.xml (781 B at 2.4 kB/s)
+[INFO] Downloading from spigotmc-public: https://hub.spigotmc.org/nexus/content/groups/public/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml
+[INFO] Downloaded from spigotmc-public: https://hub.spigotmc.org/nexus/content/groups/public/net/md-5/bungeecord-chat/1.12-SNAPSHOT/maven-metadata.xml (1.2 kB at 1.4 kB/s)
+[INFO] Artifact net.md-5:bungeecord-chat:jar:1.12-20180712.114550-97 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [spigot-repo (https://hub.spigotmc.org/nexus/content/repositories/snapshots/, default, releases+snapshots), dmulloy2-repo (https://repo.dmulloy2.net/content/groups/public/, default, releases+snapshots), minecraft-repo (https://libraries.minecraft.net/, default, releases+snapshots), jitpack.io (https://jitpack.io, default, releases+snapshots), bungeecord-repo (https://oss.sonatype.org/content/repositories/snapshots, default, releases+snapshots), md_5-snapshots (https://repo.md-5.net/content/repositories/snapshots/, default, releases+snapshots), md_5-releases (https://repo.md-5.net/content/repositories/releases/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases), spigotmc-public (https://hub.spigotmc.org/nexus/content/groups/public/, default, releases+snapshots)]
+[INFO] Artifact net.md-5:bungeecord-chat:jar:1.12-20180712.114550-97 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [spigot-repo (https://hub.spigotmc.org/nexus/content/repositories/snapshots/, default, releases+snapshots), dmulloy2-repo (https://repo.dmulloy2.net/content/groups/public/, default, releases+snapshots), minecraft-repo (https://libraries.minecraft.net/, default, releases+snapshots), jitpack.io (https://jitpack.io, default, releases+snapshots), bungeecord-repo (https://oss.sonatype.org/content/repositories/snapshots, default, releases+snapshots), md_5-snapshots (https://repo.md-5.net/content/repositories/snapshots/, default, releases+snapshots), md_5-releases (https://repo.md-5.net/content/repositories/releases/, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases), spigotmc-public (https://hub.spigotmc.org/nexus/content/groups/public/, default, releases+snapshots)]
+[INFO] Downloading from spigotmc-public: https://hub.spigotmc.org/nexus/content/groups/public/net/md-5/bungeecord-chat/1.12-SNAPSHOT/bungeecord-chat-1.12-20180712.114550-97.jar
+[INFO] Downloaded from spigotmc-public: https://hub.spigotmc.org/nexus/content/groups/public/net/md-5/bungeecord-chat/1.12-SNAPSHOT/bungeecord-chat-1.12-20180712.114550-97.jar (0 B at 0 B/s)
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ PeyangSuperbAntiCheat ---
+[INFO] Deleting /PeyangSuperbAntiCheat/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ PeyangSuperbAntiCheat ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 8 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ PeyangSuperbAntiCheat ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 93 source files to /PeyangSuperbAntiCheat/target/classes
+[INFO] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/BungeeStructure/CommandManager.java: Some input files use or override a deprecated API.
+[INFO] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/BungeeStructure/CommandManager.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Learn/Neuron.java:[5,30] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Learn/Neuron.java:[5,1] static import only from classes and interfaces
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Objects/Decorations.java:[3,23] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[3,1] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Utils/PlayerUtils.java:[113,36] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Utils/PlayerUtils.java:[114,35] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Learn/Neuron.java:[50,18] cannot find symbol
+  symbol:   method sigmoid(double)
+  location: class ml.peya.plugins.Learn.Neuron
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Objects/Decorations.java:[185,9] cannot find symbol
+  symbol:   class WaveCreator
+  location: class ml.peya.plugins.Objects.Decorations
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Objects/Decorations.java:[185,32] cannot find symbol
+  symbol:   class WaveCreator
+  location: class ml.peya.plugins.Objects.Decorations
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[161,9] cannot find symbol
+  symbol:   class WaveCreator
+  location: class ml.peya.plugins.Detect.NPCTeleport
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[161,31] cannot find symbol
+  symbol:   class WaveCreator
+  location: class ml.peya.plugins.Detect.NPCTeleport
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[179,40] cannot find symbol
+  symbol: class WaveCreator
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[186,45] cannot find symbol
+  symbol: class WaveCreator
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[220,27] cannot find symbol
+  symbol: class WaveCreator
+[INFO] 14 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.082 s
+[INFO] Finished at: 2025-10-01T16:09:09Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 2 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.8.1
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project PeyangSuperbAntiCheat: Compilation failure: Compilation failure: 
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Learn/Neuron.java:[5,30] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Learn/Neuron.java:[5,1] static import only from classes and interfaces
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Objects/Decorations.java:[3,23] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[3,1] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Utils/PlayerUtils.java:[113,36] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Utils/PlayerUtils.java:[114,35] package develop.p2p.lib does not exist
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Learn/Neuron.java:[50,18] cannot find symbol
+[ERROR]   symbol:   method sigmoid(double)
+[ERROR]   location: class ml.peya.plugins.Learn.Neuron
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Objects/Decorations.java:[185,9] cannot find symbol
+[ERROR]   symbol:   class WaveCreator
+[ERROR]   location: class ml.peya.plugins.Objects.Decorations
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Objects/Decorations.java:[185,32] cannot find symbol
+[ERROR]   symbol:   class WaveCreator
+[ERROR]   location: class ml.peya.plugins.Objects.Decorations
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[161,9] cannot find symbol
+[ERROR]   symbol:   class WaveCreator
+[ERROR]   location: class ml.peya.plugins.Detect.NPCTeleport
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[161,31] cannot find symbol
+[ERROR]   symbol:   class WaveCreator
+[ERROR]   location: class ml.peya.plugins.Detect.NPCTeleport
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[179,40] cannot find symbol
+[ERROR]   symbol: class WaveCreator
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[186,45] cannot find symbol
+[ERROR]   symbol: class WaveCreator
+[ERROR] /PeyangSuperbAntiCheat/src/main/java/ml/peya/plugins/Detect/NPCTeleport.java:[220,27] cannot find symbol
+[ERROR]   symbol: class WaveCreator
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,271 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] jadler-pom                                                         [pom]
+[INFO] jadler-core                                                        [jar]
+[INFO] jadler-jetty                                                       [jar]
+[INFO] jadler-junit                                                       [jar]
+[INFO] jadler-jdk                                                         [jar]
+[INFO] jadler-all                                                         [jar]
+[INFO] 
+[INFO] -----------------------< net.jadler:jadler-pom >------------------------
+[INFO] Building jadler-pom 1.3.1-SNAPSHOT                                 [1/6]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jadler-pom ---
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ jadler-pom ---
+[INFO] 
+[INFO] -----------------------< net.jadler:jadler-core >-----------------------
+[INFO] Building jadler-core 1.3.1-SNAPSHOT                                [2/6]
+[INFO]   from jadler-core/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jadler-core ---
+[INFO] Deleting /jadler/jadler-core/target
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ jadler-core ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ jadler-core ---
+[INFO] skip non existing resourceDirectory /jadler/jadler-core/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ jadler-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 32 source files to /jadler/jadler-core/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[WARNING] /jadler/jadler-core/src/main/java/net/jadler/Jadler.java:[783,41] [deprecation] newInstance() in Class has been deprecated
+  where T is a type-variable:
+    T extends Object declared in class Class
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ jadler-core ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.9.0:testCompile (default-testCompile) @ jadler-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 18 source files to /jadler/jadler-core/target/test-classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ jadler-core ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running net.jadler.JadlerMockerTest
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(264) net.jadler.JadlerMocker: No suitable rule found. Reason:
+
+[main] [INFO] JadlerMocker.java(454) net.jadler.JadlerMocker: Verification failed, here is a list of requests received so far:
+Request #1: {method=GET, URI=/r1, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+Request #2: {method=GET, URI=/r2, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+Request #3: {method=GET, URI=/r3, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+Request #4: {method=GET, URI=/r4, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+Request #5: {method=GET, URI=/r5, parameters=[], headers=[], encoding=<none>, body=<empty>}
+  matching predicates: <none>
+  clashing predicates: <none>
+log4j:WARN No appenders could be found for logger (net.jadler.JadlerMocker).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+[INFO] Tests run: 54, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.161 s - in net.jadler.JadlerMockerTest
+[INFO] Running net.jadler.AbstractRequestMatchingTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in net.jadler.AbstractRequestMatchingTest
+[INFO] Running net.jadler.stubbing.StubResponseTest
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in net.jadler.stubbing.StubResponseTest
+[INFO] Running net.jadler.stubbing.HttpStubTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in net.jadler.stubbing.HttpStubTest
+[INFO] Running net.jadler.stubbing.StubbingTest
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.mockito.internal.util.reflection.ReflectionMemberAccessor (file:/root/.m2/repository/org/mockito/mockito-core/4.3.1/mockito-core-4.3.1.jar) to field java.io.ByteArrayInputStream.buf
+WARNING: Please consider reporting this to the maintainers of org.mockito.internal.util.reflection.ReflectionMemberAccessor
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in net.jadler.stubbing.StubbingTest
+[INFO] Running net.jadler.stubbing.StaticResponderTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in net.jadler.stubbing.StaticResponderTest
+[INFO] Running net.jadler.stubbing.MutableStubResponseTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in net.jadler.stubbing.MutableStubResponseTest
+[INFO] Running net.jadler.mocking.VerifyingTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in net.jadler.mocking.VerifyingTest
+[INFO] Running net.jadler.KeyValuesTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in net.jadler.KeyValuesTest
+[INFO] Running net.jadler.matchers.PathRequestMatcherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in net.jadler.matchers.PathRequestMatcherTest
+[INFO] Running net.jadler.matchers.MethodRequestMatcherTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in net.jadler.matchers.MethodRequestMatcherTest
+[INFO] Running net.jadler.matchers.HeaderRequestMatcherTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in net.jadler.matchers.HeaderRequestMatcherTest
+[INFO] Running net.jadler.matchers.ParameterRequestMatcherTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in net.jadler.matchers.ParameterRequestMatcherTest
+[INFO] Running net.jadler.matchers.QueryStringRequestMatcherTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in net.jadler.matchers.QueryStringRequestMatcherTest
+[INFO] Running net.jadler.matchers.RawBodyRequestMatcherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in net.jadler.matchers.RawBodyRequestMatcherTest
+[INFO] Running net.jadler.matchers.BodyRequestMatcherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in net.jadler.matchers.BodyRequestMatcherTest
+[INFO] Running net.jadler.matchers.RequestMatcherTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in net.jadler.matchers.RequestMatcherTest
+[INFO] Running net.jadler.RequestTest
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in net.jadler.RequestTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 235, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] ----------------------< net.jadler:jadler-jetty >-----------------------
+[INFO] Building jadler-jetty 1.3.1-SNAPSHOT                               [3/6]
+[INFO]   from jadler-jetty/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jadler-jetty ---
+[INFO] Deleting /jadler/jadler-jetty/target
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ jadler-jetty ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ jadler-jetty ---
+[INFO] skip non existing resourceDirectory /jadler/jadler-jetty/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.9.0:compile (default-compile) @ jadler-jetty ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /jadler/jadler-jetty/target/classes
+[WARNING] Unable to autodetect 'javac' path, using 'javac' from the environment.
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] [options] bootstrap class path not set in conjunction with -source 6
+[WARNING] [options] source value 6 is obsolete and will be removed in a future release
+[WARNING] [options] target value 1.6 is obsolete and will be removed in a future release
+[WARNING] [options] To suppress warnings about obsolete options, use -Xlint:-options.
+[INFO] 4 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[14,35] error: package org.eclipse.jetty.server.nio does not exist
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JadlerHandler.java:[24] error: JadlerHandler is not abstract and does not override abstract method handle(String,Request,HttpServletRequest,HttpServletResponse) in AbstractHandler
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JadlerHandler.java:[38,4] error: method does not override or implement a method from a supertype
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[33,19] error: cannot find symbol
+  symbol:   method setSendServerVersion(boolean)
+  location: variable server of type Server
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[34,19] error: cannot find symbol
+  symbol:   method setSendDateHeader(boolean)
+  location: variable server of type Server
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[36,33] error: cannot find symbol
+  symbol:   class SelectChannelConnector
+  location: class JettyStubHttpServer
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[37,26] error: cannot find symbol
+  symbol:   method setPort(int)
+  location: variable httpConnector of type Connector
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[80,28] error: cannot find symbol
+  symbol:   method getLocalPort()
+  location: variable httpConnector of type Connector
+[INFO] 8 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for jadler-pom 1.3.1-SNAPSHOT:
+[INFO] 
+[INFO] jadler-pom ......................................... SUCCESS [  1.017 s]
+[INFO] jadler-core ........................................ SUCCESS [  6.944 s]
+[INFO] jadler-jetty ....................................... FAILURE [  1.746 s]
+[INFO] jadler-junit ....................................... SKIPPED
+[INFO] jadler-jdk ......................................... SKIPPED
+[INFO] jadler-all ......................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.219 s
+[INFO] Finished at: 2025-10-01T15:17:10Z
+[INFO] ------------------------------------------------------------------------
+[WARNING] 
+[WARNING] Plugin validation issues were detected in 3 plugin(s)
+[WARNING] 
+[WARNING]  * org.apache.maven.plugins:maven-compiler-plugin:3.9.0
+[WARNING]  * org.apache.maven.plugins:maven-resources-plugin:3.3.0
+[WARNING]  * org.apache.maven.plugins:maven-enforcer-plugin:1.0
+[WARNING] 
+[WARNING] For more or less details, use 'maven.plugin.validation' property with one of the values (case insensitive): [BRIEF, DEFAULT, VERBOSE]
+[WARNING] 
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.9.0:compile (default-compile) on project jadler-jetty: Compilation failure: Compilation failure: 
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[14,35] error: package org.eclipse.jetty.server.nio does not exist
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JadlerHandler.java:[24] error: JadlerHandler is not abstract and does not override abstract method handle(String,Request,HttpServletRequest,HttpServletResponse) in AbstractHandler
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JadlerHandler.java:[38,4] error: method does not override or implement a method from a supertype
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[33,19] error: cannot find symbol
+[ERROR]   symbol:   method setSendServerVersion(boolean)
+[ERROR]   location: variable server of type Server
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[34,19] error: cannot find symbol
+[ERROR]   symbol:   method setSendDateHeader(boolean)
+[ERROR]   location: variable server of type Server
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[36,33] error: cannot find symbol
+[ERROR]   symbol:   class SelectChannelConnector
+[ERROR]   location: class JettyStubHttpServer
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[37,26] error: cannot find symbol
+[ERROR]   symbol:   method setPort(int)
+[ERROR]   location: variable httpConnector of type Connector
+[ERROR] /jadler/jadler-jetty/src/main/java/net/jadler/stubbing/server/jetty/JettyStubHttpServer.java:[80,28] error: cannot find symbol
+[ERROR]   symbol:   method getLocalPort()
+[ERROR]   location: variable httpConnector of type Connector
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :jadler-jetty
