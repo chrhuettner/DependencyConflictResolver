@@ -27,34 +27,55 @@ public class Main {
     public static String codeStart = "---BEGIN UPDATED java CODE---";
     public static String codeEnd = "---END UPDATED java CODE---";
 
-    static String promptTemplate = """
+    static String promptTemplatePrefix = """
             You are a software migration assistant.
             
             I am upgrading my project from %s %s to version %s of a dependency that includes breaking API changes.
             
             You are given the following input:
-            
-            1. **Method-level diff** showing changes to the method being used in my code:
+            """;
+    static String promptTemplateMethodDiff  = """
+            **Method-level diff** showing changes to the method being used in my code:
             ```diff
             %s
             ```
-            
-            2. **Full diff of the dependency** between versions %s and %s (for additional context):
+            """;
+    static String promptTemplateFullDiff = """
+            **Full diff of the dependency** between versions %s and %s (for additional context):
             ```diff
             %s
             ```
+            """;
+    static String promptTemplateErroneousClass = """
             
-            3. **Line of code from my project** that is broken after the upgrade to version %s:
+            Class from my project that is broken after the upgrade to version %s, provided to you as a list seperated by commas:
+            ```
+            %s
+            ```
+            """;
+    static String promptTemplateCodeLine = """ 
+            **Line of code from my project** that is broken after the upgrade to version %s:
             ```java
             %s
             ```
-            
-            
-            4. **Method-similarity** showing similar methods that could be used instead of the broken one:
+            """;
+    static String promptTemplateSimilarity = """       
+            **Method-similarity** showing similar methods that could be used instead of the broken one:
             ```similarity
             %s
             ```
+            """;
+    static String promptTemplateError = """
             
+            **Error** showing the error:
+            ```
+            %s
+            ```
+            """;
+
+
+
+    static String promptTemplateSuffix = """    
             ----
             
             Your task:
@@ -86,6 +107,7 @@ public class Main {
             - Do NOT output anything before or after the required format.
             - Do NOT explain anything outside the two-sentence explanation above.
             - Do NOT include headings, intros, or closing remarks.
+            - Only start your updated java code with slashes if you want it to be commented out code!
             
             Your response will be **automatically parsed**, so it must match the format **exactly**.
             """;
@@ -116,16 +138,16 @@ public class Main {
         //providers.add(chatgptProvider);
         //providers.add(claudeProvider);
         //providers.add(codeLama7bProvider);
-        //providers.add(codeLama13bProvider);
-        //providers.add(codeGemma7bProvider);   //Unpromising
-        //providers.add(deepseekCoder6b7Provider);    //Unpromising
-        //providers.add(starCoder2_7bProvider);       //Unpromising
+        providers.add(codeLama13bProvider);
+        providers.add(codeGemma7bProvider);   //Unpromising
+        providers.add(deepseekCoder6b7Provider);    //Unpromising
+        providers.add(starCoder2_7bProvider);       //Unpromising
         //providers.add(deepSeekR1b5);                //Unpromising
         providers.add(qwen3_8b);
-        //providers.add(starCoder2_15bProvider);   //Unpromising
-        //providers.add(cogito8bProvider);
-        //providers.add(deepseekR1_7b);
-        //providers.add(gptOss20b);
+        providers.add(starCoder2_15bProvider);   //Unpromising
+        providers.add(cogito8bProvider);
+        providers.add(deepseekR1_7b);
+        providers.add(gptOss20b);
 
         String oldVersion = "5.6.15.Final";
         String newVersion = "7.0.4.Final";
@@ -159,8 +181,8 @@ public class Main {
         String[] gsonParameterTypeNames = new String[]{"java.lang.String"};
         String gsonName = "Gson";
 
-        //String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate, hibernateParameterTypeNames);
-        String prompt = buildPrompt(gsonName, gsonOldVersion, gsonNewVersion, gsonLeft, gsonRight, gsonClassName, gsonMethodName, brokenCodeGson, gsonParameterTypeNames);
+        String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate, hibernateParameterTypeNames, "", "");
+        //String prompt = buildPrompt(gsonName, gsonOldVersion, gsonNewVersion, gsonLeft, gsonRight, gsonClassName, gsonMethodName, brokenCodeGson, gsonParameterTypeNames);
 
         System.out.println(prompt);
 
@@ -215,7 +237,7 @@ public class Main {
 
             for (int j = 0; j < method.getParameters().size(); j++) {
                 JApiParameter parameter = method.getParameters().get(j);
-                if(!parameter.getType().equals(parameterTypeNames[j]) && !parameterTypeNames[j].equals("java.lang.Object")) {
+                if (!parameter.getType().equals(parameterTypeNames[j]) && !parameterTypeNames[j].equals("java.lang.Object")) {
                     candidates.remove(i);
                     break;
                 }
@@ -242,7 +264,8 @@ public class Main {
         return result;
     }
 
-    public static String buildPrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName, String brokenMethodName, String brokenCode, String[] parameterTypeNames) {
+    public static String buildPrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName,
+                                     String brokenMethodName, String brokenCode, String[] parameterTypeNames, String error, String erroneousClass) {
         JarDiffUtil jarDiffUtil = new JarDiffUtil(pathToOldLibraryJar, pathToNewLibraryJar);
 
         ClassDiffResult classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName);
@@ -250,7 +273,7 @@ public class Main {
         StringBuilder methodSimilarityString = new StringBuilder();
 
         for (SimilarityResult result : classDiffResult.similarMethods()) {
-            String formattedString = String.format("Similarity between '%s' and '%s': %.4f%n", brokenMethodName, JarDiffUtil.getFullMethodSignature(result.method().getNewMethod().get(), result.method().getReturnType().getNewReturnType()), result.similarity());
+            String formattedString = String.format("Similarity between '%s' and '%s': %.4f%n", brokenMethodName, JarDiffUtil.getFullMethodSignature(result.method().getNewMethod().get().toString(), result.method().getReturnType().getNewReturnType(), true), result.similarity());
             methodSimilarityString.append(formattedString).append(System.lineSeparator());
         }
 
@@ -263,19 +286,40 @@ public class Main {
             System.out.println(conflictType.name());
         }
 
+        StringBuilder assembledPrompt = new StringBuilder();
 
-        return String.format(promptTemplate,
-                libraryName,
-                oldVersion,
-                newVersion,
-                JarDiffUtil.buildMethodChangeReport(conflictingMethod),
-                newVersion,
-                oldVersion,
-                classDiffResult.classDiff(),
-                newVersion,
-                brokenCode,
-                methodSimilarityString
-        );
+        assembledPrompt.append(String.format(promptTemplatePrefix,  libraryName, oldVersion, newVersion));
+
+        String methodChange = JarDiffUtil.buildMethodChangeReport(conflictingMethod);
+        if(!methodChange.isEmpty()){
+            assembledPrompt.append(String.format(promptTemplateMethodDiff,  methodChange));
+        }
+
+        if(!classDiffResult.classDiff().isEmpty()){
+            assembledPrompt.append(String.format(promptTemplateFullDiff,  newVersion, oldVersion, classDiffResult.classDiff()));
+        }
+
+        if(!erroneousClass.isEmpty()){
+            //assembledPrompt.append(String.format(promptTemplateErroneousClass,  newVersion, erroneousClass));
+        }
+
+        if(!brokenCode.isEmpty()){
+            assembledPrompt.append(String.format(promptTemplateCodeLine,  newVersion, brokenCode));
+        }
+
+        if(!methodSimilarityString.isEmpty()){
+            assembledPrompt.append(String.format(promptTemplateSimilarity,  methodSimilarityString));
+        }
+
+        if(!error.isEmpty()){
+            assembledPrompt.append(String.format(promptTemplateError,  error));
+        }
+
+        assembledPrompt.append(promptTemplateSuffix);
+
+
+
+        return assembledPrompt.toString();
     }
 
     /*public static String getJarDiff(String file1, String file2, String fullyQualifiedCallerClassName, String methodName) {

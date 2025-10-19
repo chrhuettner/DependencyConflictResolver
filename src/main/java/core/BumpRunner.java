@@ -32,17 +32,18 @@ import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static core.LogParser.parseLog;
 import static core.Main.buildPrompt;
 
 public class BumpRunner {
 
     private static boolean useContainerExtraction = true;
+    private static boolean usePromptCaching = false;
 
     public static void main(String[] args) {
         String targetDirectory = "testFiles/downloaded";
@@ -69,6 +70,9 @@ public class BumpRunner {
         AIProvider cogito8bProvider = new OllamaProvider("cogito:8b");
         AIProvider deepseekR1_7b = new OllamaProvider("deepseek-r1:7b");
         AIProvider gptOss20b = new OllamaProvider("gpt-oss:20b");
+        AIProvider gptOss120bCloud = new OllamaProvider("gpt-oss:120b-cloud");
+
+        AIProvider activeProvider = gptOss120bCloud;
 
         List<AIProvider> providers = new ArrayList<>();
 
@@ -80,7 +84,8 @@ public class BumpRunner {
         //providers.add(deepseekCoder6b7Provider);    //Unpromising
         //providers.add(starCoder2_7bProvider);       //Unpromising
         //providers.add(deepSeekR1b5);                //Unpromising
-        providers.add(qwen3_8b);
+        // providers.add(qwen3_8b);
+        //providers.add(gptOss20b);
 
         // Edit docker desktop to expose this port
         DockerClientConfig config = DefaultDockerClientConfig.createDefaultConfigBuilder()
@@ -97,7 +102,7 @@ public class BumpRunner {
 
         DockerClient dockerClient = DockerClientImpl.getInstance(config, dockerHttpClient);
 
-        File bumpFolder = new File("testFiles/BUMP");
+        File bumpFolder = new File("testFiles/BUMPSubset");
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<String> validEntryNames = new ArrayList<>();
@@ -107,7 +112,8 @@ public class BumpRunner {
         AtomicInteger activeThreadCount = new AtomicInteger();
         AtomicInteger failedFixes = new AtomicInteger();
         AtomicInteger successfulFixes = new AtomicInteger();
-        int limit = 2;
+
+        int limit = 4;
         for (File file : bumpFolder.listFiles()) {
             while (activeThreadCount.getAndUpdate(operand -> {
                 if (operand >= limit) {
@@ -152,7 +158,13 @@ public class BumpRunner {
                         return;
                     }
 
-                    /*if (!project.startsWith("allure-maven") || !file.getName().equals("16ae40b1e17e14ee3ae20ac211647e47399a01a9.json")) {
+                   /* if(totalPairs.get() > 3){
+                        return;
+                    }*/
+
+                    // cd5bb39f43e4570b875027073da3d4e43349ead1.json requires plexus-xml in new version => pom edit needed
+
+                    /*if (!file.getName().equals("d9d866185ffa05b8d42b00801f17e4db92ae78bd.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }*/
@@ -182,48 +194,271 @@ public class BumpRunner {
                         getBrokenLogFromContainer(dockerClient, brokenUpdateImage, project, strippedFileName);
                     }
 
-                    HashMap<String, int[]> failedClasses = readLogs(project, "testFiles/brokenLogs", strippedFileName);
+                    //HashMap<String, int[]> failedClasses = readLogs(project, "testFiles/brokenLogs", strippedFileName);
+                    //directory + "/" + fileName + "_" + projectName
+                    List<Object> errors = parseLog(Path.of("testFiles/brokenLogs" + "/" + strippedFileName + "_" + project));
 
-                    for (String className : failedClasses.keySet()) {
-                        System.out.println(className + " " + failedClasses.get(className)[0] + " " + failedClasses.get(className)[1]);
-                        String strippedClassName = className.substring(className.lastIndexOf("/") + 1);
+                    for (int i = errors.size() - 1; i >= 0; i--) {
+                        LogParser.CompileError compileError = null;
+                        if (errors.get(i) instanceof LogParser.CompileError) {
+                            compileError = (LogParser.CompileError) errors.get(i);
+                        }
+
+                        for (int j = i - 1; j >= 0; j--) {
+                            if (errors.get(j) instanceof LogParser.CompileError && compileError != null) {
+                                LogParser.CompileError innerCompileError = (LogParser.CompileError) errors.get(j);
+                                if (innerCompileError.line == compileError.line) {
+                                    // Keep details
+                                    ((LogParser.CompileError)errors.get(i)).details.putAll(((LogParser.CompileError)errors.get(j)).details);
+                                    errors.remove(j);
+                                    i--;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    List<ProposedChange> proposedChanges = new ArrayList<>();
+                    HashMap<String, ProposedChange> errorSet = new HashMap<>();
+                    System.out.println(project + " contains " + errors.size() + " errors");
+                    errorloop:
+                    for (Object error : errors) {
+                        if (!(error instanceof LogParser.CompileError)) {
+                            continue;
+                        }
+                        LogParser.CompileError compileError = (LogParser.CompileError) error;
+
+                        System.out.println(compileError.file + " " + compileError.line + " " + compileError.column);
+                        String targetClass = "";
+                        String targetMethod = "";
+                        String[] targetMethodParameterClassNames = new String[0];
+                        int errorIndex = -1;
+                        if (compileError.message.equals("cannot find symbol")) {
+                            if (compileError.details.containsKey("symbol")) {
+                                String sym = compileError.details.get("symbol");
+                                if(sym.startsWith("class")){
+                                    targetClass = sym.substring(sym.indexOf("class") + "class".length() + 1);
+                                }else{
+                                    errorIndex = compileError.column;
+
+                                }
+                                //targetClass = compileError.details.get("location");
+                                //targetClass = targetClass.substring(targetClass.lastIndexOf(".") + 1);
+
+                            } else {
+                                errorIndex = compileError.column;
+                            }
+                        }
+
+                        if (compileError.details.containsKey("symbol")) {
+                            targetMethod = compileError.details.get("symbol");
+                            if (targetMethod.startsWith("method")) {
+                                targetMethod = targetMethod.substring(targetMethod.indexOf(" ") + 1);
+                                if (targetMethod.indexOf("(") != targetMethod.indexOf(")") - 1) {
+                                    String parameterString = targetMethod.substring(targetMethod.indexOf("(") + 1, targetMethod.indexOf(")"));
+                                    String[] parameters = parameterString.split(",");
+                                    targetMethodParameterClassNames = new String[parameters.length];
+                                    for (int i = 0; i < parameters.length; i++) {
+                                        switch (parameters[i]) {
+                                            case "boolean":
+                                                targetMethodParameterClassNames[i] = Boolean.class.getName();
+                                                break;
+                                            case "int":
+                                                targetMethodParameterClassNames[i] = Integer.class.getName();
+                                                break;
+                                            case "double":
+                                                targetMethodParameterClassNames[i] = Double.class.getName();
+                                                break;
+                                            case "float":
+                                                targetMethodParameterClassNames[i] = Float.class.getName();
+                                                break;
+                                            case "byte":
+                                                targetMethodParameterClassNames[i] = Byte.class.getName();
+                                                break;
+                                            case "short":
+                                                targetMethodParameterClassNames[i] = Short.class.getName();
+                                                break;
+                                            case "Long":
+                                                targetMethodParameterClassNames[i] = Long.class.getName();
+                                                break;
+                                            case "char":
+                                                targetMethodParameterClassNames[i] = Character.class.getName();
+                                                break;
+                                            default:
+                                                targetMethodParameterClassNames[i] = parameters[i];
+                                        }
+                                    }
+                                }
+
+                                targetMethod = targetMethod.substring(0, targetMethod.indexOf("("));
+                            }
+                        }
+
+                        String strippedClassName = compileError.file.substring(compileError.file.lastIndexOf("/") + 1);
                         if (!Files.exists(Path.of("testFiles/brokenClasses/" + strippedFileName + "_" + strippedClassName))) {
-                            extractClassFromContainer(outputDirClasses, dockerClient, brokenUpdateImage, className, strippedFileName);
+                            extractClassFromContainer(outputDirClasses, dockerClient, brokenUpdateImage, compileError.file, strippedFileName);
                         } else {
                             System.out.println("Class already exists at " + Path.of("testFiles/brokenClasses/" + strippedFileName + "_" + strippedClassName));
                         }
 
 
-                        /*String brokenCode = readBrokenClass(strippedClassName, targetDirectoryClasses, strippedFileName, failedClasses.get(className));
-                        String targetClass = strippedClassName.substring(0, strippedClassName.lastIndexOf("."));
-                        if (brokenCode.startsWith("import")) {
-                            targetClass = brokenCode.substring(brokenCode.indexOf(" "), brokenCode.lastIndexOf(";")).trim();
+                        BrokenCode brokenCode = readBrokenLine(strippedClassName, targetDirectoryClasses, strippedFileName, new int[]{compileError.line, compileError.column});
+                        //String targetClass = targetDependencyClass.substring(0, strippedClassName.lastIndexOf("."));
+                        //TODO detect super call here then use the parent class
+                        if (brokenCode.code().startsWith("import")) {
+                            targetClass = brokenCode.code().substring(brokenCode.code().indexOf(" "), brokenCode.code().lastIndexOf(";")).trim();
                             if (targetClass.contains(".")) {
                                 targetClass = targetClass.substring(targetClass.lastIndexOf(".") + 1);
                             }
+                        } else if (brokenCode.code().trim().startsWith("super")) {
+                            String parent = readParent(strippedClassName, targetDirectoryClasses, strippedFileName);
+                            System.out.println("super " + parent);
+                            targetClass = parent;
+                            targetMethod = parent;
+                        } else if (errorIndex != -1) {
+                            String brokenSymbol = "";
+
+                            List<String> precedingMethodChain = new ArrayList<>();
+                            String method = "";
+
+                            int chainStart = errorIndex;
+
+                            for (; chainStart >= 0; chainStart--) {
+                                char c = brokenCode.code().charAt(chainStart);
+                                if(c == ' ' || c == ',' || c == ';' || c == '(') {
+                                    break;
+                                }
+                            }
+
+
+                            for (int i = chainStart+1; i < errorIndex; i++) {
+                                char c = brokenCode.code().charAt(i);
+                                if (c == ' ') {
+                                    continue;
+                                }
+                                if (c == '.' || c == '(') {
+                                    precedingMethodChain.add(method);
+                                    method = "";
+                                }
+                                method += c;
+                            }
+
+                            int symbolStart = errorIndex;
+
+                            for (; symbolStart >= 0; symbolStart--) {
+                                char c = brokenCode.code().charAt(symbolStart);
+                                if(c == ' ' || c == ',' || c == ';' || c == '.') {
+                                    break;
+                                }
+                            }
+
+                            for (int i = symbolStart+1; i < brokenCode.code().length(); i++) {
+                                char c = brokenCode.code().charAt(i);
+                                if (c == '.' || c == '(' || c == ' ' ) {
+                                    break;
+                                }
+                                brokenSymbol += c;
+                            }
+
+                            if(precedingMethodChain.size() > 0) {
+                                String classNameOfVariable = getClassNameOfVariable(precedingMethodChain.get(0), targetDirectoryClasses, strippedFileName, strippedClassName, brokenCode.start());
+
+                                if (precedingMethodChain.size() == 1) {
+                                    targetClass = classNameOfVariable;
+                                    targetMethod = brokenSymbol;
+                                } else {
+                                    System.out.println("test");
+                                    //TODO: Recursive scan
+                                }
+                                System.out.println(brokenSymbol);
+                            }else{
+                                targetClass = brokenSymbol;
+                            }
+                        }
+                        //else{
+                        //    continue;
+                        //}
+
+
+                        /*else{
+                            System.out.println("Skipped non import related error");
+                            //TODO Fetch appropriate broken code and method name so the prompt can be built better
+                            activeThreadCount.decrementAndGet();
+                            return;
+                        }*/
+
+
+                        if (errorSet.containsKey(brokenCode.code().trim())) {
+                            int offset = compileError.line - errorSet.get(brokenCode.code().trim()).start();
+                            proposedChanges.add(new ProposedChange(strippedClassName, errorSet.get(brokenCode.code().trim()).code(), compileError.file, offset + errorSet.get(brokenCode.code().trim()).start(), offset + errorSet.get(brokenCode.code().trim()).end()));
+                            continue;
                         }
 
                         System.out.println("Target class: " + targetClass);
-                        String prompt = buildPrompt(dependencyArtifactID, previousVersion, newVersion, targetPathOld.toString(), targetPathNew.toString(),
-                                targetClass, "", brokenCode, new String[]{});
 
-                        Files.write(Path.of(targetDirectoryPrompts+"/" + strippedFileName + "_"+failedClasses.get(className)[0]+"_" + targetClass+".txt"), prompt.getBytes());
+                        ConflictResolutionResult result;
 
-                        System.out.println(prompt);
-                        ConflictResolutionResult result = Main.sendAndPrintCode(qwen3_8b, prompt);
-                        Files.write(Path.of(targetDirectoryLLMResponses+"/" + strippedFileName + "_"+failedClasses.get(className)[0]+"_" + targetClass+".txt"), result.toString().getBytes());
+                        String llmResponseFileName = targetDirectoryLLMResponses + "/" + strippedFileName + "_" + compileError.line + "_" + targetClass + "_" + activeProvider + ".txt";
 
-                        replaceBrokenCodeInClass(strippedClassName, targetDirectoryClasses, targetDirectoryFixedClasses, strippedFileName, failedClasses.get(className)[0], result.code());
+                        String erroneousClass = readBrokenClass(strippedClassName, targetDirectoryClasses, strippedFileName);
 
-                        CreateContainerResponse container = pullImageAndCreateContainer(dockerClient, brokenUpdateImage);
-                        replaceFileInContainer(dockerClient, container, Paths.get(targetDirectoryFixedClasses + "/" + strippedFileName + "_"+failedClasses.get(className)[0]+"_" + strippedClassName), className);
+                        if (!usePromptCaching || !Files.exists(Path.of(llmResponseFileName))) {
+                            //TODO maybe also include the error message in the prompt?
+                            String prompt = buildPrompt(dependencyArtifactID, previousVersion, newVersion, targetPathOld.toString(), targetPathNew.toString(),
+                                    targetClass, targetMethod, brokenCode.code(), targetMethodParameterClassNames, "line: " + compileError.line + ", column: " + compileError.column + System.lineSeparator() + compileError.message, erroneousClass);
 
-                        if(getCorrectedLogFromContainer(dockerClient, container, strippedFileName, project)){
-                            failedFixes.incrementAndGet();
-                        }else{
-                            successfulFixes.incrementAndGet();
-                        }*/
+                            Files.write(Path.of(targetDirectoryPrompts + "/" + strippedFileName + "_" + compileError.line + "_" + targetClass + ".txt"), prompt.getBytes());
+
+                            System.out.println(prompt);
+                            result = Main.sendAndPrintCode(activeProvider, prompt);
+
+                            FileOutputStream fileOutputStream
+                                    = new FileOutputStream(llmResponseFileName);
+                            ObjectOutputStream objectOutputStream
+                                    = new ObjectOutputStream(fileOutputStream);
+                            objectOutputStream.writeObject(result);
+                            objectOutputStream.flush();
+                            objectOutputStream.close();
+                            //Files.write(Path.of(targetDirectoryLLMResponses + "/" + strippedFileName + "_" + compileError.line + "_" + targetClass + ".txt"), result.toString().getBytes());
+                        } else {
+                            System.out.println("Loading LLM response from stored responses");
+                            FileInputStream fileInputStream = new FileInputStream(llmResponseFileName);
+                            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+                            result = (ConflictResolutionResult) objectInputStream.readObject();
+                            objectInputStream.close();
+                        }
+
+                        System.out.println(result);
+
+                        ProposedChange proposedChange = new ProposedChange(strippedClassName, result.code(), compileError.file, brokenCode.start(), brokenCode.end());
+                        proposedChanges.add(proposedChange);
+                        errorSet.put(brokenCode.code().trim(), proposedChange);
                     }
+
+                    HashMap<String, List<ProposedChange>> groupedChangesByClassName = new HashMap<>();
+
+                    for (ProposedChange proposedChange : proposedChanges) {
+                        if (!groupedChangesByClassName.containsKey(proposedChange.className())) {
+                            groupedChangesByClassName.put(proposedChange.className(), new ArrayList<>());
+                        }
+                        groupedChangesByClassName.get(proposedChange.className()).add(proposedChange);
+                    }
+
+                    CreateContainerResponse container = pullImageAndCreateContainer(dockerClient, brokenUpdateImage);
+
+                    for (String className : groupedChangesByClassName.keySet()) {
+
+                        replaceBrokenCodeInClass(className, targetDirectoryClasses, targetDirectoryFixedClasses, strippedFileName, groupedChangesByClassName.get(className));
+
+                        replaceFileInContainer(dockerClient, container, Paths.get(targetDirectoryFixedClasses + "/" + strippedFileName + "_" + className), groupedChangesByClassName.get(className).get(0).file());
+                    }
+
+                    if (getCorrectedLogFromContainer(dockerClient, container, strippedFileName, project)) {
+                        failedFixes.incrementAndGet();
+                    } else {
+                        successfulFixes.incrementAndGet();
+                    }
+
 
                     //String prompt = buildPrompt(dependencyArtifactID, previousVersion, newVersion, targetPathOld.toString(), targetPathNew.toString(),
                     //        "", "", "", new String[]{});
@@ -234,6 +469,8 @@ public class BumpRunner {
 
                 } catch (IOException e) {
                     System.err.println(e);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
                 }
 
             });
@@ -250,7 +487,7 @@ public class BumpRunner {
 
 
         System.out.println(satisfiedConflictPairs.get() + " out of " + totalPairs.get() + " project pairs have accessible dependencies");
-        System.out.println("Fixed "+successfulFixes.get() + " out of " + satisfiedConflictPairs.get() + " projects ("+failedFixes.get()+" were not fixed)");
+        System.out.println("Fixed " + successfulFixes.get() + " out of " + satisfiedConflictPairs.get() + " projects (" + failedFixes.get() + " were not fixed)");
         try {
             objectMapper.writeValue(new File("testFiles/downloaded/validEntries.json"), validEntryNames);
         } catch (IOException e) {
@@ -339,7 +576,7 @@ public class BumpRunner {
                         @Override
                         public void onNext(Frame frame) {
                             String s = new String(frame.getPayload());
-                            if(s.contains("[ERROR]")){
+                            if (s.contains("[ERROR]")) {
                                 containsError[0] = true;
                             }
                             try {
@@ -383,16 +620,82 @@ public class BumpRunner {
         return classLookup;
     }
 
-    public static String readBrokenClass(String className, String directory, String fileName, int[] indices) {
+    public static BrokenCode readBrokenLine(String className, String directory, String fileName, int[] indices) {
+        try {
+            List<String> allLines = Files.readAllLines(Paths.get(directory + "/" + fileName + "_" + className));
+            //BufferedReader br = new BufferedReader(new FileReader(directory + "/" + fileName + "_" + className));
+            String brokenCode = null;
+            int start = 0, end = allLines.size();
+            for (int i = 0; i < allLines.size(); i++) {
+                if (i + 1 == indices[0]) {
+                    start = i + 1;
+                    brokenCode = allLines.get(i);
+                    if (!(brokenCode.endsWith(";") || brokenCode.endsWith("{") || brokenCode.endsWith("}"))) {
+                        for (int j = i + 1; j < allLines.size(); j++) {
+                            brokenCode = brokenCode + allLines.get(j);
+                            if (allLines.get(j).endsWith(";")) {
+                                end = j + 1;
+                                break;
+                            }
+                        }
+                    } else {
+                        end = start;
+                    }
+                    return new BrokenCode(brokenCode, start, end);
+                }
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public static String getClassNameOfVariable(String variableName, String directory, String fileName, String className, int lineNumber) {
+        try {
+            List<String> allLines = Files.readAllLines(Paths.get(directory + "/" + fileName + "_" + className));
+
+
+            for (int i = lineNumber; i >= 0; i--) {
+                String line = allLines.get(i);
+                int variableIndex = line.indexOf(variableName);
+                if (variableIndex > 0) {
+                    String cutLine = line.substring(0, variableIndex);
+                    if(allLines.get(i).charAt(variableIndex - 1) != ' ' || cutLine.isBlank()) {
+                        continue;
+                    }
+                    int startIndex = Math.max(cutLine.lastIndexOf('('), cutLine.lastIndexOf(','));
+
+                    return cutLine.substring(startIndex + 1).trim();
+                }
+
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public static String readBrokenClass(String className, String directory, String fileName) {
+        try {
+            return Files.readAllLines(Path.of(directory + "/" + fileName + "_" + className)).toString();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static String readParent(String className, String directory, String fileName) {
+        String regex = ".*class .* extends .*";
         try {
             BufferedReader br = new BufferedReader(new FileReader(directory + "/" + fileName + "_" + className));
             String line = null;
             int lineNumber = 1;
             while ((line = br.readLine()) != null) {
-                if (lineNumber == indices[0]) {
-                    return line;
+                if (line.matches(regex)) {
+                    return line.substring(line.indexOf("extends ") + "extends ".length(), line.indexOf("{")).trim();
                 }
-                lineNumber++;
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -400,16 +703,38 @@ public class BumpRunner {
         return null;
     }
 
-    public static void replaceBrokenCodeInClass(String className, String directory, String outDirectory, String fileName, int lineNumber, String newCode) {
+    public static void replaceBrokenCodeInClass(String className, String directory, String outDirectory, String fileName, List<ProposedChange> changes) {
         try {
             List<String> lines = Files.readAllLines(Paths.get(directory + "/" + fileName + "_" + className));
 
-            lines.set(lineNumber - 1, newCode);
+            for (ProposedChange change : changes) {
+                lines.set(change.start() - 1, change.code());
+                for (int i = change.start(); i < change.end(); i++) {
+                    lines.set(i, "");
+                }
+                /*String[] changeLines = change.code().split(System.lineSeparator());
+                int offset = 0;
+                for(String changeLine : changeLines) {
+                    if(changeLine.startsWith("/")){
+                        lines.set(change.line()+offset-1, changeLine);
+                    }else {
+                        if(changeLine.matches("[0-9].*")) {
+                            int lineNumber = Integer.parseInt(changeLine.substring(0, changeLine.indexOf(":")));
+                            String trimmedChange = changeLine.substring(changeLine.indexOf(":") + 1).trim();
+                            lines.set(lineNumber - 1, trimmedChange);
+                        }else{
+                            lines.set(change.line()+offset-1, changeLine);
+                        }
+                    }
+                    offset++;
+                }*/
+
+            }
 
             // Use \n so the docker containers (linux) don't complain
             String content = String.join("\n", lines) + "\n";
 
-            try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDirectory + "/" + fileName + "_" + lineNumber + "_" + className))) {
+            try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDirectory + "/" + fileName + "_" + className))) {
                 writer.write(content);
             }
 
@@ -514,7 +839,7 @@ public class BumpRunner {
                     continue;
                 }
 
-               return path;
+                return path;
             }
 
         } catch (IOException e) {
@@ -542,7 +867,7 @@ public class BumpRunner {
 
             String containerId = container.getId();
             String destPath = fileNameInContainer;
-                    //getFilePathFromContainer(dockerClient, container, fileNameInContainer);
+            //getFilePathFromContainer(dockerClient, container, fileNameInContainer);
             destPath = destPath.substring(0, destPath.lastIndexOf("/"));
 
 

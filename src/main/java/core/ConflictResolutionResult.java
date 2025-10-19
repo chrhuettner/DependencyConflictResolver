@@ -1,3 +1,5 @@
 package core;
 
-public record ConflictResolutionResult (String code, String response){ }
+import java.io.Serializable;
+
+public record ConflictResolutionResult(String code, String response) implements Serializable { }

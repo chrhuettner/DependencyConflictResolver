@@ -11,7 +11,8 @@ public class Jackson {
 
     public static void main(String[] args) {
         // Build SessionFactory
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = new Configuration()
+                .configure().buildSessionFactory();
 
         // Open a session
         Session session = sessionFactory.openSession();
@@ -27,8 +28,8 @@ public class Jackson {
         transaction.commit();
 
         // Fetch user back
-        //User fetchedUser = (User) session.get(User.class, 1);
-       // System.out.println("Fetched User: " + fetchedUser.getName());
+        User fetchedUser = session.get(User.class, 1);
+        System.out.println("Fetched User: " + fetchedUser.getName());
 
         // Close session and factory
         session.close();
