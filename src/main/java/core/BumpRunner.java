@@ -5,8 +5,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.async.ResultCallback;
 import com.github.dockerjava.api.command.CreateContainerResponse;
+import com.github.dockerjava.api.command.InspectContainerResponse;
 import com.github.dockerjava.api.command.PullImageResultCallback;
 import com.github.dockerjava.api.model.Frame;
+import com.github.dockerjava.api.model.HostConfig;
 import com.github.dockerjava.api.model.PullResponseItem;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientConfig;
@@ -38,6 +40,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static core.LogParser.parseLog;
+import static core.LogParser.projectIsFixableThroughCodeModification;
 import static core.Main.buildPrompt;
 
 public class BumpRunner {
@@ -45,9 +48,18 @@ public class BumpRunner {
     private static boolean useContainerExtraction = true;
     private static boolean usePromptCaching = false;
 
+    //for example: size(com.artipie.asto.Key) in com.artipie.asto.Storage has been deprecated
+    private static final Pattern DEPRECATION_PATTERN = Pattern.compile(
+            "(\\w+)\\(([\\w|\\.]*)\\) in ([\\w|\\.]*) has been deprecated");
+
+    // for example: incompatible types: int cannot be converted to java.lang.Float
+    private static final Pattern CAST_PATTERN = Pattern.compile(
+            "incompatible types: (\\S*) cannot be converted to (\\S*)");
+
     public static void main(String[] args) {
         String targetDirectory = "testFiles/downloaded";
         File outputDir = new File(targetDirectory);
+        File outputDirCompiledFiles = new File("testFiles/compiled");
 
         String targetDirectoryClasses = "testFiles/brokenClasses";
         String targetDirectoryFixedClasses = "testFiles/correctedClasses";
@@ -102,7 +114,7 @@ public class BumpRunner {
 
         DockerClient dockerClient = DockerClientImpl.getInstance(config, dockerHttpClient);
 
-        File bumpFolder = new File("testFiles/BUMPSubset");
+        File bumpFolder = new File("testFiles/BonoSubset");
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<String> validEntryNames = new ArrayList<>();
@@ -112,8 +124,9 @@ public class BumpRunner {
         AtomicInteger activeThreadCount = new AtomicInteger();
         AtomicInteger failedFixes = new AtomicInteger();
         AtomicInteger successfulFixes = new AtomicInteger();
+        AtomicInteger fixableProjects = new AtomicInteger();
 
-        int limit = 4;
+        int limit = 1;
         for (File file : bumpFolder.listFiles()) {
             while (activeThreadCount.getAndUpdate(operand -> {
                 if (operand >= limit) {
@@ -163,11 +176,17 @@ public class BumpRunner {
                     }*/
 
                     // cd5bb39f43e4570b875027073da3d4e43349ead1.json requires plexus-xml in new version => pom edit needed
+                    // cb541fd65c7b9bbc3424ea927f1dab223261d156.json has its upgraded dependency deprecated (no classes or code at all in the dependency, just a deprecation notice)
+                    // 4a3efad6e00824e5814b9c8f571c9c98aad40281.json has deleted its enum (CertificationPermission) with nothing there to replace it
+                    //TODO: Filter BUMP projects so only fixable projects remain (the above two examples are considered not fixable)
 
-                    /*if (!file.getName().equals("d9d866185ffa05b8d42b00801f17e4db92ae78bd.json")) {
+                    //TODO: Check this json, class name extraction fails here ab85440ce7321d895c7a9621224ce8059162a26a
+                    if (!file.getName().equals("832e0f184efdad0fcf15d14cb7af5e30239ff454.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
-                    }*/
+                    }
+
+                    String strippedFileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 
 
                     String brokenUpdateImage = breakingUpdateReproductionCommand.substring(breakingUpdateReproductionCommand.lastIndexOf(" ")).trim();
@@ -180,6 +199,8 @@ public class BumpRunner {
                     Path targetPathOld = downloadLibrary(mavenSourceLinkPre, outputDir, dockerClient, oldUpdateImage, combinedArtifactNameOld);
                     Path targetPathNew = downloadLibrary(mavenSourceLinkBreaking, outputDir, dockerClient, brokenUpdateImage, combinedArtifactNameNew);
 
+                    extractCompiledCodeFromContainer(outputDirCompiledFiles, dockerClient, oldUpdateImage, dependencyArtifactID+"_"+strippedFileName);
+
                     totalPairs.getAndIncrement();
                     if (Files.exists(targetPathOld) && Files.exists(targetPathNew)) {
                         satisfiedConflictPairs.getAndIncrement();
@@ -188,14 +209,23 @@ public class BumpRunner {
                         return;
                     }
 
-                    String strippedFileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 
-                    if (!Files.exists(Path.of("testFiles/brokenLogs/" + strippedFileName + "_" + project))) {
+                    /*if (!Files.exists(Path.of("testFiles/brokenLogs/" + strippedFileName + "_" + project))) {
                         getBrokenLogFromContainer(dockerClient, brokenUpdateImage, project, strippedFileName);
                     }
 
                     //HashMap<String, int[]> failedClasses = readLogs(project, "testFiles/brokenLogs", strippedFileName);
                     //directory + "/" + fileName + "_" + projectName
+
+                    boolean projectIsFixableWithSourceCodeModification = projectIsFixableThroughCodeModification(Path.of("testFiles/brokenLogs" + "/" + strippedFileName + "_" + project));
+
+                    if (!projectIsFixableWithSourceCodeModification) {
+                        activeThreadCount.decrementAndGet();
+                        return;
+                    }
+
+                    fixableProjects.incrementAndGet();
+
                     List<Object> errors = parseLog(Path.of("testFiles/brokenLogs" + "/" + strippedFileName + "_" + project));
 
                     for (int i = errors.size() - 1; i >= 0; i--) {
@@ -209,7 +239,7 @@ public class BumpRunner {
                                 LogParser.CompileError innerCompileError = (LogParser.CompileError) errors.get(j);
                                 if (innerCompileError.line == compileError.line) {
                                     // Keep details
-                                    ((LogParser.CompileError)errors.get(i)).details.putAll(((LogParser.CompileError)errors.get(j)).details);
+                                    ((LogParser.CompileError) errors.get(i)).details.putAll(((LogParser.CompileError) errors.get(j)).details);
                                     errors.remove(j);
                                     i--;
                                     break;
@@ -232,66 +262,41 @@ public class BumpRunner {
                         String targetClass = "";
                         String targetMethod = "";
                         String[] targetMethodParameterClassNames = new String[0];
-                        int errorIndex = -1;
+                        int errorIndex = compileError.column;
                         if (compileError.message.equals("cannot find symbol")) {
                             if (compileError.details.containsKey("symbol")) {
                                 String sym = compileError.details.get("symbol");
-                                if(sym.startsWith("class")){
+                                if (sym.startsWith("class")) {
                                     targetClass = sym.substring(sym.indexOf("class") + "class".length() + 1);
-                                }else{
-                                    errorIndex = compileError.column;
-
                                 }
-                                //targetClass = compileError.details.get("location");
-                                //targetClass = targetClass.substring(targetClass.lastIndexOf(".") + 1);
-
-                            } else {
-                                errorIndex = compileError.column;
                             }
                         }
 
-                        if (compileError.details.containsKey("symbol")) {
+                        if (compileError.details.containsKey("symbol") && compileError.details.get("symbol").startsWith("method")) {
                             targetMethod = compileError.details.get("symbol");
-                            if (targetMethod.startsWith("method")) {
-                                targetMethod = targetMethod.substring(targetMethod.indexOf(" ") + 1);
-                                if (targetMethod.indexOf("(") != targetMethod.indexOf(")") - 1) {
-                                    String parameterString = targetMethod.substring(targetMethod.indexOf("(") + 1, targetMethod.indexOf(")"));
-                                    String[] parameters = parameterString.split(",");
-                                    targetMethodParameterClassNames = new String[parameters.length];
-                                    for (int i = 0; i < parameters.length; i++) {
-                                        switch (parameters[i]) {
-                                            case "boolean":
-                                                targetMethodParameterClassNames[i] = Boolean.class.getName();
-                                                break;
-                                            case "int":
-                                                targetMethodParameterClassNames[i] = Integer.class.getName();
-                                                break;
-                                            case "double":
-                                                targetMethodParameterClassNames[i] = Double.class.getName();
-                                                break;
-                                            case "float":
-                                                targetMethodParameterClassNames[i] = Float.class.getName();
-                                                break;
-                                            case "byte":
-                                                targetMethodParameterClassNames[i] = Byte.class.getName();
-                                                break;
-                                            case "short":
-                                                targetMethodParameterClassNames[i] = Short.class.getName();
-                                                break;
-                                            case "Long":
-                                                targetMethodParameterClassNames[i] = Long.class.getName();
-                                                break;
-                                            case "char":
-                                                targetMethodParameterClassNames[i] = Character.class.getName();
-                                                break;
-                                            default:
-                                                targetMethodParameterClassNames[i] = parameters[i];
-                                        }
-                                    }
+                            targetMethod = targetMethod.substring(targetMethod.indexOf(" ") + 1);
+                            if (targetMethod.indexOf("(") != targetMethod.indexOf(")") - 1) {
+                                String parameterString = targetMethod.substring(targetMethod.indexOf("(") + 1, targetMethod.indexOf(")"));
+                                String[] parameters = parameterString.split(",");
+                                targetMethodParameterClassNames = new String[parameters.length];
+                                for (int i = 0; i < parameters.length; i++) {
+                                    targetMethodParameterClassNames[i] = primitiveClassNameToWrapperName(parameters[i]);
                                 }
-
-                                targetMethod = targetMethod.substring(0, targetMethod.indexOf("("));
                             }
+
+                            targetMethod = targetMethod.substring(0, targetMethod.indexOf("("));
+                        }
+
+                        Matcher typecastMatcher = CAST_PATTERN.matcher(compileError.message);
+
+                        if (typecastMatcher.find()) {
+                            targetMethodParameterClassNames = new String[]{typecastMatcher.group(2)};
+                        }
+
+                        Matcher deprecationMatcher = DEPRECATION_PATTERN.matcher(compileError.message);
+                        if (deprecationMatcher.find()) {
+                            targetMethod = deprecationMatcher.group(1);
+                            targetClass = deprecationMatcher.group(3);
                         }
 
                         String strippedClassName = compileError.file.substring(compileError.file.lastIndexOf("/") + 1);
@@ -315,77 +320,29 @@ public class BumpRunner {
                             System.out.println("super " + parent);
                             targetClass = parent;
                             targetMethod = parent;
-                        } else if (errorIndex != -1) {
-                            String brokenSymbol = "";
+                        } else if (targetClass.isEmpty() && targetMethod.isEmpty()) {
+                            MethodChainAnalysis methodChainAnalysis = analyseMethodChain(compileError.column, brokenCode.start(), brokenCode.code(), targetDirectoryClasses, strippedFileName,
+                                    strippedClassName, targetPathOld, targetPathNew);
 
-                            List<String> precedingMethodChain = new ArrayList<>();
-                            String method = "";
+                            targetClass = methodChainAnalysis.targetClass();
+                            targetMethod = methodChainAnalysis.targetMethod();
 
-                            int chainStart = errorIndex;
-
-                            for (; chainStart >= 0; chainStart--) {
-                                char c = brokenCode.code().charAt(chainStart);
-                                if(c == ' ' || c == ',' || c == ';' || c == '(') {
-                                    break;
-                                }
+                            if (targetMethodParameterClassNames.length == 0) {
+                                targetMethodParameterClassNames = methodChainAnalysis.parameterTypes();
                             }
 
-
-                            for (int i = chainStart+1; i < errorIndex; i++) {
-                                char c = brokenCode.code().charAt(i);
-                                if (c == ' ') {
-                                    continue;
-                                }
-                                if (c == '.' || c == '(') {
-                                    precedingMethodChain.add(method);
-                                    method = "";
-                                }
-                                method += c;
-                            }
-
-                            int symbolStart = errorIndex;
-
-                            for (; symbolStart >= 0; symbolStart--) {
-                                char c = brokenCode.code().charAt(symbolStart);
-                                if(c == ' ' || c == ',' || c == ';' || c == '.') {
-                                    break;
-                                }
-                            }
-
-                            for (int i = symbolStart+1; i < brokenCode.code().length(); i++) {
-                                char c = brokenCode.code().charAt(i);
-                                if (c == '.' || c == '(' || c == ' ' ) {
-                                    break;
-                                }
-                                brokenSymbol += c;
-                            }
-
-                            if(precedingMethodChain.size() > 0) {
-                                String classNameOfVariable = getClassNameOfVariable(precedingMethodChain.get(0), targetDirectoryClasses, strippedFileName, strippedClassName, brokenCode.start());
-
-                                if (precedingMethodChain.size() == 1) {
-                                    targetClass = classNameOfVariable;
-                                    targetMethod = brokenSymbol;
-                                } else {
-                                    System.out.println("test");
-                                    //TODO: Recursive scan
-                                }
-                                System.out.println(brokenSymbol);
-                            }else{
-                                targetClass = brokenSymbol;
-                            }
                         }
                         //else{
                         //    continue;
                         //}
 
 
-                        /*else{
-                            System.out.println("Skipped non import related error");
-                            //TODO Fetch appropriate broken code and method name so the prompt can be built better
-                            activeThreadCount.decrementAndGet();
-                            return;
-                        }*/
+                        //else{
+                        //    System.out.println("Skipped non import related error");
+                        //TODO Fetch appropriate broken code and method name so the prompt can be built better
+                        //    activeThreadCount.decrementAndGet();
+                        //    return;
+                        //}
 
 
                         if (errorSet.containsKey(brokenCode.code().trim())) {
@@ -454,10 +411,12 @@ public class BumpRunner {
                     }
 
                     if (getCorrectedLogFromContainer(dockerClient, container, strippedFileName, project)) {
+                        System.out.println("Failed to fix " + file.getName());
                         failedFixes.incrementAndGet();
                     } else {
+                        System.out.println("Successfully fixed " + file.getName());
                         successfulFixes.incrementAndGet();
-                    }
+                    }*/
 
 
                     //String prompt = buildPrompt(dependencyArtifactID, previousVersion, newVersion, targetPathOld.toString(), targetPathNew.toString(),
@@ -467,12 +426,10 @@ public class BumpRunner {
                     //break;
                     activeThreadCount.decrementAndGet();
 
-                } catch (IOException e) {
+                } catch (Exception e) {
+                    activeThreadCount.decrementAndGet();
                     System.err.println(e);
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
                 }
-
             });
             activeThreads.add(virtualThread);
         }
@@ -487,6 +444,7 @@ public class BumpRunner {
 
 
         System.out.println(satisfiedConflictPairs.get() + " out of " + totalPairs.get() + " project pairs have accessible dependencies");
+        System.out.println(fixableProjects.get() + " projects are fixable");
         System.out.println("Fixed " + successfulFixes.get() + " out of " + satisfiedConflictPairs.get() + " projects (" + failedFixes.get() + " were not fixed)");
         try {
             objectMapper.writeValue(new File("testFiles/downloaded/validEntries.json"), validEntryNames);
@@ -527,6 +485,28 @@ public class BumpRunner {
         System.out.println("Fetching class from container (this takes some time)");
         CreateContainerResponse container = pullImageAndCreateContainer(dockerClient, imagePath);
         getFileFromContainer(dockerClient, container, className, targetDirectory, fileName + "_");
+        dockerClient.removeContainerCmd(container.getId()).exec();
+    }
+
+    public static void extractCompiledCodeFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String projectName) {
+        System.out.println("Fetching class from container (this takes some time)");
+        CreateContainerResponse container = pullImageAndCreateContainerWithPackageCommand(dockerClient, imagePath);
+
+        dockerClient.startContainerCmd(container.getId()).exec();
+        try {
+            dockerClient.waitContainerCmd(container.getId()).start().awaitCompletion();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        File projectDir = new File(targetDirectory, projectName);
+
+        if (!projectDir.exists()) {
+            projectDir.mkdirs();
+        }
+
+
+        getCompiledFile(dockerClient, container, projectDir);
         dockerClient.removeContainerCmd(container.getId()).exec();
     }
 
@@ -661,13 +641,44 @@ public class BumpRunner {
                 int variableIndex = line.indexOf(variableName);
                 if (variableIndex > 0) {
                     String cutLine = line.substring(0, variableIndex);
-                    if(allLines.get(i).charAt(variableIndex - 1) != ' ' || cutLine.isBlank()) {
+                    if (allLines.get(i).charAt(variableIndex - 1) != ' ' || cutLine.isBlank()) {
                         continue;
                     }
                     int startIndex = Math.max(cutLine.lastIndexOf('('), cutLine.lastIndexOf(','));
 
-                    return cutLine.substring(startIndex + 1).trim();
+                    String classNameWithPotentialModifier = cutLine.substring(startIndex + 1).trim();
+                    if (classNameWithPotentialModifier.contains(" ")) {
+                        return classNameWithPotentialModifier.substring(classNameWithPotentialModifier.lastIndexOf(' ') + 1);
+                    }
+                    return classNameWithPotentialModifier;
                 }
+
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public static String getReturnTypeOfMethod(String methodName, String directory, String fileName, String className) {
+        try {
+            List<String> allLines = Files.readAllLines(Paths.get(directory + "/" + fileName + "_" + className));
+
+
+            for (int i = 0; i < allLines.size(); i++) {
+                String line = allLines.get(i);
+                int methodIndex = line.indexOf(methodName);
+                String returnType = "";
+                for (int j = methodIndex - 2; j >= 0; j--) {
+                    char c = methodName.charAt(j);
+                    if (c == ' ') {
+                        break;
+                    }
+                    returnType = c + returnType;
+                }
+
+                return returnType;
 
             }
 
@@ -768,6 +779,41 @@ public class BumpRunner {
         return targetPath;
     }
 
+    public static CreateContainerResponse pullImageAndCreateContainerWithPackageCommand(DockerClient dockerClient, String imagePath) {
+        try {
+            dockerClient.pullImageCmd(imagePath)
+                    .exec(new PullImageResultCallback() {
+                        @Override
+                        public void onNext(PullResponseItem item) {
+                            String status = item.getStatus();
+                            String progress = item.getProgress();
+                            String id = item.getId();
+
+                            if (status != null) {
+                                if (progress != null && !progress.isEmpty()) {
+                                    System.out.printf("%s: %s %s%n", id != null ? id : "", status, progress);
+                                } else {
+                                    System.out.printf("%s: %s%n", id != null ? id : "", status);
+                                }
+                            }
+
+                            super.onNext(item);
+                        }
+                    }).awaitCompletion();
+            return dockerClient.createContainerCmd(imagePath)
+                    .withCmd("sh", "-c",
+                            "mvn package " +
+                                    "org.apache.maven.plugins:maven-shade-plugin:3.5.0:shade " +
+                                    "-DcreateDependencyReducedPom=false " +
+                                    "-DshadedArtifactAttached=true " +
+                                    "-DshadedClassifierName=all")
+                    .exec();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static CreateContainerResponse pullImageAndCreateContainer(DockerClient dockerClient, String imagePath) {
         try {
             dockerClient.pullImageCmd(imagePath)
@@ -791,6 +837,34 @@ public class BumpRunner {
                     }).awaitCompletion();
             return dockerClient.createContainerCmd(imagePath).exec();
         } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void getCompiledFile(DockerClient dockerClient, CreateContainerResponse container, File outputDir) {
+        try (InputStream tarStream = dockerClient.copyArchiveFromContainerCmd(container.getId(), "/").exec();
+             TarArchiveInputStream tarInput = new TarArchiveInputStream(tarStream)) {
+
+            TarArchiveEntry entry;
+            boolean found = false;
+            while ((entry = tarInput.getNextEntry()) != null) {
+                String path = entry.getName();
+                System.out.println(path);
+                if (entry.isDirectory()) {
+                    continue;
+                }
+                if (!path.contains("target/")) {
+                    continue;
+                }
+
+                extractEntry(tarInput, entry, outputDir, "");
+                found = true;
+                break;
+            }
+            if (!found) {
+                System.out.println("FUCK");
+            }
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -879,6 +953,166 @@ public class BumpRunner {
             System.out.println("File replaced successfully!");
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public static MethodChainAnalysis analyseMethodChain(int compileErrorColumn, int line, String brokenCode, String targetDirectoryClasses,
+                                                         String strippedFileName, String strippedClassName, Path targetPathOld, Path targetPathNew) {
+        int errorIndex = Math.min(compileErrorColumn, brokenCode.length() - 1);
+        String brokenSymbol = "";
+
+        String targetClass = "";
+        String targetMethod = "";
+
+        String[] parameterNames = new String[0];
+
+        List<String> precedingMethodChain = new ArrayList<>();
+        String method = "";
+
+        int chainStart = errorIndex;
+
+        for (; chainStart >= 0; chainStart--) {
+            char c = brokenCode.charAt(chainStart);
+            if (c == '\t') {
+
+            }
+            if (c == ' ' || c == ',' || c == '\t') {
+                break;
+            }
+        }
+
+
+        int openingBracket = 0;
+        int closingBracket = 0;
+        for (int i = chainStart + 1; i < errorIndex; i++) {
+            char c = brokenCode.charAt(i);
+            if (c == ' ') {
+                continue;
+            } else if (c == '(') {
+                openingBracket++;
+                continue;
+            } else if (c == ')') {
+                closingBracket++;
+                continue;
+            }
+
+            if (openingBracket != closingBracket) {
+                continue;
+            }
+            if (c == '.' || c == '(') {
+                precedingMethodChain.add(method);
+                method = "";
+                continue;
+            }
+            method += c;
+        }
+
+        if (!method.isEmpty()) {
+            precedingMethodChain.add(method);
+        }
+
+        int symbolStart = errorIndex;
+
+        for (; symbolStart >= 0; symbolStart--) {
+            char c = brokenCode.charAt(symbolStart);
+            if (c == ' ' || c == ',' || c == ';' || c == '.') {
+                break;
+            }
+        }
+
+        for (int i = symbolStart + 1; i < brokenCode.length(); i++) {
+            char c = brokenCode.charAt(i);
+            if (c == '.' || c == '(' || c == ' ') {
+                break;
+            }
+            brokenSymbol += c;
+        }
+
+        if (precedingMethodChain.size() > 0) {
+            String classNameOfVariable = getClassNameOfVariable(precedingMethodChain.get(0), targetDirectoryClasses, strippedFileName, strippedClassName, line);
+
+            if (precedingMethodChain.size() == 1) {
+                targetClass = classNameOfVariable;
+                targetMethod = brokenSymbol;
+            } else {
+                JarDiffUtil jarDiffUtil = new JarDiffUtil(targetPathOld.toString(), targetPathNew.toString());
+                String intermediateClassName = classNameOfVariable;
+
+                for (int i = 1; i < precedingMethodChain.size() - 1; i++) {
+                    intermediateClassName = jarDiffUtil.getMethodReturnType(intermediateClassName,
+                            precedingMethodChain.get(i));
+                }
+
+                targetClass = intermediateClassName;
+                targetMethod = precedingMethodChain.get(precedingMethodChain.size() - 1);
+
+                String targetMethodParameters = brokenCode.substring(brokenCode.indexOf(targetMethod) + targetMethod.length());
+
+                if (!(targetMethodParameters.isEmpty() || targetMethodParameters.equals("()"))) {
+
+
+                    int openBrackets = 0;
+                    int closingBrackets = 0;
+                    int end = targetMethodParameters.length();
+                    for (int i = 0; i < targetMethodParameters.length(); i++) {
+                        char c = targetMethodParameters.charAt(i);
+                        if (c == '(') {
+                            openBrackets++;
+                        } else if (c == ')') {
+                            closingBrackets++;
+                        }
+
+                        if (openBrackets == closingBrackets) {
+                            end = i - 1;
+                        }
+                    }
+
+                    targetMethodParameters = targetMethodParameters.substring(1, end);
+
+
+                    // TODO: This might fail if the parameter has a method invocation with multiple parameters seperated by ,
+                    parameterNames = targetMethodParameters.split(",");
+
+                    for (int i = 0; i < parameterNames.length; i++) {
+                        String parameterName = parameterNames[i];
+                        if (parameterName.contains("(")) {
+                            String[] splitParameter = parameterName.split("\\.");
+                            String callerClass = getClassNameOfVariable(splitParameter[0], targetDirectoryClasses, strippedFileName, strippedClassName, line);
+                            String methodName = splitParameter[1].substring(0, splitParameter[1].indexOf("("));
+                            parameterNames[i] = jarDiffUtil.getMethodReturnType(callerClass, methodName);
+                        }
+                    }
+                }
+
+            }
+            System.out.println(brokenSymbol);
+        } else {
+            targetClass = brokenSymbol;
+        }
+
+        return new MethodChainAnalysis(targetClass, targetMethod, parameterNames);
+    }
+
+    public static String primitiveClassNameToWrapperName(String parameter) {
+        switch (parameter) {
+            case "boolean":
+                return Boolean.class.getName();
+            case "int":
+                return Integer.class.getName();
+            case "double":
+                return Double.class.getName();
+            case "float":
+                return Float.class.getName();
+            case "byte":
+                return Byte.class.getName();
+            case "short":
+                return Short.class.getName();
+            case "Long":
+                return Long.class.getName();
+            case "char":
+                return Character.class.getName();
+            default:
+                return parameter;
         }
     }
 }

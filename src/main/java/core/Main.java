@@ -127,6 +127,7 @@ public class Main {
         AIProvider starCoder2_7bProvider = new OllamaProvider("starcoder2:7b");
         AIProvider deepSeekR1b5 = new OllamaProvider("deepseek-r1:1.5b");
         AIProvider qwen3_8b = new OllamaProvider("qwen3:8b");
+        AIProvider qwen3_14b = new OllamaProvider("qwen3:14b");
         AIProvider starCoder2_15bProvider = new OllamaProvider("starcoder2:15b");
         AIProvider nomicEmbedTextProvider = new OllamaProvider("nomic-embed-text");
         AIProvider cogito8bProvider = new OllamaProvider("cogito:8b");
@@ -138,16 +139,17 @@ public class Main {
         //providers.add(chatgptProvider);
         //providers.add(claudeProvider);
         //providers.add(codeLama7bProvider);
-        providers.add(codeLama13bProvider);
-        providers.add(codeGemma7bProvider);   //Unpromising
-        providers.add(deepseekCoder6b7Provider);    //Unpromising
-        providers.add(starCoder2_7bProvider);       //Unpromising
+        //providers.add(codeLama13bProvider);
+        //providers.add(codeGemma7bProvider);   //Unpromising
+        //providers.add(deepseekCoder6b7Provider);    //Unpromising
+        //providers.add(starCoder2_7bProvider);       //Unpromising
         //providers.add(deepSeekR1b5);                //Unpromising
         providers.add(qwen3_8b);
-        providers.add(starCoder2_15bProvider);   //Unpromising
-        providers.add(cogito8bProvider);
-        providers.add(deepseekR1_7b);
-        providers.add(gptOss20b);
+        providers.add(qwen3_14b);
+        //providers.add(starCoder2_15bProvider);   //Unpromising
+        //providers.add(cogito8bProvider);
+        //providers.add(deepseekR1_7b);
+        //providers.add(gptOss20b);
 
         String oldVersion = "5.6.15.Final";
         String newVersion = "7.0.4.Final";
@@ -181,7 +183,10 @@ public class Main {
         String[] gsonParameterTypeNames = new String[]{"java.lang.String"};
         String gsonName = "Gson";
 
-        String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate, hibernateParameterTypeNames, "", "");
+        String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate, hibernateParameterTypeNames, "25:16\n" +
+                "java: cannot find symbol\n" +
+                "  symbol:   method save(compatibility.User)\n" +
+                "  location: variable session of type org.hibernate.Session", "");
         //String prompt = buildPrompt(gsonName, gsonOldVersion, gsonNewVersion, gsonLeft, gsonRight, gsonClassName, gsonMethodName, brokenCodeGson, gsonParameterTypeNames);
 
         System.out.println(prompt);
@@ -282,9 +287,9 @@ public class Main {
         System.out.println(conflictingMethod);
         List<ConflictType> conflictTypes = ConflictType.getConflictTypesFromMethod(conflictingMethod);
 
-        for (ConflictType conflictType : conflictTypes) {
+        /*for (ConflictType conflictType : conflictTypes) {
             System.out.println(conflictType.name());
-        }
+        }*/
 
         StringBuilder assembledPrompt = new StringBuilder();
 

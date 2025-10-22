@@ -26,6 +26,15 @@ public class LogParser {
     private static final Pattern STACK_TRACE_LINE = Pattern.compile(
             "^\\s*at ([\\w.$]+)\\.(\\w+)\\(([^:]+):(\\d+)\\)");
 
+    private static final Pattern DEPENDENCY_REQUIRES_DIFFERENT_VERSION = Pattern.compile(
+            "Dependency [\\S]* requires [\\S]* [\\S]* or ((higher)|(lower))");
+
+    private static final Pattern MODULE_COMPILED_WITH_DIFFERENT_VERSION = Pattern.compile(
+            "\\[ERROR\\] [\\S]*: Module was compiled with an incompatible version");
+
+    private static final Pattern CLASS_FILE_HAS_WRONG_VERSION = Pattern.compile(
+            " *class file has wrong version");
+
     static class CompileError {
         String file;
         int line;
@@ -78,6 +87,28 @@ public class LogParser {
 
     }
 
+    public static boolean lineMatchesPattern(String line, Pattern pattern) {
+        Matcher m = pattern.matcher(line);
+        return m.find();
+    }
+
+    public static boolean projectIsFixableThroughCodeModification(Path pathToLog) throws IOException {
+        List<String> allLines = Files.readAllLines(pathToLog);
+        for (String line : allLines) {
+            if (line.startsWith("[ERROR] The following dependencies differ:")
+                    || line.startsWith("Found Banned Dependency")
+                    || line.startsWith("Dependency convergence error")
+                    || line.startsWith("Require upper bound dependencies error")
+                    || lineMatchesPattern(line, DEPENDENCY_REQUIRES_DIFFERENT_VERSION)
+                    || lineMatchesPattern(line, MODULE_COMPILED_WITH_DIFFERENT_VERSION)
+                    || lineMatchesPattern(line, CLASS_FILE_HAS_WRONG_VERSION)) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
     public static List<Object> parseLog(Path path) throws IOException {
         List<Object> errors = new ArrayList<>();
 
@@ -113,7 +144,7 @@ public class LogParser {
                         errorMatcher = mw;
                     }
 
-                    if(altFound && !mwFound && !m1Found) {
+                    if (altFound && !mwFound && !m1Found) {
                         System.out.println("Alternative Error format found");
                         errorMatcher = alt;
                     }

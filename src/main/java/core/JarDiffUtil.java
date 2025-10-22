@@ -12,7 +12,6 @@ import javassist.CtMethod;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class JarDiffUtil {
 
@@ -77,10 +76,32 @@ public class JarDiffUtil {
         return comparator.compare(left, right);
     }
 
+    private static void addMethodDiffToChangeReport(JApiClass jApiClass, String methodName, List<JApiMethod> similarMethods, List<JApiMethod> methodsWithSameName, StringBuilder classChanges) {
+        for (JApiMethod jApiMethod : jApiClass.getMethods()) {
+
+            if (jApiMethod.getName().equals(methodName)) {
+                methodsWithSameName.add(jApiMethod);
+
+                //methodChanges.append(buildMethodChangeReport(jApiMethod));
+                //methodChanges.append(System.lineSeparator()).append(System.lineSeparator());
+
+            } else {
+                //if (jApiMethod.getChangeStatus() == JApiChangeStatus.REMOVED) {
+                //    continue;
+                //}
+                similarMethods.add(jApiMethod);
+            }
+
+
+            classChanges.append(buildMethodChangeReport(jApiMethod));
+            classChanges.append(System.lineSeparator()).append(System.lineSeparator());
+        }
+    }
+
     private static BuildDiffResult buildChangeReport(List<JApiClass> jApiClasses, String fullyQualifiedCallerClassName, String methodName, List<JApiMethod> similarMethods, List<JApiMethod> methodsWithSameName, List<JApiConstructor> constructors) {
         StringBuilder classChanges = new StringBuilder();
         //StringBuilder methodChanges = new StringBuilder();
-        if(fullyQualifiedCallerClassName.isEmpty()){
+        if (fullyQualifiedCallerClassName == null || fullyQualifiedCallerClassName.isEmpty()) {
             return new BuildDiffResult(classChanges.toString());
         }
 
@@ -108,28 +129,17 @@ public class JarDiffUtil {
 
             classChanges.append(System.lineSeparator());
             classChanges.append("Class methods: ").append(System.lineSeparator());
-            for (JApiMethod jApiMethod : jApiClass.getMethods()) {
+            addMethodDiffToChangeReport(jApiClass, methodName, similarMethods, methodsWithSameName, classChanges);
 
-                if (jApiMethod.getName().equals(methodName)) {
-                    methodsWithSameName.add(jApiMethod);
-
-                    //methodChanges.append(buildMethodChangeReport(jApiMethod));
-                    //methodChanges.append(System.lineSeparator()).append(System.lineSeparator());
-
-                } else {
-                    //if (jApiMethod.getChangeStatus() == JApiChangeStatus.REMOVED) {
-                    //    continue;
-                    //}
-                    similarMethods.add(jApiMethod);
+            for (JApiImplementedInterface jApiImplementedInterface : jApiClass.getInterfaces()) {
+                if (jApiImplementedInterface.getCorrespondingJApiClass().isPresent()) {
+                    addMethodDiffToChangeReport(jApiImplementedInterface.getCorrespondingJApiClass().get(), methodName, similarMethods, methodsWithSameName, classChanges);
                 }
-
-
-                classChanges.append(buildMethodChangeReport(jApiMethod));
-                classChanges.append(System.lineSeparator()).append(System.lineSeparator());
             }
 
             //classChanges.append("End of changed class methods.").append(System.lineSeparator());
         }
+
 
         return new BuildDiffResult(classChanges.toString());
     }
@@ -324,7 +334,7 @@ public class JarDiffUtil {
         if (!parametersAsString.isEmpty()) {
             String[] parameters = parametersAsString.split(";");
             for (int i = 0; i < parameters.length; i++) {
-                if(parameters[i].length() <= 1){
+                if (parameters[i].length() <= 1) {
                     continue;
                 }
                 if (i != 0) {
@@ -340,6 +350,51 @@ public class JarDiffUtil {
 
 
         return resultPrefix + parameterResult;
+    }
+
+    private String getMethodReturnTypeFromClass(JApiClass jApiClass, String methodName) {
+        for (JApiMethod jApiMethod : jApiClass.getMethods()) {
+            if (jApiMethod.getName().equals(methodName)) {
+                return jApiMethod.getReturnType().getOldReturnType();
+            }
+        }
+        return null;
+    }
+
+    public String getMethodReturnType(String className, String methodName) {
+        String returnName = null;
+        outerloop:
+        for (JApiClass jApiClass : jApiClasses) {
+            if (!jApiClass.getFullyQualifiedName().toUpperCase().endsWith(className.toUpperCase())) {
+                continue;
+            }
+
+            returnName = getMethodReturnTypeFromClass(jApiClass, methodName);
+
+            if (returnName != null) {
+                break;
+            }
+            //Maybe its an interface that extends an interface that has the method
+            for (JApiImplementedInterface jApiImplementedInterface : jApiClass.getInterfaces()) {
+                if (jApiImplementedInterface.getCorrespondingJApiClass().isPresent()) {
+                    returnName = getMethodReturnTypeFromClass(jApiImplementedInterface.getCorrespondingJApiClass().get(), methodName);
+                    if (returnName != null) {
+                        break outerloop;
+                    }
+                }
+            }
+        }
+
+
+       /* for (JApiClass jApiClass : jApiClasses) {
+            for (JApiMethod jApiMethod : jApiClass.getMethods()) {
+
+                if (jApiMethod.getName().equals(methodName)) {
+                    return jApiMethod.getReturnType().getOldReturnType();
+                }
+            }
+        }*/
+        return returnName;
     }
 }
 
