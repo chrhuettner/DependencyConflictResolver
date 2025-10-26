@@ -41,8 +41,11 @@ public class SootUpTest {
 
         JavaSootClass sootClass = (JavaSootClass) view.getClass(classType).get();
 
+        System.out.println(sootClass.getMethodsByName("parseEnchantment"));
+
+
         for (JavaSootMethod method:sootClass.getMethods()){
-            System.out.println(method.getName());
+            System.out.println(method.getReturnType());
         }
 
         System.out.println(sootClass.getName());

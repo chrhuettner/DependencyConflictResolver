@@ -5,10 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.async.ResultCallback;
 import com.github.dockerjava.api.command.CreateContainerResponse;
-import com.github.dockerjava.api.command.InspectContainerResponse;
 import com.github.dockerjava.api.command.PullImageResultCallback;
 import com.github.dockerjava.api.model.Frame;
-import com.github.dockerjava.api.model.HostConfig;
 import com.github.dockerjava.api.model.PullResponseItem;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientConfig;
@@ -39,9 +37,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static core.LogParser.parseLog;
 import static core.LogParser.projectIsFixableThroughCodeModification;
-import static core.Main.buildPrompt;
 
 public class BumpRunner {
 
@@ -59,13 +55,14 @@ public class BumpRunner {
     public static void main(String[] args) {
         String targetDirectory = "testFiles/downloaded";
         File outputDir = new File(targetDirectory);
-        File outputDirCompiledFiles = new File("testFiles/compiled");
+        File outputDirSrcFiles = new File("testFiles/projectSources");
 
         String targetDirectoryClasses = "testFiles/brokenClasses";
         String targetDirectoryFixedClasses = "testFiles/correctedClasses";
         String targetDirectoryFixedLogs = "testFiles/correctedLogs";
         String targetDirectoryPrompts = "testFiles/prompts";
         String targetDirectoryLLMResponses = "testFiles/LLMResponses";
+        String directoryOldContainerLogs = "testFiles/oldContainerLogs";
         File outputDirClasses = new File(targetDirectoryClasses);
 
         AIProvider chatgptProvider = new ChatGPTProvider();
@@ -114,7 +111,7 @@ public class BumpRunner {
 
         DockerClient dockerClient = DockerClientImpl.getInstance(config, dockerHttpClient);
 
-        File bumpFolder = new File("testFiles/BonoSubset");
+        File bumpFolder = new File("testFiles/BUMP");
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<String> validEntryNames = new ArrayList<>();
@@ -125,8 +122,9 @@ public class BumpRunner {
         AtomicInteger failedFixes = new AtomicInteger();
         AtomicInteger successfulFixes = new AtomicInteger();
         AtomicInteger fixableProjects = new AtomicInteger();
+        AtomicInteger imposterProjects = new AtomicInteger();
 
-        int limit = 1;
+        int limit = 2;
         for (File file : bumpFolder.listFiles()) {
             while (activeThreadCount.getAndUpdate(operand -> {
                 if (operand >= limit) {
@@ -178,13 +176,14 @@ public class BumpRunner {
                     // cd5bb39f43e4570b875027073da3d4e43349ead1.json requires plexus-xml in new version => pom edit needed
                     // cb541fd65c7b9bbc3424ea927f1dab223261d156.json has its upgraded dependency deprecated (no classes or code at all in the dependency, just a deprecation notice)
                     // 4a3efad6e00824e5814b9c8f571c9c98aad40281.json has deleted its enum (CertificationPermission) with nothing there to replace it
+                    // ghcr.io/chains-project/breaking-updates:17f2bcaaba4805b218743f575919360c5aec5da4-pre straight up fails because it cannot find a dependency
                     //TODO: Filter BUMP projects so only fixable projects remain (the above two examples are considered not fixable)
 
                     //TODO: Check this json, class name extraction fails here ab85440ce7321d895c7a9621224ce8059162a26a
-                    if (!file.getName().equals("832e0f184efdad0fcf15d14cb7af5e30239ff454.json")) {
+                    /*if (!file.getName().equals("832e0f184efdad0fcf15d14cb7af5e30239ff454.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
-                    }
+                    }*/
 
                     String strippedFileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 
@@ -199,7 +198,6 @@ public class BumpRunner {
                     Path targetPathOld = downloadLibrary(mavenSourceLinkPre, outputDir, dockerClient, oldUpdateImage, combinedArtifactNameOld);
                     Path targetPathNew = downloadLibrary(mavenSourceLinkBreaking, outputDir, dockerClient, brokenUpdateImage, combinedArtifactNameNew);
 
-                    extractCompiledCodeFromContainer(outputDirCompiledFiles, dockerClient, oldUpdateImage, dependencyArtifactID+"_"+strippedFileName);
 
                     totalPairs.getAndIncrement();
                     if (Files.exists(targetPathOld) && Files.exists(targetPathNew)) {
@@ -207,6 +205,25 @@ public class BumpRunner {
                     } else {
                         activeThreadCount.decrementAndGet();
                         return;
+                    }
+
+                    boolean projectIsFixableWithSourceCodeModification = projectIsFixableThroughCodeModification(Path.of("testFiles/brokenLogs" + "/" + strippedFileName + "_" + project));
+
+                    CreateContainerResponse oldContainer = pullImageAndCreateContainer(dockerClient, oldUpdateImage);
+
+                    if(getLogFromContainer(dockerClient, oldContainer, strippedFileName, project, directoryOldContainerLogs)){
+                        System.out.println(strippedFileName + "_" + project+" is not working despite being in the pre set!!!!");
+                        imposterProjects.incrementAndGet();
+                        activeThreadCount.decrementAndGet();
+                        return;
+                    }
+                    if (!projectIsFixableWithSourceCodeModification) {
+                        activeThreadCount.decrementAndGet();
+                        return;
+                    }
+
+                    if (!Files.exists(Path.of(outputDirSrcFiles +"/"+ dependencyArtifactID+"_"+strippedFileName))) {
+                        extractCompiledCodeFromContainer(outputDirSrcFiles, dockerClient, oldUpdateImage, dependencyArtifactID+"_"+strippedFileName);
                     }
 
 
@@ -442,7 +459,7 @@ public class BumpRunner {
             }
         }
 
-
+        System.out.println(imposterProjects.get()+" projects are not buildable despite being in the pre set!!!");
         System.out.println(satisfiedConflictPairs.get() + " out of " + totalPairs.get() + " project pairs have accessible dependencies");
         System.out.println(fixableProjects.get() + " projects are fixable");
         System.out.println("Fixed " + successfulFixes.get() + " out of " + satisfiedConflictPairs.get() + " projects (" + failedFixes.get() + " were not fixed)");
@@ -462,6 +479,20 @@ public class BumpRunner {
 
     public static void extractEntry(TarArchiveInputStream tais, TarArchiveEntry entry, File outputDir, String outputNameModifier) throws IOException {
         File outputFile = new File(outputDir, outputNameModifier + entry.getName().substring(entry.getName().lastIndexOf('/') + 1));
+
+        try (FileOutputStream fos = new FileOutputStream(outputFile)) {
+            byte[] buffer = new byte[8192];
+            int len;
+            long remaining = entry.getSize();
+            while (remaining > 0 && (len = tais.read(buffer, 0, (int) Math.min(buffer.length, remaining))) != -1) {
+                fos.write(buffer, 0, len);
+                remaining -= len;
+            }
+        }
+    }
+
+    public static void extractWholeEntry(TarArchiveInputStream tais, TarArchiveEntry entry, File outputDir) throws IOException {
+        File outputFile = new File(outputDir,  entry.getName());
 
         try (FileOutputStream fos = new FileOutputStream(outputFile)) {
             byte[] buffer = new byte[8192];
@@ -506,7 +537,8 @@ public class BumpRunner {
         }
 
 
-        getCompiledFile(dockerClient, container, projectDir);
+        getSourceFiles(dockerClient, container, projectDir);
+        getDependencyFiles(dockerClient, container, projectDir);
         dockerClient.removeContainerCmd(container.getId()).exec();
     }
 
@@ -541,12 +573,12 @@ public class BumpRunner {
         }
     }
 
-    public static boolean getCorrectedLogFromContainer(DockerClient dockerClient, CreateContainerResponse container, String fileName, String projectName) {
+    public static boolean getLogFromContainer(DockerClient dockerClient, CreateContainerResponse container, String fileName, String projectName, String dir) {
         dockerClient.startContainerCmd(container.getId()).exec();
         dockerClient.waitContainerCmd(container.getId()).start().awaitStatusCode();
         final boolean[] containsError = {false};
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("testFiles/correctedLogs/" + fileName + "_" + projectName));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(dir+"/" + fileName + "_" + projectName));
 
             dockerClient.logContainerCmd(container.getId())
                     .withStdOut(true)
@@ -800,13 +832,13 @@ public class BumpRunner {
                             super.onNext(item);
                         }
                     }).awaitCompletion();
+            //TODO: Check if this works for all BUMP projects (it probably wont lol)
             return dockerClient.createContainerCmd(imagePath)
                     .withCmd("sh", "-c",
-                            "mvn package " +
-                                    "org.apache.maven.plugins:maven-shade-plugin:3.5.0:shade " +
-                                    "-DcreateDependencyReducedPom=false " +
-                                    "-DshadedArtifactAttached=true " +
-                                    "-DshadedClassifierName=all")
+                            //"mvn clean test -B | tee %s.log")
+                            // Use multiple lines instead of comma seperated scopes because of older maven versions
+                            "mvn -B dependency:copy-dependencies -DoutputDirectory=/tmp/dependencies")
+                            //"mvn clean package org.apache.maven.plugins:maven-shade-plugin:3.5.0:shade -Dmaven.test.skip=true")
                     .exec();
 
         } catch (Exception e) {
@@ -841,28 +873,62 @@ public class BumpRunner {
         }
     }
 
-    public static void getCompiledFile(DockerClient dockerClient, CreateContainerResponse container, File outputDir) {
+    public static void getSourceFiles(DockerClient dockerClient, CreateContainerResponse container, File outputDir) {
         try (InputStream tarStream = dockerClient.copyArchiveFromContainerCmd(container.getId(), "/").exec();
              TarArchiveInputStream tarInput = new TarArchiveInputStream(tarStream)) {
 
             TarArchiveEntry entry;
-            boolean found = false;
             while ((entry = tarInput.getNextEntry()) != null) {
                 String path = entry.getName();
                 System.out.println(path);
-                if (entry.isDirectory()) {
-                    continue;
-                }
-                if (!path.contains("target/")) {
+                if (!path.contains("src/")) {
                     continue;
                 }
 
-                extractEntry(tarInput, entry, outputDir, "");
-                found = true;
-                break;
+                File outputFile = new File(outputDir.getAbsolutePath()+"\\"+entry.getName());
+
+                if (entry.isDirectory()) {
+                    outputFile.mkdirs();
+                }else{
+                    if(path.endsWith("java") || path.endsWith(".jar")){
+                        extractWholeEntry(tarInput, entry, outputDir);
+                    }else{
+                        System.out.println("Rejected "+entry.getName());
+                    }
+                }
+
+                //extractEntry(tarInput, entry, outputDir, "");
             }
-            if (!found) {
-                System.out.println("FUCK");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void getDependencyFiles(DockerClient dockerClient, CreateContainerResponse container, File outputDir) {
+        try (InputStream tarStream = dockerClient.copyArchiveFromContainerCmd(container.getId(), "/").exec();
+             TarArchiveInputStream tarInput = new TarArchiveInputStream(tarStream)) {
+
+            TarArchiveEntry entry;
+            while ((entry = tarInput.getNextEntry()) != null) {
+                String path = entry.getName();
+                System.out.println(path);
+                if (!path.contains("tmp/dependencies")) {
+                    continue;
+                }
+
+                File outputFile = new File(outputDir.getAbsolutePath()+"\\"+entry.getName());
+
+                if (entry.isDirectory()) {
+                    outputFile.mkdirs();
+                }else{
+                    if(path.endsWith("java") || path.endsWith(".jar")){
+                        extractWholeEntry(tarInput, entry, outputDir);
+                    }else{
+                        System.out.println("Rejected "+entry.getName());
+                    }
+                }
+
+                //extractEntry(tarInput, entry, outputDir, "");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -957,7 +1023,7 @@ public class BumpRunner {
     }
 
     public static MethodChainAnalysis analyseMethodChain(int compileErrorColumn, int line, String brokenCode, String targetDirectoryClasses,
-                                                         String strippedFileName, String strippedClassName, Path targetPathOld, Path targetPathNew) {
+                                                         String strippedFileName, String strippedClassName, Path targetPathOld, Path targetPathNew, String srcDirectory) {
         int errorIndex = Math.min(compileErrorColumn, brokenCode.length() - 1);
         String brokenSymbol = "";
 
@@ -1039,14 +1105,16 @@ public class BumpRunner {
                 String intermediateClassName = classNameOfVariable;
 
                 for (int i = 1; i < precedingMethodChain.size() - 1; i++) {
-                    intermediateClassName = jarDiffUtil.getMethodReturnType(intermediateClassName,
+                    //intermediateClassName = jarDiffUtil.getMethodReturnType(intermediateClassName,
+                    //        precedingMethodChain.get(i));
+                    intermediateClassName = SpoonTest.getReturnTypeOfMethod(srcDirectory,intermediateClassName,
                             precedingMethodChain.get(i));
                 }
 
                 targetClass = intermediateClassName;
                 targetMethod = precedingMethodChain.get(precedingMethodChain.size() - 1);
 
-                String targetMethodParameters = brokenCode.substring(brokenCode.indexOf(targetMethod) + targetMethod.length());
+                /*String targetMethodParameters = brokenCode.substring(brokenCode.indexOf(targetMethod) + targetMethod.length());
 
                 if (!(targetMethodParameters.isEmpty() || targetMethodParameters.equals("()"))) {
 
@@ -1082,7 +1150,7 @@ public class BumpRunner {
                             parameterNames[i] = jarDiffUtil.getMethodReturnType(callerClass, methodName);
                         }
                     }
-                }
+                }*/
 
             }
             System.out.println(brokenSymbol);
