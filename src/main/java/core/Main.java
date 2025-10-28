@@ -108,6 +108,7 @@ public class Main {
             - Do NOT explain anything outside the two-sentence explanation above.
             - Do NOT include headings, intros, or closing remarks.
             - Only start your updated java code with slashes if you want it to be commented out code!
+            - Preserve all trailing symbols (such as braces, semicolons, parentheses) exactly as in the original code to ensure it compiles.
             
             Your response will be **automatically parsed**, so it must match the format **exactly**.
             """;

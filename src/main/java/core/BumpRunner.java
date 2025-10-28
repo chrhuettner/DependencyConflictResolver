@@ -37,6 +37,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static core.LogParser.parseLog;
 import static core.LogParser.projectIsFixableThroughCodeModification;
 
 public class BumpRunner {
@@ -51,6 +52,12 @@ public class BumpRunner {
     // for example: incompatible types: int cannot be converted to java.lang.Float
     private static final Pattern CAST_PATTERN = Pattern.compile(
             "incompatible types: (\\S*) cannot be converted to (\\S*)");
+
+    // for example: incompatible types: int cannot be converted to java.lang.Float
+    private static final Pattern CONSTRUCTOR_TYPES_PATTERN = Pattern.compile(
+            "constructor (\\S*) in class (\\S*) cannot be applied to given types");
+
+    public static final int REFINEMENT_LIMIT = 2;
 
     public static void main(String[] args) {
         String targetDirectory = "testFiles/downloaded";
@@ -80,8 +87,9 @@ public class BumpRunner {
         AIProvider deepseekR1_7b = new OllamaProvider("deepseek-r1:7b");
         AIProvider gptOss20b = new OllamaProvider("gpt-oss:20b");
         AIProvider gptOss120bCloud = new OllamaProvider("gpt-oss:120b-cloud");
+        AIProvider qwen3_coder480b_cloud = new OllamaProvider("qwen3-coder:480b-cloud");
 
-        AIProvider activeProvider = gptOss120bCloud;
+        AIProvider activeProvider = qwen3_coder480b_cloud;
 
         List<AIProvider> providers = new ArrayList<>();
 
@@ -111,7 +119,7 @@ public class BumpRunner {
 
         DockerClient dockerClient = DockerClientImpl.getInstance(config, dockerHttpClient);
 
-        File bumpFolder = new File("testFiles/BUMP");
+        File bumpFolder = new File("testFiles/BumpSubset");
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<String> validEntryNames = new ArrayList<>();
@@ -124,7 +132,8 @@ public class BumpRunner {
         AtomicInteger fixableProjects = new AtomicInteger();
         AtomicInteger imposterProjects = new AtomicInteger();
 
-        int limit = 2;
+
+        int limit = 4;
         for (File file : bumpFolder.listFiles()) {
             while (activeThreadCount.getAndUpdate(operand -> {
                 if (operand >= limit) {
@@ -180,7 +189,7 @@ public class BumpRunner {
                     //TODO: Filter BUMP projects so only fixable projects remain (the above two examples are considered not fixable)
 
                     //TODO: Check this json, class name extraction fails here ab85440ce7321d895c7a9621224ce8059162a26a
-                    /*if (!file.getName().equals("832e0f184efdad0fcf15d14cb7af5e30239ff454.json")) {
+                   /* if (!file.getName().equals("ab85440ce7321d895c7a9621224ce8059162a26a.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }*/
@@ -209,39 +218,32 @@ public class BumpRunner {
 
                     boolean projectIsFixableWithSourceCodeModification = projectIsFixableThroughCodeModification(Path.of("testFiles/brokenLogs" + "/" + strippedFileName + "_" + project));
 
-                    CreateContainerResponse oldContainer = pullImageAndCreateContainer(dockerClient, oldUpdateImage);
 
-                    if(getLogFromContainer(dockerClient, oldContainer, strippedFileName, project, directoryOldContainerLogs)){
-                        System.out.println(strippedFileName + "_" + project+" is not working despite being in the pre set!!!!");
-                        imposterProjects.incrementAndGet();
-                        activeThreadCount.decrementAndGet();
-                        return;
-                    }
                     if (!projectIsFixableWithSourceCodeModification) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }
+                    fixableProjects.incrementAndGet();
 
-                    if (!Files.exists(Path.of(outputDirSrcFiles +"/"+ dependencyArtifactID+"_"+strippedFileName))) {
-                        extractCompiledCodeFromContainer(outputDirSrcFiles, dockerClient, oldUpdateImage, dependencyArtifactID+"_"+strippedFileName);
+                    if (!Files.exists(Path.of(outputDirSrcFiles + "/" + dependencyArtifactID + "_" + strippedFileName))) {
+                        CreateContainerResponse oldContainer = pullImageAndCreateContainer(dockerClient, oldUpdateImage);
+                        if (getLogFromContainer(dockerClient, oldContainer, strippedFileName, project, directoryOldContainerLogs)) {
+                            System.out.println(strippedFileName + "_" + project + " is not working despite being in the pre set!!!!");
+                            imposterProjects.incrementAndGet();
+                            activeThreadCount.decrementAndGet();
+                            return;
+                        }
+                        extractCompiledCodeFromContainer(outputDirSrcFiles, dockerClient, oldUpdateImage, dependencyArtifactID + "_" + strippedFileName);
                     }
 
 
-                    /*if (!Files.exists(Path.of("testFiles/brokenLogs/" + strippedFileName + "_" + project))) {
+                    if (!Files.exists(Path.of("testFiles/brokenLogs/" + strippedFileName + "_" + project))) {
                         getBrokenLogFromContainer(dockerClient, brokenUpdateImage, project, strippedFileName);
                     }
 
                     //HashMap<String, int[]> failedClasses = readLogs(project, "testFiles/brokenLogs", strippedFileName);
                     //directory + "/" + fileName + "_" + projectName
 
-                    boolean projectIsFixableWithSourceCodeModification = projectIsFixableThroughCodeModification(Path.of("testFiles/brokenLogs" + "/" + strippedFileName + "_" + project));
-
-                    if (!projectIsFixableWithSourceCodeModification) {
-                        activeThreadCount.decrementAndGet();
-                        return;
-                    }
-
-                    fixableProjects.incrementAndGet();
 
                     List<Object> errors = parseLog(Path.of("testFiles/brokenLogs" + "/" + strippedFileName + "_" + project));
 
@@ -254,7 +256,7 @@ public class BumpRunner {
                         for (int j = i - 1; j >= 0; j--) {
                             if (errors.get(j) instanceof LogParser.CompileError && compileError != null) {
                                 LogParser.CompileError innerCompileError = (LogParser.CompileError) errors.get(j);
-                                if (innerCompileError.line == compileError.line) {
+                                if (innerCompileError.file.equals(compileError.file) && innerCompileError.line == compileError.line) {
                                     // Keep details
                                     ((LogParser.CompileError) errors.get(i)).details.putAll(((LogParser.CompileError) errors.get(j)).details);
                                     errors.remove(j);
@@ -279,42 +281,10 @@ public class BumpRunner {
                         String targetClass = "";
                         String targetMethod = "";
                         String[] targetMethodParameterClassNames = new String[0];
-                        int errorIndex = compileError.column;
-                        if (compileError.message.equals("cannot find symbol")) {
-                            if (compileError.details.containsKey("symbol")) {
-                                String sym = compileError.details.get("symbol");
-                                if (sym.startsWith("class")) {
-                                    targetClass = sym.substring(sym.indexOf("class") + "class".length() + 1);
-                                }
-                            }
-                        }
-
-                        if (compileError.details.containsKey("symbol") && compileError.details.get("symbol").startsWith("method")) {
-                            targetMethod = compileError.details.get("symbol");
-                            targetMethod = targetMethod.substring(targetMethod.indexOf(" ") + 1);
-                            if (targetMethod.indexOf("(") != targetMethod.indexOf(")") - 1) {
-                                String parameterString = targetMethod.substring(targetMethod.indexOf("(") + 1, targetMethod.indexOf(")"));
-                                String[] parameters = parameterString.split(",");
-                                targetMethodParameterClassNames = new String[parameters.length];
-                                for (int i = 0; i < parameters.length; i++) {
-                                    targetMethodParameterClassNames[i] = primitiveClassNameToWrapperName(parameters[i]);
-                                }
-                            }
-
-                            targetMethod = targetMethod.substring(0, targetMethod.indexOf("("));
-                        }
 
                         Matcher typecastMatcher = CAST_PATTERN.matcher(compileError.message);
-
-                        if (typecastMatcher.find()) {
-                            targetMethodParameterClassNames = new String[]{typecastMatcher.group(2)};
-                        }
-
                         Matcher deprecationMatcher = DEPRECATION_PATTERN.matcher(compileError.message);
-                        if (deprecationMatcher.find()) {
-                            targetMethod = deprecationMatcher.group(1);
-                            targetClass = deprecationMatcher.group(3);
-                        }
+                        Matcher constructorTypesMatcher = CONSTRUCTOR_TYPES_PATTERN.matcher(compileError.message);
 
                         String strippedClassName = compileError.file.substring(compileError.file.lastIndexOf("/") + 1);
                         if (!Files.exists(Path.of("testFiles/brokenClasses/" + strippedFileName + "_" + strippedClassName))) {
@@ -325,9 +295,42 @@ public class BumpRunner {
 
 
                         BrokenCode brokenCode = readBrokenLine(strippedClassName, targetDirectoryClasses, strippedFileName, new int[]{compileError.line, compileError.column});
-                        //String targetClass = targetDependencyClass.substring(0, strippedClassName.lastIndexOf("."));
-                        //TODO detect super call here then use the parent class
-                        if (brokenCode.code().startsWith("import")) {
+
+                        int errorIndex = compileError.column;
+                        if (constructorTypesMatcher.find()) {
+                            targetMethod = constructorTypesMatcher.group(1);
+                            targetClass = constructorTypesMatcher.group(2);
+                        } else if (compileError.message.equals("cannot find symbol")) {
+                            if (compileError.details.containsKey("symbol")) {
+                                String sym = compileError.details.get("symbol");
+                                if (sym.startsWith("class")) {
+                                    targetClass = sym.substring(sym.indexOf("class") + "class".length() + 1);
+                                } else if (sym.startsWith("method")) {
+                                    targetMethod = compileError.details.get("symbol");
+                                    targetMethod = targetMethod.substring(targetMethod.indexOf(" ") + 1);
+                                    if (targetMethod.indexOf("(") != targetMethod.indexOf(")") - 1) {
+                                        String parameterString = targetMethod.substring(targetMethod.indexOf("(") + 1, targetMethod.indexOf(")"));
+                                        String[] parameters = parameterString.split(",");
+                                        targetMethodParameterClassNames = new String[parameters.length];
+                                        for (int i = 0; i < parameters.length; i++) {
+                                            targetMethodParameterClassNames[i] = primitiveClassNameToWrapperName(parameters[i]);
+                                        }
+                                    }
+
+                                    targetMethod = targetMethod.substring(0, targetMethod.indexOf("("));
+
+                                    if (compileError.details.containsKey("location")) {
+                                        targetClass = compileError.details.get("location");
+                                        targetClass = targetClass.substring(targetClass.indexOf("class") + "class".length() + 1);
+                                    }
+                                }
+                            }
+                        } else if (typecastMatcher.find()) {
+                            targetMethodParameterClassNames = new String[]{typecastMatcher.group(2)};
+                        } else if (deprecationMatcher.find()) {
+                            targetMethod = deprecationMatcher.group(1);
+                            targetClass = deprecationMatcher.group(3);
+                        } else if (brokenCode.code().startsWith("import")) {
                             targetClass = brokenCode.code().substring(brokenCode.code().indexOf(" "), brokenCode.code().lastIndexOf(";")).trim();
                             if (targetClass.contains(".")) {
                                 targetClass = targetClass.substring(targetClass.lastIndexOf(".") + 1);
@@ -337,9 +340,9 @@ public class BumpRunner {
                             System.out.println("super " + parent);
                             targetClass = parent;
                             targetMethod = parent;
-                        } else if (targetClass.isEmpty() && targetMethod.isEmpty()) {
+                        } else {
                             MethodChainAnalysis methodChainAnalysis = analyseMethodChain(compileError.column, brokenCode.start(), brokenCode.code(), targetDirectoryClasses, strippedFileName,
-                                    strippedClassName, targetPathOld, targetPathNew);
+                                    strippedClassName, targetPathOld, targetPathNew, outputDirSrcFiles.getAbsolutePath());
 
                             targetClass = methodChainAnalysis.targetClass();
                             targetMethod = methodChainAnalysis.targetMethod();
@@ -349,6 +352,11 @@ public class BumpRunner {
                             }
 
                         }
+
+
+                        //String targetClass = targetDependencyClass.substring(0, strippedClassName.lastIndexOf("."));
+                        //TODO detect super call here then use the parent class
+
                         //else{
                         //    continue;
                         //}
@@ -377,9 +385,13 @@ public class BumpRunner {
                         String erroneousClass = readBrokenClass(strippedClassName, targetDirectoryClasses, strippedFileName);
 
                         if (!usePromptCaching || !Files.exists(Path.of(llmResponseFileName))) {
-                            //TODO maybe also include the error message in the prompt?
-                            String prompt = buildPrompt(dependencyArtifactID, previousVersion, newVersion, targetPathOld.toString(), targetPathNew.toString(),
-                                    targetClass, targetMethod, brokenCode.code(), targetMethodParameterClassNames, "line: " + compileError.line + ", column: " + compileError.column + System.lineSeparator() + compileError.message, erroneousClass);
+                            String errorPrompt = "line: " + compileError.line + ", column: " + compileError.column + System.lineSeparator() + compileError.message;
+
+                            for (String detail : compileError.details.keySet()) {
+                                errorPrompt = errorPrompt + System.lineSeparator() + detail + " " + compileError.details.get(detail);
+                            }
+                            String prompt = Main.buildPrompt(dependencyArtifactID, previousVersion, newVersion, targetPathOld.toString(), targetPathNew.toString(),
+                                    targetClass, targetMethod, brokenCode.code(), targetMethodParameterClassNames, errorPrompt, erroneousClass);
 
                             Files.write(Path.of(targetDirectoryPrompts + "/" + strippedFileName + "_" + compileError.line + "_" + targetClass + ".txt"), prompt.getBytes());
 
@@ -425,15 +437,19 @@ public class BumpRunner {
                         replaceBrokenCodeInClass(className, targetDirectoryClasses, targetDirectoryFixedClasses, strippedFileName, groupedChangesByClassName.get(className));
 
                         replaceFileInContainer(dockerClient, container, Paths.get(targetDirectoryFixedClasses + "/" + strippedFileName + "_" + className), groupedChangesByClassName.get(className).get(0).file());
+
+                        if(groupedChangesByClassName.get(className).get(0).file().equals("/docker-adapter/src/test/java/com/artipie/docker/http/LargeImageITCase.java")){
+                            getFileFromContainer(dockerClient, container, groupedChangesByClassName.get(className).get(0).file(), new File("testFiles/TEST"), "");
+                        }
                     }
 
-                    if (getCorrectedLogFromContainer(dockerClient, container, strippedFileName, project)) {
+                    if (getLogFromContainer(dockerClient, container, strippedFileName, project, targetDirectoryFixedLogs)) {
                         System.out.println("Failed to fix " + file.getName());
                         failedFixes.incrementAndGet();
                     } else {
                         System.out.println("Successfully fixed " + file.getName());
                         successfulFixes.incrementAndGet();
-                    }*/
+                    }
 
 
                     //String prompt = buildPrompt(dependencyArtifactID, previousVersion, newVersion, targetPathOld.toString(), targetPathNew.toString(),
@@ -459,7 +475,7 @@ public class BumpRunner {
             }
         }
 
-        System.out.println(imposterProjects.get()+" projects are not buildable despite being in the pre set!!!");
+        System.out.println(imposterProjects.get() + " projects are not buildable despite being in the pre set!!!");
         System.out.println(satisfiedConflictPairs.get() + " out of " + totalPairs.get() + " project pairs have accessible dependencies");
         System.out.println(fixableProjects.get() + " projects are fixable");
         System.out.println("Fixed " + successfulFixes.get() + " out of " + satisfiedConflictPairs.get() + " projects (" + failedFixes.get() + " were not fixed)");
@@ -492,7 +508,7 @@ public class BumpRunner {
     }
 
     public static void extractWholeEntry(TarArchiveInputStream tais, TarArchiveEntry entry, File outputDir) throws IOException {
-        File outputFile = new File(outputDir,  entry.getName());
+        File outputFile = new File(outputDir, entry.getName());
 
         try (FileOutputStream fos = new FileOutputStream(outputFile)) {
             byte[] buffer = new byte[8192];
@@ -578,7 +594,7 @@ public class BumpRunner {
         dockerClient.waitContainerCmd(container.getId()).start().awaitStatusCode();
         final boolean[] containsError = {false};
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(dir+"/" + fileName + "_" + projectName));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(dir + "/" + fileName + "_" + projectName));
 
             dockerClient.logContainerCmd(container.getId())
                     .withStdOut(true)
@@ -642,18 +658,30 @@ public class BumpRunner {
                 if (i + 1 == indices[0]) {
                     start = i + 1;
                     brokenCode = allLines.get(i);
-                    if (!(brokenCode.endsWith(";") || brokenCode.endsWith("{") || brokenCode.endsWith("}"))) {
+                    int[] bracketOccurrencesInLine = getBracketOccurrencesInString(brokenCode);
+                    if (!(brokenCode.endsWith(";") || brokenCode.endsWith("{") || brokenCode.endsWith("}") || (bracketOccurrencesInLine[0] == bracketOccurrencesInLine[1] && bracketOccurrencesInLine[0] != 0))) {
                         for (int j = i + 1; j < allLines.size(); j++) {
-                            brokenCode = brokenCode + allLines.get(j);
+                            String line = allLines.get(j);
+
+                            brokenCode = brokenCode + line;
                             if (allLines.get(j).endsWith(";")) {
                                 end = j + 1;
                                 break;
                             }
+
+                           bracketOccurrencesInLine = getBracketOccurrencesInString(brokenCode);
+
+                            if (bracketOccurrencesInLine[0] == bracketOccurrencesInLine[1] && bracketOccurrencesInLine[0] != 0) {
+                                end = j + 1;
+                                break;
+                            }
+
+
                         }
                     } else {
                         end = start;
                     }
-                    return new BrokenCode(brokenCode, start, end);
+                    return new BrokenCode(brokenCode, start, end, "");
                 }
             }
 
@@ -661,6 +689,20 @@ public class BumpRunner {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    public static int[] getBracketOccurrencesInString(String line) {
+        int[] occurrences = new int[2];
+        for (int k = 0; k < line.length(); k++) {
+            char c = line.charAt(k);
+            if (c == '(') {
+                occurrences[0]++;
+            } else if (c == ')') {
+                occurrences[1]++;
+            }
+        }
+
+        return occurrences;
     }
 
     public static String getClassNameOfVariable(String variableName, String directory, String fileName, String className, int lineNumber) {
@@ -838,7 +880,7 @@ public class BumpRunner {
                             //"mvn clean test -B | tee %s.log")
                             // Use multiple lines instead of comma seperated scopes because of older maven versions
                             "mvn -B dependency:copy-dependencies -DoutputDirectory=/tmp/dependencies")
-                            //"mvn clean package org.apache.maven.plugins:maven-shade-plugin:3.5.0:shade -Dmaven.test.skip=true")
+                    //"mvn clean package org.apache.maven.plugins:maven-shade-plugin:3.5.0:shade -Dmaven.test.skip=true")
                     .exec();
 
         } catch (Exception e) {
@@ -880,20 +922,20 @@ public class BumpRunner {
             TarArchiveEntry entry;
             while ((entry = tarInput.getNextEntry()) != null) {
                 String path = entry.getName();
-                System.out.println(path);
+                //System.out.println(path);
                 if (!path.contains("src/")) {
                     continue;
                 }
 
-                File outputFile = new File(outputDir.getAbsolutePath()+"\\"+entry.getName());
+                File outputFile = new File(outputDir.getAbsolutePath() + "\\" + entry.getName());
 
                 if (entry.isDirectory()) {
                     outputFile.mkdirs();
-                }else{
-                    if(path.endsWith("java") || path.endsWith(".jar")){
+                } else {
+                    if (path.endsWith("java") || path.endsWith(".jar")) {
                         extractWholeEntry(tarInput, entry, outputDir);
-                    }else{
-                        System.out.println("Rejected "+entry.getName());
+                    } else {
+                        //System.out.println("Rejected "+entry.getName());
                     }
                 }
 
@@ -911,20 +953,20 @@ public class BumpRunner {
             TarArchiveEntry entry;
             while ((entry = tarInput.getNextEntry()) != null) {
                 String path = entry.getName();
-                System.out.println(path);
+                //System.out.println(path);
                 if (!path.contains("tmp/dependencies")) {
                     continue;
                 }
 
-                File outputFile = new File(outputDir.getAbsolutePath()+"\\"+entry.getName());
+                File outputFile = new File(outputDir.getAbsolutePath() + "\\" + entry.getName());
 
                 if (entry.isDirectory()) {
                     outputFile.mkdirs();
-                }else{
-                    if(path.endsWith("java") || path.endsWith(".jar")){
+                } else {
+                    if (path.endsWith("java") || path.endsWith(".jar")) {
                         extractWholeEntry(tarInput, entry, outputDir);
-                    }else{
-                        System.out.println("Rejected "+entry.getName());
+                    } else {
+                        //System.out.println("Rejected "+entry.getName());
                     }
                 }
 
@@ -1016,7 +1058,7 @@ public class BumpRunner {
                     .withRemotePath(destPath)
                     .exec();
 
-            System.out.println("File replaced successfully!");
+            System.out.println("File "+fileNameInContainer+" replaced successfully!");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -1107,7 +1149,7 @@ public class BumpRunner {
                 for (int i = 1; i < precedingMethodChain.size() - 1; i++) {
                     //intermediateClassName = jarDiffUtil.getMethodReturnType(intermediateClassName,
                     //        precedingMethodChain.get(i));
-                    intermediateClassName = SpoonTest.getReturnTypeOfMethod(srcDirectory,intermediateClassName,
+                    intermediateClassName = SpoonTest.getReturnTypeOfMethod(srcDirectory, intermediateClassName,
                             precedingMethodChain.get(i));
                 }
 

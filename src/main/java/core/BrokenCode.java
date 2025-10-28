@@ -1,4 +1,4 @@
 package core;
 
-public record BrokenCode(String code, int start, int end) {
+public record BrokenCode(String code, int start, int end, String suffix) {
 }
