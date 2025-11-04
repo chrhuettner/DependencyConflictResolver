@@ -38,6 +38,15 @@ public class JarDiffUtil {
         return new ClassDiffResult(changes.classResult(), methodsWithSameName, similarityResults);
     }
 
+    public String getAlternativeClassImport(String oldClassName){
+        for(JApiClass jApiClass : jApiClasses){
+            if (jApiClass.getFullyQualifiedName().toUpperCase().endsWith(oldClassName.toUpperCase())) {
+                return jApiClass.getFullyQualifiedName();
+            }
+        }
+        return null;
+    }
+
     public List<JApiMethod> getChangedMethods() {
         List<JApiMethod> removedMethods = new ArrayList<>();
         for (JApiClass jApiClass : jApiClasses) {

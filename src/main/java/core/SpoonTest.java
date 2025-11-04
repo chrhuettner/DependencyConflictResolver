@@ -39,7 +39,7 @@ public class SpoonTest {
 
         //analyzeDependencies(jarFiles);
 
-        System.out.println(getReturnTypeOfMethod("C:\\Users\\Chrisi\\OneDrive - HTL Mössingerstrasse\\Semester 8\\Compilerbau\\DependencyConflictResolver\\testFiles\\projectSources\\XSeries_832e0f184efdad0fcf15d14cb7af5e30239ff454", "", "parseEnchantment"));
+        System.out.println(getReturnTypeOfMethod("testFiles/projectSources/github-api_5769bdad76925da568294cb8a40e7d4469699ac3", "GitHub", "connect"));
     }
 
     public static String getReturnTypeOfMethodFromSourceCode(String dir, String className, String methodName) {
@@ -53,7 +53,8 @@ public class SpoonTest {
         CtModel model = launcher.getModel();
 
         for (CtType<?> type : model.getAllTypes()) {
-            if (!type.getSimpleName().equals(className)) {
+            //System.out.println("QUAL: "+type.getQualifiedName());
+            if (!type.getQualifiedName().equals(className)) {
                 continue;
             }
             for (CtMethod method : type.getMethods()) {
@@ -76,6 +77,10 @@ public class SpoonTest {
             return returnType[0];
         }
 
+        className = className.replace(".", "/");
+
+        //System.out.println("CLASS " +className);
+
         File depDir = new File(dir + "\\tmp\\dependencies");
         File[] jarFiles = depDir.listFiles(f -> f.getName().endsWith(".jar"));
         for (File file : jarFiles) {
@@ -83,20 +88,25 @@ public class SpoonTest {
                 Enumeration<JarEntry> entries = jarFile.entries();
                 while (entries.hasMoreElements()) {
                     JarEntry entry = entries.nextElement();
-                    if (entry.getName().endsWith(".class") && entry.getName().startsWith(className)) {
+                    //System.out.println(entry.getName());
+                    if (entry.getName().endsWith(className+".class")) {
                         try (InputStream is = jarFile.getInputStream(entry)) {
                             ClassReader reader = new ClassReader(is);
                             reader.accept(new ClassVisitor(Opcodes.ASM9) {
                                 @Override
                                 public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
+                                    //System.out.println(methodName);
                                     if (methodName.equals(name)) {
                                         returnType[0] = Type.getReturnType(descriptor).getClassName();
-                                        System.out.println("Found in: " + entry.getName().replace("/", ".").replace(".class", ""));
+                                        //System.out.println("Found in: " + entry.getName().replace("/", ".").replace(".class", ""));
 
                                     }
                                     return super.visitMethod(access, name, descriptor, signature, exceptions);
                                 }
                             }, 0);
+                            if (returnType[0] != null) {
+                                return returnType[0];
+                            }
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
@@ -107,7 +117,7 @@ public class SpoonTest {
             }
 
         }
-        return returnType[0];
+        return null;
     }
 
 

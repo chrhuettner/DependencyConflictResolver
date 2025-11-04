@@ -243,7 +243,7 @@ public class Main {
 
             for (int j = 0; j < method.getParameters().size(); j++) {
                 JApiParameter parameter = method.getParameters().get(j);
-                if (!parameter.getType().equals(parameterTypeNames[j]) && !parameterTypeNames[j].equals("java.lang.Object")) {
+                if (!parameter.getType().endsWith(parameterTypeNames[j]) && !parameterTypeNames[j].equals("java.lang.Object")) {
                     candidates.remove(i);
                     break;
                 }

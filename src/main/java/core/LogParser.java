@@ -127,7 +127,7 @@ public class LogParser {
             RuntimeError currentRuntime = null;
 
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                //System.out.println(line);
                 Matcher m1 = COMPILE_ERROR.matcher(line);
                 Matcher mw = WARNING_ERROR.matcher(line);
                 Matcher alt = ALTERNATIVE_COMPILE_ERROR.matcher(line);
@@ -160,6 +160,8 @@ public class LogParser {
                     String[] parts = line.trim().split(":", 2);
                     if (parts.length == 2) {
                         currentCompile.details.put(parts[0].trim(), parts[1].trim());
+                    }else{
+                        currentCompile.details.put(currentCompile.details.size()+"", parts[0].trim());
                     }
                     continue;
                 } else if (currentCompile != null) {
