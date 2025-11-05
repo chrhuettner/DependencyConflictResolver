@@ -126,7 +126,7 @@ public class BumpRunner {
 
         DockerClient dockerClient = DockerClientImpl.getInstance(config, dockerHttpClient);
 
-        File bumpFolder = new File("testFiles/BUMPSubset");
+        File bumpFolder = new File("testFiles/BonoSubset");
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<String> validEntryNames = new ArrayList<>();
@@ -196,7 +196,7 @@ public class BumpRunner {
                     //TODO: Filter BUMP projects so only fixable projects remain (the above two examples are considered not fixable)
 
                     //TODO: Check this json, class name extraction fails here ab85440ce7321d895c7a9621224ce8059162a26a
-                    /*if (!file.getName().equals("0305beafdecb0b28f7c94264ed20cdc4e41ff067.json")) {
+                    /*if (!file.getName().equals("1ef97ea6c5b6e34151fe6167001b69e003449f95.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }*/
@@ -240,6 +240,24 @@ public class BumpRunner {
                             return;
                         }
                         extractCompiledCodeFromContainer(outputDirSrcFiles, dockerClient, oldUpdateImage, dependencyArtifactID + "_" + strippedFileName);
+
+
+                    }
+
+                    String oldName = targetPathOld.toUri().toString();
+                    oldName = oldName.substring(oldName.lastIndexOf("/") + 1);
+
+                    String newName = targetPathNew.toUri().toString();
+                    newName = newName.substring(newName.lastIndexOf("/") + 1);
+
+                    Path oldDependencyPath = Path.of(outputDirSrcFiles + "/" + dependencyArtifactID + "_" + strippedFileName + "/tmp/dependencies/" + oldName);
+
+                    if (Files.exists(oldDependencyPath)) {
+                        File updatedDependencyFile = new File(targetPathNew.toUri());
+                        File oldDependencyFile = new File(oldDependencyPath.toUri());
+
+                        Files.move(oldDependencyFile.toPath(), Path.of(outputDirSrcFiles + "/" + dependencyArtifactID + "_" + strippedFileName + "/tmp/"+oldName), StandardCopyOption.REPLACE_EXISTING);
+                        Files.copy(updatedDependencyFile.toPath(), Path.of(outputDirSrcFiles + "/" + dependencyArtifactID + "_" + strippedFileName + "/tmp/dependencies/"+newName), StandardCopyOption.REPLACE_EXISTING);
                     }
 
 
@@ -269,9 +287,9 @@ public class BumpRunner {
                         fixError(context);
                     }
 
-                    if(validateFix(context)){
+                    if (validateFix(context)) {
                         successfulFixes.getAndIncrement();
-                    }else{
+                    } else {
                         failedFixes.getAndIncrement();
                     }
 
@@ -304,7 +322,7 @@ public class BumpRunner {
         }
     }
 
-    public static boolean validateFix(Context context){
+    public static boolean validateFix(Context context) {
         HashMap<String, List<ProposedChange>> groupedChangesByClassName = new HashMap<>();
 
         for (ProposedChange proposedChange : context.getProposedChanges()) {
@@ -322,15 +340,15 @@ public class BumpRunner {
 
             replaceFileInContainer(context.getDockerClient(), container, Paths.get(context.getTargetDirectoryFixedClasses() + "/" + context.getStrippedFileName() + "_" + className), groupedChangesByClassName.get(className).get(0).file());
 
-            if (groupedChangesByClassName.get(className).get(0).file().equals("/docker-adapter/src/test/java/com/artipie/docker/http/LargeImageITCase.java")) {
+            /*if (groupedChangesByClassName.get(className).get(0).file().equals("/docker-adapter/src/test/java/com/artipie/docker/http/LargeImageITCase.java")) {
                 getFileFromContainer(context.getDockerClient(), container, groupedChangesByClassName.get(className).get(0).file(), new File("testFiles/TEST"), "");
-            }
+            }*/
         }
 
-       return !logFromContainerContainsError(context.getDockerClient(), container, context.getStrippedFileName(), context.getProject(), context.getTargetDirectoryFixedLogs());
+        return !logFromContainerContainsError(context.getDockerClient(), container, context.getStrippedFileName(), context.getProject(), context.getTargetDirectoryFixedLogs());
     }
 
-    public static void removeDuplicatedErrors(List<Object> errors){
+    public static void removeDuplicatedErrors(List<Object> errors) {
         for (int i = errors.size() - 1; i >= 0; i--) {
             LogParser.CompileError compileError = null;
             if (errors.get(i) instanceof LogParser.CompileError) {
@@ -364,19 +382,24 @@ public class BumpRunner {
 
     public static void fixError(Context context) throws IOException, ClassNotFoundException {
         {
+
+
             System.out.println(context.getCompileError().file + " " + context.getCompileError().line + " " + context.getCompileError().column);
             String targetClass = "";
             String targetMethod = "";
             String[] targetMethodParameterClassNames = new String[0];
 
-            Matcher typecastMatcher = CAST_PATTERN.matcher(context.getCompileError().message);
-            Matcher deprecationMatcher = DEPRECATION_PATTERN.matcher(context.getCompileError().message);
-            Matcher constructorTypesMatcher = CONSTRUCTOR_TYPES_PATTERN.matcher(context.getCompileError().message);
-
             String strippedClassName = extractClassIfNotCached(context);
 
 
             BrokenCode brokenCode = readBrokenLine(strippedClassName, context.getTargetDirectoryClasses(), context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column});
+
+            if (context.getErrorSet().containsKey(brokenCode.code().trim())) {
+                int offset = context.getCompileError().line - context.getErrorSet().get(brokenCode.code().trim()).start();
+                context.getProposedChanges().add(new ProposedChange(strippedClassName, context.getErrorSet().get(brokenCode.code().trim()).code(), context.getCompileError().file,
+                        offset + context.getErrorSet().get(brokenCode.code().trim()).start(), offset + context.getErrorSet().get(brokenCode.code().trim()).end()));
+                return;
+            }
 
             if (brokenCode.code().startsWith("import")) {
                 targetClass = brokenCode.code().substring(brokenCode.code().indexOf(" "), brokenCode.code().lastIndexOf(";")).trim();
@@ -392,16 +415,29 @@ public class BumpRunner {
 
                 String alternative = jarDiffUtil.getAlternativeClassImport(targetClass);
 
-                if(alternative != null){
-                    ProposedChange proposedChange = new ProposedChange(strippedClassName, "import "+alternative+";", context.getCompileError().file, brokenCode.start(), brokenCode.end());
+                if (alternative != null) {
+                    ProposedChange proposedChange = new ProposedChange(strippedClassName, "import " + alternative + ";", context.getCompileError().file, brokenCode.start(), brokenCode.end());
                     context.getProposedChanges().add(proposedChange);
                     context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
                     return;
                 }
             }
 
+            if (brokenCode.code().trim().startsWith("@Override") && context.getCompileError().message.startsWith("method does not override or implement a method from a supertype")) {
+                ProposedChange proposedChange = new ProposedChange(strippedClassName, brokenCode.code().trim().substring("@Override".length()), context.getCompileError().file, brokenCode.start(), brokenCode.end());
+                context.getProposedChanges().add(proposedChange);
+                context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
+                return;
+            }
 
+            Matcher typecastMatcher = CAST_PATTERN.matcher(context.getCompileError().message);
+            Matcher deprecationMatcher = DEPRECATION_PATTERN.matcher(context.getCompileError().message);
+            Matcher constructorTypesMatcher = CONSTRUCTOR_TYPES_PATTERN.matcher(context.getCompileError().message);
             Matcher methodChainDetectionMatcher = METHOD_CHAIN_DETECTION_PATTERN.matcher(brokenCode.code());
+
+            if (typecastMatcher.find()) {
+                targetMethodParameterClassNames = new String[]{typecastMatcher.group(2)};
+            }
 
             if (constructorTypesMatcher.find()) {
                 targetMethod = constructorTypesMatcher.group(1);
@@ -409,6 +445,9 @@ public class BumpRunner {
             } else if (context.getCompileError().message.equals("cannot find symbol")) {
                 if (context.getCompileError().details.containsKey("symbol")) {
                     String sym = context.getCompileError().details.get("symbol");
+                    if (sym.startsWith("symbol")) {
+                        sym = sym.substring("symbol".length() + 1).trim();
+                    }
                     if (sym.startsWith("class")) {
                         targetClass = sym.substring(sym.indexOf("class") + "class".length() + 1);
                     } else if (sym.startsWith("method")) {
@@ -427,12 +466,14 @@ public class BumpRunner {
 
                         if (context.getCompileError().details.containsKey("location")) {
                             targetClass = context.getCompileError().details.get("location");
-                            targetClass = targetClass.substring(targetClass.indexOf("class") + "class".length() + 1);
+                            if (targetClass.contains("of type")) {
+                                targetClass = targetClass.substring(targetClass.indexOf("of type") + "of type".length() + 1);
+                            } else {
+                                targetClass = targetClass.substring(targetClass.indexOf("class") + "class".length() + 1);
+                            }
                         }
                     }
                 }
-            } else if (typecastMatcher.find()) {
-                targetMethodParameterClassNames = new String[]{typecastMatcher.group(2)};
             } else if (deprecationMatcher.find()) {
                 targetMethod = deprecationMatcher.group(1);
                 targetClass = deprecationMatcher.group(3);
@@ -441,9 +482,11 @@ public class BumpRunner {
                 System.out.println("super " + parent);
                 targetClass = parent;
                 targetMethod = parent;
-            } else if (methodChainDetectionMatcher.find()) {
+            }/*else if(context.getCompileError().message.startsWith("incompatible types:")){
+                // Let the LLM decide on its own
+            }*/ else if (methodChainDetectionMatcher.find()) {
                 MethodChainAnalysis methodChainAnalysis = analyseMethodChain(context.getCompileError().column, brokenCode.start(), brokenCode.code(), context.getTargetDirectoryClasses(), context.getStrippedFileName(),
-                        strippedClassName, context.getTargetPathOld(), context.getTargetPathNew(), context.getOutputDirSrcFiles() + "/" + context.getDependencyArtifactId() + "_" + context.getStrippedFileName() + "/" + context.getProject() + "/src");
+                        strippedClassName, context.getTargetPathOld(), context.getTargetPathNew(), context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString());
 
                 if (methodChainAnalysis != null) {
                     targetClass = methodChainAnalysis.targetClass();
@@ -485,16 +528,9 @@ public class BumpRunner {
             //}
 
 
-            if (context.getErrorSet().containsKey(brokenCode.code().trim())) {
-                int offset = context.getCompileError().line - context.getErrorSet().get(brokenCode.code().trim()).start();
-                context.getProposedChanges().add(new ProposedChange(strippedClassName, context.getErrorSet().get(brokenCode.code().trim()).code(), context.getCompileError().file,
-                        offset + context.getErrorSet().get(brokenCode.code().trim()).start(), offset + context.getErrorSet().get(brokenCode.code().trim()).end()));
-                return;
-            }
-
-            if (targetClass.equals("*")) {
+           /* if (targetClass.equals("*")) {
                 System.out.println("TEST");
-            }
+            }*/
 
 
             ConflictResolutionResult result;
@@ -502,6 +538,7 @@ public class BumpRunner {
             String llmResponseFileName = context.getTargetDirectoryLLMResponses() + "/" + context.getStrippedFileName() + "_" + context.getCompileError().line + "_" + targetClass + "_" + context.getActiveProvider() + ".txt";
 
             String erroneousClass = readBrokenClass(strippedClassName, context.getTargetDirectoryClasses(), context.getStrippedFileName());
+            String erroneousScope = readBrokenEnclosingScope(strippedClassName, context.getTargetDirectoryClasses(), context.getStrippedFileName(), context.getCompileError().line);
 
             if (!usePromptCaching || !Files.exists(Path.of(llmResponseFileName))) {
                 String errorPrompt = "line: " + context.getCompileError().line + ", column: " + context.getCompileError().column + System.lineSeparator() + context.getCompileError().message;
@@ -510,7 +547,7 @@ public class BumpRunner {
                     errorPrompt = errorPrompt + System.lineSeparator() + detail + " " + context.getCompileError().details.get(detail);
                 }
                 String prompt = Main.buildPrompt(context.getDependencyArtifactId(), context.getPreviousVersion(), context.getNewVersion(), context.getTargetPathOld().toString(), context.getTargetPathNew().toString(),
-                        targetClass, targetMethod, brokenCode.code(), targetMethodParameterClassNames, errorPrompt, erroneousClass);
+                        targetClass, targetMethod, brokenCode.code(), targetMethodParameterClassNames, errorPrompt, erroneousClass, erroneousScope);
 
                 Files.write(Path.of(context.getTargetDirectoryPrompts() + "/" + context.getStrippedFileName() + "_" + context.getCompileError().line + "_" + targetClass + ".txt"), prompt.getBytes());
 
@@ -824,6 +861,58 @@ public class BumpRunner {
 
     }
 
+    public static String readBrokenEnclosingScope(String className, String directory, String fileName, int lineNumber) {
+        Pattern methodDeclarationPattern = Pattern.compile("(public|protected|private|static|\\s) +[\\w\\<\\>\\[\\]]+\\s+(\\w+) *\\([^\\)]*\\) *(\\{?|[^;])");
+        try {
+            List<String> lines = Files.readAllLines(Path.of(directory + "/" + fileName + "_" + className));
+
+            int start = 0;
+            for (int i = lineNumber - 1; i >= 0; i--) {
+                Matcher declarationMatcher = methodDeclarationPattern.matcher(lines.get(i));
+
+                if (declarationMatcher.find()) {
+                    start = i;
+                    break;
+                }
+            }
+
+            int openCurlyBraces = 0;
+            int closedCurlyBraces = 0;
+
+            int end = 0;
+
+            outerloop:
+            for (int i = start; i < lines.size(); i++) {
+                for (int j = 0; j < lines.get(i).length(); j++) {
+                    char c = lines.get(i).charAt(j);
+                    if (c == '{') {
+                        openCurlyBraces++;
+                    } else if (c == '}') {
+                        closedCurlyBraces++;
+                    }
+
+                    if (openCurlyBraces == closedCurlyBraces && openCurlyBraces != 0) {
+                        end = i;
+                        break outerloop;
+                    }
+                }
+            }
+
+            String scope = "";
+
+            for (int i = start; i <= end; i++) {
+                scope = scope + lines.get(i) + System.lineSeparator();
+            }
+
+            return scope;
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     public static String readParent(String className, String directory, String fileName) {
         String regex = ".*class .* extends .*";
         try {
@@ -1117,11 +1206,53 @@ public class BumpRunner {
         }
     }
 
+    public static int getClosingBraceIndex(String s, int start) {
+        int openBrackets = 0;
+        int closedBrackets = 0;
+        for (int i = start; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') {
+                openBrackets++;
+            } else if (c == ')') {
+                closedBrackets++;
+            }
+
+            if (openBrackets == closedBrackets && openBrackets != 0) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static List<String> getParameterTypesOfMethodCall(SourceCodeAnalyzer sourceCodeAnalyzer, String methodCall, String targetDirectoryClasses, String strippedFileName, String strippedClassName, int line) {
+        List<String> parameterTypes = new ArrayList<>();
+        if (methodCall.indexOf("(") != methodCall.indexOf(")") - 1) {
+            int closingBraceIndex = getClosingBraceIndex(methodCall, methodCall.indexOf("("));
+            String potentialInnerChain = methodCall.substring(methodCall.indexOf("(") + 1, closingBraceIndex);
+            String[] paramSplit = potentialInnerChain.split(",");
+            for (String param : paramSplit) {
+                param = param.trim();
+                if (!param.contains("(")) {
+                    parameterTypes.add(getClassNameOfVariable(param, targetDirectoryClasses, strippedFileName, strippedClassName, line));
+                } else {
+                    String methodName = param.substring(0, param.indexOf("("));
+                    List<String> innerTypes = getParameterTypesOfMethodCall(sourceCodeAnalyzer, potentialInnerChain, targetDirectoryClasses, strippedFileName, strippedClassName, line);
+                    parameterTypes.add(sourceCodeAnalyzer.getReturnTypeOfMethod(strippedClassName, methodName, innerTypes.toArray(new String[innerTypes.size()])));
+                }
+
+            }
+
+        }
+
+        return parameterTypes;
+    }
+
     public static MethodChainAnalysis analyseMethodChain(int compileErrorColumn, int line, String brokenCode, String targetDirectoryClasses,
                                                          String strippedFileName, String strippedClassName, Path targetPathOld, Path targetPathNew, String srcDirectory) {
         int errorIndex = Math.min(compileErrorColumn, brokenCode.length() - 1);
         String brokenSymbol = "";
 
+        SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(srcDirectory);
         if (brokenCode.contains("=")) {
             brokenCode = brokenCode.substring(brokenCode.indexOf("=") + 1).trim();
         }
@@ -1142,14 +1273,40 @@ public class BumpRunner {
 
         String[] parameterNames = new String[0];
 
-        Matcher methodChainMatcher = METHOD_CHAIN_PATTERN.matcher(brokenCode);
 
         List<String> precedingMethodChain = new ArrayList<>();
 
+        while (brokenCode.indexOf("(") != brokenCode.indexOf(")") - 1) {
+            int closingBraceIndex = getClosingBraceIndex(brokenCode, brokenCode.indexOf("("));
+            String potentialInnerChain = brokenCode.substring(brokenCode.indexOf("(") + 1, closingBraceIndex);
+            if (!potentialInnerChain.contains("(")) {
+                break;
+            }
+            if (errorIndex >= brokenCode.indexOf("(") && errorIndex < closingBraceIndex) {
+                brokenCode = potentialInnerChain;
+            } else {
+                brokenCode = brokenCode.substring(0, brokenCode.indexOf("(") + 1) + brokenCode.substring(closingBraceIndex);
+            }
+
+        }
+
+        Matcher methodChainMatcher = METHOD_CHAIN_PATTERN.matcher(brokenCode);
+
+        List<String[]> methodChainParams = new ArrayList<>();
+
         while (methodChainMatcher.find()) {
+
             String method = methodChainMatcher.group().replaceAll("\\.", "");
             if (method.contains("(")) {
                 method = method.substring(0, method.indexOf("("));
+
+                int methodCallStart = brokenCode.indexOf(method);
+                int methodCallEnd = getClosingBraceIndex(brokenCode, methodCallStart);
+
+                String methodCall = brokenCode.substring(methodCallStart, methodCallEnd + 1);
+                methodChainParams.add(getParameterTypesOfMethodCall(sourceCodeAnalyzer, methodCall, targetDirectoryClasses, strippedFileName, strippedClassName, line).toArray(new String[]{}));
+            } else {
+                methodChainParams.add(new String[]{});
             }
 
             precedingMethodChain.add(method);
@@ -1157,7 +1314,15 @@ public class BumpRunner {
 
 
         if (precedingMethodChain.size() > 0) {
-            String classNameOfVariable = getClassNameOfVariable(precedingMethodChain.get(0), targetDirectoryClasses, strippedFileName, strippedClassName, line);
+            String classNameOfVariable;
+            if (precedingMethodChain.get(0).equals("super")) {
+                classNameOfVariable = readParent(strippedClassName, targetDirectoryClasses, strippedFileName);
+            } else if (precedingMethodChain.get(0).equals("this")) {
+                classNameOfVariable = strippedClassName;
+            } else {
+                classNameOfVariable = getClassNameOfVariable(precedingMethodChain.get(0), targetDirectoryClasses, strippedFileName, strippedClassName, line);
+            }
+
 
             if (classNameOfVariable == null) {
                 // Assume its a static call
@@ -1176,15 +1341,21 @@ public class BumpRunner {
                     return null;
                 }
                 //JarDiffUtil jarDiffUtil = new JarDiffUtil(targetPathOld.toString(), targetPathNew.toString());
+
+                String previousClassName = null;
                 String intermediateClassName = classNameOfVariable;
 
-                SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(srcDirectory);
 
                 for (int i = 1; i < precedingMethodChain.size() - 1; i++) {
                     if (intermediateClassName == null) {
-                        return null;
+                        return new MethodChainAnalysis(previousClassName, precedingMethodChain.get(i-1), methodChainParams.get(i-1));
                     }
-                    intermediateClassName = sourceCodeAnalyzer.getReturnTypeOfMethod(intermediateClassName, precedingMethodChain.get(i));
+                    previousClassName = intermediateClassName;
+                    intermediateClassName = sourceCodeAnalyzer.getReturnTypeOfMethod(intermediateClassName, precedingMethodChain.get(i), methodChainParams.get(i));
+                }
+
+                if (intermediateClassName == null) {
+                    return new MethodChainAnalysis(previousClassName, precedingMethodChain.get(precedingMethodChain.size()-2), methodChainParams.get(methodChainParams.size()-2));
                 }
 
                 targetClass = intermediateClassName;

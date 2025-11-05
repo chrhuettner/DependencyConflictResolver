@@ -70,6 +70,7 @@ public class AutoResolutionRunner {
                         brokenCode,
                         new String[]{},
                         "",
+                        "",
                         ""
                 );
 

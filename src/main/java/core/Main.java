@@ -53,6 +53,14 @@ public class Main {
             %s
             ```
             """;
+
+    static String promptTemplateErroneousScope = """
+       
+            Scope from my project that is broken after the upgrade:
+            ```
+            %s
+            ```
+            """;
     static String promptTemplateCodeLine = """ 
             **Line of code from my project** that is broken after the upgrade to version %s:
             ```java
@@ -82,6 +90,7 @@ public class Main {
             - Read both diffs and the broken code snippet.
             - Identify what changed in the method being used.
             - Consider the method similarity when you are not sure which method to choose.
+            - Focus your reasoning and output **only on the provided broken line**, not on the entire method or class scope.
             - Output the following in the exact format below.
             
             ----
@@ -103,12 +112,18 @@ public class Main {
             ----
             
             **Rules**:
-            - Do NOT include full classes or unrelated methods.
-            - Do NOT output anything before or after the required format.
-            - Do NOT explain anything outside the two-sentence explanation above.
-            - Do NOT include headings, intros, or closing remarks.
-            - Only start your updated java code with slashes if you want it to be commented out code!
-            - Preserve all trailing symbols (such as braces, semicolons, parentheses) exactly as in the original code to ensure it compiles.
+           - Do NOT include full classes or unrelated methods.
+           - Do NOT output anything before or after the required format.
+           - Do NOT explain anything outside the two-sentence explanation above.
+           - Do NOT include headings, intros, or closing remarks.
+           - Only start your updated java code with slashes if you want it to be commented out code.
+           - Preserve all trailing symbols (such as braces, semicolons, parentheses) exactly as in the original code to ensure it compiles.
+           - When the error message occurs on a return statement, inspect the expected type in the error message and make the returned expression match that type.
+           - Restrict changes strictly to the given broken line. Do not rewrite the surrounding method or signature unless the error explicitly requires it.
+           - Always ensure that the types you construct or return match the expected types indicated by the method signature or compiler error.
+           - When a type mismatch occurs, fix the type by using the correct class or constructor rather than forcing a conversion.
+           - Prefer consistency with the dependency’s updated API (as shown in the diff) over preserving old code patterns.
+           - Avoid guessing types based on naming; instead, infer them from the diff, return types, and error messages.
             
             Your response will be **automatically parsed**, so it must match the format **exactly**.
             """;
@@ -187,7 +202,7 @@ public class Main {
         String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate, hibernateParameterTypeNames, "25:16\n" +
                 "java: cannot find symbol\n" +
                 "  symbol:   method save(compatibility.User)\n" +
-                "  location: variable session of type org.hibernate.Session", "");
+                "  location: variable session of type org.hibernate.Session", "", "");
         //String prompt = buildPrompt(gsonName, gsonOldVersion, gsonNewVersion, gsonLeft, gsonRight, gsonClassName, gsonMethodName, brokenCodeGson, gsonParameterTypeNames);
 
         System.out.println(prompt);
@@ -252,6 +267,8 @@ public class Main {
 
         if (candidates.isEmpty()) {
             System.err.println("No methods with the same signature found");
+
+
             return null;
         }
 
@@ -271,10 +288,18 @@ public class Main {
     }
 
     public static String buildPrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName,
-                                     String brokenMethodName, String brokenCode, String[] parameterTypeNames, String error, String erroneousClass) {
-        JarDiffUtil jarDiffUtil = new JarDiffUtil(pathToOldLibraryJar, pathToNewLibraryJar);
+                                     String brokenMethodName, String brokenCode, String[] parameterTypeNames, String error, String erroneousClass, String erroneousScope) {
+        JarDiffUtil jarDiffUtil;
+        if(brokenClassName != null && brokenClassName.startsWith("java.")){
+            jarDiffUtil = new JarDiffUtil("testFiles/Java_Src/rt.jar", "testFiles/Java_Src/rt.jar");
+        }else{
+            jarDiffUtil = new JarDiffUtil(pathToOldLibraryJar, pathToNewLibraryJar);
+        }
+
 
         ClassDiffResult classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName);
+
+
 
         StringBuilder methodSimilarityString = new StringBuilder();
 
@@ -307,6 +332,10 @@ public class Main {
 
         if(!erroneousClass.isEmpty()){
             //assembledPrompt.append(String.format(promptTemplateErroneousClass,  newVersion, erroneousClass));
+        }
+
+        if(!erroneousScope.isEmpty()){
+            assembledPrompt.append(String.format(promptTemplateErroneousScope, erroneousScope));
         }
 
         if(!brokenCode.isEmpty()){

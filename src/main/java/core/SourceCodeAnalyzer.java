@@ -10,7 +10,7 @@ import spoon.reflect.reference.CtTypeReference;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Enumeration;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -31,14 +31,14 @@ public class SourceCodeAnalyzer {
             launcher.buildModel();
 
             model = launcher.getModel();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.err.println(sourceDirectory);
             e.printStackTrace();
         }
     }
 
     public String getReturnTypeOfMethodFromSourceCode(String className, String methodName) {
-        if(model == null){
+        if (model == null) {
             return null;
         }
         for (CtType<?> type : model.getAllTypes()) {
@@ -58,27 +58,47 @@ public class SourceCodeAnalyzer {
         return null;
     }
 
+    public String getReturnTypeOfMethod(String className, String methodName, String[] parameterTypeNames) {
+       String returnTypeInSourceCode = getReturnTypeOfMethodFromSourceCode(className, methodName);
 
-    public String getReturnTypeOfMethod(String className, String methodName) {
-        final String[] returnType = {getReturnTypeOfMethodFromSourceCode(className, methodName)};
-
-        if (returnType[0] != null) {
-            return returnType[0];
+        if (returnTypeInSourceCode != null) {
+            return returnTypeInSourceCode;
         }
+
+        File depDir = new File(sourceDirectory + "/tmp/dependencies");
+        String dependencyReturnType = getReturnTypeOfMethodFromDependencies(className, methodName, parameterTypeNames, depDir);
+
+        if (dependencyReturnType != null) {
+            return dependencyReturnType;
+        }
+
+        File natDir = new File("testFiles/Java_Src/src");
+
+        String nativeJavaClassReturnType = getReturnTypeOfMethodFromDependencies(className, methodName, parameterTypeNames, natDir);
+
+        if (nativeJavaClassReturnType != null) {
+            return nativeJavaClassReturnType;
+        }
+
+        return null;
+    }
+
+
+    public String getReturnTypeOfMethodFromDependencies(String className, String methodName, String[] parameterTypes, File directory) {
+        final String[] returnType = new String[1];
+
+        final String[] returnTypeOfMethodWithSameNumberOfParameters = new String[1];
 
         className = className.replace(".", "/");
 
-        //System.out.println("CLASS " +className);
-
-        File depDir = new File(sourceDirectory + "\\tmp\\dependencies");
-        File[] jarFiles = depDir.listFiles(f -> f.getName().endsWith(".jar"));
+        File[] jarFiles = directory.listFiles(f -> f.getName().endsWith(".jar"));
         for (File file : jarFiles) {
             try (JarFile jarFile = new JarFile(file)) {
                 Enumeration<JarEntry> entries = jarFile.entries();
                 while (entries.hasMoreElements()) {
                     JarEntry entry = entries.nextElement();
                     //System.out.println(entry.getName());
-                    if (entry.getName().endsWith(className+".class")) {
+                    if (entry.getName().endsWith(className + ".class")) {
                         try (InputStream is = jarFile.getInputStream(entry)) {
                             ClassReader reader = new ClassReader(is);
                             reader.accept(new ClassVisitor(Opcodes.ASM9) {
@@ -86,8 +106,22 @@ public class SourceCodeAnalyzer {
                                 public MethodVisitor visitMethod(int access, String name, String descriptor, String signature, String[] exceptions) {
                                     //System.out.println(methodName);
                                     if (methodName.equals(name)) {
-                                        returnType[0] = Type.getReturnType(descriptor).getClassName();
-                                        //System.out.println("Found in: " + entry.getName().replace("/", ".").replace(".class", ""));
+
+                                        System.out.println("Found in: " + entry.getName().replace("/", ".").replace(".class", ""));
+                                        Type[] types = Type.getArgumentTypes(descriptor);
+                                        if (parameterTypes.length == types.length) {
+                                            boolean found = true;
+                                            for (int i = 0; i < types.length; i++) {
+                                                if (!types[i].getClassName().endsWith(parameterTypes[i])) {
+                                                    found = false;
+                                                }
+                                            }
+                                            if(found) {
+                                                returnType[0] = Type.getReturnType(descriptor).getClassName();
+                                            }else{
+                                                returnTypeOfMethodWithSameNumberOfParameters[0] = Type.getReturnType(descriptor).getClassName();
+                                            }
+                                        }
 
                                     }
                                     return super.visitMethod(access, name, descriptor, signature, exceptions);
@@ -106,6 +140,7 @@ public class SourceCodeAnalyzer {
             }
 
         }
+        //return returnTypeOfMethodWithSameNumberOfParameters[0];
         return null;
     }
 }
