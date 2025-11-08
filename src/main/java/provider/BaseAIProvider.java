@@ -2,6 +2,7 @@ package provider;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import core.AIProviderException;
 import core.ConflictResolutionResult;
 import core.Main;
 import okhttp3.*;
@@ -54,7 +55,7 @@ public abstract class BaseAIProvider implements AIProvider {
 
             return new ConflictResolutionResult(code, result);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new AIProviderException(e);
         }
     }
 

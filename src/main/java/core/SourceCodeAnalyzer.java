@@ -28,6 +28,9 @@ public class SourceCodeAnalyzer {
             launcher.addInputResource(sourceDirectory);
             launcher.getEnvironment().setComplianceLevel(11);
 
+            launcher.getEnvironment().setNoClasspath(true);
+            launcher.getFactory().getEnvironment().setIgnoreDuplicateDeclarations(true);
+
             launcher.buildModel();
 
             model = launcher.getModel();
@@ -53,6 +56,48 @@ public class SourceCodeAnalyzer {
                 }
 
             }
+        }
+
+        return null;
+    }
+
+    public String getTypeOfFieldInClass(File directory, String className, String fieldName) {
+
+        final String[] typeOfField = new String[1];
+
+        className = className.replace(".", "/");
+
+        File[] jarFiles = directory.listFiles(f -> f.getName().endsWith(".jar"));
+        for (File file : jarFiles) {
+            try (JarFile jarFile = new JarFile(file)) {
+                Enumeration<JarEntry> entries = jarFile.entries();
+                while (entries.hasMoreElements()) {
+                    JarEntry entry = entries.nextElement();
+                    //System.out.println(entry.getName());
+                    if (entry.getName().endsWith(className + ".class")) {
+                        try (InputStream is = jarFile.getInputStream(entry)) {
+                            ClassReader reader = new ClassReader(is);
+                            reader.accept(new ClassVisitor(Opcodes.ASM9) {
+                                @Override
+                                public FieldVisitor visitField(int access, String name, String descriptor, String signature, Object value) {
+                                    if(name.equals(fieldName)){
+                                        typeOfField[0] = Type.getType(descriptor).getClassName();
+                                    }
+                                    return super.visitField(access, name, descriptor, signature, value);
+                                }
+                            }, 0);
+                            if (typeOfField[0] != null) {
+                                return typeOfField[0];
+                            }
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         }
 
         return null;

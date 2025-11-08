@@ -28,8 +28,8 @@ Audit done.
 [INFO] --- plugin:3.6.1:helpmojo (generated-helpmojo) @ allure-maven ---
 [INFO] Using 'UTF-8' encoding to read mojo source files.
 [INFO] java-javadoc mojo extractor found 0 mojo descriptor.
-[INFO] bsh mojo extractor found 0 mojo descriptor.
 [INFO] ant mojo extractor found 0 mojo descriptor.
+[INFO] bsh mojo extractor found 0 mojo descriptor.
 [INFO] java-annotations mojo extractor found 0 mojo descriptor.
 [INFO] 
 [INFO] --- resources:3.3.0:resources (default-resources) @ allure-maven ---
@@ -49,8 +49,8 @@ Audit done.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  28.516 s
-[INFO] Finished at: 2025-11-05T16:54:37Z
+[INFO] Total time:  5.995 s
+[INFO] Finished at: 2025-11-08T16:21:29Z
 [INFO] ------------------------------------------------------------------------
 [WARNING] 
 [WARNING] Plugin validation issues were detected in 5 plugin(s)

@@ -3,6 +3,7 @@ package core;
 import ch.uzh.ifi.seal.changedistiller.ChangeDistiller;
 import ch.uzh.ifi.seal.changedistiller.distilling.FileDistiller;
 import ch.uzh.ifi.seal.changedistiller.model.entities.SourceCodeChange;
+import japicmp.model.JApiConstructor;
 import japicmp.model.JApiMethod;
 import japicmp.model.JApiParameter;
 import provider.AIProvider;
@@ -240,6 +241,44 @@ public class Main {
         }
     }
 
+    public static JApiConstructor inferTargetConstructor(List<JApiConstructor> constructors, String[] parameterTypeNames) {
+        if (constructors.size() == 1) {
+            return constructors.get(0);
+        }
+
+        ArrayList<JApiConstructor> candidates = new ArrayList<>(constructors.size());
+        candidates.addAll(constructors);
+
+
+        for (int i = candidates.size() - 1; i >= 0; i--) {
+            JApiConstructor constructor = candidates.get(i);
+            if (constructor.getParameters().size() != parameterTypeNames.length) {
+                candidates.remove(i);
+                continue;
+            }
+
+            for (int j = 0; j < constructor.getParameters().size(); j++) {
+                JApiParameter parameter = constructor.getParameters().get(j);
+                if (!parameter.getType().endsWith(parameterTypeNames[j]) && !parameterTypeNames[j].equals("java.lang.Object")) {
+                    candidates.remove(i);
+                    break;
+                }
+            }
+        }
+
+        if (candidates.isEmpty()) {
+            System.err.println("No constructors with the same signature found");
+            return null;
+        }
+
+        if (candidates.size() == 1) {
+            return candidates.get(0);
+        }
+
+
+        return candidates.get(0);
+    }
+
     public static JApiMethod inferTargetMethod(List<JApiMethod> methodsWithSameName, String[] parameterTypeNames) {
         if (methodsWithSameName.size() == 1) {
             return methodsWithSameName.get(0);
@@ -300,7 +339,6 @@ public class Main {
         ClassDiffResult classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName);
 
 
-
         StringBuilder methodSimilarityString = new StringBuilder();
 
         for (SimilarityResult result : classDiffResult.similarMethods()) {
@@ -308,10 +346,21 @@ public class Main {
             methodSimilarityString.append(formattedString).append(System.lineSeparator());
         }
 
-        JApiMethod conflictingMethod = inferTargetMethod(classDiffResult.methodsWithSameName(), parameterTypeNames);
+        JApiConstructor constructor;
+        JApiMethod conflictingMethod;
+        String methodChange = "";
+        if(classDiffResult.constructors() != null && classDiffResult.constructors().size() > 0){
+            constructor = inferTargetConstructor(classDiffResult.constructors(), parameterTypeNames);
+            System.out.println(constructor);
+            methodChange = JarDiffUtil.buildConstructorChangeReport(constructor);
 
-        System.out.println(conflictingMethod);
-        List<ConflictType> conflictTypes = ConflictType.getConflictTypesFromMethod(conflictingMethod);
+        }else {
+            conflictingMethod = inferTargetMethod(classDiffResult.methodsWithSameName(), parameterTypeNames);
+            System.out.println(conflictingMethod);
+            methodChange = JarDiffUtil.buildMethodChangeReport(conflictingMethod);
+        }
+
+        //List<ConflictType> conflictTypes = ConflictType.getConflictTypesFromMethod(conflictingMethod);
 
         /*for (ConflictType conflictType : conflictTypes) {
             System.out.println(conflictType.name());
@@ -321,7 +370,6 @@ public class Main {
 
         assembledPrompt.append(String.format(promptTemplatePrefix,  libraryName, oldVersion, newVersion));
 
-        String methodChange = JarDiffUtil.buildMethodChangeReport(conflictingMethod);
         if(!methodChange.isEmpty()){
             assembledPrompt.append(String.format(promptTemplateMethodDiff,  methodChange));
         }

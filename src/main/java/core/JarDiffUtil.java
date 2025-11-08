@@ -35,7 +35,7 @@ public class JarDiffUtil {
             similarityResults = getSimilarityOfMethods(similarMethods, getFullMethodSignature(methodsWithSameName.get(0).getOldMethod().get().toString(), methodsWithSameName.get(0).getReturnType().getOldReturnType().toString(), true));
         }
 
-        return new ClassDiffResult(changes.classResult(), methodsWithSameName, similarityResults);
+        return new ClassDiffResult(changes.classResult(), methodsWithSameName, similarityResults, constructors);
     }
 
     public String getAlternativeClassImport(String oldClassName){
