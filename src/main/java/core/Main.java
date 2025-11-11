@@ -200,13 +200,13 @@ public class Main {
         String[] gsonParameterTypeNames = new String[]{"java.lang.String"};
         String gsonName = "Gson";
 
-        String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate, hibernateParameterTypeNames, "25:16\n" +
+        /*String prompt = buildPrompt(hibernateName, oldVersion, newVersion, hibernateLeft, hibernateRight, hibernateClassName, hibernateMethodName, brokenCodeHibernate, hibernateParameterTypeNames, "25:16\n" +
                 "java: cannot find symbol\n" +
                 "  symbol:   method save(compatibility.User)\n" +
-                "  location: variable session of type org.hibernate.Session", "", "");
+                "  location: variable session of type org.hibernate.Session", "", "");*/
         //String prompt = buildPrompt(gsonName, gsonOldVersion, gsonNewVersion, gsonLeft, gsonRight, gsonClassName, gsonMethodName, brokenCodeGson, gsonParameterTypeNames);
 
-        System.out.println(prompt);
+        //System.out.println(prompt);
 
         //String result = chatgptProvider.sendPromptAndReceiveResponse(prompt, systemContext);
 
@@ -236,12 +236,12 @@ public class Main {
 
         //System.out.println(getJarDiff("testFiles/gson-2.8.0.jar", "testFiles/gson-2.10.1.jar"));
 
-        for (AIProvider provider : providers) {
+       /* for (AIProvider provider : providers) {
             sendAndPrintCode(provider, prompt);
-        }
+        }*/
     }
 
-    public static JApiConstructor inferTargetConstructor(List<JApiConstructor> constructors, String[] parameterTypeNames) {
+    /*public static JApiConstructor inferTargetConstructor(List<JApiConstructor> constructors, String[] parameterTypeNames) {
         if (constructors.size() == 1) {
             return constructors.get(0);
         }
@@ -324,9 +324,9 @@ public class Main {
         ConflictResolutionResult result = aiProvider.sendPromptAndReceiveResponse(prompt, systemContext);
         System.out.println(result);
         return result;
-    }
+    }*/
 
-    public static String buildPrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName,
+    /*public static String buildPrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName,
                                      String brokenMethodName, String brokenCode, String[] parameterTypeNames, String error, String erroneousClass, String erroneousScope) {
         JarDiffUtil jarDiffUtil;
         if(brokenClassName != null && brokenClassName.startsWith("java.")){
@@ -364,7 +364,7 @@ public class Main {
 
         /*for (ConflictType conflictType : conflictTypes) {
             System.out.println(conflictType.name());
-        }*/
+        }
 
         StringBuilder assembledPrompt = new StringBuilder();
 
@@ -403,7 +403,7 @@ public class Main {
 
 
         return assembledPrompt.toString();
-    }
+    }*/
 
     /*public static String getJarDiff(String file1, String file2, String fullyQualifiedCallerClassName, String methodName) {
         File left = new File(file1);
@@ -542,7 +542,7 @@ public class Main {
 
 
         return changes.toString();
-    }*/
+    }
 
     public static String getCodeDiff(String file1, String file2) {
         File left = new File(file1);
@@ -554,7 +554,7 @@ public class Main {
         } catch (Exception e) {
         /* An exception most likely indicates a bug in ChangeDistiller. Please file a
            bug report at https://bitbucket.org/sealuzh/tools-changedistiller/issues and
-           attach the full stack trace along with the two files that you tried to distill. */
+           attach the full stack trace along with the two files that you tried to distill.
             System.err.println("Warning: error while change distilling. " + e.getMessage());
         }
 
@@ -568,5 +568,5 @@ public class Main {
             }
         }
         return codeDiff;
-    }
+    }*/
 }

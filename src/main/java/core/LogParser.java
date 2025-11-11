@@ -35,12 +35,12 @@ public class LogParser {
     private static final Pattern CLASS_FILE_HAS_WRONG_VERSION = Pattern.compile(
             " *class file has wrong version");
 
-    static class CompileError {
-        String file;
-        int line;
-        int column;
-        String message;
-        Map<String, String> details = new LinkedHashMap<>();
+    public static class CompileError {
+        public String file;
+        public int line;
+        public int column;
+        public String message;
+        public Map<String, String> details = new LinkedHashMap<>();
 
         public String toString() {
             return "CompileError{" +

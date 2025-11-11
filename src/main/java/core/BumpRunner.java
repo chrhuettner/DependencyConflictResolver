@@ -13,6 +13,8 @@ import com.github.dockerjava.core.DockerClientConfig;
 import com.github.dockerjava.core.DockerClientImpl;
 import com.github.dockerjava.httpclient5.ApacheDockerHttpClient;
 import com.github.dockerjava.transport.DockerHttpClient;
+import core.context.CannotFindSymbolProvider;
+import core.context.ContextProvider;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
 import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;
@@ -20,6 +22,7 @@ import provider.AIProvider;
 import provider.ChatGPTProvider;
 import provider.ClaudeProvider;
 import provider.OllamaProvider;
+import solver.CodeConflictSolver;
 
 import java.io.*;
 import java.net.URI;
@@ -42,37 +45,29 @@ import static core.LogParser.projectIsFixableThroughCodeModification;
 
 public class BumpRunner {
 
-    private static boolean useContainerExtraction = true;
-    private static boolean usePromptCaching = false;
-
-    //for example: size(com.artipie.asto.Key) in com.artipie.asto.Storage has been deprecated
-    private static final Pattern DEPRECATION_PATTERN = Pattern.compile(
-            "(\\w+)\\(([\\w|\\.]*)\\) in ([\\w|\\.]*) has been deprecated");
-
-    // for example: incompatible types: int cannot be converted to java.lang.Float
-    private static final Pattern CAST_PATTERN = Pattern.compile(
-            "incompatible types: (\\S*) cannot be converted to (\\S*)");
-
-    // for example: incompatible types: int cannot be converted to java.lang.Float
-    private static final Pattern CONSTRUCTOR_TYPES_PATTERN = Pattern.compile(
-            "constructor (\\S*) in class (\\S*) cannot be applied to given types");
+    public static boolean useContainerExtraction = true;
+    public static boolean usePromptCaching = false;
 
     // for example: GitHub.connect().getRepository(ghc.owner + '/' + ghc.repo).getCompare(branch, ghc.hash).status;
-    private static final Pattern METHOD_CHAIN_PATTERN = Pattern.compile(
-            "\\.?([A-Za-z_]\\w*)\\s*(?:\\([^()]*\\))?");
+   // public static final Pattern METHOD_CHAIN_PATTERN = Pattern.compile(
+   //         "\\.?([A-Za-z_]\\w*)\\s*(?:\\([^()]*\\))?");
 
-    private static final Pattern METHOD_CHAIN_DETECTION_PATTERN = Pattern.compile(
-            "((new|=|\\.)\\s*\\w+)\\s*(?=\\(.*\\))");
+   // private static final Pattern METHOD_CHAIN_DETECTION_PATTERN = Pattern.compile(
+   //         "((new|=|\\.)\\s*\\w+)\\s*(?=\\(.*\\))");
 
     // For example: [ERROR] /lithium/src/main/java/com/wire/lithium/Server.java:[160,16] cannot access io.dropwizard.core.setup.Environment
-    private static final Pattern CLASS_FILE_NOT_FOUND_PATTERN = Pattern.compile(
-            "cannot access (\\S*)");
+    //private static final Pattern CLASS_FILE_NOT_FOUND_PATTERN = Pattern.compile(
+    //        "cannot access (\\S*)");
 
     // For example:   class file for io.dropwizard.core.setup.Environment not found
-    private static final Pattern CLASS_FILE_NOT_FOUND_DETAIL_PATTERN = Pattern.compile(
-            "class file for (\\S*) not found");
+   // private static final Pattern CLASS_FILE_NOT_FOUND_DETAIL_PATTERN = Pattern.compile(
+   //         "class file for (\\S*) not found");
 
-    public static final int REFINEMENT_LIMIT = 1;
+    public static final int REFINEMENT_LIMIT = 3;
+
+    // public static List<ContextProvider> contextProviders = new ArrayList<>();
+    // public static List<CodeConflictSolver> codeConflictSolvers = new ArrayList<>();
+
 
     public static void main(String[] args) {
         String targetDirectory = "testFiles/downloaded";
@@ -285,7 +280,10 @@ public class BumpRunner {
 
                     Context context = new Context(project, previousVersion, newVersion, dependencyArtifactID, strippedFileName, outputDirClasses, brokenUpdateImage,
                             targetPathOld, targetPathNew, targetDirectoryClasses, outputDirSrcFiles, activeProvider, dockerClient, errorSet, proposedChanges, null,
-                            targetDirectoryLLMResponses, targetDirectoryPrompts, targetDirectoryFixedClasses, targetDirectoryFixedLogs);
+                            targetDirectoryLLMResponses, targetDirectoryPrompts, targetDirectoryFixedClasses, targetDirectoryFixedLogs, null);
+
+                    List<ContextProvider> contextProviders = ContextProvider.getContextProviders(context);
+                    List<CodeConflictSolver> codeConflictSolvers = CodeConflictSolver.getCodeConflictSolvers(context);
 
                     boolean errorsWereFixed = false;
                     int amountOfTries = 0;
@@ -296,8 +294,9 @@ public class BumpRunner {
                                     continue;
                                 }
                                 context.setCompileError((LogParser.CompileError) error);
+                                context.setStrippedClassName(extractClassIfNotCached(context));
 
-                                fixError(context);
+                                fixError(context, contextProviders, codeConflictSolvers);
                             }
 
                             if (validateFix(context)) {
@@ -322,7 +321,7 @@ public class BumpRunner {
 
                 } catch (Exception e) {
                     activeThreadCount.decrementAndGet();
-                    System.err.println(e);
+                    e.printStackTrace();
                 }
             });
             activeThreads.add(virtualThread);
@@ -405,26 +404,59 @@ public class BumpRunner {
         return strippedClassName;
     }
 
-    public static void fixError(Context context) throws IOException, ClassNotFoundException {
-        {
-            System.out.println(context.getCompileError().file + " " + context.getCompileError().line + " " + context.getCompileError().column);
-            String targetClass = "";
-            String targetMethod = "";
-            String[] targetMethodParameterClassNames = new String[0];
+    public static void fixError(Context context, List<ContextProvider> contextProviders, List<CodeConflictSolver> codeConflictSolvers) throws IOException, ClassNotFoundException {
+        BrokenCode brokenCode = readBrokenLine(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column});
 
-            String strippedClassName = extractClassIfNotCached(context);
+        if (context.getErrorSet().containsKey(brokenCode.code().trim())) {
+            int offset = context.getCompileError().line - context.getErrorSet().get(brokenCode.code().trim()).start();
+            context.getProposedChanges().add(new ProposedChange(context.getStrippedClassName(), context.getErrorSet().get(brokenCode.code().trim()).code(), context.getCompileError().file,
+                    offset + context.getErrorSet().get(brokenCode.code().trim()).start(), offset + context.getErrorSet().get(brokenCode.code().trim()).end()));
+            return;
+        }
 
+        System.out.println(context.getCompileError().file + " " + context.getCompileError().line + " " + context.getCompileError().column);
+        String targetClass = "";
+        String targetMethod = "";
+        String[] targetMethodParameterClassNames = new String[0];
 
-            BrokenCode brokenCode = readBrokenLine(strippedClassName, context.getTargetDirectoryClasses(), context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column});
-
-            if (context.getErrorSet().containsKey(brokenCode.code().trim())) {
-                int offset = context.getCompileError().line - context.getErrorSet().get(brokenCode.code().trim()).start();
-                context.getProposedChanges().add(new ProposedChange(strippedClassName, context.getErrorSet().get(brokenCode.code().trim()).code(), context.getCompileError().file,
-                        offset + context.getErrorSet().get(brokenCode.code().trim()).start(), offset + context.getErrorSet().get(brokenCode.code().trim()).end()));
-                return;
+        boolean errorGetsTargetByAtLeastOneProvider = false;
+        for (ContextProvider contextProvider : contextProviders) {
+            if (contextProvider.errorIsTargetedByProvider(context.getCompileError(), brokenCode)) {
+                errorGetsTargetByAtLeastOneProvider = true;
+                ErrorLocation errorLocation = contextProvider.getErrorLocation(context.getCompileError(), brokenCode);
+                //if (errorLocation.className() != null) {
+                targetClass = errorLocation.className();
+                //}
+                //if (errorLocation.methodName() != null) {
+                targetMethod = errorLocation.methodName();
+                //}
+                //if (errorLocation.targetMethodParameterClassNames() != null) {
+                targetMethodParameterClassNames = errorLocation.targetMethodParameterClassNames();
+                //}
+                break;
             }
+        }
 
-            if (brokenCode.code().startsWith("import")) {
+        if (!errorGetsTargetByAtLeastOneProvider) {
+            System.out.println("UNCATEGORIZED " + brokenCode.code());
+        }
+
+        ErrorLocation errorLocation = new ErrorLocation(targetClass, targetMethod, targetMethodParameterClassNames);
+        for (CodeConflictSolver codeConflictSolver : codeConflictSolvers) {
+            if (codeConflictSolver.errorIsTargetedBySolver(context.getCompileError(), brokenCode, errorLocation)) {
+                if (codeConflictSolver.errorIsFixableBySolver(context.getCompileError(), brokenCode, errorLocation)) {
+                    ProposedChange proposedChange = codeConflictSolver.solveConflict(context.getCompileError(), brokenCode, errorLocation);
+                    context.getProposedChanges().add(proposedChange);
+                    context.getProposedChanges().add(proposedChange);
+                    context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
+                    return;
+                }
+            }
+        }
+
+
+
+            /*if (brokenCode.code().startsWith("import")) {
                 targetClass = brokenCode.code().substring(brokenCode.code().indexOf(" "), brokenCode.code().lastIndexOf(";")).trim();
                 if (targetClass.contains(".")) {
                     targetClass = targetClass.substring(targetClass.lastIndexOf(".") + 1);
@@ -463,22 +495,23 @@ public class BumpRunner {
                 targetMethodParameterClassNames = new String[]{typecastMatcher.group(2)};
             }
 
-            /*if (classFileNotFoundMatcher.find()) {
-                for (String detail : context.getCompileError().details.values()) {
-                    Matcher classFileNotFoundDetailMatcher = CLASS_FILE_NOT_FOUND_DETAIL_PATTERN.matcher(detail);
-                    if (classFileNotFoundDetailMatcher.find()) {
-                        String className = classFileNotFoundDetailMatcher.group(1);
-                        String strippedClassesName = className.substring(className.lastIndexOf(".") + 1);
-                        int line = getImportLineIndex(strippedClassesName, Paths.get(context.getTargetDirectoryClasses() + "/" + context.getStrippedFileName() + "_" + strippedClassName));
+            //if (classFileNotFoundMatcher.find()) {
+            //    for (String detail : context.getCompileError().details.values()) {
+            //        Matcher classFileNotFoundDetailMatcher = CLASS_FILE_NOT_FOUND_DETAIL_PATTERN.matcher(detail);
+            //        if (classFileNotFoundDetailMatcher.find()) {
+            //            String className = classFileNotFoundDetailMatcher.group(1);
+            //            String strippedClassesName = className.substring(className.lastIndexOf(".") + 1);
+            //             int line = getImportLineIndex(strippedClassesName, Paths.get(context.getTargetDirectoryClasses() + "/" + context.getStrippedFileName() + "_" + strippedClassName));
 
-                        ProposedChange proposedChange = new ProposedChange(strippedClassName, "import "+className+";", context.getCompileError().file, line, line);
-                        context.getProposedChanges().add(proposedChange);
-                        //context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
-                        return;
-                    }
-                }
+            //             ProposedChange proposedChange = new ProposedChange(strippedClassName, "import "+className+";", context.getCompileError().file, line, line);
+            //             context.getProposedChanges().add(proposedChange);
+            //            //context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
+            //            return;
+            //         }
+            //     }
 
-            } else*/ if (constructorTypesMatcher.find()) {
+            //  } else
+            if (constructorTypesMatcher.find()) {
                 targetMethod = constructorTypesMatcher.group(1);
                 targetClass = constructorTypesMatcher.group(2);
             } else if (context.getCompileError().message.equals("cannot find symbol")) {
@@ -521,9 +554,9 @@ public class BumpRunner {
                 System.out.println("super " + parent);
                 targetClass = parent;
                 targetMethod = parent;
-            }/*else if(context.getCompileError().message.startsWith("incompatible types:")){
+            //}else if(context.getCompileError().message.startsWith("incompatible types:")){
                 // Let the LLM decide on its own
-            }*/ else if (methodChainDetectionMatcher.find()) {
+            } else if (methodChainDetectionMatcher.find()) {
                 MethodChainAnalysis methodChainAnalysis = analyseMethodChain(context.getCompileError().column, brokenCode.start(), brokenCode.code(), context.getTargetDirectoryClasses(), context.getStrippedFileName(),
                         strippedClassName, context.getTargetPathOld(), context.getTargetPathNew(), context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString());
 
@@ -538,41 +571,14 @@ public class BumpRunner {
 
             } else {
                 System.out.println("UNCAT " + brokenCode.code());
-            }
-
-            System.out.println("Target class: " + targetClass);
-            System.out.println("Target method: " + targetMethod);
-
-            if (targetClass == null && targetMethod != null) {
-                System.out.println("test");
-            }
-
-            if (false) {
-                return;
-            }
-
-            //String targetClass = targetDependencyClass.substring(0, strippedClassName.lastIndexOf("."));
-            //TODO detect super call here then use the parent class
-
-            //else{
-            //    continue;
-            //}
-
-
-            //else{
-            //    System.out.println("Skipped non import related error");
-            //TODO Fetch appropriate broken code and method name so the prompt can be built better
-            //    activeThreadCount.decrementAndGet();
-            //    return;
-            //}
-
-
-           /* if (targetClass.equals("*")) {
-                System.out.println("TEST");
             }*/
 
+        System.out.println("Target class: " + targetClass);
+        System.out.println("Target method: " + targetMethod);
 
-            ConflictResolutionResult result = null;
+
+
+            /*ConflictResolutionResult result = null;
 
             String llmResponseFileName = context.getTargetDirectoryLLMResponses() + "/" + context.getStrippedFileName() + "_" + context.getCompileError().line + "_" + targetClass + "_" + context.getActiveProvider() + ".txt";
 
@@ -621,8 +627,8 @@ public class BumpRunner {
 
             ProposedChange proposedChange = new ProposedChange(strippedClassName, result.code(), context.getCompileError().file, brokenCode.start(), brokenCode.end());
             context.getProposedChanges().add(proposedChange);
-            context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
-        }
+            context.getErrorSet().put(brokenCode.code().trim(), proposedChange);*/
+
     }
 
     private static String cleanString(String str) {
@@ -911,7 +917,7 @@ public class BumpRunner {
             List<String> allLines = Files.readAllLines(path);
             for (int i = 0; i < allLines.size(); i++) {
                 String line = allLines.get(i).trim();
-                if(line.startsWith("import") && line.endsWith(className+";")) {
+                if (line.startsWith("import") && line.endsWith(className + ";")) {
                     return i;
                 }
             }
@@ -1393,7 +1399,7 @@ public class BumpRunner {
         return parameterTypes;
     }
 
-    public static MethodChainAnalysis analyseMethodChain(int compileErrorColumn, int line, String brokenCode, String targetDirectoryClasses,
+    /*public static MethodChainAnalysis analyseMethodChain(int compileErrorColumn, int line, String brokenCode, String targetDirectoryClasses,
                                                          String strippedFileName, String strippedClassName, Path targetPathOld, Path targetPathNew, String srcDirectory) {
         int errorIndex = Math.min(compileErrorColumn, brokenCode.length() - 1);
         String brokenSymbol = "";
@@ -1565,7 +1571,7 @@ public class BumpRunner {
                             String callerClass = getClassNameOfVariable(splitParameter[0], targetDirectoryClasses, strippedFileName, strippedClassName, line);
                             String methodName = splitParameter[1].substring(0, splitParameter[1].indexOf("("));
                             //parameterNames[i] = jarDiffUtil.getMethodReturnType(callerClass, methodName);
-                        }*/
+                        }
                         }
                     }
                 }
@@ -1577,7 +1583,7 @@ public class BumpRunner {
         }
 
         return new MethodChainAnalysis(targetClass, targetMethod, parameterNames);
-    }
+    }*/
 
     public static String primitiveClassNameToWrapperName(String parameter) {
         switch (parameter) {

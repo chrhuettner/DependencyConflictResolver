@@ -35,12 +35,13 @@ public class Context {
     private String targetDirectoryPrompts;
     private String targetDirectoryFixedClasses;
     private String targetDirectoryFixedLogs;
+    private String strippedClassName;
 
     public Context(String project, String previousVersion, String newVersion, String dependencyArtifactId, String strippedFileName,
                    File outputDirClasses, String brokenUpdateImage, Path targetPathOld, Path targetPathNew, String targetDirectoryClasses,
                    File outputDirSrcFiles, AIProvider activeProvider, DockerClient dockerClient, HashMap<String, ProposedChange> errorSet,
                    List<ProposedChange> proposedChanges, LogParser.CompileError compileError, String targetDirectoryLLMResponses,
-                   String targetDirectoryPrompts, String targetDirectoryFixedClasses, String targetDirectoryFixedLogs) {
+                   String targetDirectoryPrompts, String targetDirectoryFixedClasses, String targetDirectoryFixedLogs, String strippedClassName) {
         this.project = project;
         this.previousVersion = previousVersion;
         this.newVersion = newVersion;
@@ -61,6 +62,15 @@ public class Context {
         this.targetDirectoryPrompts = targetDirectoryPrompts;
         this.targetDirectoryFixedClasses = targetDirectoryFixedClasses;
         this.targetDirectoryFixedLogs = targetDirectoryFixedLogs;
+        this.strippedClassName = strippedClassName;
+    }
+
+    public String getStrippedClassName() {
+        return strippedClassName;
+    }
+
+    public void setStrippedClassName(String strippedClassName) {
+        this.strippedClassName = strippedClassName;
     }
 
     public String getTargetDirectoryFixedClasses() {

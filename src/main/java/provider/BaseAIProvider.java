@@ -2,7 +2,6 @@ package provider;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import core.AIProviderException;
 import core.ConflictResolutionResult;
 import core.Main;
 import okhttp3.*;

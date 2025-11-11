@@ -12,11 +12,37 @@ import javassist.CtMethod;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class JarDiffUtil {
 
     private JarArchiveComparator comparator;
     private List<JApiClass> jApiClasses;
+    private static ConcurrentHashMap<String, ConcurrentHashMap<String, JarDiffUtil>> concurrentJarDiffUtils;
+
+    static {
+        concurrentJarDiffUtils = new ConcurrentHashMap<>();
+    }
+
+    public static JarDiffUtil getInstance(String file1, String file2) {
+        JarDiffUtil jarDiffUtil;
+        if(concurrentJarDiffUtils.containsKey(file1)) {
+            ConcurrentHashMap<String, JarDiffUtil> innerMap = concurrentJarDiffUtils.get(file1);
+            if(innerMap.containsKey(file2)) {
+                return innerMap.get(file2);
+            }else{
+                jarDiffUtil = new JarDiffUtil(file1, file2);
+                innerMap.put(file2, jarDiffUtil);
+            }
+        }else{
+            ConcurrentHashMap<String, JarDiffUtil> innerMap = new ConcurrentHashMap<>();
+            jarDiffUtil = new JarDiffUtil(file1, file2);
+            innerMap.put(file2, jarDiffUtil);
+            concurrentJarDiffUtils.put(file1, innerMap);
+        }
+
+        return jarDiffUtil;
+    }
 
     public JarDiffUtil(String file1, String file2) {
         this.comparator = createComparator();
@@ -127,7 +153,7 @@ public class JarDiffUtil {
             classChanges.append(System.lineSeparator());
             classChanges.append("Constructors: ").append(System.lineSeparator());
 
-            if (methodName.equals(fullyQualifiedCallerClassName)) {
+            if (methodName != null && methodName.equals(fullyQualifiedCallerClassName)) {
                 for (JApiConstructor jApiConstructor : jApiClass.getConstructors()) {
                     constructors.add(jApiConstructor);
 
@@ -304,7 +330,7 @@ public class JarDiffUtil {
     }
 
 
-    static String getFullMethodSignature(String methodString, String returnType, boolean addReturnType) {
+    public static String getFullMethodSignature(String methodString, String returnType, boolean addReturnType) {
         String result = methodString;
 
         String resultPrefix = result.substring(result.indexOf("[") + 1, result.indexOf("("));

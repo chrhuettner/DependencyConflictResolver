@@ -1,4 +1,4 @@
-package core;
+package provider;
 
 public class AIProviderException extends RuntimeException{
 

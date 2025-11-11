@@ -10,7 +10,6 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.Stream;
 
-import static core.Main.buildPrompt;
 import static core.Main.systemContext;
 
 public class AutoResolutionRunner {
@@ -59,7 +58,7 @@ public class AutoResolutionRunner {
 
                 String brokenCode = "obj." + methodPart;
 
-                String prompt = buildPrompt(
+               /* String prompt = buildPrompt(
                         libName,
                         oldVersion,
                         newVersion,
@@ -79,7 +78,7 @@ public class AutoResolutionRunner {
 
                 ConflictResolutionResult response = providers.get(6).sendPromptAndReceiveResponse(prompt, systemContext);
 
-                System.out.println(response);
+                System.out.println(response);*/
             }
         }
 

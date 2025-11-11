@@ -49,8 +49,8 @@ Audit done.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  7.167 s
-[INFO] Finished at: 2025-11-08T16:22:54Z
+[INFO] Total time:  23.374 s
+[INFO] Finished at: 2025-11-11T21:15:38Z
 [INFO] ------------------------------------------------------------------------
 [WARNING] 
 [WARNING] Plugin validation issues were detected in 5 plugin(s)
