@@ -9,6 +9,7 @@ import provider.AIProviderException;
 import solver.CodeConflictSolver;
 
 import java.io.*;
+import java.lang.reflect.Parameter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static core.BumpRunner.primitiveClassNameToWrapperName;
 import static core.BumpRunner.usePromptCaching;
 
 public class LLMCodeConflictSolver extends CodeConflictSolver {
@@ -69,7 +71,8 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
             %s
             ```
             """;
-    static String promptTemplateSimilarity = """       
+    static String promptTemplateSimilarity = """  
+            
             **Method-similarity** showing similar methods that could be used instead of the broken one:
             ```similarity
             %s
@@ -118,13 +121,14 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
             - Do NOT explain anything outside the two-sentence explanation above.
             - Do NOT include headings, intros, or closing remarks.
             - Only start your updated java code with slashes if you want it to be commented out code.
-            - Preserve all trailing symbols (such as braces, semicolons, parentheses) exactly as in the original code to ensure it compiles.
+            - Preserve all trailing symbols (such as braces, semicolons, parentheses, commas) exactly as in the original code to ensure it compiles.
             - When the error message occurs on a return statement, inspect the expected type in the error message and make the returned expression match that type.
             - Restrict changes strictly to the given broken line. Do not rewrite the surrounding method or signature unless the error explicitly requires it.
             - Always ensure that the types you construct or return match the expected types indicated by the method signature or compiler error.
             - When a type mismatch occurs, fix the type by using the correct class or constructor rather than forcing a conversion.
             - Prefer consistency with the dependency’s updated API (as shown in the diff) over preserving old code patterns.
             - Avoid guessing types based on naming; instead, infer them from the diff, return types, and error messages.
+            - If you use different classes in your code, make sure to use their fully qualified class names.
             
              Your response will be **automatically parsed**, so it must match the format **exactly**.
             """;
@@ -141,51 +145,76 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
 
     public String buildPrompt(BrokenCode brokenCode, ErrorLocation errorLocation) {
 
-        String erroneousClass = readBrokenClass(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName());
+        List<String> erroneousClassLinesList = readBrokenClass(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName());
         String erroneousScope = readBrokenEnclosingScope(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName(), context.getCompileError().line);
 
-        String errorPrompt = "line: " + context.getCompileError().line + ", column: " + context.getCompileError().column + System.lineSeparator() + context.getCompileError().message;
+        String packageName = "";
+
+        for (String line : erroneousClassLinesList) {
+            if (line.trim().startsWith("package")) {
+                packageName = line.substring(line.indexOf("package") + "package".length() + 1, line.indexOf(";"));
+                break;
+            }
+        }
+
+        String fullClassName = packageName + "." + context.getStrippedClassName();
+        String errorPrompt = fullClassName + System.lineSeparator() + "line: " + context.getCompileError().line + ", column: " + context.getCompileError().column + System.lineSeparator() + context.getCompileError().message;
 
         for (String detail : context.getCompileError().details.keySet()) {
             errorPrompt = errorPrompt + System.lineSeparator() + detail + " " + context.getCompileError().details.get(detail);
         }
 
         return assemblePrompt(context.getDependencyArtifactId(), context.getPreviousVersion(), context.getNewVersion(), context.getTargetPathOld().toString(), context.getTargetPathNew().toString(),
-                errorLocation.className(), errorLocation.methodName(), brokenCode.code(), errorLocation.targetMethodParameterClassNames(), errorPrompt, erroneousClass, erroneousScope);
+                errorLocation.className(), errorLocation.methodName(), brokenCode.code(), errorLocation.targetMethodParameterClassNames(), errorPrompt, erroneousClassLinesList.toString(), erroneousScope);
     }
 
     public String assemblePrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName,
                                  String brokenMethodName, String brokenCode, String[] parameterTypeNames, String error, String erroneousClass, String erroneousScope) {
         JarDiffUtil jarDiffUtil;
         if (brokenClassName != null && brokenClassName.startsWith("java.")) {
-            jarDiffUtil = new JarDiffUtil("testFiles/Java_Src/rt.jar", "testFiles/Java_Src/rt.jar");
+            jarDiffUtil = JarDiffUtil.getInstance("testFiles/Java_Src/rt.jar", "testFiles/Java_Src/rt.jar");
         } else {
-            jarDiffUtil = new JarDiffUtil(pathToOldLibraryJar, pathToNewLibraryJar);
+            jarDiffUtil = JarDiffUtil.getInstance(pathToOldLibraryJar, pathToNewLibraryJar);
         }
 
 
-        ClassDiffResult classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName);
+        ClassDiffResult classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames);
 
+        if(classDiffResult.classDiff().isEmpty()){
+            SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer( context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString());
+            FileSearchResult searchResult = sourceCodeAnalyzer.getDependencyFileContainingClass(brokenClassName);
+
+
+            if(searchResult != null){
+                System.out.println("Dependency RESULT: ");
+                System.out.println(searchResult.file().getAbsolutePath());
+                System.out.println(searchResult.entry().getName());
+
+                JarDiffUtil dependencyDiffUtil = JarDiffUtil.getInstance(searchResult.file().getAbsolutePath(), searchResult.file().getAbsolutePath());
+                classDiffResult = dependencyDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames);
+            }
+        }
 
         StringBuilder methodSimilarityString = new StringBuilder();
 
         for (SimilarityResult result : classDiffResult.similarMethods()) {
-            String formattedString = String.format("Similarity between '%s' and '%s': %.4f%n", brokenMethodName, JarDiffUtil.getFullMethodSignature(result.method().getNewMethod().get().toString(), result.method().getReturnType().getNewReturnType(), true), result.similarity());
-            methodSimilarityString.append(formattedString).append(System.lineSeparator());
+            String formattedString = String.format("Similarity between '%s' and '%s': %.4f%n", brokenMethodName, JarDiffUtil.getFullMethodSignature(result.method().getNewMethod().get().toString(),
+                    result.method().getReturnType().getNewReturnType(), true, result.method().getParameters()), result.similarity());
+            methodSimilarityString.append(formattedString);
         }
 
         JApiConstructor constructor;
         JApiMethod conflictingMethod;
         String methodChange = "";
-        if (classDiffResult.constructors() != null && classDiffResult.constructors().size() > 0) {
+
+        conflictingMethod = inferTargetMethod(classDiffResult.methodsWithSameName(), parameterTypeNames);
+        if (conflictingMethod != null) {
+            System.out.println(conflictingMethod);
+            methodChange = JarDiffUtil.buildMethodChangeReport(conflictingMethod);
+        } else {
             constructor = inferTargetConstructor(classDiffResult.constructors(), parameterTypeNames);
             System.out.println(constructor);
             methodChange = JarDiffUtil.buildConstructorChangeReport(constructor);
-
-        } else {
-            conflictingMethod = inferTargetMethod(classDiffResult.methodsWithSameName(), parameterTypeNames);
-            System.out.println(conflictingMethod);
-            methodChange = JarDiffUtil.buildMethodChangeReport(conflictingMethod);
         }
 
         //List<ConflictType> conflictTypes = ConflictType.getConflictTypesFromMethod(conflictingMethod);
@@ -232,28 +261,32 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
         return assembledPrompt.toString();
     }
 
-    public JApiConstructor inferTargetConstructor(List<JApiConstructor> constructors, String[] parameterTypeNames) {
-        if (constructors.size() == 1) {
-            return constructors.get(0);
+    public static boolean parametersMatch(List<JApiParameter> parameters1, String[] parameters2) {
+        if (parameters2 == null || parameters1.size() != parameters2.length) {
+            return false;
         }
 
+        for (int i = 0; i < parameters1.size(); i++) {
+            JApiParameter parameter = parameters1.get(i);
+            if (!primitiveClassNameToWrapperName(parameter.getType()).endsWith(primitiveClassNameToWrapperName(parameters2[i])) && !parameters2[i].equals("java.lang.Object")) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public JApiConstructor inferTargetConstructor(List<JApiConstructor> constructors, String[] parameterTypeNames) {
+        if(constructors == null || constructors.isEmpty()) {
+            return null;
+        }
         ArrayList<JApiConstructor> candidates = new ArrayList<>(constructors.size());
         candidates.addAll(constructors);
 
 
         for (int i = candidates.size() - 1; i >= 0; i--) {
             JApiConstructor constructor = candidates.get(i);
-            if (constructor.getParameters().size() != parameterTypeNames.length) {
+            if(!parametersMatch(constructor.getParameters(), parameterTypeNames)) {
                 candidates.remove(i);
-                continue;
-            }
-
-            for (int j = 0; j < constructor.getParameters().size(); j++) {
-                JApiParameter parameter = constructor.getParameters().get(j);
-                if (!parameter.getType().endsWith(parameterTypeNames[j]) && !parameterTypeNames[j].equals("java.lang.Object")) {
-                    candidates.remove(i);
-                    break;
-                }
             }
         }
 
@@ -271,27 +304,17 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
     }
 
     public JApiMethod inferTargetMethod(List<JApiMethod> methodsWithSameName, String[] parameterTypeNames) {
-        if (methodsWithSameName.size() == 1) {
-            return methodsWithSameName.get(0);
+        if(methodsWithSameName == null || methodsWithSameName.isEmpty()) {
+            return null;
         }
-
         ArrayList<JApiMethod> candidates = new ArrayList<>(methodsWithSameName.size());
         candidates.addAll(methodsWithSameName);
 
 
         for (int i = candidates.size() - 1; i >= 0; i--) {
             JApiMethod method = candidates.get(i);
-            if (method.getParameters().size() != parameterTypeNames.length) {
+            if(!parametersMatch(method.getParameters(), parameterTypeNames)) {
                 candidates.remove(i);
-                continue;
-            }
-
-            for (int j = 0; j < method.getParameters().size(); j++) {
-                JApiParameter parameter = method.getParameters().get(j);
-                if (!parameter.getType().endsWith(parameterTypeNames[j]) && !parameterTypeNames[j].equals("java.lang.Object")) {
-                    candidates.remove(i);
-                    break;
-                }
             }
         }
 
@@ -317,9 +340,9 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
         return result;
     }
 
-    public String readBrokenClass(String className, String directory, String fileName) {
+    public List<String> readBrokenClass(String className, String directory, String fileName) {
         try {
-            return Files.readAllLines(Path.of(directory + "/" + fileName + "_" + className)).toString();
+            return Files.readAllLines(Path.of(directory + "/" + fileName + "_" + className));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -327,12 +350,13 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
     }
 
     public String readBrokenEnclosingScope(String className, String directory, String fileName, int lineNumber) {
-        Pattern methodDeclarationPattern = Pattern.compile("(public|protected|private|static|\\s) +[\\w\\<\\>\\[\\]]+\\s+(\\w+) *\\([^\\)]*\\) *(\\{?|[^;])");
+        Pattern methodDeclarationPattern = Pattern.compile("(?<!new\\s)\\b(?:(public|protected|private)\\s+)?(?:static\\s+|final\\s+|abstract\\s+)*[\\w\\<\\>\\[\\]]+\\s+(\\w+)\\s*\\([^)]*\\)\\s*(?:\\{|;)");
         try {
             List<String> lines = Files.readAllLines(Path.of(directory + "/" + fileName + "_" + className));
 
             int start = 0;
             for (int i = lineNumber - 1; i >= 0; i--) {
+                String line = lines.get(i);
                 Matcher declarationMatcher = methodDeclarationPattern.matcher(lines.get(i));
 
                 if (declarationMatcher.find()) {

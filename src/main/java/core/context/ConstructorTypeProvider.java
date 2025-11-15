@@ -23,6 +23,11 @@ public class ConstructorTypeProvider extends CompileErrorRegexProvider {
         String targetMethod = constructorTypesMatcher.group(1);
         String targetClass = constructorTypesMatcher.group(2);
 
-        return new ErrorLocation(targetClass, targetMethod, null);
+        String[] parameterClassNames = null;
+        if(compileError.details.containsKey("found")) {
+            parameterClassNames = compileError.details.get("found").split(",");
+        }
+
+        return new ErrorLocation(targetClass, targetMethod, parameterClassNames);
     }
 }

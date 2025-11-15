@@ -12,9 +12,9 @@ import java.util.regex.Pattern;
 
 import static core.BumpRunner.*;
 
-public class MethodChainProvider extends BrokenCodeRegexProvider{
+public class MethodChainProvider extends BrokenCodeRegexProvider {
     public static final Pattern METHOD_CHAIN_PATTERN = Pattern.compile(
-                         "\\.?([A-Za-z_]\\w*)\\s*(?:\\([^()]*\\))?");
+            "\\.?([A-Za-z_]\\w*)\\s*(?:\\([^()]*\\))?");
 
     protected MethodChainProvider(Context context) {
         super(context, Pattern.compile("((new|=|\\.)\\s*\\w+)\\s*(?=\\(.*\\))"));
@@ -23,13 +23,13 @@ public class MethodChainProvider extends BrokenCodeRegexProvider{
     @Override
     public ErrorLocation getErrorLocation(LogParser.CompileError compileError, BrokenCode brokenCode) {
         MethodChainAnalysis methodChainAnalysis = analyseMethodChain(context.getCompileError().column, brokenCode.start(), brokenCode.code(), context.getTargetDirectoryClasses(), context.getStrippedFileName(),
-                context.getStrippedClassName(), context.getTargetPathOld(), context.getTargetPathNew(), context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString());
+                context.getStrippedClassName(), context.getTargetPathOld(), context.getTargetPathNew(), context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString(), context.getProject());
 
         return new ErrorLocation(methodChainAnalysis.targetClass(), methodChainAnalysis.targetMethod(), methodChainAnalysis.parameterTypes());
     }
 
     public static MethodChainAnalysis analyseMethodChain(int compileErrorColumn, int line, String brokenCode, String targetDirectoryClasses,
-                                                         String strippedFileName, String strippedClassName, Path targetPathOld, Path targetPathNew, String srcDirectory) {
+                                                         String strippedFileName, String strippedClassName, Path targetPathOld, Path targetPathNew, String srcDirectory, String projectName) {
         int errorIndex = Math.min(compileErrorColumn, brokenCode.length() - 1);
         String brokenSymbol = "";
 
@@ -40,12 +40,12 @@ public class MethodChainProvider extends BrokenCodeRegexProvider{
 
         boolean isConstructor = false;
 
-        if (brokenCode.contains("new")) {
+        if (brokenCode.trim().startsWith("new")) {
             brokenCode = brokenCode.substring(brokenCode.indexOf("new") + "new".length()).trim();
             isConstructor = true;
         }
 
-        if (brokenCode.contains("return")) {
+        if (brokenCode.trim().startsWith("return")) {
             brokenCode = brokenCode.substring(brokenCode.indexOf("return") + "return".length()).trim();
         }
 
@@ -55,7 +55,7 @@ public class MethodChainProvider extends BrokenCodeRegexProvider{
         String[] parameterNames = new String[0];
 
 
-        List<String> precedingMethodChain = new ArrayList<>();
+        //List<String> precedingMethodChain = new ArrayList<>();
 
         while (brokenCode.indexOf("(") != brokenCode.indexOf(")") - 1) {
             int closingBraceIndex = getClosingBraceIndex(brokenCode, brokenCode.indexOf("("));
@@ -71,9 +71,36 @@ public class MethodChainProvider extends BrokenCodeRegexProvider{
 
         }
 
-        Matcher methodChainMatcher = METHOD_CHAIN_PATTERN.matcher(brokenCode);
+        List<MethodCall> methodCalls = new ArrayList<>();
+        String methodName = "";
 
-        List<String[]> methodChainParams = new ArrayList<>();
+        for (int i = 0; i < brokenCode.length(); i++) {
+            char c = brokenCode.charAt(i);
+            if (c == ' ' || c == '\t' || c == '\n' || c == '\r') {
+                continue;
+            } else if (c == '.') {
+                if (!methodName.isEmpty()) {
+                    methodCalls.add(new MethodCall(methodName, "", null));
+                    methodName = "";
+                }
+                continue;
+            } else if (c == '(') {
+                int closingBraceIndex = getClosingBraceIndex(brokenCode, i);
+                String innard = brokenCode.substring(i + 1, closingBraceIndex);
+                String[] parameterTypes = getParameterTypesOfMethodCall(sourceCodeAnalyzer, methodName + "(" + innard + ")", targetDirectoryClasses,
+                        strippedFileName, strippedClassName, line, new File(srcDirectory), Paths.get(targetDirectoryClasses + "/" + strippedFileName + "_" + strippedClassName), projectName).toArray(new String[]{});
+                methodCalls.add(new MethodCall(methodName, innard, parameterTypes));
+                methodName = "";
+                i = closingBraceIndex;
+                continue;
+            }
+
+            methodName += c;
+        }
+
+        //Matcher methodChainMatcher = METHOD_CHAIN_PATTERN.matcher(brokenCode);
+
+        /*List<String[]> methodChainParams = new ArrayList<>();
 
         while (methodChainMatcher.find()) {
 
@@ -91,20 +118,20 @@ public class MethodChainProvider extends BrokenCodeRegexProvider{
             }
 
             precedingMethodChain.add(method);
-        }
+        }*/
 
 
-        if (precedingMethodChain.size() > 0) {
+        if (methodCalls.size() > 0) {
             String classNameOfVariable;
-            if (precedingMethodChain.get(0).equals("super")) {
+            if (methodCalls.get(0).methodName().equals("super")) {
                 classNameOfVariable = readParent(strippedClassName, targetDirectoryClasses, strippedFileName);
-            } else if (precedingMethodChain.get(0).equals("this")) {
+            } else if (methodCalls.get(0).methodName().equals("this")) {
                 classNameOfVariable = strippedClassName;
             } else {
 
-                classNameOfVariable = getClassNameOfVariable(precedingMethodChain.get(0), Paths.get(targetDirectoryClasses + "/" + strippedFileName + "_" + strippedClassName), line);
+                classNameOfVariable = getClassNameOfVariable(methodCalls.get(0).methodName(), Paths.get(targetDirectoryClasses + "/" + strippedFileName + "_" + strippedClassName), line);
 
-                if (precedingMethodChain.size() == 1) {
+                if (methodCalls.size() == 1) {
                     targetClass = classNameOfVariable;
                     if (targetMethod.isEmpty()) {
                         targetMethod = brokenSymbol;
@@ -114,9 +141,9 @@ public class MethodChainProvider extends BrokenCodeRegexProvider{
                     if (parent != null) {
                         Path parentPath = searchForClassInSourceFiles(new File(srcDirectory), parent);
                         if (parentPath != null) {
-                            classNameOfVariable = getClassNameOfVariable(precedingMethodChain.get(0), parentPath, Integer.MAX_VALUE);
+                            classNameOfVariable = getClassNameOfVariable(methodCalls.get(0).methodName(), parentPath, Integer.MAX_VALUE);
                         } else {
-                            classNameOfVariable = sourceCodeAnalyzer.getTypeOfFieldInClass(new File(srcDirectory + "/tmp/dependencies"), parent, precedingMethodChain.get(0));
+                            classNameOfVariable = sourceCodeAnalyzer.getTypeOfFieldInClass(new File(srcDirectory + "/tmp/dependencies"), parent, methodCalls.get(0).methodName());
 
                         }
                     }
@@ -125,12 +152,13 @@ public class MethodChainProvider extends BrokenCodeRegexProvider{
 
             if (classNameOfVariable == null) {
                 // Assume its a static call
-                targetClass = precedingMethodChain.get(0);
+                classNameOfVariable = methodCalls.get(0).methodName();
+                targetClass = methodCalls.get(0).methodName();
                 if (isConstructor) {
-                    targetMethod = precedingMethodChain.get(0);
+                    targetMethod = methodCalls.get(0).methodName();
                 }
             }
-            if (precedingMethodChain.size() > 1) {
+            if (methodCalls.size() > 1) {
                 if (classNameOfVariable == null) {
                     return null;
                 }
@@ -140,22 +168,23 @@ public class MethodChainProvider extends BrokenCodeRegexProvider{
                 String intermediateClassName = classNameOfVariable;
 
 
-                for (int i = 1; i < precedingMethodChain.size() - 1; i++) {
+                for (int i = 1; i < methodCalls.size() - 1; i++) {
                     if (intermediateClassName == null) {
-                        return new MethodChainAnalysis(previousClassName, precedingMethodChain.get(i - 1), methodChainParams.get(i - 1));
+                        return new MethodChainAnalysis(previousClassName, methodCalls.get(i - 1).methodName(), methodCalls.get(i - 1).parameterTypes());
                     }
                     previousClassName = intermediateClassName;
-                    intermediateClassName = sourceCodeAnalyzer.getReturnTypeOfMethod(intermediateClassName, precedingMethodChain.get(i), methodChainParams.get(i));
+                    intermediateClassName = sourceCodeAnalyzer.getReturnTypeOfMethod(intermediateClassName, methodCalls.get(i).methodName(), methodCalls.get(i).parameterTypes());
                 }
 
                 if (intermediateClassName == null) {
-                    return new MethodChainAnalysis(previousClassName, precedingMethodChain.get(precedingMethodChain.size() - 2), methodChainParams.get(methodChainParams.size() - 2));
+                    return new MethodChainAnalysis(previousClassName, methodCalls.get(methodCalls.size() - 2).methodName(), methodCalls.get(methodCalls.size() - 2).parameterTypes());
                 }
 
                 targetClass = intermediateClassName;
-                targetMethod = precedingMethodChain.get(precedingMethodChain.size() - 1);
+                targetMethod = methodCalls.get(methodCalls.size() - 1).methodName();
+                parameterNames = methodCalls.get(methodCalls.size() - 1).parameterTypes();
 
-                System.out.println("targetClass: " + targetClass);
+                /*System.out.println("targetClass: " + targetClass);
                 System.out.println("targetMethod: " + targetMethod);
 
                 String targetMethodParameters = brokenCode.substring(brokenCode.indexOf(targetMethod) + targetMethod.length());
@@ -200,13 +229,12 @@ public class MethodChainProvider extends BrokenCodeRegexProvider{
                             String callerClass = getClassNameOfVariable(splitParameter[0], targetDirectoryClasses, strippedFileName, strippedClassName, line);
                             String methodName = splitParameter[1].substring(0, splitParameter[1].indexOf("("));
                             //parameterNames[i] = jarDiffUtil.getMethodReturnType(callerClass, methodName);
-                        }*/
+                        }
                         }
                     }
-                }
+                }*/
 
             }
-            System.out.println(brokenSymbol);
         } else {
             targetClass = brokenSymbol;
         }

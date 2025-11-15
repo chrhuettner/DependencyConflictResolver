@@ -28,7 +28,7 @@ public class CannotFindSymbolProvider extends ContextProvider {
                 sym = sym.substring("symbol".length() + 1).trim();
             }
             if (sym.startsWith("class")) {
-                targetClass = sym.substring(sym.indexOf("class") + "class".length() + 1);
+                targetClass = extractClassNameFromString(sym);
             } else if (sym.startsWith("method")) {
                 targetMethod = compileError.details.get("symbol");
                 targetMethod = targetMethod.substring(targetMethod.indexOf(" ") + 1);
@@ -44,16 +44,23 @@ public class CannotFindSymbolProvider extends ContextProvider {
                 targetMethod = targetMethod.substring(0, targetMethod.indexOf("("));
 
                 if (compileError.details.containsKey("location")) {
-                    targetClass = compileError.details.get("location");
-                    if (targetClass.contains("of type")) {
-                        targetClass = targetClass.substring(targetClass.indexOf("of type") + "of type".length() + 1);
-                    } else {
-                        targetClass = targetClass.substring(targetClass.indexOf("class") + "class".length() + 1);
-                    }
+                    targetClass = extractClassNameFromString(compileError.details.get("location"));
                 }
+            } else if (compileError.details.containsKey("location")) {
+                targetClass = extractClassNameFromString(compileError.details.get("location"));
             }
         }
         return new ErrorLocation(targetClass, targetMethod, targetMethodParameterClassNames);
+    }
+
+    private String extractClassNameFromString(String location) {
+        String targetClass = location;
+        if (targetClass.contains("of type")) {
+            targetClass = targetClass.substring(targetClass.indexOf("of type") + "of type".length() + 1);
+        } else {
+            targetClass = targetClass.substring(targetClass.indexOf("class") + "class".length() + 1);
+        }
+        return targetClass;
     }
 
 }

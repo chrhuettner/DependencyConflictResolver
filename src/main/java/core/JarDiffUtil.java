@@ -6,68 +6,90 @@ import japicmp.cmp.JarArchiveComparator;
 import japicmp.cmp.JarArchiveComparatorOptions;
 import japicmp.config.Options;
 import japicmp.model.*;
-import javassist.CtConstructor;
-import javassist.CtMethod;
+import javassist.*;
+import solver.nondeterministic.LLMCodeConflictSolver;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class JarDiffUtil {
 
     private JarArchiveComparator comparator;
     private List<JApiClass> jApiClasses;
-    private static ConcurrentHashMap<String, ConcurrentHashMap<String, JarDiffUtil>> concurrentJarDiffUtils;
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<String, ConcurrentHashMap<String, JarDiffUtil>>> concurrentJarDiffUtils;
 
     static {
         concurrentJarDiffUtils = new ConcurrentHashMap<>();
     }
 
     public static JarDiffUtil getInstance(String file1, String file2) {
-        JarDiffUtil jarDiffUtil;
-        if(concurrentJarDiffUtils.containsKey(file1)) {
-            ConcurrentHashMap<String, JarDiffUtil> innerMap = concurrentJarDiffUtils.get(file1);
-            if(innerMap.containsKey(file2)) {
-                return innerMap.get(file2);
-            }else{
-                jarDiffUtil = new JarDiffUtil(file1, file2);
-                innerMap.put(file2, jarDiffUtil);
-            }
-        }else{
-            ConcurrentHashMap<String, JarDiffUtil> innerMap = new ConcurrentHashMap<>();
-            jarDiffUtil = new JarDiffUtil(file1, file2);
-            innerMap.put(file2, jarDiffUtil);
-            concurrentJarDiffUtils.put(file1, innerMap);
-        }
-
-        return jarDiffUtil;
+        return getLazyLoadedInstance(file1, file2);
     }
 
-    public JarDiffUtil(String file1, String file2) {
+    public static void removeCachedJarDiffsForThread() {
+        long id = Thread.currentThread().threadId();
+        concurrentJarDiffUtils.remove(id);
+    }
+
+    private static JarDiffUtil getLazyLoadedInstance(String file1, String file2) {
+        long id = Thread.currentThread().threadId();
+
+        if (!concurrentJarDiffUtils.containsKey(id)) {
+            ConcurrentHashMap<String, ConcurrentHashMap<String, JarDiffUtil>> innerMap = new ConcurrentHashMap<>();
+            concurrentJarDiffUtils.put(id, innerMap);
+        }
+
+        if (!concurrentJarDiffUtils.get(id).containsKey(file1)) {
+            ConcurrentHashMap<String, JarDiffUtil> innerMap = new ConcurrentHashMap<>();
+            concurrentJarDiffUtils.get(id).put(file1, innerMap);
+        }
+
+        if (!concurrentJarDiffUtils.get(id).get(file1).containsKey(file2)) {
+            JarDiffUtil instance = new JarDiffUtil(file1, file2);
+            concurrentJarDiffUtils.get(id).get(file1).put(file2, instance);
+        }
+
+        return concurrentJarDiffUtils.get(id).get(file1).get(file2);
+
+    }
+
+    private JarDiffUtil(String file1, String file2) {
         this.comparator = createComparator();
         this.jApiClasses = compareJars(this.comparator, file1, file2);
     }
 
-    public ClassDiffResult getJarDiff(String fullyQualifiedCallerClassName, String methodName) {
+    public ClassDiffResult getJarDiff(String fullyQualifiedCallerClassName, String methodName, String[] parameterTypeNames) {
         List<JApiMethod> similarMethods = new ArrayList<>();
         List<JApiMethod> methodsWithSameName = new ArrayList<>();
         List<JApiConstructor> constructors = new ArrayList<>();
 
-        BuildDiffResult changes = buildChangeReport(jApiClasses, fullyQualifiedCallerClassName, methodName, similarMethods, methodsWithSameName, constructors);
+        BuildDiffResult changes = buildChangeReport(jApiClasses, fullyQualifiedCallerClassName, methodName, similarMethods, methodsWithSameName, constructors, parameterTypeNames);
+
+        if (changes.classResult().isBlank()) {
+            //TODO fullyQualifiedCallerClassName is somehow null here sometimes
+            String shortenedClassName = fullyQualifiedCallerClassName.substring(fullyQualifiedCallerClassName.lastIndexOf('.') + 1);
+            changes = buildChangeReport(jApiClasses, shortenedClassName, methodName, similarMethods, methodsWithSameName, constructors, parameterTypeNames);
+        }
 
         List<SimilarityResult> similarityResults = new ArrayList<>();
         if (!methodsWithSameName.isEmpty()) {
-            similarityResults = getSimilarityOfMethods(similarMethods, getFullMethodSignature(methodsWithSameName.get(0).getOldMethod().get().toString(), methodsWithSameName.get(0).getReturnType().getOldReturnType().toString(), true));
+            similarityResults = getSimilarityOfMethods(similarMethods, getFullMethodSignature(methodsWithSameName.get(0).getOldMethod().get().toString(),
+                    methodsWithSameName.get(0).getReturnType().getOldReturnType().toString(), true, methodsWithSameName.get(0).getParameters()));
         }
 
         return new ClassDiffResult(changes.classResult(), methodsWithSameName, similarityResults, constructors);
     }
 
-    public String getAlternativeClassImport(String oldClassName){
-        for(JApiClass jApiClass : jApiClasses){
+    public String getAlternativeClassImport(String oldClassName) {
+        for (JApiClass jApiClass : jApiClasses) {
             if (jApiClass.getFullyQualifiedName().toUpperCase().endsWith(oldClassName.toUpperCase())) {
-                return jApiClass.getFullyQualifiedName();
+                if (jApiClass.getChangeStatus() != JApiChangeStatus.REMOVED) {
+                    return jApiClass.getFullyQualifiedName();
+                }
             }
         }
         return null;
@@ -111,11 +133,22 @@ public class JarDiffUtil {
         return comparator.compare(left, right);
     }
 
-    private static void addMethodDiffToChangeReport(JApiClass jApiClass, String methodName, List<JApiMethod> similarMethods, List<JApiMethod> methodsWithSameName, StringBuilder classChanges) {
+    private static void addFieldDiffToChangeReport(JApiClass jApiClass, StringBuilder changes) {
+        for (JApiField jApiField : jApiClass.getFields()) {
+            changes.append(buildFieldChangeReport(jApiField));
+            changes.append(System.lineSeparator());
+        }
+    }
+
+    private static void addMethodDiffToChangeReport(JApiClass jApiClass, String methodName, List<JApiMethod> similarMethods, List<JApiMethod> methodsWithSameName, StringBuilder classChanges, String[] parameterTypeNames) {
         for (JApiMethod jApiMethod : jApiClass.getMethods()) {
 
             if (jApiMethod.getName().equals(methodName)) {
                 methodsWithSameName.add(jApiMethod);
+
+                if(!LLMCodeConflictSolver.parametersMatch(jApiMethod.getParameters(), parameterTypeNames)) {
+                    similarMethods.add(jApiMethod);
+                }
 
                 //methodChanges.append(buildMethodChangeReport(jApiMethod));
                 //methodChanges.append(System.lineSeparator()).append(System.lineSeparator());
@@ -129,11 +162,11 @@ public class JarDiffUtil {
 
 
             classChanges.append(buildMethodChangeReport(jApiMethod));
-            classChanges.append(System.lineSeparator()).append(System.lineSeparator());
+            classChanges.append(System.lineSeparator());
         }
     }
 
-    private static BuildDiffResult buildChangeReport(List<JApiClass> jApiClasses, String fullyQualifiedCallerClassName, String methodName, List<JApiMethod> similarMethods, List<JApiMethod> methodsWithSameName, List<JApiConstructor> constructors) {
+    private BuildDiffResult buildChangeReport(List<JApiClass> jApiClasses, String fullyQualifiedCallerClassName, String methodName, List<JApiMethod> similarMethods, List<JApiMethod> methodsWithSameName, List<JApiConstructor> constructors, String[] parameterTypeNames) {
         StringBuilder classChanges = new StringBuilder();
         //StringBuilder methodChanges = new StringBuilder();
         if (fullyQualifiedCallerClassName == null || fullyQualifiedCallerClassName.isEmpty()) {
@@ -151,26 +184,58 @@ public class JarDiffUtil {
 
             classChanges.append(buildClassChangeHeader(jApiClass));
             classChanges.append(System.lineSeparator());
+            classChanges.append("Fields: ").append(System.lineSeparator());
+
+            addFieldDiffToChangeReport(jApiClass, classChanges);
+
+            classChanges.append(System.lineSeparator());
             classChanges.append("Constructors: ").append(System.lineSeparator());
 
-            if (methodName != null && methodName.equals(fullyQualifiedCallerClassName)) {
-                for (JApiConstructor jApiConstructor : jApiClass.getConstructors()) {
-                    constructors.add(jApiConstructor);
+            //if (methodName != null && methodName.equals(fullyQualifiedCallerClassName)) {
+            for (JApiConstructor jApiConstructor : jApiClass.getConstructors()) {
+                constructors.add(jApiConstructor);
 
-                    classChanges.append(buildConstructorChangeReport(jApiConstructor));
-                    classChanges.append(System.lineSeparator()).append(System.lineSeparator());
-                }
+                classChanges.append(buildConstructorChangeReport(jApiConstructor));
+                classChanges.append(System.lineSeparator());
             }
+            //}
 
             classChanges.append(System.lineSeparator());
             classChanges.append("Class methods: ").append(System.lineSeparator());
-            addMethodDiffToChangeReport(jApiClass, methodName, similarMethods, methodsWithSameName, classChanges);
+            addMethodDiffToChangeReport(jApiClass, methodName, similarMethods, methodsWithSameName, classChanges, parameterTypeNames);
+
+            StringBuilder removedInterfaces = new StringBuilder();
+            removedInterfaces.append("Removed interfaces: ").append(System.lineSeparator());
+
+            boolean includeRemovedInterfaces = false;
 
             for (JApiImplementedInterface jApiImplementedInterface : jApiClass.getInterfaces()) {
                 if (jApiImplementedInterface.getCorrespondingJApiClass().isPresent()) {
-                    addMethodDiffToChangeReport(jApiImplementedInterface.getCorrespondingJApiClass().get(), methodName, similarMethods, methodsWithSameName, classChanges);
+                    addMethodDiffToChangeReport(jApiImplementedInterface.getCorrespondingJApiClass().get(), methodName, similarMethods, methodsWithSameName, classChanges, parameterTypeNames);
+                } else {
+                    removedInterfaces.append(jApiImplementedInterface.toString()).append(System.lineSeparator());
+                    for (CtMethod method : jApiImplementedInterface.getCtClass().getMethods()) {
+
+                        if (method.getName().equals(methodName)) {
+                            JApiMethod dummyMethod = new JApiMethod(null, method.getName(), JApiChangeStatus.REMOVED, Optional.of(method), Optional.empty(), this.comparator);
+                            methodsWithSameName.add(dummyMethod);
+                        }
+
+                        String methodSignature = method.toString();
+                        methodSignature = methodSignature.substring(methodSignature.indexOf("[") + 1, methodSignature.lastIndexOf("]"));
+                        if (!methodSignature.contains(" native ")) {
+                            removedInterfaces.append("- ").append(methodSignature).append(System.lineSeparator());
+                            includeRemovedInterfaces = true;
+                        }
+                    }
                 }
             }
+
+            if (includeRemovedInterfaces) {
+                classChanges.append(removedInterfaces);
+            }
+
+            classChanges.append(System.lineSeparator()).append(System.lineSeparator());
 
             //classChanges.append("End of changed class methods.").append(System.lineSeparator());
         }
@@ -186,6 +251,8 @@ public class JarDiffUtil {
         String classCompatibilityChange = joinCompatibilityChanges(classCompatibilityChanges);
 
         header.append("Changed class: ")
+                .append(jApiClass.getAccessModifier().getNewModifier().orElse(jApiClass.getAccessModifier().getOldModifier().orElse(null)))
+                .append(" ")
                 .append(jApiClass.getFullyQualifiedName())
                 .append(", Status: ")
                 .append(jApiClass.getChangeStatus());
@@ -196,6 +263,33 @@ public class JarDiffUtil {
         }
 
         return header.toString();
+    }
+
+    public static String buildFieldChangeReport(JApiField jApiField) {
+        if (jApiField == null) {
+            return "";
+        }
+        StringBuilder report = new StringBuilder();
+        List<JApiCompatibilityChange> compatibilityChanges = jApiField.getCompatibilityChanges();
+
+        report.append("- ");
+
+        //String parameters = buildParameterString(jApiMethod.getParameters());
+        CtField field = jApiField.getNewFieldOptional().orElse(jApiField.getOldFieldOptional().orElse(null));
+
+
+        try {
+            report.append(Modifier.toString(field.getModifiers()) + " " + field.getType().getName() + " " + field.getName());
+        } catch (NotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String compatibilityChange = joinCompatibilityChanges(compatibilityChanges);
+        if (!compatibilityChange.isEmpty()) {
+            report.append(", Compatibility change: ").append(compatibilityChange);
+        }
+
+        return report.toString();
     }
 
     public static String buildMethodChangeReport(JApiMethod jApiMethod) {
@@ -213,7 +307,7 @@ public class JarDiffUtil {
         if (returnType.equals("n.a.")) {
             returnType = jApiMethod.getReturnType().getOldReturnType().toString();
         }
-        String parameters = getFullMethodSignature(method.toString(), returnType, true);
+        String parameters = getFullMethodSignature(method.toString(), returnType, true, jApiMethod.getParameters());
         if (!parameters.isEmpty()) {
             report.append(parameters).append(", ");
         }
@@ -242,7 +336,7 @@ public class JarDiffUtil {
         CtConstructor constructor = jApiConstructor.getNewConstructor().orElse(jApiConstructor.getOldConstructor().orElse(null));
         String returnType = constructor.getName();
 
-        String parameters = getFullMethodSignature(constructor.toString(), returnType, false);
+        String parameters = getFullMethodSignature(constructor.toString(), returnType, false, jApiConstructor.getParameters());
         if (!parameters.isEmpty()) {
             report.append(parameters);
         }
@@ -319,7 +413,7 @@ public class JarDiffUtil {
                 continue;
             }
             double[] compareVec = WordSimilarityModel.getEmbedding(getFullMethodSignature(method.getNewMethod().
-                    get().toString(), method.getReturnType().getNewReturnType().toString(), true));
+                    get().toString(), method.getReturnType().getNewReturnType().toString(), true, method.getParameters()));
             double similarity = WordSimilarityModel.cosineSimilarity(baseVec, compareVec);
             similarityResults.add(new SimilarityResult(method, similarity));
         }
@@ -330,7 +424,7 @@ public class JarDiffUtil {
     }
 
 
-    public static String getFullMethodSignature(String methodString, String returnType, boolean addReturnType) {
+    public static String getFullMethodSignature(String methodString, String returnType, boolean addReturnType, List<JApiParameter> parameters) {
         String result = methodString;
 
         String resultPrefix = result.substring(result.indexOf("[") + 1, result.indexOf("("));
@@ -364,23 +458,19 @@ public class JarDiffUtil {
         }
 
 
-        String parametersAsString = result.substring(result.indexOf("(") + 1, result.indexOf(")"));
         StringBuilder parameterResult = new StringBuilder("(");
-        if (!parametersAsString.isEmpty()) {
-            String[] parameters = parametersAsString.split(";");
-            for (int i = 0; i < parameters.length; i++) {
-                if (parameters[i].length() <= 1) {
-                    continue;
-                }
-                if (i != 0) {
-                    parameterResult.append(", ");
-                }
-                parameters[i] = parameters[i].substring(1);
-                parameters[i] = parameters[i].replaceAll("/", ".");
 
-                parameterResult.append(parameters[i]);
+        for (int i = 0; i < parameters.size(); i++) {
+            String parameterRepresentation = parameters.get(i).getType();
+            if (parameters.get(i).getChangeStatus() != JApiChangeStatus.UNCHANGED) {
+                parameterRepresentation += " (" + parameters.get(i).getChangeStatus() + ")";
             }
+            if (i != parameters.size() - 1) {
+                parameterRepresentation += ", ";
+            }
+            parameterResult.append(parameterRepresentation);
         }
+
         parameterResult.append(")");
 
 

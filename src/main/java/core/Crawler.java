@@ -89,7 +89,7 @@ public class Crawler {
                     continue;
                 }
 
-                JarDiffUtil jarDiffUtil = new JarDiffUtil(oldJar, newJar);
+                JarDiffUtil jarDiffUtil = JarDiffUtil.getInstance(oldJar, newJar);
                 List<JApiMethod> changedMethods = jarDiffUtil.getChangedMethods();
 
                 if (!changedMethods.isEmpty()) {
@@ -102,7 +102,7 @@ public class Crawler {
                             returnType = method.getReturnType().getNewReturnType();
                         }
                         //TODO: Use JSON instead
-                        writer.write("  - " + JarDiffUtil.getFullMethodSignature(method.getOldMethod().orElse(method.getNewMethod().orElse(null)).toString(), returnType, true) + " of class " + method.getjApiClass().getFullyQualifiedName() + " Changes: " + method.getChangeStatus() + "\n");
+                        writer.write("  - " + JarDiffUtil.getFullMethodSignature(method.getOldMethod().orElse(method.getNewMethod().orElse(null)).toString(), returnType, true, method.getParameters()) + " of class " + method.getjApiClass().getFullyQualifiedName() + " Changes: " + method.getChangeStatus() + "\n");
                     }
                     writer.write("\n");
                     writer.flush();

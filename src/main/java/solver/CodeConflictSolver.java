@@ -3,6 +3,7 @@ package solver;
 import core.*;
 import org.eclipse.aether.util.graph.transformer.ConflictResolver;
 import provider.AIProvider;
+import solver.deterministic.FinalClassSolver;
 import solver.deterministic.ImportSolver;
 import solver.deterministic.OverrideSolver;
 import solver.nondeterministic.LLMCodeConflictSolver;
@@ -29,6 +30,7 @@ public abstract class CodeConflictSolver {
         List<CodeConflictSolver> solvers = new ArrayList<>();
         solvers.add(new ImportSolver(context));
         solvers.add(new OverrideSolver(context));
+        solvers.add(new FinalClassSolver(context));
         solvers.add(new LLMCodeConflictSolver(context, context.getActiveProvider()));
         return solvers;
     }

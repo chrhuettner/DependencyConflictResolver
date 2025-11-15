@@ -40,6 +40,7 @@ public class LogParser {
         public int line;
         public int column;
         public String message;
+        public boolean isImportRelated;
         public Map<String, String> details = new LinkedHashMap<>();
 
         public String toString() {
@@ -153,6 +154,8 @@ public class LogParser {
                     currentCompile.line = Integer.parseInt(errorMatcher.group(2));
                     currentCompile.column = Integer.parseInt(errorMatcher.group(3));
                     currentCompile.message = errorMatcher.group(4).trim();
+                    currentCompile.isImportRelated = currentCompile.message.startsWith("package");
+
                     continue;
                 }
 
@@ -160,8 +163,8 @@ public class LogParser {
                     String[] parts = line.trim().split(":", 2);
                     if (parts.length == 2) {
                         currentCompile.details.put(parts[0].trim(), parts[1].trim());
-                    }else{
-                        currentCompile.details.put(currentCompile.details.size()+"", parts[0].trim());
+                    } else {
+                        currentCompile.details.put(currentCompile.details.size() + "", parts[0].trim());
                     }
                     continue;
                 } else if (currentCompile != null) {
