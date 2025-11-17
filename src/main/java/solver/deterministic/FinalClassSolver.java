@@ -1,6 +1,10 @@
 package solver.deterministic;
 
-import core.*;
+import context.LogParser;
+import context.Context;
+import dto.BrokenCode;
+import dto.ErrorLocation;
+import dto.ProposedChange;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

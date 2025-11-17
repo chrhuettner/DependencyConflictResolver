@@ -1,8 +1,10 @@
 package solver;
 
-import core.*;
-import org.eclipse.aether.util.graph.transformer.ConflictResolver;
-import provider.AIProvider;
+import context.LogParser;
+import context.Context;
+import dto.BrokenCode;
+import dto.ErrorLocation;
+import dto.ProposedChange;
 import solver.deterministic.FinalClassSolver;
 import solver.deterministic.ImportSolver;
 import solver.deterministic.OverrideSolver;
@@ -10,8 +12,6 @@ import solver.nondeterministic.LLMCodeConflictSolver;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static core.BumpRunner.extractClassIfNotCached;
 
 public abstract class CodeConflictSolver {
 

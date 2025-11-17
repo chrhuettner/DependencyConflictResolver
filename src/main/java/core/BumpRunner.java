@@ -3,32 +3,23 @@ package core;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.dockerjava.api.DockerClient;
-import com.github.dockerjava.api.async.ResultCallback;
 import com.github.dockerjava.api.command.CreateContainerResponse;
-import com.github.dockerjava.api.command.PullImageResultCallback;
-import com.github.dockerjava.api.model.Frame;
-import com.github.dockerjava.api.model.PullResponseItem;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientConfig;
 import com.github.dockerjava.core.DockerClientImpl;
 import com.github.dockerjava.httpclient5.ApacheDockerHttpClient;
 import com.github.dockerjava.transport.DockerHttpClient;
-import core.context.CannotFindSymbolProvider;
-import core.context.ContextProvider;
-import javassist.compiler.CompileError;
-import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
-import org.apache.commons.compress.archivers.tar.TarArchiveInputStream;
-import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream;
-import provider.AIProvider;
-import provider.ChatGPTProvider;
-import provider.ClaudeProvider;
-import provider.OllamaProvider;
+import context.Context;
+import context.ContextProvider;
+import context.LogParser;
+import docker.ContainerUtil;
+import dto.BrokenCode;
+import dto.ErrorLocation;
+import dto.ProposedChange;
+import provider.*;
 import solver.CodeConflictSolver;
 
 import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,12 +27,9 @@ import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Predicate;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import static core.LogParser.parseLog;
-import static core.LogParser.projectIsFixableThroughCodeModification;
+import static context.LogParser.parseLog;
+import static context.LogParser.projectIsFixableThroughCodeModification;
 
 public class BumpRunner {
 
@@ -63,27 +51,53 @@ public class BumpRunner {
     // private static final Pattern CLASS_FILE_NOT_FOUND_DETAIL_PATTERN = Pattern.compile(
     //         "class file for (\\S*) not found");
 
-    public static final int REFINEMENT_LIMIT = 2;
+    public static final int REFINEMENT_LIMIT = 1;
 
     // public static List<ContextProvider> contextProviders = new ArrayList<>();
     // public static List<CodeConflictSolver> codeConflictSolvers = new ArrayList<>();
 
+    private static void createFolder(String path) {
+        new File(path).mkdirs();
+    }
 
-    public static void main(String[] args) {
-        String targetDirectory = "testFiles/downloaded";
+    private static void createBaseFolders(String basePath) {
+        createFolder(basePath + "/downloaded");
+        createFolder(basePath + "/projectSources");
+        createFolder(basePath + "/brokenClasses");
+        createFolder(basePath + "/correctedClasses");
+        createFolder(basePath + "/correctedLogs");
+        createFolder(basePath + "/prompts");
+        createFolder(basePath + "/LLMResponses");
+        createFolder(basePath + "/oldContainerLogs");
+        createFolder(basePath + "/brokenLogs");
+    }
+
+    private static void createIterationFolders(String basePath, int iteration) {
+        createFolder(basePath + "/correctedClasses/iteration_" + iteration);
+        createFolder(basePath + "/correctedLogs/iteration_" + iteration);
+        createFolder(basePath + "/prompts/iteration_" + iteration);
+        createFolder(basePath + "/LLMResponses/iteration_" + iteration);
+    }
+
+    public static void runBUMP(BumpConfig bumpConfig) {
+        createBaseFolders(bumpConfig.getPathToOutput());
+        createIterationFolders(bumpConfig.getPathToOutput(), 0);
+        String targetDirectory = bumpConfig.getPathToOutput() + "/downloaded";
         File outputDir = new File(targetDirectory);
-        File outputDirSrcFiles = new File("testFiles/projectSources");
+        File outputDirSrcFiles = new File(bumpConfig.getPathToOutput() + "/projectSources");
+        String targetDirectoryClasses = bumpConfig.getPathToOutput() + "/brokenClasses";
+        String targetDirectoryFixedClasses = bumpConfig.getPathToOutput() + "/correctedClasses";
+        String targetDirectoryFixedLogs = bumpConfig.getPathToOutput() + "/correctedLogs";
+        String targetDirectoryPrompts = bumpConfig.getPathToOutput() + "/prompts";
+        String targetDirectoryLLMResponses = bumpConfig.getPathToOutput() + "/LLMResponses";
+        String directoryOldContainerLogs = bumpConfig.getPathToOutput() + "/oldContainerLogs";
 
-        String targetDirectoryClasses = "testFiles/brokenClasses";
-        String targetDirectoryFixedClasses = "testFiles/correctedClasses";
-        String targetDirectoryFixedLogs = "testFiles/correctedLogs";
-        String targetDirectoryPrompts = "testFiles/prompts";
-        String targetDirectoryLLMResponses = "testFiles/LLMResponses";
-        String directoryOldContainerLogs = "testFiles/oldContainerLogs";
+
         File outputDirClasses = new File(targetDirectoryClasses);
 
-        AIProvider chatgptProvider = new ChatGPTProvider();
-        AIProvider claudeProvider = new ClaudeProvider();
+
+        /*AIProvider chatgptProvider = new OpenAiProvider();
+        AIProvider claudeProvider = new AnthropicProvider();
         AIProvider codeLama7bProvider = new OllamaProvider("codellama:7b");
         AIProvider codeLama13bProvider = new OllamaProvider("codellama:13b");
         AIProvider codeGemma7bProvider = new OllamaProvider("codegemma:7b");
@@ -97,11 +111,13 @@ public class BumpRunner {
         AIProvider deepseekR1_7b = new OllamaProvider("deepseek-r1:7b");
         AIProvider gptOss20b = new OllamaProvider("gpt-oss:20b");
         AIProvider gptOss120bCloud = new OllamaProvider("gpt-oss:120b-cloud");
-        AIProvider qwen3_coder480b_cloud = new OllamaProvider("qwen3-coder:480b-cloud");
+        AIProvider qwen3_coder480b_cloud = new OllamaProvider("qwen3-coder:480b-cloud");*/
 
-        AIProvider activeProvider = qwen3_coder480b_cloud;
+        LLMProvider activeProvider = BaseLLMProvider.getProviderByNames(bumpConfig.getLlmProvider(), bumpConfig.getLlmName(), bumpConfig.getOllamaUri(), bumpConfig.getLlmApiKey());
 
-        List<AIProvider> providers = new ArrayList<>();
+        WordSimilarityModel wordSimilarityModel = new WordSimilarityModel(bumpConfig.getWordSimilarityModel(), bumpConfig.getOllamaUri());
+        //List<LLMProvider> providers = new ArrayList<>();
+
 
         //providers.add(chatgptProvider);
         //providers.add(claudeProvider);
@@ -116,7 +132,10 @@ public class BumpRunner {
 
         // Edit docker desktop to expose this port
         DockerClientConfig config = DefaultDockerClientConfig.createDefaultConfigBuilder()
-                .withDockerHost("tcp://localhost:2375")
+                .withDockerHost(bumpConfig.getDockerHostUri())
+                .withRegistryUrl(bumpConfig.getDockerRegistryUri())
+                .withRegistryUsername(bumpConfig.getDockerUsername())
+                .withRegistryPassword(bumpConfig.getDockerPassword())
                 .build();
 
         DockerHttpClient dockerHttpClient = new ApacheDockerHttpClient.Builder()
@@ -129,7 +148,7 @@ public class BumpRunner {
 
         DockerClient dockerClient = DockerClientImpl.getInstance(config, dockerHttpClient);
 
-        File bumpFolder = new File("testFiles/BonoSubset");
+        File bumpFolder = new File(bumpConfig.getPathToBUMPFolder());
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<String> validEntryNames = new ArrayList<>();
@@ -143,7 +162,7 @@ public class BumpRunner {
         AtomicInteger imposterProjects = new AtomicInteger();
 
 
-        int limit = 4;
+        int limit = bumpConfig.getThreads();
         for (File file : bumpFolder.listFiles()) {
             while (activeThreadCount.getAndUpdate(operand -> {
                 if (operand >= limit) {
@@ -201,7 +220,7 @@ public class BumpRunner {
 
                     //TODO: Method chain analysis sometimes returns null, for example: d38182a8a0fe1ec039aed97e103864fce717a0be
                     //TODO also, class name sometimes is * again... (probably due to Method chain analysis)
-                    /*if (!file.getName().equals("13fd75e233a5cb2771a6cb186c0decaed6d6545a.json")) {
+                    /*if (!file.getName().equals("00a7cc31784ac4a9cc27d506a73ae589d6df36d6.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }*/
@@ -216,8 +235,8 @@ public class BumpRunner {
                     String combinedArtifactNameOld = dependencyArtifactID + "-" + previousVersion + ".jar";
 
                     System.out.println(file.getName());
-                    Path targetPathOld = downloadLibrary(mavenSourceLinkPre, outputDir, dockerClient, oldUpdateImage, combinedArtifactNameOld);
-                    Path targetPathNew = downloadLibrary(mavenSourceLinkBreaking, outputDir, dockerClient, brokenUpdateImage, combinedArtifactNameNew);
+                    Path targetPathOld = ContainerUtil.downloadLibrary(mavenSourceLinkPre, outputDir, dockerClient, oldUpdateImage, combinedArtifactNameOld);
+                    Path targetPathNew = ContainerUtil.downloadLibrary(mavenSourceLinkBreaking, outputDir, dockerClient, brokenUpdateImage, combinedArtifactNameNew);
 
 
                     totalPairs.getAndIncrement();
@@ -228,24 +247,29 @@ public class BumpRunner {
                         return;
                     }
 
-                    boolean projectIsFixableWithSourceCodeModification = projectIsFixableThroughCodeModification(Path.of("testFiles/brokenLogs" + "/" + strippedFileName + "_" + project));
+                    if (!Files.exists(ContainerUtil.getPath(outputDirSrcFiles.getPath(), dependencyArtifactID, strippedFileName))) {
+                        CreateContainerResponse oldContainer = ContainerUtil.pullImageAndCreateContainer(dockerClient, oldUpdateImage);
+                        if (ContainerUtil.logFromContainerContainsError(dockerClient, oldContainer, ContainerUtil.getPath(strippedFileName, project, directoryOldContainerLogs))) {
+                            System.out.println(strippedFileName + "_" + project + " is not working despite being in the pre set!!!!");
+                            imposterProjects.incrementAndGet();
+                            activeThreadCount.decrementAndGet();
+                            return;
+                        }
+                        ContainerUtil.extractCompiledCodeFromContainer(outputDirSrcFiles, dockerClient, oldUpdateImage, dependencyArtifactID + "_" + strippedFileName);
+                    }
+
+
+                    if (!Files.exists(Path.of(bumpConfig.getPathToOutput() + "/brokenLogs/" + strippedFileName + "_" + project))) {
+                        ContainerUtil.getBrokenLogFromContainer(dockerClient, brokenUpdateImage, project, strippedFileName, bumpConfig.getPathToOutput());
+                    }
+
+                    boolean projectIsFixableWithSourceCodeModification = projectIsFixableThroughCodeModification(Path.of(bumpConfig.getPathToOutput() + "/brokenLogs" + "/" + strippedFileName + "_" + project));
 
                     if (!projectIsFixableWithSourceCodeModification) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }
                     fixableProjects.incrementAndGet();
-
-                    if (!Files.exists(Path.of(outputDirSrcFiles + "/" + dependencyArtifactID + "_" + strippedFileName))) {
-                        CreateContainerResponse oldContainer = pullImageAndCreateContainer(dockerClient, oldUpdateImage);
-                        if (logFromContainerContainsError(dockerClient, oldContainer, strippedFileName, project, directoryOldContainerLogs)) {
-                            System.out.println(strippedFileName + "_" + project + " is not working despite being in the pre set!!!!");
-                            imposterProjects.incrementAndGet();
-                            activeThreadCount.decrementAndGet();
-                            return;
-                        }
-                        extractCompiledCodeFromContainer(outputDirSrcFiles, dockerClient, oldUpdateImage, dependencyArtifactID + "_" + strippedFileName);
-                    }
 
                     String oldName = targetPathOld.toUri().toString();
                     oldName = oldName.substring(oldName.lastIndexOf("/") + 1);
@@ -264,28 +288,21 @@ public class BumpRunner {
                     }
 
 
-                    if (!Files.exists(Path.of("testFiles/brokenLogs/" + strippedFileName + "_" + project))) {
-                        getBrokenLogFromContainer(dockerClient, brokenUpdateImage, project, strippedFileName);
-                    }
-
-
                     List<ProposedChange> proposedChanges = new ArrayList<>();
                     HashMap<String, ProposedChange> errorSet = new HashMap<>();
 
 
                     Context context = new Context(project, previousVersion, newVersion, dependencyArtifactID, strippedFileName, outputDirClasses, brokenUpdateImage,
                             targetPathOld, targetPathNew, targetDirectoryClasses, outputDirSrcFiles, activeProvider, dockerClient, errorSet, proposedChanges, null,
-                            targetDirectoryLLMResponses, targetDirectoryPrompts, targetDirectoryFixedClasses, targetDirectoryFixedLogs, null);
+                            targetDirectoryLLMResponses, targetDirectoryPrompts, targetDirectoryFixedClasses, targetDirectoryFixedLogs, null, bumpConfig, wordSimilarityModel);
 
-                    List<Object> errors = parseLog(Path.of("testFiles/brokenLogs" + "/" + strippedFileName + "_" + project));
-
-                    int initialSize = errors.size();
+                    List<Object> errors = parseLog(Path.of(bumpConfig.getPathToOutput() + "/brokenLogs" + "/" + strippedFileName + "_" + project));
 
                     reduceErrors(errors, context);
 
-                    //sortErrors(errors);
+                    int initialSize = errors.size();
 
-                    System.out.println(project + " contains " + errors.size() + " errors (reduced from " + initialSize + ")");
+                    System.out.println(project + " contains " + errors.size() + " errors.");
 
                     List<ContextProvider> contextProviders = ContextProvider.getContextProviders(context);
                     List<CodeConflictSolver> codeConflictSolvers = CodeConflictSolver.getCodeConflictSolvers(context);
@@ -293,7 +310,7 @@ public class BumpRunner {
                     boolean errorsWereFixed = false;
                     int amountOfReTries = 0;
                     // boolean wasImportRelated = false;
-                    for (; amountOfReTries < REFINEMENT_LIMIT; amountOfReTries++) {
+                    for (; amountOfReTries < bumpConfig.getLlmRetries(); amountOfReTries++) {
                         try {
                             for (int i = 0; i < errors.size(); i++) {
                                 Object error = errors.get(i);
@@ -301,20 +318,8 @@ public class BumpRunner {
                                     continue;
                                 }
 
-                                /*if(wasImportRelated && !((LogParser.CompileError) error).isImportRelated){
-                                    // Maybe only fixing the imports already fixes the project
-                                    if (validateFix(context)) {
-                                        errorsWereFixed = true;
-                                        break;
-                                    }
-                                }
-
-                                if(i == 0 && ((LogParser.CompileError) error).isImportRelated){
-                                    wasImportRelated = true;
-                                }*/
-
                                 context.setCompileError((LogParser.CompileError) error);
-                                context.setStrippedClassName(extractClassIfNotCached(context));
+                                context.setStrippedClassName(ContainerUtil.extractClassIfNotCached(context));
 
                                 fixError(context, contextProviders, codeConflictSolvers);
 
@@ -323,8 +328,26 @@ public class BumpRunner {
                             if (validateFix(context)) {
                                 errorsWereFixed = true;
                                 break;
+                            } else if (amountOfReTries != bumpConfig.getLlmRetries() - 1) {
+                                context.setIteration(context.getIteration() + 1);
+                                context.setTargetDirectoryClasses(targetDirectoryFixedClasses);
+                                createIterationFolders(bumpConfig.getPathToOutput(), context.getIteration());
+
+                                System.out.println("Project " + file.getName() + " still contains errors.");
+                                //bumpConfig.getPathToOutput() + "/correctedLogs" + "/" + strippedFileName + "_" + project
+
+                                //E:\master\DependencyConflictResolver\testFiles\correctedLogs\iteration_0
+                                errors = parseLog(Path.of(bumpConfig.getPathToOutput() + "/correctedLogs" + "/iteration_" + context.getPreviousIteration() + "/" + strippedFileName + "_" + project));
+
+                                reduceErrors(errors, context);
+
+                                System.out.println(project + " contains " + errors.size() + " errors (reduced from " + initialSize + ")");
+                                initialSize = errors.size();
+                                // context.getTargetDirectoryClasses(),
+
                             }
                         } catch (Exception e) {
+                            System.err.println(context.getStrippedFileName());
                             e.printStackTrace();
                         } finally {
                             context.getErrorSet().clear();
@@ -365,7 +388,7 @@ public class BumpRunner {
         System.out.println(fixableProjects.get() + " projects are fixable");
         System.out.println("Fixed " + successfulFixes.get() + " out of " + satisfiedConflictPairs.get() + " projects (" + failedFixes.get() + " were not fixed)");
         try {
-            objectMapper.writeValue(new File("testFiles/downloaded/validEntries.json"), validEntryNames);
+            objectMapper.writeValue(new File(bumpConfig.getPathToOutput() + "/downloaded/validEntries.json"), validEntryNames);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -381,20 +404,20 @@ public class BumpRunner {
             groupedChangesByClassName.get(proposedChange.className()).add(proposedChange);
         }
 
-        CreateContainerResponse container = pullImageAndCreateContainer(context.getDockerClient(), context.getBrokenUpdateImage());
+        CreateContainerResponse container = ContainerUtil.pullImageAndCreateContainer(context.getDockerClient(), context.getBrokenUpdateImage());
 
         for (String className : groupedChangesByClassName.keySet()) {
 
-            replaceBrokenCodeInClass(className, context.getTargetDirectoryClasses(), context.getTargetDirectoryFixedClasses(), context.getStrippedFileName(), groupedChangesByClassName.get(className));
+            ContainerUtil.replaceBrokenCodeInClass(className, context.getTargetDirectoryClasses(), context.getTargetDirectoryFixedClasses(), context.getStrippedFileName(), groupedChangesByClassName.get(className), context.getIteration());
 
-            replaceFileInContainer(context.getDockerClient(), container, Paths.get(context.getTargetDirectoryFixedClasses() + "/" + context.getStrippedFileName() + "_" + className), groupedChangesByClassName.get(className).get(0).file());
+            ContainerUtil.replaceFileInContainer(context.getDockerClient(), container, ContainerUtil.getPathWithIteration(context.getTargetDirectoryFixedClasses(), context.getStrippedFileName(), className, context.getIteration()), groupedChangesByClassName.get(className).get(0).file());
 
             /*if (groupedChangesByClassName.get(className).get(0).file().equals("/docker-adapter/src/test/java/com/artipie/docker/http/LargeImageITCase.java")) {
                 getFileFromContainer(context.getDockerClient(), container, groupedChangesByClassName.get(className).get(0).file(), new File("testFiles/TEST"), "");
             }*/
         }
 
-        return !logFromContainerContainsError(context.getDockerClient(), container, context.getStrippedFileName(), context.getProject(), context.getTargetDirectoryFixedLogs());
+        return !ContainerUtil.logFromContainerContainsError(context.getDockerClient(), container, ContainerUtil.getPathWithIteration(context.getTargetDirectoryFixedLogs(), context.getStrippedFileName(), context.getProject(), context.getIteration()));
     }
 
     public static void sortErrors(List<Object> errors) {
@@ -424,14 +447,15 @@ public class BumpRunner {
             if (error instanceof LogParser.CompileError) {
                 LogParser.CompileError compileError = (LogParser.CompileError) error;
                 context.setCompileError(compileError);
-                context.setStrippedClassName(extractClassIfNotCached(context));
-                BrokenCode brokenCode = readBrokenLine(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column});
+                context.setStrippedClassName(ContainerUtil.extractClassIfNotCached(context));
+                BrokenCode brokenCode = ContainerUtil.readBrokenLine(context.getStrippedClassName(), context.getTargetDirectoryClasses(),
+                        context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column}, context.getIteration());
 
                 if (compileError.isImportRelated) {
                     String className = brokenCode.code().trim();
                     className = className.substring(className.indexOf(" ") + 1, className.indexOf(";"));
                     className = className.substring(className.lastIndexOf(".") + 1);
-                    importRelatedErrorMap.put(className, compileError);
+                    importRelatedErrorMap.put(compileError.file + "/" + className, compileError);
                 }
             }
         }
@@ -443,7 +467,7 @@ public class BumpRunner {
                     if (compileError.details.containsKey("symbol")) {
                         String symbolName = compileError.details.get("symbol");
                         symbolName = symbolName.substring(symbolName.indexOf(" ") + 1);
-                        if (importRelatedErrorMap.containsKey(symbolName)) {
+                        if (importRelatedErrorMap.containsKey(compileError.file + "/" + symbolName)) {
                             System.out.println("Removed '" + compileError.message + "(" + compileError.details + ")' because prior errors already handle the import of " + symbolName);
                             errors.remove(j);
                         }
@@ -476,22 +500,12 @@ public class BumpRunner {
         }
     }
 
-    public static String extractClassIfNotCached(Context context) {
-        String strippedClassName = context.getCompileError().file.substring(context.getCompileError().file.lastIndexOf("/") + 1);
-        if (!Files.exists(Path.of("testFiles/brokenClasses/" + context.getStrippedFileName() + "_" + strippedClassName))) {
-            extractClassFromContainer(context.getOutputDirClasses(), context.getDockerClient(), context.getBrokenUpdateImage(), context.getCompileError().file, context.getStrippedFileName());
-        } else {
-            System.out.println("Class already exists at " + Path.of("testFiles/brokenClasses/" + context.getStrippedFileName() + "_" + strippedClassName));
-        }
-        return strippedClassName;
-    }
 
     public static void fixError(Context context, List<ContextProvider> contextProviders, List<CodeConflictSolver> codeConflictSolvers) throws IOException, ClassNotFoundException {
-        BrokenCode brokenCode = readBrokenLine(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column});
+        BrokenCode brokenCode = ContainerUtil.readBrokenLine(context.getStrippedClassName(), context.getTargetDirectoryClasses(),
+                context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column}, context.getIteration());
 
-        if (brokenCode.code().equals("                session.setAttribute(PEER_ADDRESS, remoteAddress);")) {
-            System.out.println("DEBUG");
-        }
+
         if (context.getErrorSet().containsKey(brokenCode.code().trim())) {
             int offset = context.getCompileError().line - context.getErrorSet().get(brokenCode.code().trim()).start();
             context.getProposedChanges().add(new ProposedChange(context.getStrippedClassName(), context.getErrorSet().get(brokenCode.code().trim()).code(), context.getCompileError().file,
@@ -540,181 +554,8 @@ public class BumpRunner {
             }
         }
 
-
-
-            /*if (brokenCode.code().startsWith("import")) {
-                targetClass = brokenCode.code().substring(brokenCode.code().indexOf(" "), brokenCode.code().lastIndexOf(";")).trim();
-                if (targetClass.contains(".")) {
-                    targetClass = targetClass.substring(targetClass.lastIndexOf(".") + 1);
-                }
-                // Whole package import
-                if (targetClass.endsWith("*")) {
-                    targetClass = "";
-                }
-
-                JarDiffUtil jarDiffUtil = new JarDiffUtil(context.getTargetPathOld().toString(), context.getTargetPathNew().toString());
-
-                String alternative = jarDiffUtil.getAlternativeClassImport(targetClass);
-
-                if (alternative != null) {
-                    ProposedChange proposedChange = new ProposedChange(strippedClassName, "import " + alternative + ";", context.getCompileError().file, brokenCode.start(), brokenCode.end());
-                    context.getProposedChanges().add(proposedChange);
-                    context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
-                    return;
-                }
-            }
-
-            if (brokenCode.code().trim().startsWith("@Override") && context.getCompileError().message.startsWith("method does not override or implement a method from a supertype")) {
-                ProposedChange proposedChange = new ProposedChange(strippedClassName, brokenCode.code().trim().substring("@Override".length()), context.getCompileError().file, brokenCode.start(), brokenCode.end());
-                context.getProposedChanges().add(proposedChange);
-                context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
-                return;
-            }
-
-            Matcher typecastMatcher = CAST_PATTERN.matcher(context.getCompileError().message);
-            Matcher deprecationMatcher = DEPRECATION_PATTERN.matcher(context.getCompileError().message);
-            Matcher constructorTypesMatcher = CONSTRUCTOR_TYPES_PATTERN.matcher(context.getCompileError().message);
-            Matcher methodChainDetectionMatcher = METHOD_CHAIN_DETECTION_PATTERN.matcher(brokenCode.code());
-            Matcher classFileNotFoundMatcher = CLASS_FILE_NOT_FOUND_PATTERN.matcher(context.getCompileError().message);
-
-            if (typecastMatcher.find()) {
-                targetMethodParameterClassNames = new String[]{typecastMatcher.group(2)};
-            }
-
-            //if (classFileNotFoundMatcher.find()) {
-            //    for (String detail : context.getCompileError().details.values()) {
-            //        Matcher classFileNotFoundDetailMatcher = CLASS_FILE_NOT_FOUND_DETAIL_PATTERN.matcher(detail);
-            //        if (classFileNotFoundDetailMatcher.find()) {
-            //            String className = classFileNotFoundDetailMatcher.group(1);
-            //            String strippedClassesName = className.substring(className.lastIndexOf(".") + 1);
-            //             int line = getImportLineIndex(strippedClassesName, Paths.get(context.getTargetDirectoryClasses() + "/" + context.getStrippedFileName() + "_" + strippedClassName));
-
-            //             ProposedChange proposedChange = new ProposedChange(strippedClassName, "import "+className+";", context.getCompileError().file, line, line);
-            //             context.getProposedChanges().add(proposedChange);
-            //            //context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
-            //            return;
-            //         }
-            //     }
-
-            //  } else
-            if (constructorTypesMatcher.find()) {
-                targetMethod = constructorTypesMatcher.group(1);
-                targetClass = constructorTypesMatcher.group(2);
-            } else if (context.getCompileError().message.equals("cannot find symbol")) {
-                if (context.getCompileError().details.containsKey("symbol")) {
-                    String sym = context.getCompileError().details.get("symbol");
-                    if (sym.startsWith("symbol")) {
-                        sym = sym.substring("symbol".length() + 1).trim();
-                    }
-                    if (sym.startsWith("class")) {
-                        targetClass = sym.substring(sym.indexOf("class") + "class".length() + 1);
-                    } else if (sym.startsWith("method")) {
-                        targetMethod = context.getCompileError().details.get("symbol");
-                        targetMethod = targetMethod.substring(targetMethod.indexOf(" ") + 1);
-                        if (targetMethod.indexOf("(") != targetMethod.indexOf(")") - 1) {
-                            String parameterString = targetMethod.substring(targetMethod.indexOf("(") + 1, targetMethod.indexOf(")"));
-                            String[] parameters = parameterString.split(",");
-                            targetMethodParameterClassNames = new String[parameters.length];
-                            for (int i = 0; i < parameters.length; i++) {
-                                targetMethodParameterClassNames[i] = primitiveClassNameToWrapperName(parameters[i]);
-                            }
-                        }
-
-                        targetMethod = targetMethod.substring(0, targetMethod.indexOf("("));
-
-                        if (context.getCompileError().details.containsKey("location")) {
-                            targetClass = context.getCompileError().details.get("location");
-                            if (targetClass.contains("of type")) {
-                                targetClass = targetClass.substring(targetClass.indexOf("of type") + "of type".length() + 1);
-                            } else {
-                                targetClass = targetClass.substring(targetClass.indexOf("class") + "class".length() + 1);
-                            }
-                        }
-                    }
-                }
-            } else if (deprecationMatcher.find()) {
-                targetMethod = deprecationMatcher.group(1);
-                targetClass = deprecationMatcher.group(3);
-            } else if (brokenCode.code().trim().startsWith("super")) {
-                String parent = readParent(strippedClassName, context.getTargetDirectoryClasses(), context.getStrippedFileName());
-                System.out.println("super " + parent);
-                targetClass = parent;
-                targetMethod = parent;
-            //}else if(context.getCompileError().message.startsWith("incompatible types:")){
-                // Let the LLM decide on its own
-            } else if (methodChainDetectionMatcher.find()) {
-                MethodChainAnalysis methodChainAnalysis = analyseMethodChain(context.getCompileError().column, brokenCode.start(), brokenCode.code(), context.getTargetDirectoryClasses(), context.getStrippedFileName(),
-                        strippedClassName, context.getTargetPathOld(), context.getTargetPathNew(), context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString());
-
-                if (methodChainAnalysis != null) {
-                    targetClass = methodChainAnalysis.targetClass();
-                    targetMethod = methodChainAnalysis.targetMethod();
-
-                    if (targetMethodParameterClassNames.length == 0) {
-                        targetMethodParameterClassNames = methodChainAnalysis.parameterTypes();
-                    }
-                }
-
-            } else {
-                System.out.println("UNCAT " + brokenCode.code());
-            }*/
-
         System.out.println("Target class: " + targetClass);
         System.out.println("Target method: " + targetMethod);
-
-
-
-            /*ConflictResolutionResult result = null;
-
-            String llmResponseFileName = context.getTargetDirectoryLLMResponses() + "/" + context.getStrippedFileName() + "_" + context.getCompileError().line + "_" + targetClass + "_" + context.getActiveProvider() + ".txt";
-
-            String erroneousClass = readBrokenClass(strippedClassName, context.getTargetDirectoryClasses(), context.getStrippedFileName());
-            String erroneousScope = readBrokenEnclosingScope(strippedClassName, context.getTargetDirectoryClasses(), context.getStrippedFileName(), context.getCompileError().line);
-
-            if (!usePromptCaching || !Files.exists(Path.of(llmResponseFileName))) {
-                String errorPrompt = "line: " + context.getCompileError().line + ", column: " + context.getCompileError().column + System.lineSeparator() + context.getCompileError().message;
-
-                for (String detail : context.getCompileError().details.keySet()) {
-                    errorPrompt = errorPrompt + System.lineSeparator() + detail + " " + context.getCompileError().details.get(detail);
-                }
-                String prompt = Main.buildPrompt(context.getDependencyArtifactId(), context.getPreviousVersion(), context.getNewVersion(), context.getTargetPathOld().toString(), context.getTargetPathNew().toString(),
-                        targetClass, targetMethod, brokenCode.code(), targetMethodParameterClassNames, errorPrompt, erroneousClass, erroneousScope);
-
-                Files.write(Path.of(context.getTargetDirectoryPrompts() + "/" + context.getStrippedFileName() + "_" + context.getCompileError().line + "_" + targetClass + ".txt"), prompt.getBytes());
-
-                System.out.println(prompt);
-                int counter = 0;
-                while (result == null) {
-                    try {
-                        result = Main.sendAndPrintCode(context.getActiveProvider(), prompt);
-                    } catch (AIProviderException e) {
-                        System.err.println("AI Provider Exception " + counter + ": " + e.getMessage());
-                        counter++;
-                    }
-                }
-
-                FileOutputStream fileOutputStream
-                        = new FileOutputStream(llmResponseFileName);
-                ObjectOutputStream objectOutputStream
-                        = new ObjectOutputStream(fileOutputStream);
-                objectOutputStream.writeObject(result);
-                objectOutputStream.flush();
-                objectOutputStream.close();
-                //Files.write(Path.of(targetDirectoryLLMResponses + "/" + strippedFileName + "_" + compileError.line + "_" + targetClass + ".txt"), result.toString().getBytes());
-            } else {
-                System.out.println("Loading LLM response from stored responses");
-                FileInputStream fileInputStream = new FileInputStream(llmResponseFileName);
-                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-                result = (ConflictResolutionResult) objectInputStream.readObject();
-                objectInputStream.close();
-            }
-
-            System.out.println(result);
-
-            ProposedChange proposedChange = new ProposedChange(strippedClassName, result.code(), context.getCompileError().file, brokenCode.start(), brokenCode.end());
-            context.getProposedChanges().add(proposedChange);
-            context.getErrorSet().put(brokenCode.code().trim(), proposedChange);*/
-
     }
 
     private static String cleanString(String str) {
@@ -724,698 +565,4 @@ public class BumpRunner {
         return str.substring(1, str.length() - 1);
     }
 
-    public static void extractEntry(TarArchiveInputStream tais, TarArchiveEntry entry, File outputDir, String outputNameModifier) throws IOException {
-        File outputFile = new File(outputDir, outputNameModifier + entry.getName().substring(entry.getName().lastIndexOf('/') + 1));
-
-        try (FileOutputStream fos = new FileOutputStream(outputFile)) {
-            byte[] buffer = new byte[8192];
-            int len;
-            long remaining = entry.getSize();
-            while (remaining > 0 && (len = tais.read(buffer, 0, (int) Math.min(buffer.length, remaining))) != -1) {
-                fos.write(buffer, 0, len);
-                remaining -= len;
-            }
-        }
-    }
-
-    public static void extractWholeEntry(TarArchiveInputStream tais, TarArchiveEntry entry, File outputDir) throws IOException {
-        File outputFile = new File(outputDir, entry.getName());
-
-        try (FileOutputStream fos = new FileOutputStream(outputFile)) {
-            byte[] buffer = new byte[8192];
-            int len;
-            long remaining = entry.getSize();
-            while (remaining > 0 && (len = tais.read(buffer, 0, (int) Math.min(buffer.length, remaining))) != -1) {
-                fos.write(buffer, 0, len);
-                remaining -= len;
-            }
-        }
-    }
-
-    public static void extractLibraryFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String artifactNameWithVersion) {
-        System.out.println("Fetching library from container (this takes some time)");
-        CreateContainerResponse container = pullImageAndCreateContainer(dockerClient, imagePath);
-        getFileFromContainer(dockerClient, container, artifactNameWithVersion, targetDirectory, "");
-        dockerClient.removeContainerCmd(container.getId()).exec();
-    }
-
-    public static void extractClassFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String className, String fileName) {
-        System.out.println("Fetching class from container (this takes some time)");
-        CreateContainerResponse container = pullImageAndCreateContainer(dockerClient, imagePath);
-        getFileFromContainer(dockerClient, container, className, targetDirectory, fileName + "_");
-        dockerClient.removeContainerCmd(container.getId()).exec();
-    }
-
-    public static void extractCompiledCodeFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String projectName) {
-        System.out.println("Fetching class from container (this takes some time)");
-        CreateContainerResponse container = pullImageAndCreateContainerWithPackageCommand(dockerClient, imagePath);
-
-        dockerClient.startContainerCmd(container.getId()).exec();
-        try {
-            dockerClient.waitContainerCmd(container.getId()).start().awaitCompletion();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        File projectDir = new File(targetDirectory, projectName);
-
-        if (!projectDir.exists()) {
-            projectDir.mkdirs();
-        }
-
-
-        getSourceFiles(dockerClient, container, projectDir);
-        getDependencyFiles(dockerClient, container, projectDir);
-        dockerClient.removeContainerCmd(container.getId()).exec();
-    }
-
-    public static void getBrokenLogFromContainer(DockerClient dockerClient, String imagePath, String projectName, String fileName) {
-        CreateContainerResponse container = pullImageAndCreateContainer(dockerClient, imagePath);
-
-        dockerClient.startContainerCmd(container.getId()).exec();
-        dockerClient.waitContainerCmd(container.getId()).start().awaitStatusCode();
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("testFiles/brokenLogs/" + fileName + "_" + projectName));
-
-            dockerClient.logContainerCmd(container.getId())
-                    .withStdOut(true)
-                    .withStdErr(true)
-                    .withTailAll()
-                    .exec(new ResultCallback.Adapter<Frame>() {
-                        @Override
-                        public void onNext(Frame frame) {
-                            String s = new String(frame.getPayload());
-
-                            try {
-                                bw.write(s);
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                    }).awaitCompletion();
-            bw.flush();
-            dockerClient.removeContainerCmd(container.getId()).exec();
-        } catch (InterruptedException | IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static boolean logFromContainerContainsError(DockerClient dockerClient, CreateContainerResponse container, String fileName, String projectName, String dir) {
-        dockerClient.startContainerCmd(container.getId()).exec();
-        dockerClient.waitContainerCmd(container.getId()).start().awaitStatusCode();
-        final boolean[] containsError = {false};
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(dir + "/" + fileName + "_" + projectName));
-
-            dockerClient.logContainerCmd(container.getId())
-                    .withStdOut(true)
-                    .withStdErr(true)
-                    .withTailAll()
-                    .exec(new ResultCallback.Adapter<Frame>() {
-                        @Override
-                        public void onNext(Frame frame) {
-                            String s = new String(frame.getPayload());
-                            if (s.contains("[ERROR]")) {
-                                containsError[0] = true;
-                            }
-                            try {
-                                bw.write(s);
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                    }).awaitCompletion();
-            bw.flush();
-            dockerClient.removeContainerCmd(container.getId()).exec();
-        } catch (InterruptedException | IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        return containsError[0];
-    }
-
-    public static BrokenCode readBrokenLine(String className, String directory, String fileName, int[] indices) {
-        try {
-            List<String> allLines = Files.readAllLines(Paths.get(directory + "/" + fileName + "_" + className));
-            //BufferedReader br = new BufferedReader(new FileReader(directory + "/" + fileName + "_" + className));
-            String brokenCode = null;
-            int start = 0, end = allLines.size();
-            for (int i = 0; i < allLines.size(); i++) {
-                if (i + 1 == indices[0]) {
-                    start = i + 1;
-                    brokenCode = allLines.get(i);
-                    int[] bracketOccurrencesInLine = getBracketOccurrencesInString(brokenCode);
-                    if (!(brokenCode.endsWith(";") || brokenCode.endsWith("{") || brokenCode.endsWith("}") || (bracketOccurrencesInLine[0] == bracketOccurrencesInLine[1] && bracketOccurrencesInLine[0] != 0))) {
-                        for (int j = i + 1; j < allLines.size(); j++) {
-                            String line = allLines.get(j);
-
-                            brokenCode = brokenCode + line;
-                            if (allLines.get(j).endsWith(";")) {
-                                end = j + 1;
-                                break;
-                            }
-
-                            bracketOccurrencesInLine = getBracketOccurrencesInString(brokenCode);
-
-                            if (bracketOccurrencesInLine[0] == bracketOccurrencesInLine[1] && bracketOccurrencesInLine[0] != 0) {
-                                end = j + 1;
-                                break;
-                            }
-
-
-                        }
-                    } else {
-                        end = start;
-                    }
-                    return new BrokenCode(brokenCode, start, end, "");
-                }
-            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
-
-    public static int[] getBracketOccurrencesInString(String line) {
-        int[] occurrences = new int[2];
-        for (int k = 0; k < line.length(); k++) {
-            char c = line.charAt(k);
-            if (c == '(') {
-                occurrences[0]++;
-            } else if (c == ')') {
-                occurrences[1]++;
-            }
-        }
-
-        return occurrences;
-    }
-
-    public static CleanedLines cleanLines(List<String> lines, int indexBeforeCleaning) {
-        List<String> newLines = new ArrayList<>();
-        int indexAfterCleaning = indexBeforeCleaning;
-
-        boolean lastCharWasSlash = false;
-        boolean lastCharWasStar = false;
-        boolean isInComment = false;
-        for (int j = 0; j < lines.size(); j++) {
-            String line = lines.get(j);
-            if (line.startsWith("//")) {
-                if (j < indexBeforeCleaning) {
-                    indexAfterCleaning--;
-                }
-                continue;
-            }
-            int commentStart = -1, commentEnd = -1;
-            if (line.contains("/*") || line.trim().endsWith("/")) {
-                for (int i = 0; i < line.length(); i++) {
-                    char c = line.charAt(i);
-                    if (c == '/') {
-                        lastCharWasSlash = true;
-                        if (isInComment && lastCharWasStar) {
-                            isInComment = false;
-                            commentEnd = i;
-                        }
-                    } else if (c == '*') {
-                        lastCharWasStar = true;
-                        if (!isInComment && lastCharWasSlash) {
-                            isInComment = true;
-                            commentStart = i - 1;
-                        }
-                    } else {
-                        lastCharWasSlash = false;
-                        lastCharWasStar = false;
-                    }
-                }
-            }
-
-            if (isInComment || commentEnd != -1 || commentStart != -1) {
-                String lineWithoutComments = "";
-                if (commentStart != -1) {
-                    lineWithoutComments += line.substring(0, commentStart);
-                }
-                if (commentEnd != -1) {
-                    lineWithoutComments += line.substring(commentEnd + 1);
-                }
-                if (!lineWithoutComments.isBlank()) {
-                    newLines.add(lineWithoutComments);
-                } else {
-                    if (j < indexBeforeCleaning) {
-                        indexAfterCleaning--;
-                    }
-                }
-                continue;
-            }
-
-            newLines.add(line);
-        }
-
-        return new CleanedLines(newLines, indexBeforeCleaning, indexAfterCleaning);
-    }
-
-    public static String getClassNameOfVariable(String variableName, Path path, int lineNumber) {
-        if (variableName.contains("->")) {
-            return Predicate.class.getName();
-        }
-        try {
-            List<String> allLines = Files.readAllLines(path);
-
-            CleanedLines cleanedLines = cleanLines(allLines, lineNumber);
-
-            allLines = cleanedLines.lines();
-
-            Pattern declarationPattern = Pattern.compile(
-                    "\\b([A-Za-z_][A-Za-z0-9_]*)\\s+(" + variableName + ")\\s*[,|;|=|\\)]");
-
-            for (int i = Math.min(cleanedLines.indexAfterCleaning(), allLines.size()); i >= 0; i--) {
-                String line = allLines.get(i);
-                int variableIndex = line.indexOf(variableName);
-                if (variableIndex > 0) {
-                    Matcher declarationMatcher = declarationPattern.matcher(line);
-                    if (declarationMatcher.find()) {
-                        String match = declarationMatcher.group(1);
-                        if (match.trim().equals("new")) {
-                            return null;
-                        }
-                        return match;
-                    }
-                }
-
-            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
-
-    public static String readParent(String className, String directory, String fileName) {
-        String regex = ".*class .* extends .*";
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(directory + "/" + fileName + "_" + className));
-            String line = null;
-            int lineNumber = 1;
-            while ((line = br.readLine()) != null) {
-                if (line.matches(regex)) {
-                    return line.substring(line.indexOf("extends ") + "extends ".length(), line.indexOf("{")).trim();
-                }
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
-
-    public static void replaceBrokenCodeInClass(String className, String directory, String outDirectory, String fileName, List<ProposedChange> changes) {
-        try {
-            List<String> lines = Files.readAllLines(Paths.get(directory + "/" + fileName + "_" + className));
-
-            for (ProposedChange change : changes) {
-                lines.set(change.start() - 1, change.code());
-                for (int i = change.start(); i < change.end(); i++) {
-                    lines.set(i, "");
-                }
-                /*String[] changeLines = change.code().split(System.lineSeparator());
-                int offset = 0;
-                for(String changeLine : changeLines) {
-                    if(changeLine.startsWith("/")){
-                        lines.set(change.line()+offset-1, changeLine);
-                    }else {
-                        if(changeLine.matches("[0-9].*")) {
-                            int lineNumber = Integer.parseInt(changeLine.substring(0, changeLine.indexOf(":")));
-                            String trimmedChange = changeLine.substring(changeLine.indexOf(":") + 1).trim();
-                            lines.set(lineNumber - 1, trimmedChange);
-                        }else{
-                            lines.set(change.line()+offset-1, changeLine);
-                        }
-                    }
-                    offset++;
-                }*/
-
-            }
-
-            // Use \n so the docker containers (linux) don't complain
-            String content = String.join("\n", lines) + "\n";
-
-            try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(outDirectory + "/" + fileName + "_" + className))) {
-                writer.write(content);
-            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static Path downloadLibrary(String libraryUrl, File targetDirectory, DockerClient dockerClient, String imagePath, String artifactNameWithVersion) {
-        Path targetPath = Path.of(targetDirectory.getPath()).resolve(artifactNameWithVersion);
-        if (!Files.exists(targetPath)) {
-            if (libraryUrl == null) {
-                if (useContainerExtraction) {
-                    extractLibraryFromContainer(targetDirectory, dockerClient, imagePath, artifactNameWithVersion);
-                }
-            } else {
-                try {
-                    URL url = new URI(libraryUrl).toURL();
-                    InputStream inPrev = url.openStream();
-                    Files.copy(inPrev, targetPath, StandardCopyOption.REPLACE_EXISTING);
-                } catch (IOException | URISyntaxException e) {
-                    System.err.println("Error downloading " + artifactNameWithVersion + " from " + libraryUrl + ". Resorting to container extraction: " + useContainerExtraction);
-                    if (useContainerExtraction) {
-                        extractLibraryFromContainer(targetDirectory, dockerClient, imagePath, artifactNameWithVersion);
-                    }
-                }
-            }
-        } else {
-            System.out.println("Library already exists locally at " + targetPath);
-        }
-        return targetPath;
-    }
-
-    public static CreateContainerResponse pullImageAndCreateContainerWithPackageCommand(DockerClient dockerClient, String imagePath) {
-        try {
-            dockerClient.pullImageCmd(imagePath)
-                    .exec(new PullImageResultCallback() {
-                        @Override
-                        public void onNext(PullResponseItem item) {
-                            String status = item.getStatus();
-                            String progress = item.getProgress();
-                            String id = item.getId();
-
-                            if (status != null) {
-                                if (progress != null && !progress.isEmpty()) {
-                                    System.out.printf("%s: %s %s%n", id != null ? id : "", status, progress);
-                                } else {
-                                    System.out.printf("%s: %s%n", id != null ? id : "", status);
-                                }
-                            }
-
-                            super.onNext(item);
-                        }
-                    }).awaitCompletion();
-            //TODO: Check if this works for all BUMP projects (it probably wont lol)
-            return dockerClient.createContainerCmd(imagePath)
-                    .withCmd("sh", "-c",
-                            //"mvn clean test -B | tee %s.log")
-                            // Use multiple lines instead of comma seperated scopes because of older maven versions
-                            "mvn -B dependency:copy-dependencies -DoutputDirectory=/tmp/dependencies")
-                    //"mvn clean package org.apache.maven.plugins:maven-shade-plugin:3.5.0:shade -Dmaven.test.skip=true")
-                    .exec();
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static CreateContainerResponse pullImageAndCreateContainer(DockerClient dockerClient, String imagePath) {
-        try {
-            dockerClient.pullImageCmd(imagePath)
-                    .exec(new PullImageResultCallback() {
-                        @Override
-                        public void onNext(PullResponseItem item) {
-                            String status = item.getStatus();
-                            String progress = item.getProgress();
-                            String id = item.getId();
-
-                            if (status != null) {
-                                if (progress != null && !progress.isEmpty()) {
-                                    System.out.printf("%s: %s %s%n", id != null ? id : "", status, progress);
-                                } else {
-                                    System.out.printf("%s: %s%n", id != null ? id : "", status);
-                                }
-                            }
-
-                            super.onNext(item);
-                        }
-                    }).awaitCompletion();
-            return dockerClient.createContainerCmd(imagePath).exec();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static Path searchForClassInSourceFiles(File sourceDir, String className) {
-        try {
-            return Files.walk(sourceDir.toPath())
-                    .filter(path -> {
-                        if (path.toString().endsWith(".java")) {
-                            String pathSuffix = path.toString().substring(0, path.toString().lastIndexOf("."));
-                            if (pathSuffix.endsWith(className)) {
-                                return true;
-                            }
-                        }
-                        return false;
-                    }).findFirst().orElse(null);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void getSourceFiles(DockerClient dockerClient, CreateContainerResponse container, File outputDir) {
-        try (InputStream tarStream = dockerClient.copyArchiveFromContainerCmd(container.getId(), "/").exec();
-             TarArchiveInputStream tarInput = new TarArchiveInputStream(tarStream)) {
-
-            TarArchiveEntry entry;
-            while ((entry = tarInput.getNextEntry()) != null) {
-                String path = entry.getName();
-                //System.out.println(path);
-                if (!path.contains("src/")) {
-                    continue;
-                }
-
-                File outputFile = new File(outputDir.getAbsolutePath() + "\\" + entry.getName());
-
-                if (entry.isDirectory()) {
-                    outputFile.mkdirs();
-                } else {
-                    if (path.endsWith("java") || path.endsWith(".jar")) {
-                        extractWholeEntry(tarInput, entry, outputDir);
-                    } else {
-                        //System.out.println("Rejected "+entry.getName());
-                    }
-                }
-
-                //extractEntry(tarInput, entry, outputDir, "");
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void getDependencyFiles(DockerClient dockerClient, CreateContainerResponse container, File outputDir) {
-        try (InputStream tarStream = dockerClient.copyArchiveFromContainerCmd(container.getId(), "/").exec();
-             TarArchiveInputStream tarInput = new TarArchiveInputStream(tarStream)) {
-
-            TarArchiveEntry entry;
-            while ((entry = tarInput.getNextEntry()) != null) {
-                String path = entry.getName();
-                //System.out.println(path);
-                if (!path.contains("tmp/dependencies")) {
-                    continue;
-                }
-
-                File outputFile = new File(outputDir.getAbsolutePath() + "\\" + entry.getName());
-
-                if (entry.isDirectory()) {
-                    outputFile.mkdirs();
-                } else {
-                    if (path.endsWith("java") || path.endsWith(".jar")) {
-                        extractWholeEntry(tarInput, entry, outputDir);
-                    } else {
-                        //System.out.println("Rejected "+entry.getName());
-                    }
-                }
-
-                //extractEntry(tarInput, entry, outputDir, "");
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void getFileFromContainer(DockerClient dockerClient, CreateContainerResponse container, String fileName, File outputDir, String outputNameModifier) {
-        try (InputStream tarStream = dockerClient.copyArchiveFromContainerCmd(container.getId(), "/").exec();
-             TarArchiveInputStream tarInput = new TarArchiveInputStream(tarStream)) {
-
-            TarArchiveEntry entry;
-            boolean found = false;
-            while ((entry = tarInput.getNextEntry()) != null) {
-                String path = entry.getName();
-                if (entry.isDirectory()) {
-                    continue;
-                }
-                //System.out.println(path);
-                if (!path.endsWith(fileName)) {
-                    continue;
-                }
-
-                System.out.println("Found " + fileName + " in container, proceeding to download it into " + outputDir.getAbsolutePath());
-                extractEntry(tarInput, entry, outputDir, outputNameModifier);
-                found = true;
-                break;
-            }
-            if (!found) {
-                System.err.println("No file with name " + fileName + " found in container");
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void replaceFileInContainer(DockerClient dockerClient, CreateContainerResponse container, Path filePath, String fileNameInContainer) {
-        String fileName = filePath.getFileName().toString();
-
-        ByteArrayOutputStream tarOut = new ByteArrayOutputStream();
-        TarArchiveOutputStream tos = new TarArchiveOutputStream(tarOut);
-
-        try {
-            byte[] fileContent = Files.readAllBytes(filePath);
-            TarArchiveEntry entry = new TarArchiveEntry(fileNameInContainer.substring(fileNameInContainer.lastIndexOf("/") + 1));
-            entry.setSize(fileContent.length);
-            tos.putArchiveEntry(entry);
-            tos.write(fileContent);
-            tos.closeArchiveEntry();
-            tos.close();
-
-            ByteArrayInputStream tarStream = new ByteArrayInputStream(tarOut.toByteArray());
-
-            String containerId = container.getId();
-            String destPath = fileNameInContainer;
-            //getFilePathFromContainer(dockerClient, container, fileNameInContainer);
-            destPath = destPath.substring(0, destPath.lastIndexOf("/"));
-
-
-            dockerClient.copyArchiveToContainerCmd(containerId)
-                    .withTarInputStream(tarStream)
-                    .withRemotePath(destPath)
-                    .exec();
-
-            System.out.println("File " + fileNameInContainer + " replaced successfully!");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static int getClosingBraceIndex(String s, int start) {
-        int openBrackets = 0;
-        int closedBrackets = 0;
-        for (int i = start; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == '(') {
-                openBrackets++;
-            } else if (c == ')') {
-                closedBrackets++;
-            }
-
-            if (openBrackets == closedBrackets && openBrackets != 0) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public static String getTypeOfField(SourceCodeAnalyzer sourceCodeAnalyzer, String callerVariable, String fieldChain, File srcDirectory, Path classLookup, int lineNumber, String projectName) {
-        String caller = getClassNameOfVariable(callerVariable, classLookup, lineNumber);
-        if (caller == null) {
-            //Assume static
-            caller = callerVariable;
-        }
-        String potentialInnerChain = fieldChain.substring(fieldChain.indexOf(".") + 1);
-        String fieldName = "";
-        boolean isRecursive = false;
-        boolean fieldIsMethodCall = false;
-        if (potentialInnerChain.contains(".")) {
-            fieldName = potentialInnerChain.substring(0, potentialInnerChain.indexOf("."));
-            isRecursive = true;
-        } else if(potentialInnerChain.contains("(")) {
-            fieldIsMethodCall = true;
-        }else{
-            fieldName = potentialInnerChain;
-        }
-
-        String classNameOfField = sourceCodeAnalyzer.getTypeOfFieldFromSourceCode(caller, fieldName);
-        if(classNameOfField == null){
-            classNameOfField = sourceCodeAnalyzer.getTypeOfFieldInClass(new File(srcDirectory.toPath().resolve(Path.of(projectName+"/tmp/dependencies")).toUri()), caller, fieldName);
-        }
-        if (isRecursive) {
-            String residualChain = potentialInnerChain.substring(potentialInnerChain.indexOf("."));
-            return getTypeOfField(sourceCodeAnalyzer, classNameOfField, residualChain, srcDirectory, classLookup, lineNumber, projectName);
-        }
-        return classNameOfField;
-    }
-
-    public static List<String> getParameterTypesOfMethodCall(SourceCodeAnalyzer sourceCodeAnalyzer, String methodCall,
-                                                             String targetDirectoryClasses, String strippedFileName, String strippedClassName, int line, File srcDirectory, Path classLookup, String projectName) {
-        List<String> parameterTypes = new ArrayList<>();
-        if (methodCall.indexOf("(") != methodCall.indexOf(")") - 1) {
-            int closingBraceIndex = getClosingBraceIndex(methodCall, methodCall.indexOf("("));
-            String potentialInnerChain = methodCall.substring(methodCall.indexOf("(") + 1, closingBraceIndex);
-
-            boolean isLamda = false;
-            if(potentialInnerChain.contains("->")){
-                // Package name of lambda functions
-                parameterTypes.add("java.util.function");
-                return parameterTypes;
-                /*int lambdaIndex = potentialInnerChain.indexOf("->");
-                int innerMethodIndex = potentialInnerChain.indexOf("(");
-                if(lambdaIndex < innerMethodIndex || innerMethodIndex == -1){
-                    isLamda = true;
-                    potentialInnerChain = potentialInnerChain.substring(lambdaIndex+3);
-                }*/
-            }
-
-            String[] paramSplit = potentialInnerChain.split(",");
-            for (String param : paramSplit) {
-                param = param.trim();
-                if (!param.contains("(")) {
-                    if (param.contains(".")) {
-                        String callerVariable = param.substring(0, param.indexOf("."));
-                        String fieldChain = param.substring(param.indexOf(".") + 1);
-                        parameterTypes.add(getTypeOfField(sourceCodeAnalyzer, callerVariable, fieldChain, srcDirectory, classLookup, line, projectName));
-
-                    } else {
-                        parameterTypes.add(getClassNameOfVariable(param, Paths.get(targetDirectoryClasses + "/" + strippedFileName + "_" + strippedClassName), line));
-
-                    }
-                } else {
-                    String methodName = param.substring(0, param.indexOf("("));
-                    List<String> innerTypes = getParameterTypesOfMethodCall(sourceCodeAnalyzer, potentialInnerChain, targetDirectoryClasses, strippedFileName, strippedClassName, line, srcDirectory, classLookup, projectName);
-                    String className = "";
-                    if (methodName.contains(".")) {
-                        className = getClassNameOfVariable(methodName.substring(0, methodName.indexOf(".")), Paths.get(targetDirectoryClasses + "/" + strippedFileName + "_" + strippedClassName), line);
-                        methodName = methodName.substring(methodName.indexOf(".") + 1);
-                    }
-
-
-                    parameterTypes.add(sourceCodeAnalyzer.getReturnTypeOfMethod(className, methodName, innerTypes.toArray(new String[innerTypes.size()])));
-                }
-
-            }
-
-        }
-
-        return parameterTypes;
-    }
-
-    public static String primitiveClassNameToWrapperName(String parameter) {
-        switch (parameter) {
-            case "boolean":
-                return Boolean.class.getName();
-            case "int":
-                return Integer.class.getName();
-            case "double":
-                return Double.class.getName();
-            case "float":
-                return Float.class.getName();
-            case "byte":
-                return Byte.class.getName();
-            case "short":
-                return Short.class.getName();
-            case "Long":
-                return Long.class.getName();
-            case "char":
-                return Character.class.getName();
-            default:
-                return parameter;
-        }
-    }
 }

@@ -1,6 +1,9 @@
 package core;
 
 
+import dto.BuildDiffResult;
+import dto.ClassDiffResult;
+import dto.SimilarityResult;
 import japicmp.cmp.JApiCmpArchive;
 import japicmp.cmp.JarArchiveComparator;
 import japicmp.cmp.JarArchiveComparatorOptions;
@@ -11,7 +14,6 @@ import solver.nondeterministic.LLMCodeConflictSolver;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -20,6 +22,7 @@ public class JarDiffUtil {
 
     private JarArchiveComparator comparator;
     private List<JApiClass> jApiClasses;
+    public static final int SIMILARITY_LIMIT = 10;
     private static ConcurrentHashMap<Long, ConcurrentHashMap<String, ConcurrentHashMap<String, JarDiffUtil>>> concurrentJarDiffUtils;
 
     static {
@@ -62,7 +65,7 @@ public class JarDiffUtil {
         this.jApiClasses = compareJars(this.comparator, file1, file2);
     }
 
-    public ClassDiffResult getJarDiff(String fullyQualifiedCallerClassName, String methodName, String[] parameterTypeNames) {
+    public ClassDiffResult getJarDiff(String fullyQualifiedCallerClassName, String methodName, String[] parameterTypeNames, WordSimilarityModel wordSimilarityModel) {
         List<JApiMethod> similarMethods = new ArrayList<>();
         List<JApiMethod> methodsWithSameName = new ArrayList<>();
         List<JApiConstructor> constructors = new ArrayList<>();
@@ -77,8 +80,8 @@ public class JarDiffUtil {
 
         List<SimilarityResult> similarityResults = new ArrayList<>();
         if (!methodsWithSameName.isEmpty()) {
-            similarityResults = getSimilarityOfMethods(similarMethods, getFullMethodSignature(methodsWithSameName.get(0).getOldMethod().get().toString(),
-                    methodsWithSameName.get(0).getReturnType().getOldReturnType().toString(), true, methodsWithSameName.get(0).getParameters()));
+            similarityResults = getSimilarityOfMethods(wordSimilarityModel, similarMethods, getFullMethodSignature(methodsWithSameName.get(0).getOldMethod().get().toString(),
+                    methodsWithSameName.get(0).getReturnType().getOldReturnType().toString(), true, methodsWithSameName.get(0).getParameters()), SIMILARITY_LIMIT);
         }
 
         return new ClassDiffResult(changes.classResult(), methodsWithSameName, similarityResults, constructors);
@@ -146,7 +149,7 @@ public class JarDiffUtil {
             if (jApiMethod.getName().equals(methodName)) {
                 methodsWithSameName.add(jApiMethod);
 
-                if(!LLMCodeConflictSolver.parametersMatch(jApiMethod.getParameters(), parameterTypeNames)) {
+                if (parameterTypeNames != null && !LLMCodeConflictSolver.parametersMatch(jApiMethod.getParameters(), parameterTypeNames)) {
                     similarMethods.add(jApiMethod);
                 }
 
@@ -184,12 +187,17 @@ public class JarDiffUtil {
 
             classChanges.append(buildClassChangeHeader(jApiClass));
             classChanges.append(System.lineSeparator());
-            classChanges.append("Fields: ").append(System.lineSeparator());
 
-            addFieldDiffToChangeReport(jApiClass, classChanges);
+            if(jApiClass.getFields().size() > 0) {
+                classChanges.append("Fields: ").append(System.lineSeparator());
 
-            classChanges.append(System.lineSeparator());
-            classChanges.append("Constructors: ").append(System.lineSeparator());
+                addFieldDiffToChangeReport(jApiClass, classChanges);
+            }
+
+            if(jApiClass.getConstructors().size() > 0) {
+                classChanges.append(System.lineSeparator());
+                classChanges.append("Constructors: ").append(System.lineSeparator());
+            }
 
             //if (methodName != null && methodName.equals(fullyQualifiedCallerClassName)) {
             for (JApiConstructor jApiConstructor : jApiClass.getConstructors()) {
@@ -213,7 +221,7 @@ public class JarDiffUtil {
                 if (jApiImplementedInterface.getCorrespondingJApiClass().isPresent()) {
                     addMethodDiffToChangeReport(jApiImplementedInterface.getCorrespondingJApiClass().get(), methodName, similarMethods, methodsWithSameName, classChanges, parameterTypeNames);
                 } else {
-                    removedInterfaces.append(jApiImplementedInterface.toString()).append(System.lineSeparator());
+                    removedInterfaces.append(jApiImplementedInterface.getFullyQualifiedName()).append(System.lineSeparator());
                     for (CtMethod method : jApiImplementedInterface.getCtClass().getMethods()) {
 
                         if (method.getName().equals(methodName)) {
@@ -304,9 +312,31 @@ public class JarDiffUtil {
         //String parameters = buildParameterString(jApiMethod.getParameters());
         CtMethod method = jApiMethod.getNewMethod().orElse(jApiMethod.getOldMethod().orElse(null));
         String returnType = jApiMethod.getReturnType().getNewReturnType().toString();
+
+
+
         if (returnType.equals("n.a.")) {
             returnType = jApiMethod.getReturnType().getOldReturnType().toString();
         }
+
+        String generic = method.getGenericSignature();
+
+        if(generic != null) {
+            // Find return type
+            String returnTypePart = generic.substring(generic.indexOf(')') + 1); // "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;"
+
+            if(returnTypePart.contains("<") && returnTypePart.contains(">")) {
+                String genericPart = returnTypePart.substring(returnTypePart.indexOf('<') + 1, returnTypePart.indexOf('>')); // "Ljava/lang/Void;"
+                String genericClass;
+                if(genericPart.equals("*")){
+                    genericClass = "*";
+                }else{
+                    genericClass = genericPart.substring(1, genericPart.length() - 1).replace('/', '.');
+                }
+                returnType += "<" + genericClass + ">";
+            }
+        }
+
         String parameters = getFullMethodSignature(method.toString(), returnType, true, jApiMethod.getParameters());
         if (!parameters.isEmpty()) {
             report.append(parameters).append(", ");
@@ -404,21 +434,25 @@ public class JarDiffUtil {
         }
     }
 
-    private static List<SimilarityResult> getSimilarityOfMethods(List<JApiMethod> methods, String oldMethod) {
-        double[] baseVec = WordSimilarityModel.getEmbedding(oldMethod);
+    private static List<SimilarityResult> getSimilarityOfMethods(WordSimilarityModel wordSimilarityModel, List<JApiMethod> methods, String oldMethod, int limit) {
+        double[] baseVec = wordSimilarityModel.getEmbedding(oldMethod);
         List<SimilarityResult> similarityResults = new ArrayList<>();
 
         for (JApiMethod method : methods) {
             if (method.getChangeStatus() == JApiChangeStatus.REMOVED) {
                 continue;
             }
-            double[] compareVec = WordSimilarityModel.getEmbedding(getFullMethodSignature(method.getNewMethod().
+            double[] compareVec = wordSimilarityModel.getEmbedding(getFullMethodSignature(method.getNewMethod().
                     get().toString(), method.getReturnType().getNewReturnType().toString(), true, method.getParameters()));
             double similarity = WordSimilarityModel.cosineSimilarity(baseVec, compareVec);
             similarityResults.add(new SimilarityResult(method, similarity));
         }
 
         similarityResults.sort((t1, t2) -> Double.compare(t2.similarity(), t1.similarity()));
+
+        while (similarityResults.size() > limit) {
+            similarityResults.removeLast();
+        }
 
         return similarityResults;
     }

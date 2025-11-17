@@ -1,6 +1,10 @@
 package solver.deterministic;
 
-import core.*;
+import context.LogParser;
+import context.Context;
+import dto.BrokenCode;
+import dto.ErrorLocation;
+import dto.ProposedChange;
 
 public class OverrideSolver extends DeterministicCodeConflictSolver{
     public OverrideSolver(Context context) {

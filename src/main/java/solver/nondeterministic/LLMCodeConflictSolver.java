@@ -1,23 +1,25 @@
 package solver.nondeterministic;
 
+import context.LogParser;
+import context.SourceCodeAnalyzer;
 import core.*;
+import context.Context;
+import context.ContextUtil;
+import docker.ContainerUtil;
+import dto.*;
 import japicmp.model.JApiConstructor;
 import japicmp.model.JApiMethod;
 import japicmp.model.JApiParameter;
-import provider.AIProvider;
+import provider.LLMProvider;
 import provider.AIProviderException;
 import solver.CodeConflictSolver;
 
 import java.io.*;
-import java.lang.reflect.Parameter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import static core.BumpRunner.primitiveClassNameToWrapperName;
 import static core.BumpRunner.usePromptCaching;
 
 public class LLMCodeConflictSolver extends CodeConflictSolver {
@@ -120,6 +122,8 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
             - Do NOT output anything before or after the required format.
             - Do NOT explain anything outside the two-sentence explanation above.
             - Do NOT include headings, intros, or closing remarks.
+            - Do NOT add a semicolon to your code if the original code did not end with it.
+            - Do NOT call private or protected methods unless they are accessible from the class.
             - Only start your updated java code with slashes if you want it to be commented out code.
             - Preserve all trailing symbols (such as braces, semicolons, parentheses, commas) exactly as in the original code to ensure it compiles.
             - When the error message occurs on a return statement, inspect the expected type in the error message and make the returned expression match that type.
@@ -128,25 +132,25 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
             - When a type mismatch occurs, fix the type by using the correct class or constructor rather than forcing a conversion.
             - Prefer consistency with the dependency’s updated API (as shown in the diff) over preserving old code patterns.
             - Avoid guessing types based on naming; instead, infer them from the diff, return types, and error messages.
-            - If you use different classes in your code, make sure to use their fully qualified class names.
+            - Always use fully qualified class names for any classes not imported in the original file or when introducing new classes, to avoid ambiguity.
             
              Your response will be **automatically parsed**, so it must match the format **exactly**.
             """;
-    private AIProvider aiProvider;
+    private LLMProvider LLMProvider;
 
-    public LLMCodeConflictSolver(Context context, AIProvider aiProvider) {
+    public LLMCodeConflictSolver(Context context, LLMProvider LLMProvider) {
         super(context);
-        this.aiProvider = aiProvider;
+        this.LLMProvider = LLMProvider;
     }
 
-    public AIProvider getProvider() {
-        return aiProvider;
+    public LLMProvider getProvider() {
+        return LLMProvider;
     }
 
-    public String buildPrompt(BrokenCode brokenCode, ErrorLocation errorLocation) {
+    public String buildPrompt(BrokenCode brokenCode, ErrorLocation errorLocation, int iteration) {
 
-        List<String> erroneousClassLinesList = readBrokenClass(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName());
-        String erroneousScope = readBrokenEnclosingScope(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName(), context.getCompileError().line);
+        List<String> erroneousClassLinesList = readBrokenClass(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName(), iteration);
+        String erroneousScope = readBrokenEnclosingScope(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName(), context.getCompileError().line, iteration);
 
         String packageName = "";
 
@@ -165,33 +169,33 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
         }
 
         return assemblePrompt(context.getDependencyArtifactId(), context.getPreviousVersion(), context.getNewVersion(), context.getTargetPathOld().toString(), context.getTargetPathNew().toString(),
-                errorLocation.className(), errorLocation.methodName(), brokenCode.code(), errorLocation.targetMethodParameterClassNames(), errorPrompt, erroneousClassLinesList.toString(), erroneousScope);
+                errorLocation.className(), errorLocation.methodName(), brokenCode.code(), errorLocation.targetMethodParameterClassNames(), errorPrompt, erroneousClassLinesList.toString(), erroneousScope, context.getWordSimilarityModel());
     }
 
     public String assemblePrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName,
-                                 String brokenMethodName, String brokenCode, String[] parameterTypeNames, String error, String erroneousClass, String erroneousScope) {
+                                 String brokenMethodName, String brokenCode, String[] parameterTypeNames, String error, String erroneousClass, String erroneousScope, WordSimilarityModel wordSimilarityModel) {
         JarDiffUtil jarDiffUtil;
         if (brokenClassName != null && brokenClassName.startsWith("java.")) {
-            jarDiffUtil = JarDiffUtil.getInstance("testFiles/Java_Src/rt.jar", "testFiles/Java_Src/rt.jar");
+            jarDiffUtil = JarDiffUtil.getInstance("Java_Src/rt.jar", "Java_Src/rt.jar");
         } else {
             jarDiffUtil = JarDiffUtil.getInstance(pathToOldLibraryJar, pathToNewLibraryJar);
         }
 
 
-        ClassDiffResult classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames);
+        ClassDiffResult classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames, wordSimilarityModel);
 
-        if(classDiffResult.classDiff().isEmpty()){
-            SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer( context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString());
+        if (classDiffResult.classDiff().isEmpty()) {
+            SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString());
             FileSearchResult searchResult = sourceCodeAnalyzer.getDependencyFileContainingClass(brokenClassName);
 
 
-            if(searchResult != null){
+            if (searchResult != null) {
                 System.out.println("Dependency RESULT: ");
                 System.out.println(searchResult.file().getAbsolutePath());
                 System.out.println(searchResult.entry().getName());
 
                 JarDiffUtil dependencyDiffUtil = JarDiffUtil.getInstance(searchResult.file().getAbsolutePath(), searchResult.file().getAbsolutePath());
-                classDiffResult = dependencyDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames);
+                classDiffResult = dependencyDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames, wordSimilarityModel);
             }
         }
 
@@ -268,7 +272,7 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
 
         for (int i = 0; i < parameters1.size(); i++) {
             JApiParameter parameter = parameters1.get(i);
-            if (!primitiveClassNameToWrapperName(parameter.getType()).endsWith(primitiveClassNameToWrapperName(parameters2[i])) && !parameters2[i].equals("java.lang.Object")) {
+            if (!ContextUtil.primitiveClassNameToWrapperName(parameter.getType()).endsWith(ContextUtil.primitiveClassNameToWrapperName(parameters2[i])) && !parameters2[i].equals("java.lang.Object")) {
                 return false;
             }
         }
@@ -276,7 +280,7 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
     }
 
     public JApiConstructor inferTargetConstructor(List<JApiConstructor> constructors, String[] parameterTypeNames) {
-        if(constructors == null || constructors.isEmpty()) {
+        if (constructors == null || constructors.isEmpty()) {
             return null;
         }
         ArrayList<JApiConstructor> candidates = new ArrayList<>(constructors.size());
@@ -285,7 +289,7 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
 
         for (int i = candidates.size() - 1; i >= 0; i--) {
             JApiConstructor constructor = candidates.get(i);
-            if(!parametersMatch(constructor.getParameters(), parameterTypeNames)) {
+            if (!parametersMatch(constructor.getParameters(), parameterTypeNames)) {
                 candidates.remove(i);
             }
         }
@@ -304,7 +308,7 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
     }
 
     public JApiMethod inferTargetMethod(List<JApiMethod> methodsWithSameName, String[] parameterTypeNames) {
-        if(methodsWithSameName == null || methodsWithSameName.isEmpty()) {
+        if (methodsWithSameName == null || methodsWithSameName.isEmpty()) {
             return null;
         }
         ArrayList<JApiMethod> candidates = new ArrayList<>(methodsWithSameName.size());
@@ -313,7 +317,7 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
 
         for (int i = candidates.size() - 1; i >= 0; i--) {
             JApiMethod method = candidates.get(i);
-            if(!parametersMatch(method.getParameters(), parameterTypeNames)) {
+            if (!parametersMatch(method.getParameters(), parameterTypeNames)) {
                 candidates.remove(i);
             }
         }
@@ -334,35 +338,46 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
     }
 
     public ConflictResolutionResult sendAndPrintCode(String prompt) {
-        System.out.println(aiProvider.getModel());
-        ConflictResolutionResult result = aiProvider.sendPromptAndReceiveResponse(prompt, systemContext);
+        System.out.println(LLMProvider.getModel());
+        ConflictResolutionResult result = LLMProvider.sendPromptAndReceiveResponse(prompt, systemContext);
         System.out.println(result);
         return result;
     }
 
-    public List<String> readBrokenClass(String className, String directory, String fileName) {
+    public List<String> readBrokenClass(String className, String directory, String fileName, int iteration) {
         try {
-            return Files.readAllLines(Path.of(directory + "/" + fileName + "_" + className));
+            return Files.readAllLines(ContainerUtil.getPathWithRespectToIteration(directory, fileName, className, iteration, true));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
     }
 
-    public String readBrokenEnclosingScope(String className, String directory, String fileName, int lineNumber) {
-        Pattern methodDeclarationPattern = Pattern.compile("(?<!new\\s)\\b(?:(public|protected|private)\\s+)?(?:static\\s+|final\\s+|abstract\\s+)*[\\w\\<\\>\\[\\]]+\\s+(\\w+)\\s*\\([^)]*\\)\\s*(?:\\{|;)");
-        try {
-            List<String> lines = Files.readAllLines(Path.of(directory + "/" + fileName + "_" + className));
+    public String readBrokenEnclosingScope(String className, String directory, String fileName, int lineNumber, int iteration) {
 
-            int start = 0;
+        // Unfeasible due to too many edge cases, instead use simple brace matching
+        //Pattern methodDeclarationPattern = Pattern.compile("(public|protected|private|static|final|abstract|\\s)+\\s+[\\w\\<\\>\\[\\]]+\\s+(\\w+)\\s*\\([^)]*\\)\\s*\\{");
+        try {
+            List<String> lines = Files.readAllLines(ContainerUtil.getPathWithRespectToIteration(directory, fileName, className, iteration, true));
+
+            int start = -1;
             for (int i = lineNumber - 1; i >= 0; i--) {
                 String line = lines.get(i);
-                Matcher declarationMatcher = methodDeclarationPattern.matcher(lines.get(i));
+                if (line.contains("{")) {
+                    start = i;
+                    break;
+                }
+                /*Matcher declarationMatcher = methodDeclarationPattern.matcher(lines.get(i));
 
                 if (declarationMatcher.find()) {
                     start = i;
                     break;
-                }
+                }*/
+            }
+
+            if (start == -1) {
+                System.err.println("No enclosing scope found");
+                return "";
             }
 
             int openCurlyBraces = 0;
@@ -416,14 +431,16 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
     public ProposedChange solveConflict(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
         ConflictResolutionResult result = null;
 
-        String llmResponseFileName = context.getTargetDirectoryLLMResponses() + "/" + context.getStrippedFileName() + "_" + context.getCompileError().line + "_" + errorLocation.className() + "_" + context.getActiveProvider() + ".txt";
+        String cleanedProviderModelName = context.getActiveProvider().getModel().replaceAll("\\W+", "");
+        Path promptFilePath = Path.of(context.getTargetDirectoryPrompts() + "/iteration_" + context.getIteration() + "/" + context.getStrippedFileName() + "_" + context.getCompileError().line + "_" + errorLocation.className() + "_" + cleanedProviderModelName + ".txt");
+        Path llmResponseFilePath = Path.of(context.getTargetDirectoryLLMResponses() + "/iteration_" + context.getIteration() + "/" + context.getStrippedFileName() + "_" + context.getCompileError().line + "_" + errorLocation.className() + "_" + cleanedProviderModelName + ".txt");
 
-        if (!usePromptCaching || !Files.exists(Path.of(llmResponseFileName))) {
-            String prompt = buildPrompt(brokenCode, errorLocation);
+        if (!usePromptCaching || !Files.exists(llmResponseFilePath)) {
+            String prompt = buildPrompt(brokenCode, errorLocation, context.getIteration());
             System.out.println(prompt);
 
             try {
-                Files.write(Path.of(context.getTargetDirectoryPrompts() + "/" + context.getStrippedFileName() + "_" + context.getCompileError().line + "_" + errorLocation.className() + ".txt"), prompt.getBytes());
+                Files.write(promptFilePath, prompt.getBytes());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -439,7 +456,7 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
 
 
             try {
-                FileOutputStream fileOutputStream = new FileOutputStream(llmResponseFileName);
+                FileOutputStream fileOutputStream = new FileOutputStream(llmResponseFilePath.toFile());
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
                 objectOutputStream.writeObject(result);
                 objectOutputStream.flush();
@@ -453,7 +470,7 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
         } else {
             try {
                 System.out.println("Loading LLM response from stored responses");
-                FileInputStream fileInputStream = new FileInputStream(llmResponseFileName);
+                FileInputStream fileInputStream = new FileInputStream(llmResponseFilePath.toFile());
                 ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
                 result = (ConflictResolutionResult) objectInputStream.readObject();
                 objectInputStream.close();

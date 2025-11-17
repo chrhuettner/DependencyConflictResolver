@@ -1,6 +1,11 @@
 package solver.deterministic;
 
+import context.LogParser;
 import core.*;
+import context.Context;
+import dto.BrokenCode;
+import dto.ErrorLocation;
+import dto.ProposedChange;
 
 public class ImportSolver extends DeterministicCodeConflictSolver {
 

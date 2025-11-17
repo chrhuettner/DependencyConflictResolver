@@ -3,24 +3,27 @@ package core;
 import java.io.IOException;
 import java.net.http.*;
 import java.net.URI;
-import java.util.*;
 import com.fasterxml.jackson.databind.*;
 
 public class WordSimilarityModel {
 
-    private static final String MODEL = "nomic-embed-text";
-    private static final String OLLAMA_URL = "http://localhost:11434/api/embeddings";
+    private String model = "nomic-embed-text";
+    private static final String OLLAMA_URL_SUFFIX = "/api/embeddings";
+    private String ollamaUrl;
 
-    static String wordSimilarityPrompt = """
-            Compare the semantic similarity of the words: "%s" and "%s"
-            """;
+    public WordSimilarityModel(String model, String ollamaUrl) {
+        this.model = model;
+        this.ollamaUrl = ollamaUrl+OLLAMA_URL_SUFFIX;
+    }
 
-    public static double[] getEmbedding(String word)  {
+
+
+    public double[] getEmbedding(String word)  {
         HttpClient client = HttpClient.newHttpClient();
-        String json = String.format("{\"model\": \"%s\", \"prompt\": \"%s\"}", MODEL, word);
+        String json = String.format("{\"model\": \"%s\", \"prompt\": \"%s\"}", model, word);
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(OLLAMA_URL))
+                .uri(URI.create(ollamaUrl))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();

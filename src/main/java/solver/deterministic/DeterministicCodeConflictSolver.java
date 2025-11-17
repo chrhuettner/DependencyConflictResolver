@@ -1,6 +1,6 @@
 package solver.deterministic;
 
-import core.Context;
+import context.Context;
 import solver.CodeConflictSolver;
 
 public abstract class DeterministicCodeConflictSolver extends CodeConflictSolver {

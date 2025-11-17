@@ -1,0 +1,15 @@
+{
+  "pathToBUMPFolder": "testFiles/BUMPSubset",
+  "threads": 4,
+  "llmRetries": 2,
+  "pathToOutput": "testFiles",
+  "llmProvider": "ollama",
+  "ollamaUri": "http://localhost:11434",
+  "llmName": "qwen3-coder:480b-cloud",
+  "dockerHostUri": "tcp://localhost:2375",
+  "dockerUsername": "",
+  "dockerPassword": "",
+  "dockerRegistryUri": "",
+  "wordSimilarityModel": "nomic-embed-text",
+  "llmApiKey": ""
+}

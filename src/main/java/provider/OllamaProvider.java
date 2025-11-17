@@ -7,15 +7,17 @@ import provider.prompt.OllamaMessage;
 import provider.prompt.OllamaOptions;
 import provider.prompt.OllamaPrompt;
 
-public class OllamaProvider extends BaseAIProvider {
+public class OllamaProvider extends BaseLLMProvider {
     private final String model;
+    private String url;
 
     public OllamaProvider() {
         model = "deepseek-r1:7b";
     }
 
-    public OllamaProvider(String model) {
+    public OllamaProvider(String model, String url) {
         this.model = model;
+        this.url = url;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class OllamaProvider extends BaseAIProvider {
 
     @Override
     public String getUrl() {
-        return "http://localhost:11434/api/chat";
+        return url;
     }
 
     @Override
