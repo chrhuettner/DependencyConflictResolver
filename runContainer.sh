@@ -1,1 +1,1 @@
-docker run --rm -v E:\master\DependencyConflictResolver\testFiles:/app/testFiles -v E:\master\DependencyConflictResolver\output:/app/output dependencyconflictresolver:latest bump /app/testFiles/configDocker.json
+docker run --rm -v E:\master\DependencyConflictResolver\testFiles:/app/testFiles dependencyconflictresolver:latest bump /app/testFiles/configDocker.json

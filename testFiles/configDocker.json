@@ -1,5 +1,5 @@
 {
-  "pathToBUMPFolder": "testFiles/BUMPSubset",
+  "pathToBUMPFolder": "testFiles/customProjectTest",
   "threads": 4,
   "llmRetries": 1,
   "pathToOutput": "testFiles",

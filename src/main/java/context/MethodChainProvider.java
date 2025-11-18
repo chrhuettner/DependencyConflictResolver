@@ -25,13 +25,13 @@ public class MethodChainProvider extends BrokenCodeRegexProvider {
     public ErrorLocation getErrorLocation(LogParser.CompileError compileError, BrokenCode brokenCode) {
         MethodChainAnalysis methodChainAnalysis = analyseMethodChain(context.getCompileError().column, brokenCode.start(),
                 brokenCode.code(), context.getTargetDirectoryClasses(), context.getStrippedFileName(), context.getStrippedClassName(),
-                context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString(), context.getProject(), context.getIteration());
+                context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString(), context.getIteration());
 
         return new ErrorLocation(methodChainAnalysis.targetClass(), methodChainAnalysis.targetMethod(), methodChainAnalysis.parameterTypes());
     }
 
     public static MethodChainAnalysis analyseMethodChain(int compileErrorColumn, int line, String brokenCode, String targetDirectoryClasses,
-                                                         String strippedFileName, String strippedClassName, String srcDirectory, String projectName, int iteration) {
+                                                         String strippedFileName, String strippedClassName, String srcDirectory, int iteration) {
         int errorIndex = Math.min(compileErrorColumn, brokenCode.length() - 1);
         Path classLookupPath = ContainerUtil.getPathWithRespectToIteration(targetDirectoryClasses, strippedFileName, strippedClassName, iteration, true);
 

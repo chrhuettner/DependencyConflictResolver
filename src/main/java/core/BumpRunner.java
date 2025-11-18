@@ -22,7 +22,6 @@ import solver.CodeConflictSolver;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.*;
@@ -220,6 +219,22 @@ public class BumpRunner {
 
                     //TODO: Method chain analysis sometimes returns null, for example: d38182a8a0fe1ec039aed97e103864fce717a0be
                     //TODO also, class name sometimes is * again... (probably due to Method chain analysis)
+
+                    //TODO: Check this: 0abf7148300f40a1da0538ab060552bca4a2f1d8
+
+                    /*
+                    0abf7148300f40a1da0538ab060552bca4a2f1d8
+                    java.lang.NullPointerException: Cannot invoke "String.hashCode()" because "<local1>" is null
+                        at context.ContextUtil.primitiveClassNameToWrapperName(ContextUtil.java:232)
+                        at solver.nondeterministic.LLMCodeConflictSolver.parametersMatch(LLMCodeConflictSolver.java:275)
+                        at core.JarDiffUtil.addMethodDiffToChangeReport(JarDiffUtil.java:152)
+                        at core.JarDiffUtil.buildChangeReport(JarDiffUtil.java:222)
+                        at core.JarDiffUtil.getJarDiff(JarDiffUtil.java:73)
+                        at solver.nondeterministic.LLMCodeConflictSolver.assemblePrompt(LLMCodeConflictSolver.java:185)
+                        at solver.nondeterministic.LLMCodeConflictSolver.buildPrompt(LLMCodeConflictSolver.java:171)
+                        at solver.nondeterministic.LLMCodeConflictSolver.solveConflict(LLMCodeConflictSolver.java:439)
+                     */
+
                     /*if (!file.getName().equals("00a7cc31784ac4a9cc27d506a73ae589d6df36d6.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
@@ -249,13 +264,13 @@ public class BumpRunner {
 
                     if (!Files.exists(ContainerUtil.getPath(outputDirSrcFiles.getPath(), dependencyArtifactID, strippedFileName))) {
                         CreateContainerResponse oldContainer = ContainerUtil.pullImageAndCreateContainer(dockerClient, oldUpdateImage);
-                        if (ContainerUtil.logFromContainerContainsError(dockerClient, oldContainer, ContainerUtil.getPath(strippedFileName, project, directoryOldContainerLogs))) {
+                        if (ContainerUtil.logFromContainerContainsError(dockerClient, oldContainer, Path.of(directoryOldContainerLogs + "/"+ strippedFileName + "_" + project))) {
                             System.out.println(strippedFileName + "_" + project + " is not working despite being in the pre set!!!!");
                             imposterProjects.incrementAndGet();
                             activeThreadCount.decrementAndGet();
                             return;
                         }
-                        ContainerUtil.extractCompiledCodeFromContainer(outputDirSrcFiles, dockerClient, oldUpdateImage, dependencyArtifactID + "_" + strippedFileName);
+                        ContainerUtil.extractDependenciesAndSourceCodeFromContainer(outputDirSrcFiles, dockerClient, oldUpdateImage, dependencyArtifactID + "_" + strippedFileName);
                     }
 
 

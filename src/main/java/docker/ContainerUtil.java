@@ -20,7 +20,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 
@@ -167,9 +166,9 @@ public class ContainerUtil {
         dockerClient.removeContainerCmd(container.getId()).exec();
     }
 
-    public static void extractCompiledCodeFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String projectName) {
+    public static void extractDependenciesAndSourceCodeFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String projectName) {
         System.out.println("Fetching class from container (this can take some time)");
-        CreateContainerResponse container = pullImageAndCreateContainerWithPackageCommand(dockerClient, imagePath);
+        CreateContainerResponse container = pullImageAndCreateContainerWithDependenciesCommand(dockerClient, imagePath);
 
         dockerClient.startContainerCmd(container.getId()).exec();
         try {
@@ -321,12 +320,12 @@ public class ContainerUtil {
                 }
             }
         } else {
-            System.out.println("Library already exists locally at " + targetPath);
+            System.out.println("Dependency already cached locally at " + targetPath);
         }
         return targetPath;
     }
 
-    public static CreateContainerResponse pullImageAndCreateContainerWithPackageCommand(DockerClient dockerClient, String imagePath) {
+    public static CreateContainerResponse pullImageAndCreateContainerWithDependenciesCommand(DockerClient dockerClient, String imagePath) {
         try {
             dockerClient.pullImageCmd(imagePath)
                     .exec(new PullImageResultCallback() {

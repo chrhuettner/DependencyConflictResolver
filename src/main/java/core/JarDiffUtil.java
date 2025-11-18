@@ -73,7 +73,7 @@ public class JarDiffUtil {
         BuildDiffResult changes = buildChangeReport(jApiClasses, fullyQualifiedCallerClassName, methodName, similarMethods, methodsWithSameName, constructors, parameterTypeNames);
 
         if (changes.classResult().isBlank()) {
-            //TODO fullyQualifiedCallerClassName is somehow null here sometimes
+            //TODO fullyQualifiedCallerClassName is somehow null here sometimes (c7c9590a206d4fb77dd05b9df391d888e6181667)
             String shortenedClassName = fullyQualifiedCallerClassName.substring(fullyQualifiedCallerClassName.lastIndexOf('.') + 1);
             changes = buildChangeReport(jApiClasses, shortenedClassName, methodName, similarMethods, methodsWithSameName, constructors, parameterTypeNames);
         }
