@@ -199,6 +199,7 @@ public class SourceCodeAnalyzer {
     }
 
 
+
     public String getReturnTypeOfMethodFromDependencies(String className, String methodName, String[] parameterTypes, File directory) {
         final String[] returnType = new String[1];
 
@@ -295,7 +296,10 @@ public class SourceCodeAnalyzer {
         return null;
     }
 
-    private static boolean parameterIsCompatibleWithType(String parameter, String type) {
+    public static boolean parameterIsCompatibleWithType(String parameter, String type) {
+        if(parameter == null){
+            return false;
+        }
         if(parameter.equals("java.util.function") && type.startsWith("java.util.function")){
             return true;
         }

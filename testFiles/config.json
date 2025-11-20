@@ -1,7 +1,7 @@
 {
-  "pathToBUMPFolder": "testFiles/BonoSubset",
+  "pathToBUMPFolder": "testFiles/BUMPSubset",
   "threads": 4,
-  "llmRetries": 2,
+  "llmRetries": 10,
   "pathToOutput": "testFiles",
   "llmProvider": "ollama",
   "ollamaUri": "http://localhost:11434",

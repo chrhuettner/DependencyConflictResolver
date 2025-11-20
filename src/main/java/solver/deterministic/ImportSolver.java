@@ -30,7 +30,7 @@ public class ImportSolver extends DeterministicCodeConflictSolver {
 
     @Override
     public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
-        return brokenCode.code().startsWith("import");
+        return brokenCode.code().startsWith("import") && !brokenCode.code().trim().endsWith("*;");
     }
 
     // Only call after errorIsFixableBySolver is true

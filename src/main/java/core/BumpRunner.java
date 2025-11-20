@@ -76,6 +76,7 @@ public class BumpRunner {
         createFolder(basePath + "/correctedLogs/iteration_" + iteration);
         createFolder(basePath + "/prompts/iteration_" + iteration);
         createFolder(basePath + "/LLMResponses/iteration_" + iteration);
+        //createFolder(basePath + "/brokenClasses/iteration_" + iteration);
     }
 
     public static void runBUMP(BumpConfig bumpConfig) {
@@ -223,22 +224,36 @@ public class BumpRunner {
                     //TODO: Check this: 0abf7148300f40a1da0538ab060552bca4a2f1d8
 
                     /*
-                    0abf7148300f40a1da0538ab060552bca4a2f1d8
-                    java.lang.NullPointerException: Cannot invoke "String.hashCode()" because "<local1>" is null
-                        at context.ContextUtil.primitiveClassNameToWrapperName(ContextUtil.java:232)
-                        at solver.nondeterministic.LLMCodeConflictSolver.parametersMatch(LLMCodeConflictSolver.java:275)
-                        at core.JarDiffUtil.addMethodDiffToChangeReport(JarDiffUtil.java:152)
-                        at core.JarDiffUtil.buildChangeReport(JarDiffUtil.java:222)
-                        at core.JarDiffUtil.getJarDiff(JarDiffUtil.java:73)
-                        at solver.nondeterministic.LLMCodeConflictSolver.assemblePrompt(LLMCodeConflictSolver.java:185)
-                        at solver.nondeterministic.LLMCodeConflictSolver.buildPrompt(LLMCodeConflictSolver.java:171)
-                        at solver.nondeterministic.LLMCodeConflictSolver.solveConflict(LLMCodeConflictSolver.java:439)
+Took 3 retries, could not fix c131a3dbb5670183944861f23f225fd772370ff4
+c131a3dbb5670183944861f23f225fd772370ff4
+java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prompts/iteration_1/c131a3dbb5670183944861f23f225fd772370ff4_127_capture#1 of ? extends com.artipie.asto.Meta_qwen3coder480bcloud.txt
+	at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:204)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:175)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
+	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:203)
+	at java.base/java.nio.file.Path.of(Path.java:148)
+	at solver.nondeterministic.LLMCodeConflictSolver.solveConflict(LLMCodeConflictSolver.java:439)
+	at core.BumpRunner.fixError(BumpRunner.java:569)
+	at core.BumpRunner.lambda$runBUMP$1(BumpRunner.java:343)
+	at java.base/java.lang.VirtualThread.run(VirtualThread.java:466)
+c131a3dbb5670183944861f23f225fd772370ff4
+java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prompts/iteration_1/c131a3dbb5670183944861f23f225fd772370ff4_127_capture#1 of ? extends com.artipie.asto.Meta_qwen3coder480bcloud.txt
+	at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:204)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:175)
+	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
+	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:203)
+	at java.base/java.nio.file.Path.of(Path.java:148)
+	at solver.nondeterministic.LLMCodeConflictSolver.solveConflict(LLMCodeConflictSolver.java:439)
+	at core.BumpRunner.fixError(BumpRunner.java:569)
                      */
 
-                    /*if (!file.getName().equals("00a7cc31784ac4a9cc27d506a73ae589d6df36d6.json")) {
+                    // f6659d758a437f8b676481fe70671a68a6ee1cde
+                    if (!file.getName().equals("9717e34bcda74bd9ad94f6a52ddfd3fd179ea15b.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
-                    }*/
+                    }
 
                     String strippedFileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 
@@ -250,8 +265,8 @@ public class BumpRunner {
                     String combinedArtifactNameOld = dependencyArtifactID + "-" + previousVersion + ".jar";
 
                     System.out.println(file.getName());
-                    Path targetPathOld = ContainerUtil.downloadLibrary(mavenSourceLinkPre, outputDir, dockerClient, oldUpdateImage, combinedArtifactNameOld);
-                    Path targetPathNew = ContainerUtil.downloadLibrary(mavenSourceLinkBreaking, outputDir, dockerClient, brokenUpdateImage, combinedArtifactNameNew);
+                    Path targetPathOld = ContainerUtil.downloadLibrary(mavenSourceLinkPre, outputDir, dockerClient, oldUpdateImage, combinedArtifactNameOld, 0);
+                    Path targetPathNew = ContainerUtil.downloadLibrary(mavenSourceLinkBreaking, outputDir, dockerClient, brokenUpdateImage, combinedArtifactNameNew, 0);
 
 
                     totalPairs.getAndIncrement();
@@ -325,7 +340,7 @@ public class BumpRunner {
                     boolean errorsWereFixed = false;
                     int amountOfReTries = 0;
                     // boolean wasImportRelated = false;
-                    for (; amountOfReTries < bumpConfig.getLlmRetries(); amountOfReTries++) {
+                    for (; amountOfReTries <= bumpConfig.getLlmRetries(); amountOfReTries++) {
                         try {
                             for (int i = 0; i < errors.size(); i++) {
                                 Object error = errors.get(i);
@@ -343,9 +358,10 @@ public class BumpRunner {
                             if (validateFix(context)) {
                                 errorsWereFixed = true;
                                 break;
-                            } else if (amountOfReTries != bumpConfig.getLlmRetries() - 1) {
+                            } else if (amountOfReTries != bumpConfig.getLlmRetries()) {
                                 context.setIteration(context.getIteration() + 1);
                                 context.setTargetDirectoryClasses(targetDirectoryFixedClasses);
+                                System.out.println(context.getProposedChanges());
                                 createIterationFolders(bumpConfig.getPathToOutput(), context.getIteration());
 
                                 System.out.println("Project " + file.getName() + " still contains errors.");
@@ -356,7 +372,7 @@ public class BumpRunner {
 
                                 reduceErrors(errors, context);
 
-                                System.out.println(project + " contains " + errors.size() + " errors (reduced from " + initialSize + ")");
+                                System.out.println(project + " contains " + errors.size() + " errors (previous iteration had " + initialSize + " errors)");
                                 initialSize = errors.size();
                                 // context.getTargetDirectoryClasses(),
 
@@ -365,8 +381,8 @@ public class BumpRunner {
                             System.err.println(context.getStrippedFileName());
                             e.printStackTrace();
                         } finally {
-                            context.getErrorSet().clear();
-                            context.getProposedChanges().clear();
+                            //context.getErrorSet().clear();
+                            //context.getProposedChanges().clear();
                         }
                     }
 
@@ -376,7 +392,7 @@ public class BumpRunner {
                         System.out.println("Took " + amountOfReTries + " retries to fix " + strippedFileName);
                         successfulFixes.getAndIncrement();
                     } else {
-                        System.out.println("Took " + amountOfReTries + " retries, but could not fix " + strippedFileName);
+                        System.out.println("Took " + amountOfReTries + " retries, could not fix " + strippedFileName);
                         failedFixes.getAndIncrement();
                     }
 
@@ -525,6 +541,7 @@ public class BumpRunner {
             int offset = context.getCompileError().line - context.getErrorSet().get(brokenCode.code().trim()).start();
             context.getProposedChanges().add(new ProposedChange(context.getStrippedClassName(), context.getErrorSet().get(brokenCode.code().trim()).code(), context.getCompileError().file,
                     offset + context.getErrorSet().get(brokenCode.code().trim()).start(), offset + context.getErrorSet().get(brokenCode.code().trim()).end()));
+            System.out.println("Similar error in proposed changes, added past fix with position adjustment");
             return;
         }
 
@@ -555,7 +572,10 @@ public class BumpRunner {
             System.out.println("UNCATEGORIZED " + brokenCode.code());
         }
 
+
         ErrorLocation errorLocation = new ErrorLocation(targetClass, targetMethod, targetMethodParameterClassNames);
+
+
         for (CodeConflictSolver codeConflictSolver : codeConflictSolvers) {
             if (codeConflictSolver.errorIsTargetedBySolver(context.getCompileError(), brokenCode, errorLocation)) {
                 if (codeConflictSolver.errorIsFixableBySolver(context.getCompileError(), brokenCode, errorLocation)) {

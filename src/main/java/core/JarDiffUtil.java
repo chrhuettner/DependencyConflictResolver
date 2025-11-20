@@ -1,8 +1,10 @@
 package core;
 
 
+import context.SourceCodeAnalyzer;
 import dto.BuildDiffResult;
 import dto.ClassDiffResult;
+import dto.ClassSearchResult;
 import dto.SimilarityResult;
 import japicmp.cmp.JApiCmpArchive;
 import japicmp.cmp.JarArchiveComparator;
@@ -35,7 +37,10 @@ public class JarDiffUtil {
 
     public static void removeCachedJarDiffsForThread() {
         long id = Thread.currentThread().threadId();
+        System.out.println("THREAD WITH ID "+id+" REMOVES CACHE");
+        System.out.println("SIZE BEFORE "+concurrentJarDiffUtils.keySet().size());
         concurrentJarDiffUtils.remove(id);
+        System.out.println("SIZE AFTER "+concurrentJarDiffUtils.keySet().size());
     }
 
     private static JarDiffUtil getLazyLoadedInstance(String file1, String file2) {
@@ -188,13 +193,13 @@ public class JarDiffUtil {
             classChanges.append(buildClassChangeHeader(jApiClass));
             classChanges.append(System.lineSeparator());
 
-            if(jApiClass.getFields().size() > 0) {
+            if (jApiClass.getFields().size() > 0) {
                 classChanges.append("Fields: ").append(System.lineSeparator());
 
                 addFieldDiffToChangeReport(jApiClass, classChanges);
             }
 
-            if(jApiClass.getConstructors().size() > 0) {
+            if (jApiClass.getConstructors().size() > 0) {
                 classChanges.append(System.lineSeparator());
                 classChanges.append("Constructors: ").append(System.lineSeparator());
             }
@@ -314,23 +319,22 @@ public class JarDiffUtil {
         String returnType = jApiMethod.getReturnType().getNewReturnType().toString();
 
 
-
         if (returnType.equals("n.a.")) {
             returnType = jApiMethod.getReturnType().getOldReturnType().toString();
         }
 
         String generic = method.getGenericSignature();
 
-        if(generic != null) {
+        if (generic != null) {
             // Find return type
             String returnTypePart = generic.substring(generic.indexOf(')') + 1); // "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;"
 
-            if(returnTypePart.contains("<") && returnTypePart.contains(">")) {
+            if (returnTypePart.contains("<") && returnTypePart.contains(">")) {
                 String genericPart = returnTypePart.substring(returnTypePart.indexOf('<') + 1, returnTypePart.indexOf('>')); // "Ljava/lang/Void;"
                 String genericClass;
-                if(genericPart.equals("*")){
+                if (genericPart.equals("*")) {
                     genericClass = "*";
-                }else{
+                } else {
                     genericClass = genericPart.substring(1, genericPart.length() - 1).replace('/', '.');
                 }
                 returnType += "<" + genericClass + ">";
@@ -518,6 +522,41 @@ public class JarDiffUtil {
             }
         }
         return null;
+    }
+
+    public List<JApiMethod> getMethodsOfClass(JApiClass jApiClass, String methodName, String[] parameters) {
+        List<JApiMethod> methods = jApiClass.getMethods();
+        outerloop: for (JApiMethod jApiMethod : jApiClass.getMethods()) {
+            if (jApiMethod.getName().equals(methodName)) {
+                if (parameters == null) {
+                    methods.add(jApiMethod);
+                } else {
+                    if(parameters.length != jApiMethod.getParameters().size()){
+                        continue;
+                    }
+                    for (int i = 0; i < parameters.length; i++) {
+                        if (!SourceCodeAnalyzer.parameterIsCompatibleWithType(parameters[i], jApiMethod.getParameters().get(i).getType())) {
+                            continue outerloop;
+                        }
+                    }
+                    methods.add(jApiMethod);
+                }
+            }
+        }
+        return methods;
+    }
+
+    public ClassSearchResult getClassesByName(String className) {
+        List<JApiClass> exactClassMatches = new ArrayList<>();
+        List<JApiClass> suffixClassMatches = new ArrayList<>();
+        for (JApiClass jApiClass : jApiClasses) {
+            if (jApiClass.getFullyQualifiedName().equals(className)) {
+                exactClassMatches.add(jApiClass);
+            } else if (jApiClass.getFullyQualifiedName().toUpperCase().endsWith(className.toUpperCase())) {
+                suffixClassMatches.add(jApiClass);
+            }
+        }
+        return new ClassSearchResult(exactClassMatches, suffixClassMatches);
     }
 
     public String getMethodReturnType(String className, String methodName) {

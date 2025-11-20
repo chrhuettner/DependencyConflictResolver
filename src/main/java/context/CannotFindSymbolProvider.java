@@ -1,7 +1,11 @@
 package context;
 
+import docker.ContainerUtil;
 import dto.BrokenCode;
 import dto.ErrorLocation;
+
+import java.io.File;
+import java.nio.file.Path;
 
 public class CannotFindSymbolProvider extends ContextProvider {
     public CannotFindSymbolProvider(Context context) {
@@ -41,6 +45,30 @@ public class CannotFindSymbolProvider extends ContextProvider {
 
                 if (compileError.details.containsKey("location")) {
                     targetClass = extractClassNameFromString(compileError.details.get("location"));
+                }
+            } else if (sym.startsWith("variable")) {
+                String variableName = sym.substring("variable".length() + 1).trim();
+
+                Path classPath = ContainerUtil.getPathWithRespectToIteration(context.getTargetDirectoryClasses(), context.getStrippedFileName(), context.getStrippedClassName(), context.getIteration(), true);
+                String classNameOfVariable = ContextUtil.getClassNameOfVariable(variableName, classPath, brokenCode.start());
+
+                String srcDir = context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString();
+                if (classNameOfVariable == null) {
+                    String parent = ContainerUtil.readParent(context.getStrippedClassName(), context.getTargetDirectoryClasses(), context.getStrippedFileName(), context.getIteration());
+                    if (parent != null) {
+                        Path parentPath = ContainerUtil.searchForClassInSourceFiles(new File(srcDir), parent);
+                        if (parentPath != null) {
+                            targetClass = ContextUtil.getClassNameOfVariable(variableName, parentPath, Integer.MAX_VALUE);
+                        } else {
+                            SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(srcDir);
+                            targetClass = sourceCodeAnalyzer.getTypeOfFieldInClass(new File(srcDir + "/tmp/dependencies"), parent, variableName);
+                        }
+                    }
+                }
+
+                if(targetClass == null) {
+                    //assume static
+                    targetClass = variableName;
                 }
             } else if (compileError.details.containsKey("location")) {
                 targetClass = extractClassNameFromString(compileError.details.get("location"));

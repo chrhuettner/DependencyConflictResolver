@@ -182,43 +182,47 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
         }
 
 
-        ClassDiffResult classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames, wordSimilarityModel);
-
-        if (classDiffResult.classDiff().isEmpty()) {
-            SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString());
-            FileSearchResult searchResult = sourceCodeAnalyzer.getDependencyFileContainingClass(brokenClassName);
-
-
-            if (searchResult != null) {
-                System.out.println("Dependency RESULT: ");
-                System.out.println(searchResult.file().getAbsolutePath());
-                System.out.println(searchResult.entry().getName());
-
-                JarDiffUtil dependencyDiffUtil = JarDiffUtil.getInstance(searchResult.file().getAbsolutePath(), searchResult.file().getAbsolutePath());
-                classDiffResult = dependencyDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames, wordSimilarityModel);
-            }
-        }
-
-        StringBuilder methodSimilarityString = new StringBuilder();
-
-        for (SimilarityResult result : classDiffResult.similarMethods()) {
-            String formattedString = String.format("Similarity between '%s' and '%s': %.4f%n", brokenMethodName, JarDiffUtil.getFullMethodSignature(result.method().getNewMethod().get().toString(),
-                    result.method().getReturnType().getNewReturnType(), true, result.method().getParameters()), result.similarity());
-            methodSimilarityString.append(formattedString);
-        }
-
-        JApiConstructor constructor;
-        JApiMethod conflictingMethod;
         String methodChange = "";
+        ClassDiffResult classDiffResult = null;
+        StringBuilder methodSimilarityString = new StringBuilder();
+        if(brokenClassName != null) {
+            classDiffResult = jarDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames, wordSimilarityModel);
 
-        conflictingMethod = inferTargetMethod(classDiffResult.methodsWithSameName(), parameterTypeNames);
-        if (conflictingMethod != null) {
-            System.out.println(conflictingMethod);
-            methodChange = JarDiffUtil.buildMethodChangeReport(conflictingMethod);
-        } else {
-            constructor = inferTargetConstructor(classDiffResult.constructors(), parameterTypeNames);
-            System.out.println(constructor);
-            methodChange = JarDiffUtil.buildConstructorChangeReport(constructor);
+            if (classDiffResult.classDiff().isEmpty()) {
+                SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString());
+                FileSearchResult searchResult = sourceCodeAnalyzer.getDependencyFileContainingClass(brokenClassName);
+
+
+                if (searchResult != null) {
+                    System.out.println("Dependency RESULT: ");
+                    System.out.println(searchResult.file().getAbsolutePath());
+                    System.out.println(searchResult.entry().getName());
+
+                    JarDiffUtil dependencyDiffUtil = JarDiffUtil.getInstance(searchResult.file().getAbsolutePath(), searchResult.file().getAbsolutePath());
+                    classDiffResult = dependencyDiffUtil.getJarDiff(brokenClassName, brokenMethodName, parameterTypeNames, wordSimilarityModel);
+                }
+            }
+
+
+            for (SimilarityResult result : classDiffResult.similarMethods()) {
+                String formattedString = String.format("Similarity between '%s' and '%s': %.4f%n", brokenMethodName, JarDiffUtil.getFullMethodSignature(result.method().getNewMethod().get().toString(),
+                        result.method().getReturnType().getNewReturnType(), true, result.method().getParameters()), result.similarity());
+                methodSimilarityString.append(formattedString);
+            }
+
+            JApiConstructor constructor;
+            JApiMethod conflictingMethod;
+
+
+            conflictingMethod = inferTargetMethod(classDiffResult.methodsWithSameName(), parameterTypeNames);
+            if (conflictingMethod != null) {
+                System.out.println(conflictingMethod);
+                methodChange = JarDiffUtil.buildMethodChangeReport(conflictingMethod);
+            } else {
+                constructor = inferTargetConstructor(classDiffResult.constructors(), parameterTypeNames);
+                System.out.println(constructor);
+                methodChange = JarDiffUtil.buildConstructorChangeReport(constructor);
+            }
         }
 
         //List<ConflictType> conflictTypes = ConflictType.getConflictTypesFromMethod(conflictingMethod);
@@ -235,7 +239,7 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
             assembledPrompt.append(String.format(promptTemplateMethodDiff, methodChange));
         }
 
-        if (!classDiffResult.classDiff().isEmpty()) {
+        if (classDiffResult != null && !classDiffResult.classDiff().isEmpty()) {
             assembledPrompt.append(String.format(promptTemplateFullDiff, newVersion, oldVersion, classDiffResult.classDiff()));
         }
 

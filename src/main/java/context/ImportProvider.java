@@ -10,7 +10,7 @@ public class ImportProvider extends ContextProvider {
 
     @Override
     public boolean errorIsTargetedByProvider(LogParser.CompileError compileError, BrokenCode brokenCode) {
-        return brokenCode.code().startsWith("import");
+        return brokenCode.code().startsWith("import") && !brokenCode.code().trim().endsWith("*;");
     }
 
     @Override

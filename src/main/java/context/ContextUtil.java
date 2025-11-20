@@ -149,7 +149,7 @@ public class ContextUtil {
             Pattern declarationPattern = Pattern.compile(
                     "\\b([A-Za-z_][A-Za-z0-9_]*)\\s+(" + variableName + ")\\s*[,|;|=|\\)]");
 
-            for (int i = Math.min(cleanedLines.indexAfterCleaning(), allLines.size()); i >= 0; i--) {
+            for (int i = Math.min(cleanedLines.indexAfterCleaning(), allLines.size()-1); i >= 0; i--) {
                 String line = allLines.get(i);
                 int variableIndex = line.indexOf(variableName);
                 if (variableIndex > 0) {

@@ -53,10 +53,10 @@ public class ContainerUtil {
     }
 
     public static Path getPathWithRespectToIteration(String directory, String fileName, String className, int iteration, boolean usePreviousIteration) {
-        if(iteration == 0) {
+        if (iteration == 0) {
             return getPath(directory, fileName, className);
         }
-        if(usePreviousIteration){
+        if (usePreviousIteration) {
             iteration--;
         }
         return getPathWithIteration(directory, fileName, className, iteration);
@@ -98,19 +98,29 @@ public class ContainerUtil {
 
     public static String extractClassIfNotCached(Context context) {
         ClassPath classPath = getPathToBrokenClass(context);
-        if (context.getIteration() == 0) {
-            if (!Files.exists(classPath.path())) {
-                File classFileFolder = context.getOutputDirClasses();
-                extractClassFromContainer(classFileFolder, context.getDockerClient(), context.getBrokenUpdateImage(), context.getCompileError().file, context.getStrippedFileName());
-            } else {
-                System.out.println("Class already exists at " + classPath);
+        //if (context.getIteration() == 0) {
+        if (!Files.exists(classPath.path())) {
+            File classFileFolder;
+            if(context.getIteration() == 0){
+                classFileFolder = context.getOutputDirClasses();
+            }else{
+                classFileFolder = new File(context.getTargetDirectoryFixedClasses());
             }
+            extractClassFromContainer(classFileFolder, context.getDockerClient(), context.getBrokenUpdateImage(), context.getCompileError().file, context.getStrippedFileName(), context.getIteration());
+        } else {
+            System.out.println("Class already exists at " + classPath);
         }
+        //}
         return classPath.strippedClassName();
     }
 
-    public static void extractEntry(TarArchiveInputStream tais, TarArchiveEntry entry, File outputDir, String outputNameModifier) throws IOException {
-        File outputFile = new File(outputDir, outputNameModifier + entry.getName().substring(entry.getName().lastIndexOf('/') + 1));
+    public static void extractEntry(TarArchiveInputStream tais, TarArchiveEntry entry, File outputDir, String outputNameModifier, int iteration) throws IOException {
+        File outputFile;
+        if (iteration == 0) {
+            outputFile = new File(outputDir, outputNameModifier + entry.getName().substring(entry.getName().lastIndexOf('/') + 1));
+        }else{
+            outputFile = new File(outputDir, "iteration_"+(iteration-1)+"/"+outputNameModifier + entry.getName().substring(entry.getName().lastIndexOf('/') + 1));
+        }
 
         try (FileOutputStream fos = new FileOutputStream(outputFile)) {
             byte[] buffer = new byte[8192];
@@ -152,17 +162,17 @@ public class ContainerUtil {
         return occurrences;
     }
 
-    public static void extractLibraryFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String artifactNameWithVersion) {
+    public static void extractLibraryFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String artifactNameWithVersion, int iteration) {
         System.out.println("Fetching library from container (this can take some time)");
         CreateContainerResponse container = pullImageAndCreateContainer(dockerClient, imagePath);
-        getFileFromContainer(dockerClient, container, artifactNameWithVersion, targetDirectory, "");
+        getFileFromContainer(dockerClient, container, artifactNameWithVersion, targetDirectory, "", iteration);
         dockerClient.removeContainerCmd(container.getId()).exec();
     }
 
-    public static void extractClassFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String className, String fileName) {
+    public static void extractClassFromContainer(File targetDirectory, DockerClient dockerClient, String imagePath, String className, String fileName, int iteration) {
         System.out.println("Fetching class from container (this can take some time)");
         CreateContainerResponse container = pullImageAndCreateContainer(dockerClient, imagePath);
-        getFileFromContainer(dockerClient, container, className, targetDirectory, fileName + "_");
+        getFileFromContainer(dockerClient, container, className, targetDirectory, fileName + "_", iteration);
         dockerClient.removeContainerCmd(container.getId()).exec();
     }
 
@@ -258,6 +268,12 @@ public class ContainerUtil {
 
     public static BrokenCode readBrokenLine(String className, String directory, String fileName, int[] indices, int iteration) {
         try {
+
+            /*File file = new File(getPathWithRespectToIteration(directory, fileName, className, iteration, true).toUri());
+            if(!file.exists()) {
+                ContainerUtil.extractClassIfNotCached(context);
+            }*/
+
             List<String> allLines = Files.readAllLines(getPathWithRespectToIteration(directory, fileName, className, iteration, true));
 
             //BufferedReader br = new BufferedReader(new FileReader(directory + "/" + fileName + "_" + className));
@@ -300,12 +316,12 @@ public class ContainerUtil {
         return null;
     }
 
-    public static Path downloadLibrary(String libraryUrl, File targetDirectory, DockerClient dockerClient, String imagePath, String artifactNameWithVersion) {
+    public static Path downloadLibrary(String libraryUrl, File targetDirectory, DockerClient dockerClient, String imagePath, String artifactNameWithVersion, int iteration) {
         Path targetPath = Path.of(targetDirectory.getPath()).resolve(artifactNameWithVersion);
         if (!Files.exists(targetPath)) {
             if (libraryUrl == null) {
 
-                extractLibraryFromContainer(targetDirectory, dockerClient, imagePath, artifactNameWithVersion);
+                extractLibraryFromContainer(targetDirectory, dockerClient, imagePath, artifactNameWithVersion, iteration);
 
             } else {
                 try {
@@ -315,7 +331,7 @@ public class ContainerUtil {
                 } catch (IOException | URISyntaxException e) {
                     System.err.println("Error downloading " + artifactNameWithVersion + " from " + libraryUrl + ". Resorting to container extraction");
 
-                    extractLibraryFromContainer(targetDirectory, dockerClient, imagePath, artifactNameWithVersion);
+                    extractLibraryFromContainer(targetDirectory, dockerClient, imagePath, artifactNameWithVersion, iteration);
 
                 }
             }
@@ -466,7 +482,7 @@ public class ContainerUtil {
         }
     }
 
-    public static void getFileFromContainer(DockerClient dockerClient, CreateContainerResponse container, String fileName, File outputDir, String outputNameModifier) {
+    public static void getFileFromContainer(DockerClient dockerClient, CreateContainerResponse container, String fileName, File outputDir, String outputNameModifier, int iteration) {
         try (InputStream tarStream = dockerClient.copyArchiveFromContainerCmd(container.getId(), "/").exec();
              TarArchiveInputStream tarInput = new TarArchiveInputStream(tarStream)) {
 
@@ -483,7 +499,7 @@ public class ContainerUtil {
                 }
 
                 System.out.println("Found " + fileName + " in container, proceeding to download it into " + outputDir.getAbsolutePath());
-                extractEntry(tarInput, entry, outputDir, outputNameModifier);
+                extractEntry(tarInput, entry, outputDir, outputNameModifier, iteration);
                 found = true;
                 break;
             }
