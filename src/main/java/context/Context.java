@@ -3,6 +3,7 @@ package context;
 import com.github.dockerjava.api.DockerClient;
 import core.BumpConfig;
 import core.WordSimilarityModel;
+import dto.PathComponents;
 import dto.ProposedChange;
 import provider.LLMProvider;
 
@@ -45,12 +46,17 @@ public class Context {
 
     private int iteration;
 
+    private HashMap<String, PathComponents> fixedClassesFromPastIterations = new HashMap<>();
+
+    private String targetDirectoryResult;
+
+
     public Context(String project, String previousVersion, String newVersion, String dependencyArtifactId, String strippedFileName,
                    File outputDirClasses, String brokenUpdateImage, Path targetPathOld, Path targetPathNew, String targetDirectoryClasses,
                    File outputDirSrcFiles, LLMProvider activeProvider, DockerClient dockerClient, HashMap<String, ProposedChange> errorSet,
                    List<ProposedChange> proposedChanges, LogParser.CompileError compileError, String targetDirectoryLLMResponses,
                    String targetDirectoryPrompts, String targetDirectoryFixedClasses, String targetDirectoryFixedLogs, String strippedClassName,
-                   BumpConfig config, WordSimilarityModel wordSimilarityModel) {
+                   BumpConfig config, WordSimilarityModel wordSimilarityModel, String targetDirectoryResult) {
         this.project = project;
         this.previousVersion = previousVersion;
         this.newVersion = newVersion;
@@ -75,6 +81,8 @@ public class Context {
         this.config = config;
         this.wordSimilarityModel = wordSimilarityModel;
         this.iteration = 0;
+        this.fixedClassesFromPastIterations = new HashMap<>();
+        this.targetDirectoryResult = targetDirectoryResult;
     }
 
     public String getStrippedClassName() {
@@ -271,5 +279,21 @@ public class Context {
 
     public void setIteration(int iteration) {
         this.iteration = iteration;
+    }
+
+    public HashMap<String, PathComponents> getFixedClassesFromPastIterations() {
+        return fixedClassesFromPastIterations;
+    }
+
+    public void setFixedClassesFromPastIterations(HashMap<String, PathComponents> fixedClassesFromPastIterations) {
+        this.fixedClassesFromPastIterations = fixedClassesFromPastIterations;
+    }
+
+    public String getTargetDirectoryResult() {
+        return targetDirectoryResult;
+    }
+
+    public void setTargetDirectoryResult(String targetDirectoryResult) {
+        this.targetDirectoryResult = targetDirectoryResult;
     }
 }

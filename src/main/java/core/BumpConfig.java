@@ -3,7 +3,8 @@ package core;
 public class BumpConfig {
     private String pathToBUMPFolder;
     private int threads;
-    private int llmRetries;
+    private int maxIterations;
+    private int maxRetries;
     private String pathToOutput;
     private String llmProvider;
     private String ollamaUri;
@@ -31,12 +32,20 @@ public class BumpConfig {
         this.threads = threads;
     }
 
-    public int getLlmRetries() {
-        return llmRetries;
+    public int getMaxIterations() {
+        return maxIterations;
     }
 
-    public void setLlmRetries(int llmRetries) {
-        this.llmRetries = llmRetries;
+    public void setMaxIterations(int maxIterations) {
+        this.maxIterations = maxIterations;
+    }
+
+    public int getMaxRetries() {
+        return maxRetries;
+    }
+
+    public void setMaxRetries(int maxRetries) {
+        this.maxRetries = maxRetries;
     }
 
     public String getPathToOutput() {

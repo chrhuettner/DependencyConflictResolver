@@ -136,6 +136,37 @@ public class ContextUtil {
             //TODO: Might happen if explicit casts get detected
             return null;
         }
+
+        if(variableName.startsWith("\"") && variableName.endsWith("\"")) {
+            return String.class.getName();
+        }
+
+        if(variableName.equals("true") || variableName.equals("false")) {
+            return Boolean.class.getName();
+        }
+
+        Matcher integerMatcher = Pattern.compile("^[-+]?\\d+$").matcher(variableName);
+        if(integerMatcher.find()) {
+            return Integer.class.getName();
+        }
+
+        Matcher longMatcher = Pattern.compile("^[-+]?\\d+[lL]$").matcher(variableName);
+        if(longMatcher.find()) {
+            return Long.class.getName();
+        }
+
+        Matcher doubleMatcher = Pattern.compile("[-+]?\\d*\\.?\\d+$").matcher(variableName);
+        if(doubleMatcher.find()) {
+            return Double.class.getName();
+        }
+
+        Matcher floatMatcher = Pattern.compile("[-+]?\\d*\\.?\\d+[fF]$").matcher(variableName);
+        if(floatMatcher.find()) {
+            return Float.class.getName();
+        }
+
+        System.out.println("Not a constant: "+variableName);
+
         if (variableName.contains("->")) {
             return Predicate.class.getName();
         }
@@ -176,7 +207,7 @@ public class ContextUtil {
                                                              String strippedClassName, int line, File srcDirectory, Path classLookup,
                                                              int iteration) {
         List<String> parameterTypes = new ArrayList<>();
-        Path pathToCLass = ContainerUtil.getPathWithRespectToIteration(targetDirectoryClasses, strippedFileName, strippedClassName, iteration, true);
+        Path pathToClass = ContainerUtil.getPathWithRespectToIteration(targetDirectoryClasses, strippedFileName, strippedClassName, iteration, true);
 
         if (methodCall.indexOf("(") != methodCall.indexOf(")") - 1) {
             int closingBraceIndex = getClosingBraceIndex(methodCall, methodCall.indexOf("("));
@@ -205,7 +236,7 @@ public class ContextUtil {
                         parameterTypes.add(getTypeOfField(sourceCodeAnalyzer, callerVariable, fieldChain, srcDirectory, classLookup, line));
 
                     } else {
-                        parameterTypes.add(getClassNameOfVariable(param, pathToCLass, line));
+                        parameterTypes.add(getClassNameOfVariable(param, pathToClass, line));
 
                     }
                 } else {
@@ -213,7 +244,7 @@ public class ContextUtil {
                     List<String> innerTypes = getParameterTypesOfMethodCall(sourceCodeAnalyzer, potentialInnerChain, targetDirectoryClasses, strippedFileName, strippedClassName, line, srcDirectory, classLookup, iteration);
                     String className = "";
                     if (methodName.contains(".")) {
-                        className = getClassNameOfVariable(methodName.substring(0, methodName.indexOf(".")), pathToCLass, line);
+                        className = getClassNameOfVariable(methodName.substring(0, methodName.indexOf(".")), pathToClass, line);
                         methodName = methodName.substring(methodName.indexOf(".") + 1);
                     }
 
@@ -229,6 +260,9 @@ public class ContextUtil {
     }
 
     public static String primitiveClassNameToWrapperName(String parameter) {
+        if(parameter == null){
+            return "NULL";
+        }
         switch (parameter) {
             case "boolean":
                 return Boolean.class.getName();

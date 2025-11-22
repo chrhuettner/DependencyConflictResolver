@@ -28,7 +28,8 @@ public class Main {
             System.out.println("------------------------------");
             System.out.println("BUMP folder: " + config.getPathToBUMPFolder());
             System.out.println("Threads: " + config.getThreads());
-            System.out.println("LLM Retries: " + config.getLlmRetries());
+            System.out.println("Max Retries: " + config.getMaxRetries());
+            System.out.println("Max Iterations: " + config.getMaxIterations());
             System.out.println("Output Path: " + config.getPathToOutput());
             System.out.println("LLM provider: " + config.getLlmProvider());
             System.out.println("LLM name: " + config.getLlmName());

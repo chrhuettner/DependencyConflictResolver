@@ -133,6 +133,7 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
             - Prefer consistency with the dependency’s updated API (as shown in the diff) over preserving old code patterns.
             - Avoid guessing types based on naming; instead, infer them from the diff, return types, and error messages.
             - Always use fully qualified class names for any classes not imported in the original file or when introducing new classes, to avoid ambiguity.
+            - Only modify the single broken line. Do NOT include, rewrite, or re-emit any surrounding code. The output is automatically parsed as a patch for that one line; if you include any surrounding scope (methods, classes, braces, imports, or extra lines), the result will be considered invalid and will break the automated pipeline.
             
              Your response will be **automatically parsed**, so it must match the format **exactly**.
             """;
@@ -365,9 +366,20 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
             List<String> lines = Files.readAllLines(ContainerUtil.getPathWithRespectToIteration(directory, fileName, className, iteration, true));
 
             int start = -1;
+            int openBraces = 0;
+            int closedBraces = 0;
             for (int i = lineNumber - 1; i >= 0; i--) {
                 String line = lines.get(i);
-                if (line.contains("{")) {
+                for (int j = 0; j < line.length(); j++) {
+                    char c = line.charAt(j);
+                    if(c == '{'){
+                        openBraces++;
+                    }else if(c == '}'){
+                        closedBraces++;
+                    }
+                }
+
+                if(openBraces == closedBraces+1){
                     start = i;
                     break;
                 }

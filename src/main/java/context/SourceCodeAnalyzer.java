@@ -71,7 +71,7 @@ public class SourceCodeAnalyzer {
     }
 
     public String getTypeOfFieldFromSourceCode(String className, String fieldName) {
-        if (model == null) {
+        if (model == null || className == null ||  fieldName == null) {
             return null;
         }
 

@@ -1,7 +1,8 @@
 {
   "pathToBUMPFolder": "testFiles/customProjectTest",
   "threads": 4,
-  "llmRetries": 1,
+  "maxIterations": 10,
+  "maxRetries": 2,
   "pathToOutput": "testFiles",
   "llmProvider": "ollama",
   "ollamaUri": "http://host.docker.internal:11434",

@@ -44,6 +44,17 @@ public class ContainerUtil {
         return null;
     }
 
+    public static Path getPathSuffixWithRespectToIteration(String fileName, String className, int iteration, boolean usePreviousIteration) {
+        if (iteration == 0) {
+            return Path.of(fileName + "_" + className);
+        }
+        if (usePreviousIteration) {
+            iteration--;
+        }
+        return Path.of("iteration_" + iteration + "/" + fileName + "_" + className);
+    }
+
+
     public static Path getPathWithIteration(String directory, String fileName, String className, int iteration) {
         return Path.of(directory + "/iteration_" + iteration + "/" + fileName + "_" + className);
     }
@@ -528,7 +539,6 @@ public class ContainerUtil {
 
             String containerId = container.getId();
             String destPath = fileNameInContainer;
-            //getFilePathFromContainer(dockerClient, container, fileNameInContainer);
             destPath = destPath.substring(0, destPath.lastIndexOf("/"));
 
 

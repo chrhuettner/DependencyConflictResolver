@@ -15,20 +15,25 @@ import context.LogParser;
 import docker.ContainerUtil;
 import dto.BrokenCode;
 import dto.ErrorLocation;
+import dto.PathComponents;
 import dto.ProposedChange;
 import provider.*;
 import solver.CodeConflictSolver;
 
 import java.io.*;
+import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static context.LogParser.parseLog;
 import static context.LogParser.projectIsFixableThroughCodeModification;
+import static docker.ContainerUtil.getPathWithRespectToIteration;
 
 public class BumpRunner {
 
@@ -69,6 +74,7 @@ public class BumpRunner {
         createFolder(basePath + "/LLMResponses");
         createFolder(basePath + "/oldContainerLogs");
         createFolder(basePath + "/brokenLogs");
+        createFolder(basePath + "/result");
     }
 
     private static void createIterationFolders(String basePath, int iteration) {
@@ -91,6 +97,7 @@ public class BumpRunner {
         String targetDirectoryPrompts = bumpConfig.getPathToOutput() + "/prompts";
         String targetDirectoryLLMResponses = bumpConfig.getPathToOutput() + "/LLMResponses";
         String directoryOldContainerLogs = bumpConfig.getPathToOutput() + "/oldContainerLogs";
+        String targetDirectoryResult = bumpConfig.getPathToOutput() + "/result";
 
 
         File outputDirClasses = new File(targetDirectoryClasses);
@@ -250,10 +257,10 @@ java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prom
                      */
 
                     // f6659d758a437f8b676481fe70671a68a6ee1cde
-                    if (!file.getName().equals("9717e34bcda74bd9ad94f6a52ddfd3fd179ea15b.json")) {
+                    /*if (!file.getName().equals("c131a3dbb5670183944861f23f225fd772370ff4.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
-                    }
+                    }*/
 
                     String strippedFileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 
@@ -318,81 +325,86 @@ java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prom
                     }
 
 
-                    List<ProposedChange> proposedChanges = new ArrayList<>();
-                    HashMap<String, ProposedChange> errorSet = new HashMap<>();
-
-
-                    Context context = new Context(project, previousVersion, newVersion, dependencyArtifactID, strippedFileName, outputDirClasses, brokenUpdateImage,
-                            targetPathOld, targetPathNew, targetDirectoryClasses, outputDirSrcFiles, activeProvider, dockerClient, errorSet, proposedChanges, null,
-                            targetDirectoryLLMResponses, targetDirectoryPrompts, targetDirectoryFixedClasses, targetDirectoryFixedLogs, null, bumpConfig, wordSimilarityModel);
-
-                    List<Object> errors = parseLog(Path.of(bumpConfig.getPathToOutput() + "/brokenLogs" + "/" + strippedFileName + "_" + project));
-
-                    reduceErrors(errors, context);
-
-                    int initialSize = errors.size();
-
-                    System.out.println(project + " contains " + errors.size() + " errors.");
-
-                    List<ContextProvider> contextProviders = ContextProvider.getContextProviders(context);
-                    List<CodeConflictSolver> codeConflictSolvers = CodeConflictSolver.getCodeConflictSolvers(context);
-
                     boolean errorsWereFixed = false;
-                    int amountOfReTries = 0;
-                    // boolean wasImportRelated = false;
-                    for (; amountOfReTries <= bumpConfig.getLlmRetries(); amountOfReTries++) {
-                        try {
-                            for (int i = 0; i < errors.size(); i++) {
-                                Object error = errors.get(i);
-                                if (!(error instanceof LogParser.CompileError)) {
-                                    continue;
+                    int amountOfIterations = 0;
+                    int amountOfRetries = 0;
+                    outerloop: for (; amountOfRetries <= bumpConfig.getMaxRetries(); amountOfRetries++) {
+                        List<ProposedChange> proposedChanges = new ArrayList<>();
+                        HashMap<String, ProposedChange> errorSet = new HashMap<>();
+                        Context context = new Context(project, previousVersion, newVersion, dependencyArtifactID, strippedFileName, outputDirClasses, brokenUpdateImage,
+                                targetPathOld, targetPathNew, targetDirectoryClasses, outputDirSrcFiles, activeProvider, dockerClient, errorSet, proposedChanges, null,
+                                targetDirectoryLLMResponses, targetDirectoryPrompts, targetDirectoryFixedClasses, targetDirectoryFixedLogs, null,
+                                bumpConfig, wordSimilarityModel, targetDirectoryResult);
+
+                        List<Object> errors = parseLog(Path.of(bumpConfig.getPathToOutput() + "/brokenLogs" + "/" + strippedFileName + "_" + project));
+
+                        reduceErrors(errors, context);
+
+                        int initialSize = errors.size();
+
+                        System.out.println(project + " contains " + errors.size() + " errors.");
+
+                        List<ContextProvider> contextProviders = ContextProvider.getContextProviders(context);
+                        List<CodeConflictSolver> codeConflictSolvers = CodeConflictSolver.getCodeConflictSolvers(context);
+
+
+
+                        // boolean wasImportRelated = false;
+                        for (amountOfIterations = 0; amountOfIterations <= bumpConfig.getMaxIterations(); amountOfIterations++) {
+                            try {
+                                for (int j = 0; j < errors.size(); j++) {
+                                    Object error = errors.get(j);
+                                    if (!(error instanceof LogParser.CompileError)) {
+                                        continue;
+                                    }
+
+                                    context.setCompileError((LogParser.CompileError) error);
+                                    context.setStrippedClassName(ContainerUtil.extractClassIfNotCached(context));
+
+                                    fixError(context, contextProviders, codeConflictSolvers);
+
                                 }
 
-                                context.setCompileError((LogParser.CompileError) error);
-                                context.setStrippedClassName(ContainerUtil.extractClassIfNotCached(context));
+                                if (validateFix(context)) {
+                                    errorsWereFixed = true;
+                                    safeResult(context);
+                                    break outerloop;
+                                } else if (amountOfIterations != bumpConfig.getMaxIterations()) {
+                                    context.setIteration(context.getIteration() + 1);
+                                    context.setTargetDirectoryClasses(targetDirectoryFixedClasses);
+                                    System.out.println(context.getProposedChanges());
+                                    createIterationFolders(bumpConfig.getPathToOutput(), context.getIteration());
 
-                                fixError(context, contextProviders, codeConflictSolvers);
+                                    System.out.println("Project " + file.getName() + " still contains errors.");
+                                    //bumpConfig.getPathToOutput() + "/correctedLogs" + "/" + strippedFileName + "_" + project
 
+                                    //E:\master\DependencyConflictResolver\testFiles\correctedLogs\iteration_0
+                                    errors = parseLog(Path.of(bumpConfig.getPathToOutput() + "/correctedLogs" + "/iteration_" + context.getPreviousIteration() + "/" + strippedFileName + "_" + project));
+
+                                    reduceErrors(errors, context);
+
+                                    System.out.println(project + " contains " + errors.size() + " errors (previous iteration had " + initialSize + " errors)");
+                                    initialSize = errors.size();
+                                    // context.getTargetDirectoryClasses(),
+
+                                }
+                            } catch (Exception e) {
+                                System.err.println(context.getStrippedFileName());
+                                e.printStackTrace();
+                            } finally {
+                                //context.getErrorSet().clear();
+                                //context.getProposedChanges().clear();
                             }
-
-                            if (validateFix(context)) {
-                                errorsWereFixed = true;
-                                break;
-                            } else if (amountOfReTries != bumpConfig.getLlmRetries()) {
-                                context.setIteration(context.getIteration() + 1);
-                                context.setTargetDirectoryClasses(targetDirectoryFixedClasses);
-                                System.out.println(context.getProposedChanges());
-                                createIterationFolders(bumpConfig.getPathToOutput(), context.getIteration());
-
-                                System.out.println("Project " + file.getName() + " still contains errors.");
-                                //bumpConfig.getPathToOutput() + "/correctedLogs" + "/" + strippedFileName + "_" + project
-
-                                //E:\master\DependencyConflictResolver\testFiles\correctedLogs\iteration_0
-                                errors = parseLog(Path.of(bumpConfig.getPathToOutput() + "/correctedLogs" + "/iteration_" + context.getPreviousIteration() + "/" + strippedFileName + "_" + project));
-
-                                reduceErrors(errors, context);
-
-                                System.out.println(project + " contains " + errors.size() + " errors (previous iteration had " + initialSize + " errors)");
-                                initialSize = errors.size();
-                                // context.getTargetDirectoryClasses(),
-
-                            }
-                        } catch (Exception e) {
-                            System.err.println(context.getStrippedFileName());
-                            e.printStackTrace();
-                        } finally {
-                            //context.getErrorSet().clear();
-                            //context.getProposedChanges().clear();
                         }
                     }
 
                     JarDiffUtil.removeCachedJarDiffsForThread();
 
                     if (errorsWereFixed) {
-                        System.out.println("Took " + amountOfReTries + " retries to fix " + strippedFileName);
+                        System.out.println("Fixed "+strippedFileName+" (Retries: "+amountOfRetries+", Iterations: "+amountOfIterations+")");
                         successfulFixes.getAndIncrement();
                     } else {
-                        System.out.println("Took " + amountOfReTries + " retries, could not fix " + strippedFileName);
+                        System.out.println("Could not fix " + strippedFileName);
                         failedFixes.getAndIncrement();
                     }
 
@@ -437,18 +449,44 @@ java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prom
 
         CreateContainerResponse container = ContainerUtil.pullImageAndCreateContainer(context.getDockerClient(), context.getBrokenUpdateImage());
 
+        List<String> classesToReplace = new ArrayList<>(context.getFixedClassesFromPastIterations().keySet());
+
         for (String className : groupedChangesByClassName.keySet()) {
 
             ContainerUtil.replaceBrokenCodeInClass(className, context.getTargetDirectoryClasses(), context.getTargetDirectoryFixedClasses(), context.getStrippedFileName(), groupedChangesByClassName.get(className), context.getIteration());
 
             ContainerUtil.replaceFileInContainer(context.getDockerClient(), container, ContainerUtil.getPathWithIteration(context.getTargetDirectoryFixedClasses(), context.getStrippedFileName(), className, context.getIteration()), groupedChangesByClassName.get(className).get(0).file());
 
-            /*if (groupedChangesByClassName.get(className).get(0).file().equals("/docker-adapter/src/test/java/com/artipie/docker/http/LargeImageITCase.java")) {
-                getFileFromContainer(context.getDockerClient(), container, groupedChangesByClassName.get(className).get(0).file(), new File("testFiles/TEST"), "");
-            }*/
+            classesToReplace.remove(className);
+        }
+
+        // Classes from past iterations
+        for (String className : classesToReplace) {
+            System.out.println("Also replaced "+className);
+            PathComponents pathComponents = context.getFixedClassesFromPastIterations().get(className);
+            ContainerUtil.replaceFileInContainer(context.getDockerClient(), container, pathComponents.path(), pathComponents.fileNameInContainer());
+        }
+
+        for(String className : groupedChangesByClassName.keySet()) {
+            context.getFixedClassesFromPastIterations().put(className,
+                    new PathComponents(ContainerUtil.getPathWithIteration(context.getTargetDirectoryFixedClasses(), context.getStrippedFileName(), className, context.getIteration()), groupedChangesByClassName.get(className).get(0).file()));
         }
 
         return !ContainerUtil.logFromContainerContainsError(context.getDockerClient(), container, ContainerUtil.getPathWithIteration(context.getTargetDirectoryFixedLogs(), context.getStrippedFileName(), context.getProject(), context.getIteration()));
+    }
+
+    public static void safeResult(Context context) {
+        File resultFolderForProject = new File(context.getTargetDirectoryResult()+"/"+context.getStrippedFileName()+"_"+context.getProject());
+        resultFolderForProject.mkdirs();
+
+        for (String className : context.getFixedClassesFromPastIterations().keySet()) {
+            System.out.println("Saving fixed "+className+" to "+resultFolderForProject.toPath().resolve(Path.of(className)));
+            try {
+                Files.copy(context.getFixedClassesFromPastIterations().get(className).path(), resultFolderForProject.toPath().resolve(Path.of(className)), StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public static void sortErrors(List<Object> errors) {
@@ -537,12 +575,19 @@ java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prom
                 context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column}, context.getIteration());
 
 
-        if (context.getErrorSet().containsKey(brokenCode.code().trim())) {
-            int offset = context.getCompileError().line - context.getErrorSet().get(brokenCode.code().trim()).start();
-            context.getProposedChanges().add(new ProposedChange(context.getStrippedClassName(), context.getErrorSet().get(brokenCode.code().trim()).code(), context.getCompileError().file,
-                    offset + context.getErrorSet().get(brokenCode.code().trim()).start(), offset + context.getErrorSet().get(brokenCode.code().trim()).end()));
-            System.out.println("Similar error in proposed changes, added past fix with position adjustment");
-            return;
+        String trimmedBrokenCode = brokenCode.code().trim();
+        Matcher nonReducableErrorMatcher = Pattern.compile("^\\s*[}{)( ;]+\\s*$").matcher(trimmedBrokenCode);
+
+        if(nonReducableErrorMatcher.find()) {
+            System.out.println(trimmedBrokenCode+" is not reducible");
+        }else {
+            if (context.getErrorSet().containsKey(trimmedBrokenCode)) {
+                int offset = context.getCompileError().line - context.getErrorSet().get(trimmedBrokenCode).start();
+                context.getProposedChanges().add(new ProposedChange(context.getStrippedClassName(), context.getErrorSet().get(trimmedBrokenCode).code(), context.getCompileError().file,
+                        offset + context.getErrorSet().get(trimmedBrokenCode).start(), offset + context.getErrorSet().get(trimmedBrokenCode).end()));
+                System.out.println("Similar error in proposed changes (" + trimmedBrokenCode + "), added past fix with position adjustment");
+                return;
+            }
         }
 
         System.out.println(context.getCompileError().file + " " + context.getCompileError().line + " " + context.getCompileError().column);
