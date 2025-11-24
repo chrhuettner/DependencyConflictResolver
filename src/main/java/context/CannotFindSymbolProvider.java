@@ -6,15 +6,11 @@ import dto.ErrorLocation;
 
 import java.io.File;
 import java.nio.file.Path;
+import java.util.regex.Pattern;
 
-public class CannotFindSymbolProvider extends ContextProvider {
+public class CannotFindSymbolProvider extends CompileErrorRegexProvider {
     public CannotFindSymbolProvider(Context context) {
-        super(context);
-    }
-
-    @Override
-    public boolean errorIsTargetedByProvider(LogParser.CompileError compileError, BrokenCode brokenCode) {
-        return compileError.message.equals("cannot find symbol");
+        super(context, Pattern.compile("cannot find symbol"));
     }
 
     @Override
@@ -66,7 +62,7 @@ public class CannotFindSymbolProvider extends ContextProvider {
                     }
                 }
 
-                if(targetClass == null) {
+                if (targetClass == null) {
                     //assume static
                     targetClass = variableName;
                 }

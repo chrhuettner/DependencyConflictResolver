@@ -201,6 +201,10 @@ public class SourceCodeAnalyzer {
 
 
     public String getReturnTypeOfMethodFromDependencies(String className, String methodName, String[] parameterTypes, File directory) {
+        if(className == null || methodName == null){
+            return null;
+        }
+
         final String[] returnType = new String[1];
 
         final String[] returnTypeOfMethodWithSameNumberOfParameters = new String[1];

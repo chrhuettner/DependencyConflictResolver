@@ -2,12 +2,13 @@ package context;
 
 import docker.ContainerUtil;
 import dto.CleanedLines;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -15,6 +16,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ContextUtil {
+
+    private static final Logger log = LoggerFactory.getLogger(ContextUtil.class);
+
+    private static final Pattern EXPRESSION_PATTERN =  Pattern.compile(".*[+\\-*/%&|^~<>].*");
 
     public static int getClosingBraceIndex(String s, int start) {
         int openBrackets = 0;
@@ -36,24 +41,21 @@ public class ContextUtil {
 
     public static String getTypeOfField(SourceCodeAnalyzer sourceCodeAnalyzer, String callerVariable, String fieldChain, File srcDirectory, Path classLookup, int lineNumber) {
 
+        if (fieldChain.equals("class")) {
+            return "java.lang.Class";
+        }
+
         String caller = getClassNameOfVariable(callerVariable, classLookup, lineNumber);
         if (caller == null) {
             //Assume static
             caller = callerVariable;
-            if (fieldChain.equals("class")) {
-                return "java.lang.Class";
-            }
-
         }
         String potentialInnerChain = fieldChain.substring(fieldChain.indexOf(".") + 1);
         String fieldName = "";
         boolean isRecursive = false;
-        boolean fieldIsMethodCall = false;
         if (potentialInnerChain.contains(".")) {
             fieldName = potentialInnerChain.substring(0, potentialInnerChain.indexOf("."));
             isRecursive = true;
-        } else if (potentialInnerChain.contains("(")) {
-            fieldIsMethodCall = true;
         } else {
             fieldName = potentialInnerChain;
         }
@@ -131,136 +133,152 @@ public class ContextUtil {
         return new CleanedLines(newLines, indexBeforeCleaning, indexAfterCleaning);
     }
 
-    public static String getClassNameOfVariable(String variableName, Path path, int lineNumber) {
-        if(variableName == null){
-            //TODO: Might happen if explicit casts get detected
-            return null;
-        }
-
-        if(variableName.startsWith("\"") && variableName.endsWith("\"")) {
-            return String.class.getName();
-        }
-
-        if(variableName.equals("true") || variableName.equals("false")) {
-            return Boolean.class.getName();
-        }
-
-        Matcher integerMatcher = Pattern.compile("^[-+]?\\d+$").matcher(variableName);
-        if(integerMatcher.find()) {
-            return Integer.class.getName();
-        }
-
-        Matcher longMatcher = Pattern.compile("^[-+]?\\d+[lL]$").matcher(variableName);
-        if(longMatcher.find()) {
-            return Long.class.getName();
-        }
-
-        Matcher doubleMatcher = Pattern.compile("[-+]?\\d*\\.?\\d+$").matcher(variableName);
-        if(doubleMatcher.find()) {
-            return Double.class.getName();
-        }
-
-        Matcher floatMatcher = Pattern.compile("[-+]?\\d*\\.?\\d+[fF]$").matcher(variableName);
-        if(floatMatcher.find()) {
-            return Float.class.getName();
-        }
-
-        System.out.println("Not a constant: "+variableName);
-
-        if (variableName.contains("->")) {
-            return Predicate.class.getName();
-        }
-        try {
-            List<String> allLines = Files.readAllLines(path);
-
-            CleanedLines cleanedLines = cleanLines(allLines, lineNumber);
-
-            allLines = cleanedLines.lines();
-
-            Pattern declarationPattern = Pattern.compile(
-                    "\\b([A-Za-z_][A-Za-z0-9_]*)\\s+(" + variableName + ")\\s*[,|;|=|\\)]");
-
-            for (int i = Math.min(cleanedLines.indexAfterCleaning(), allLines.size()-1); i >= 0; i--) {
-                String line = allLines.get(i);
-                int variableIndex = line.indexOf(variableName);
-                if (variableIndex > 0) {
-                    Matcher declarationMatcher = declarationPattern.matcher(line);
-                    if (declarationMatcher.find()) {
-                        String match = declarationMatcher.group(1);
-                        if (match.trim().equals("new")) {
-                            return null;
-                        }
-                        return match;
-                    }
-                }
-
-            }
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+public static String getClassNameOfVariable(String variableName, Path path, int lineNumber) {
+    if (variableName == null) {
         return null;
     }
+
+    if (variableName.startsWith("\"") && variableName.endsWith("\"")) {
+        return String.class.getName();
+    }
+
+    if (variableName.equals("true") || variableName.equals("false")) {
+        return Boolean.class.getName();
+    }
+
+    Matcher integerMatcher = Pattern.compile("[-+]?\\d+$").matcher(variableName);
+    if (integerMatcher.find()) {
+        return Integer.class.getName();
+    }
+
+    Matcher longMatcher = Pattern.compile("[-+]?\\d+[lL]$").matcher(variableName);
+    if (longMatcher.find()) {
+        return Long.class.getName();
+    }
+
+    Matcher doubleMatcher = Pattern.compile("[-+]?\\d*\\.?\\d+$").matcher(variableName);
+    if (doubleMatcher.find()) {
+        return Double.class.getName();
+    }
+
+    Matcher floatMatcher = Pattern.compile("[-+]?\\d*\\.?\\d+[fF]$").matcher(variableName);
+    if (floatMatcher.find()) {
+        return Float.class.getName();
+    }
+
+    Matcher expressionMatcher = EXPRESSION_PATTERN.matcher(variableName);
+    if (expressionMatcher.find()) {
+        String expressionType = PrimitiveExpressionSolver.getTypeOfPrimitiveExpression(variableName);
+        if(expressionType != null) {
+            return expressionType;
+        }
+    }
+
+    System.out.println("Not a constant: " + variableName);
+
+    if (variableName.contains("->")) {
+        return Predicate.class.getName();
+    }
+    try {
+        List<String> allLines = Files.readAllLines(path);
+
+        CleanedLines cleanedLines = cleanLines(allLines, lineNumber);
+
+        allLines = cleanedLines.lines();
+
+        Pattern declarationPattern = Pattern.compile(
+                "\\b([A-Za-z_][A-Za-z0-9_]*)\\s+(" + variableName + ")\\s*[,|;|=|\\)]");
+
+        for (int i = Math.min(cleanedLines.indexAfterCleaning(), allLines.size() - 1); i >= 0; i--) {
+            String line = allLines.get(i);
+            int variableIndex = line.indexOf(variableName);
+            if (variableIndex > 0) {
+                Matcher declarationMatcher = declarationPattern.matcher(line);
+                if (declarationMatcher.find()) {
+                    String match = declarationMatcher.group(1);
+                    if (match.trim().equals("new")) {
+                        //TODO: Is there any case where this is true?
+                        return null;
+                    }
+                    return match;
+                }
+            }
+
+        }
+
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+    return null;
+}
 
     public static List<String> getParameterTypesOfMethodCall(SourceCodeAnalyzer sourceCodeAnalyzer, String methodCall,
                                                              String targetDirectoryClasses, String strippedFileName,
                                                              String strippedClassName, int line, File srcDirectory, Path classLookup,
                                                              int iteration) {
         List<String> parameterTypes = new ArrayList<>();
+
+        if (methodCall.indexOf("(") == methodCall.indexOf(")") - 1) {
+            return parameterTypes;
+        }
         Path pathToClass = ContainerUtil.getPathWithRespectToIteration(targetDirectoryClasses, strippedFileName, strippedClassName, iteration, true);
 
-        if (methodCall.indexOf("(") != methodCall.indexOf(")") - 1) {
-            int closingBraceIndex = getClosingBraceIndex(methodCall, methodCall.indexOf("("));
-            String potentialInnerChain = methodCall.substring(methodCall.indexOf("(") + 1, closingBraceIndex);
 
-            //boolean isLamda = false;
-            if (potentialInnerChain.contains("->")) {
-                // Package name of lambda functions
-                parameterTypes.add("java.util.function");
-                return parameterTypes;
-                /*int lambdaIndex = potentialInnerChain.indexOf("->");
-                int innerMethodIndex = potentialInnerChain.indexOf("(");
-                if(lambdaIndex < innerMethodIndex || innerMethodIndex == -1){
-                    isLamda = true;
-                    potentialInnerChain = potentialInnerChain.substring(lambdaIndex+3);
-                }*/
+        int closingBraceIndex = getClosingBraceIndex(methodCall, methodCall.indexOf("("));
+        String potentialInnerChain = methodCall.substring(methodCall.indexOf("(") + 1, closingBraceIndex);
+
+        if (potentialInnerChain.contains("->")) {
+            // Package name of lambda functions
+            parameterTypes.add("java.util.function");
+            return parameterTypes;
+        }
+
+        String[] paramSplit = potentialInnerChain.split(",");
+        for (String param : paramSplit) {
+            param = param.trim();
+
+            Matcher expressionMatcher = EXPRESSION_PATTERN.matcher(param);
+
+            if(expressionMatcher.find()) {
+                System.out.println("Expression detected in method call: " + methodCall+" Filename: "+strippedFileName);
             }
 
-            String[] paramSplit = potentialInnerChain.split(",");
-            for (String param : paramSplit) {
-                param = param.trim();
-                if (!param.contains("(")) {
-                    if (param.contains(".")) {
-                        String callerVariable = param.substring(0, param.indexOf("."));
-                        String fieldChain = param.substring(param.indexOf(".") + 1);
-                        parameterTypes.add(getTypeOfField(sourceCodeAnalyzer, callerVariable, fieldChain, srcDirectory, classLookup, line));
+            if (!param.contains("(")) {
+                if (param.contains(".")) {
+                    String callerVariable = param.substring(0, param.indexOf("."));
+                    String fieldChain = param.substring(param.indexOf(".") + 1);
+                    parameterTypes.add(getTypeOfField(sourceCodeAnalyzer, callerVariable, fieldChain, srcDirectory, classLookup, line));
 
-                    } else {
-                        parameterTypes.add(getClassNameOfVariable(param, pathToClass, line));
-
-                    }
                 } else {
-                    String methodName = param.substring(0, param.indexOf("("));
-                    List<String> innerTypes = getParameterTypesOfMethodCall(sourceCodeAnalyzer, potentialInnerChain, targetDirectoryClasses, strippedFileName, strippedClassName, line, srcDirectory, classLookup, iteration);
-                    String className = "";
-                    if (methodName.contains(".")) {
-                        className = getClassNameOfVariable(methodName.substring(0, methodName.indexOf(".")), pathToClass, line);
-                        methodName = methodName.substring(methodName.indexOf(".") + 1);
+                    parameterTypes.add(getClassNameOfVariable(param, pathToClass, line));
+
+                }
+            } else {
+                String methodName = param.substring(0, param.indexOf("("));
+                List<String> innerTypes = getParameterTypesOfMethodCall(sourceCodeAnalyzer, potentialInnerChain, targetDirectoryClasses, strippedFileName, strippedClassName, line, srcDirectory, classLookup, iteration);
+                String className = "";
+                if (methodName.contains(".")) {
+                    String variableName = methodName.substring(0, methodName.indexOf("."));
+                    className = getClassNameOfVariable(variableName, pathToClass, line);
+                    if (className == null) {
+                        // Assume static invocation
+                        className = variableName;
                     }
 
-
-                    parameterTypes.add(sourceCodeAnalyzer.getReturnTypeOfMethod(className, methodName, innerTypes.toArray(new String[innerTypes.size()])));
+                    methodName = methodName.substring(methodName.indexOf(".") + 1);
                 }
 
+                parameterTypes.add(sourceCodeAnalyzer.getReturnTypeOfMethod(className, methodName, innerTypes.toArray(new String[innerTypes.size()])));
             }
 
         }
+
 
         return parameterTypes;
     }
 
     public static String primitiveClassNameToWrapperName(String parameter) {
-        if(parameter == null){
+        if (parameter == null) {
             return "NULL";
         }
         switch (parameter) {

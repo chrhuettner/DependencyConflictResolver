@@ -5,15 +5,12 @@ import dto.BrokenCode;
 import dto.ErrorLocation;
 import docker.ContainerUtil;
 
-public class SuperProvider extends ContextProvider {
+import java.util.regex.Pattern;
 
-    public SuperProvider(Context context) {
-        super(context);
-    }
+public class SuperProvider extends BrokenCodeRegexProvider {
 
-    @Override
-    public boolean errorIsTargetedByProvider(LogParser.CompileError compileError, BrokenCode brokenCode) {
-        return brokenCode.code().trim().startsWith("super");
+    protected SuperProvider(Context context) {
+        super(context, Pattern.compile("super\\("));
     }
 
     @Override

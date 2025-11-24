@@ -3,27 +3,22 @@ package context;
 import dto.BrokenCode;
 import dto.ErrorLocation;
 
-public class ImportProvider extends ContextProvider {
-    public ImportProvider(Context context) {
-        super(context);
-    }
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-    @Override
-    public boolean errorIsTargetedByProvider(LogParser.CompileError compileError, BrokenCode brokenCode) {
-        return brokenCode.code().startsWith("import") && !brokenCode.code().trim().endsWith("*;");
+public class ImportProvider extends BrokenCodeRegexProvider {
+
+
+    protected ImportProvider(Context context) {
+        super(context, Pattern.compile("import\\s+(?:static\\s+)?\\w+(?:\\.(\\w+))*;"));
     }
 
     @Override
     public ErrorLocation getErrorLocation(LogParser.CompileError compileError, BrokenCode brokenCode) {
-        return new ErrorLocation(getClassNameFromImport(brokenCode.code()), null, null);
+        Matcher matcher = findMatch(compileError, brokenCode);
+        String targetClass = matcher.group(1);
+        return new ErrorLocation(targetClass, null, null);
     }
 
-    private String getClassNameFromImport(String importLine){
-        String targetClass = importLine.substring(importLine.indexOf(" "), importLine.indexOf(";")).trim();
-        if (targetClass.contains(".")) {
-            targetClass = targetClass.substring(targetClass.lastIndexOf(".") + 1);
-        }
-        return targetClass;
-    }
 
 }

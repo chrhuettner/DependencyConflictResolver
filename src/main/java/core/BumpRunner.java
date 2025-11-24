@@ -231,33 +231,22 @@ public class BumpRunner {
                     //TODO: Check this: 0abf7148300f40a1da0538ab060552bca4a2f1d8
 
                     /*
-Took 3 retries, could not fix c131a3dbb5670183944861f23f225fd772370ff4
-c131a3dbb5670183944861f23f225fd772370ff4
-java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prompts/iteration_1/c131a3dbb5670183944861f23f225fd772370ff4_127_capture#1 of ? extends com.artipie.asto.Meta_qwen3coder480bcloud.txt
+38c9915f0cfdf0c1a2b17c3c6f283c23a0aac0cf
+java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/prompts/iteration_1/38c9915f0cfdf0c1a2b17c3c6f283c23a0aac0cf_260_org.cactoos.iterable.Filtered<io.zold.api.Transaction>_qwen3coder480bcloud.txt
 	at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:204)
 	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:175)
 	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
 	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
 	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:203)
 	at java.base/java.nio.file.Path.of(Path.java:148)
-	at solver.nondeterministic.LLMCodeConflictSolver.solveConflict(LLMCodeConflictSolver.java:439)
-	at core.BumpRunner.fixError(BumpRunner.java:569)
-	at core.BumpRunner.lambda$runBUMP$1(BumpRunner.java:343)
-	at java.base/java.lang.VirtualThread.run(VirtualThread.java:466)
-c131a3dbb5670183944861f23f225fd772370ff4
-java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prompts/iteration_1/c131a3dbb5670183944861f23f225fd772370ff4_127_capture#1 of ? extends com.artipie.asto.Meta_qwen3coder480bcloud.txt
-	at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:204)
-	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:175)
-	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
-	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
-	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:203)
-	at java.base/java.nio.file.Path.of(Path.java:148)
-	at solver.nondeterministic.LLMCodeConflictSolver.solveConflict(LLMCodeConflictSolver.java:439)
-	at core.BumpRunner.fixError(BumpRunner.java:569)
+	at solver.nondeterministic.LLMCodeConflictSolver.solveConflict(LLMCodeConflictSolver.java:451)
+	at core.BumpRunner.fixError(BumpRunner.java:627)
                      */
 
                     // f6659d758a437f8b676481fe70671a68a6ee1cde
-                    /*if (!file.getName().equals("c131a3dbb5670183944861f23f225fd772370ff4.json")) {
+
+                    //TODO: 4aab2869639226035c999c282f31efba15648ea3 className is null
+                    /*if (!file.getName().equals("0abf7148300f40a1da0538ab060552bca4a2f1d8.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }*/
@@ -372,7 +361,7 @@ java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prom
                                 } else if (amountOfIterations != bumpConfig.getMaxIterations()) {
                                     context.setIteration(context.getIteration() + 1);
                                     context.setTargetDirectoryClasses(targetDirectoryFixedClasses);
-                                    System.out.println(context.getProposedChanges());
+                                    //System.out.println(context.getProposedChanges());
                                     createIterationFolders(bumpConfig.getPathToOutput(), context.getIteration());
 
                                     System.out.println("Project " + file.getName() + " still contains errors.");
@@ -401,7 +390,7 @@ java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prom
                     JarDiffUtil.removeCachedJarDiffsForThread();
 
                     if (errorsWereFixed) {
-                        System.out.println("Fixed "+strippedFileName+" (Retries: "+amountOfRetries+", Iterations: "+amountOfIterations+")");
+                        System.out.println("Fixed "+strippedFileName+" (Retries: "+amountOfRetries+", Iteration: "+amountOfIterations+")");
                         successfulFixes.getAndIncrement();
                     } else {
                         System.out.println("Could not fix " + strippedFileName);
@@ -591,24 +580,15 @@ java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prom
         }
 
         System.out.println(context.getCompileError().file + " " + context.getCompileError().line + " " + context.getCompileError().column);
-        String targetClass = "";
-        String targetMethod = "";
-        String[] targetMethodParameterClassNames = new String[0];
-
+        ErrorLocation errorLocation = new ErrorLocation("", "", new String[0]);
+        
         boolean errorGetsTargetByAtLeastOneProvider = false;
         for (ContextProvider contextProvider : contextProviders) {
             if (contextProvider.errorIsTargetedByProvider(context.getCompileError(), brokenCode)) {
                 errorGetsTargetByAtLeastOneProvider = true;
-                ErrorLocation errorLocation = contextProvider.getErrorLocation(context.getCompileError(), brokenCode);
-                //if (errorLocation.className() != null) {
-                targetClass = errorLocation.className();
-                //}
-                //if (errorLocation.methodName() != null) {
-                targetMethod = errorLocation.methodName();
-                //}
-                //if (errorLocation.targetMethodParameterClassNames() != null) {
-                targetMethodParameterClassNames = errorLocation.targetMethodParameterClassNames();
-                //}
+
+                errorLocation = contextProvider.getErrorLocation(context.getCompileError(), brokenCode);
+
                 break;
             }
         }
@@ -617,8 +597,7 @@ java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prom
             System.out.println("UNCATEGORIZED " + brokenCode.code());
         }
 
-
-        ErrorLocation errorLocation = new ErrorLocation(targetClass, targetMethod, targetMethodParameterClassNames);
+        
 
 
         for (CodeConflictSolver codeConflictSolver : codeConflictSolvers) {
@@ -634,8 +613,8 @@ java.nio.file.InvalidPathException: Illegal char <?> at index 88: testFiles/prom
             }
         }
 
-        System.out.println("Target class: " + targetClass);
-        System.out.println("Target method: " + targetMethod);
+        System.out.println("Target class: " + errorLocation.className());
+        System.out.println("Target method: " + errorLocation.methodName());
     }
 
     private static String cleanString(String str) {

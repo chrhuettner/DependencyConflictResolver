@@ -193,13 +193,13 @@ public class JarDiffUtil {
             classChanges.append(buildClassChangeHeader(jApiClass));
             classChanges.append(System.lineSeparator());
 
-            if (jApiClass.getFields().size() > 0) {
+            if (!jApiClass.getFields().isEmpty()) {
                 classChanges.append("Fields: ").append(System.lineSeparator());
 
                 addFieldDiffToChangeReport(jApiClass, classChanges);
             }
 
-            if (jApiClass.getConstructors().size() > 0) {
+            if (!jApiClass.getConstructors().isEmpty()) {
                 classChanges.append(System.lineSeparator());
                 classChanges.append("Constructors: ").append(System.lineSeparator());
             }
@@ -213,10 +213,11 @@ public class JarDiffUtil {
             }
             //}
 
-            classChanges.append(System.lineSeparator());
-            classChanges.append("Class methods: ").append(System.lineSeparator());
-            addMethodDiffToChangeReport(jApiClass, methodName, similarMethods, methodsWithSameName, classChanges, parameterTypeNames);
-
+            if (!jApiClass.getMethods().isEmpty()) {
+                classChanges.append(System.lineSeparator());
+                classChanges.append("Class methods: ").append(System.lineSeparator());
+                addMethodDiffToChangeReport(jApiClass, methodName, similarMethods, methodsWithSameName, classChanges, parameterTypeNames);
+            }
             StringBuilder removedInterfaces = new StringBuilder();
             removedInterfaces.append("Removed interfaces: ").append(System.lineSeparator());
 

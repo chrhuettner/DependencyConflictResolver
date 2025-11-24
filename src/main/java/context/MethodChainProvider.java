@@ -14,8 +14,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class MethodChainProvider extends BrokenCodeRegexProvider {
-    public static final Pattern METHOD_CHAIN_PATTERN = Pattern.compile(
-            "\\.?([A-Za-z_]\\w*)\\s*(?:\\([^()]*\\))?");
 
     protected MethodChainProvider(Context context) {
         super(context, Pattern.compile("((new|=|\\.)\\s*\\w+)\\s*(?=\\(.*\\))"));
@@ -58,20 +56,24 @@ public class MethodChainProvider extends BrokenCodeRegexProvider {
         String[] parameterNames = new String[0];
 
 
-        //List<String> precedingMethodChain = new ArrayList<>();
-
-        while (brokenCode.indexOf("(") != brokenCode.indexOf(")") - 1) {
-            int closingBraceIndex = ContextUtil.getClosingBraceIndex(brokenCode, brokenCode.indexOf("("));
-            String potentialInnerChain = brokenCode.substring(brokenCode.indexOf("(") + 1, closingBraceIndex);
-            if (!potentialInnerChain.contains("(")) {
+        int index = 0;
+        while (index < brokenCode.length()) {
+            int openBraceIndex = brokenCode.indexOf("(", index);
+            if (openBraceIndex == -1) {
                 break;
             }
-            if (errorIndex >= brokenCode.indexOf("(") && errorIndex < closingBraceIndex) {
-                brokenCode = potentialInnerChain;
-            } else {
-                brokenCode = brokenCode.substring(0, brokenCode.indexOf("(") + 1) + brokenCode.substring(closingBraceIndex);
+            int closingBraceIndex = ContextUtil.getClosingBraceIndex(brokenCode, openBraceIndex);
+            String potentialInnerChain = brokenCode.substring(openBraceIndex + 1, closingBraceIndex);
+            if (!potentialInnerChain.contains("(")) {
+                index = closingBraceIndex + 1;
+                continue;
             }
-
+            if (errorIndex >= openBraceIndex && errorIndex < closingBraceIndex) {
+                brokenCode = potentialInnerChain;
+                errorIndex -= openBraceIndex;
+            } else {
+                index++;
+            }
         }
 
         List<MethodCall> methodCalls = new ArrayList<>();
@@ -111,16 +113,9 @@ public class MethodChainProvider extends BrokenCodeRegexProvider {
                 classNameOfVariable = strippedClassName;
             } else {
 
-                Path classPath =  ContainerUtil.getPathWithRespectToIteration(targetDirectoryClasses, strippedFileName, strippedClassName, iteration, true);
+                Path classPath = ContainerUtil.getPathWithRespectToIteration(targetDirectoryClasses, strippedFileName, strippedClassName, iteration, true);
                 classNameOfVariable = ContextUtil.getClassNameOfVariable(methodCalls.get(0).methodName(), classPath, line);
 
-                /*if (methodCalls.size() == 1) {
-                    targetClass = classNameOfVariable;
-                    if (targetMethod.isEmpty()) {
-                        targetMethod = methodCalls.get(0).methodName();
-                        parameterNames = methodCalls.get(0).parameterTypes();
-                    }
-                } else*/
                 if (classNameOfVariable == null) {
                     String parent = ContainerUtil.readParent(strippedClassName, targetDirectoryClasses, strippedFileName, iteration);
                     if (parent != null) {
@@ -152,8 +147,6 @@ public class MethodChainProvider extends BrokenCodeRegexProvider {
 
                 String previousClassName = null;
                 String intermediateClassName = classNameOfVariable;
-
-
                 for (int i = 1; i < methodCalls.size() - 1; i++) {
                     if (intermediateClassName == null) {
                         return new MethodChainAnalysis(previousClassName, methodCalls.get(i - 1).methodName(), methodCalls.get(i - 1).parameterTypes());
