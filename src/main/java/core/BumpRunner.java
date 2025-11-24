@@ -246,7 +246,7 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
                     // f6659d758a437f8b676481fe70671a68a6ee1cde
 
                     //TODO: 4aab2869639226035c999c282f31efba15648ea3 className is null
-                    /*if (!file.getName().equals("0abf7148300f40a1da0538ab060552bca4a2f1d8.json")) {
+                    /*if (!file.getName().equals("10d7545c5771b03dd9f6122bd5973a759eb2cd03.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }*/
@@ -574,7 +574,7 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
                 int offset = context.getCompileError().line - context.getErrorSet().get(trimmedBrokenCode).start();
                 context.getProposedChanges().add(new ProposedChange(context.getStrippedClassName(), context.getErrorSet().get(trimmedBrokenCode).code(), context.getCompileError().file,
                         offset + context.getErrorSet().get(trimmedBrokenCode).start(), offset + context.getErrorSet().get(trimmedBrokenCode).end()));
-                System.out.println("Similar error in proposed changes (" + trimmedBrokenCode + "), added past fix with position adjustment");
+                System.out.println("Similar error in proposed changes. Changed " + trimmedBrokenCode + " to "+context.getErrorSet().get(trimmedBrokenCode).code()+". Added past fix with position adjustment");
                 return;
             }
         }

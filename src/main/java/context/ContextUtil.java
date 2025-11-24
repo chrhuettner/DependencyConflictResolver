@@ -166,6 +166,12 @@ public static String getClassNameOfVariable(String variableName, Path path, int 
         return Float.class.getName();
     }
 
+    System.out.println("Not a constant: " + variableName);
+
+    if (variableName.contains("->")) {
+        return Predicate.class.getName();
+    }
+
     Matcher expressionMatcher = EXPRESSION_PATTERN.matcher(variableName);
     if (expressionMatcher.find()) {
         String expressionType = PrimitiveExpressionSolver.getTypeOfPrimitiveExpression(variableName);
@@ -174,11 +180,6 @@ public static String getClassNameOfVariable(String variableName, Path path, int 
         }
     }
 
-    System.out.println("Not a constant: " + variableName);
-
-    if (variableName.contains("->")) {
-        return Predicate.class.getName();
-    }
     try {
         List<String> allLines = Files.readAllLines(path);
 

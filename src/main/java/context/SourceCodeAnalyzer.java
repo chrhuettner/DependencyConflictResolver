@@ -92,7 +92,9 @@ public class SourceCodeAnalyzer {
     }
 
     public String getTypeOfFieldInClass(File directory, String className, String fieldName) {
-
+        if(className == null || fieldName == null) {
+            return null;
+        }
         final String[] typeOfField = new String[1];
 
         className = className.replace(".", "/");
