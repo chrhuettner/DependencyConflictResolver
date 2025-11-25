@@ -509,7 +509,7 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
                 BrokenCode brokenCode = ContainerUtil.readBrokenLine(context.getStrippedClassName(), context.getTargetDirectoryClasses(),
                         context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column}, context.getIteration());
 
-                if (compileError.isImportRelated) {
+                if (compileError.isImportRelated && brokenCode.code().trim().startsWith("import ")) {
                     String className = brokenCode.code().trim();
                     className = className.substring(className.indexOf(" ") + 1, className.indexOf(";"));
                     className = className.substring(className.lastIndexOf(".") + 1);

@@ -1,6 +1,6 @@
 {
-  "pathToBUMPFolder": "testFiles/BUMPSubset",
-  "threads": 4,
+  "pathToBUMPFolder": "testFiles/BonoSubset",
+  "threads": 2,
   "maxIterations": 4,
   "maxRetries": 1,
   "pathToOutput": "testFiles",
