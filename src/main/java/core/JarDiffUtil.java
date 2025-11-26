@@ -12,6 +12,7 @@ import japicmp.cmp.JarArchiveComparatorOptions;
 import japicmp.config.Options;
 import japicmp.model.*;
 import javassist.*;
+import llm.WordSimilarityModel;
 import solver.nondeterministic.LLMCodeConflictSolver;
 
 import java.io.File;

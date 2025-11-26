@@ -1,10 +1,10 @@
-package provider.prompt;
+package llm.prompt;
 
-public class ChatGPTMessage {
+public class OllamaMessage {
     public String role;
     public String content;
 
-    public ChatGPTMessage(String role, String content) {
+    public OllamaMessage(String role, String content) {
         this.role = role;
         this.content = content;
     }

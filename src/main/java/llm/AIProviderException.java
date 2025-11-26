@@ -1,4 +1,4 @@
-package provider;
+package llm;
 
 public class AIProviderException extends RuntimeException{
 

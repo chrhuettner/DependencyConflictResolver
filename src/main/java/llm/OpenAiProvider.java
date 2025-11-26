@@ -1,10 +1,10 @@
-package provider;
+package llm;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import okhttp3.Request;
-import provider.prompt.ChatGPTMessage;
-import provider.prompt.ChatGPTPrompt;
+import llm.prompt.ChatGPTMessage;
+import llm.prompt.ChatGPTPrompt;
 
 public class OpenAiProvider extends BaseLLMProvider {
     private final String model;

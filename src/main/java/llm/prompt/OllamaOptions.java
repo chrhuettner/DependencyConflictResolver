@@ -1,4 +1,4 @@
-package provider.prompt;
+package llm.prompt;
 
 public class OllamaOptions {
     public int seed;

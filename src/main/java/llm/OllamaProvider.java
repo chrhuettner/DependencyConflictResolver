@@ -1,11 +1,11 @@
-package provider;
+package llm;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import okhttp3.Request;
-import provider.prompt.OllamaMessage;
-import provider.prompt.OllamaOptions;
-import provider.prompt.OllamaPrompt;
+import llm.prompt.OllamaMessage;
+import llm.prompt.OllamaOptions;
+import llm.prompt.OllamaPrompt;
 
 public class OllamaProvider extends BaseLLMProvider {
     private final String model;

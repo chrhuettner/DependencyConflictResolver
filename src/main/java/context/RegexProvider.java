@@ -2,12 +2,10 @@ package context;
 
 import dto.BrokenCode;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class RegexProvider implements ContextProvider {
+public abstract class RegexProvider implements ErrorLocationProvider {
     protected Context context;
     protected final Pattern pattern;
 

@@ -10,18 +10,17 @@ import com.github.dockerjava.core.DockerClientImpl;
 import com.github.dockerjava.httpclient5.ApacheDockerHttpClient;
 import com.github.dockerjava.transport.DockerHttpClient;
 import context.Context;
-import context.ContextProvider;
+import context.ErrorLocationProvider;
 import context.LogParser;
 import docker.ContainerUtil;
 import dto.BrokenCode;
 import dto.ErrorLocation;
 import dto.PathComponents;
 import dto.ProposedChange;
-import provider.*;
+import llm.*;
 import solver.CodeConflictSolver;
 
 import java.io.*;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -33,7 +32,6 @@ import java.util.regex.Pattern;
 
 import static context.LogParser.parseLog;
 import static context.LogParser.projectIsFixableThroughCodeModification;
-import static docker.ContainerUtil.getPathWithRespectToIteration;
 
 public class BumpRunner {
 
@@ -333,7 +331,7 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
 
                         System.out.println(project + " contains " + errors.size() + " errors.");
 
-                        List<ContextProvider> contextProviders = ContextProvider.getContextProviders(context);
+                        List<ErrorLocationProvider> errorLocationProviders = ErrorLocationProvider.getContextProviders(context);
                         List<CodeConflictSolver> codeConflictSolvers = CodeConflictSolver.getCodeConflictSolvers(context);
 
 
@@ -350,7 +348,7 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
                                     context.setCompileError((LogParser.CompileError) error);
                                     context.setStrippedClassName(ContainerUtil.extractClassIfNotCached(context));
 
-                                    fixError(context, contextProviders, codeConflictSolvers);
+                                    fixError(context, errorLocationProviders, codeConflictSolvers);
 
                                 }
 
@@ -559,7 +557,7 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
     }
 
 
-    public static void fixError(Context context, List<ContextProvider> contextProviders, List<CodeConflictSolver> codeConflictSolvers) throws IOException, ClassNotFoundException {
+    public static void fixError(Context context, List<ErrorLocationProvider> errorLocationProviders, List<CodeConflictSolver> codeConflictSolvers) throws IOException, ClassNotFoundException {
         BrokenCode brokenCode = ContainerUtil.readBrokenLine(context.getStrippedClassName(), context.getTargetDirectoryClasses(),
                 context.getStrippedFileName(), new int[]{context.getCompileError().line, context.getCompileError().column}, context.getIteration());
 
@@ -583,11 +581,11 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
         ErrorLocation errorLocation = new ErrorLocation("", "", new String[0]);
         
         boolean errorGetsTargetByAtLeastOneProvider = false;
-        for (ContextProvider contextProvider : contextProviders) {
-            if (contextProvider.errorIsTargetedByProvider(context.getCompileError(), brokenCode)) {
+        for (ErrorLocationProvider errorLocationProvider : errorLocationProviders) {
+            if (errorLocationProvider.errorIsTargetedByProvider(context.getCompileError(), brokenCode)) {
                 errorGetsTargetByAtLeastOneProvider = true;
 
-                errorLocation = contextProvider.getErrorLocation(context.getCompileError(), brokenCode);
+                errorLocation = errorLocationProvider.getErrorLocation(context.getCompileError(), brokenCode);
 
                 break;
             }

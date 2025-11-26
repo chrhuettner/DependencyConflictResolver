@@ -1,4 +1,4 @@
-package core;
+package llm;
 
 import java.io.IOException;
 import java.net.http.*;
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.*;
 
 public class WordSimilarityModel {
 
-    private String model = "nomic-embed-text";
+    private String model;
     private static final String OLLAMA_URL_SUFFIX = "/api/embeddings";
     private String ollamaUrl;
 
@@ -15,8 +15,6 @@ public class WordSimilarityModel {
         this.model = model;
         this.ollamaUrl = ollamaUrl+OLLAMA_URL_SUFFIX;
     }
-
-
 
     public double[] getEmbedding(String word)  {
         HttpClient client = HttpClient.newHttpClient();
@@ -28,8 +26,8 @@ public class WordSimilarityModel {
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
 
-        HttpResponse<String> response = null;
-        JsonNode root = null;
+        HttpResponse<String> response;
+        JsonNode root;
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
             ObjectMapper mapper = new ObjectMapper();

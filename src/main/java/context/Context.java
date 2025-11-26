@@ -2,10 +2,10 @@ package context;
 
 import com.github.dockerjava.api.DockerClient;
 import core.BumpConfig;
-import core.WordSimilarityModel;
+import llm.WordSimilarityModel;
 import dto.PathComponents;
 import dto.ProposedChange;
-import provider.LLMProvider;
+import llm.LLMProvider;
 
 import java.io.File;
 import java.nio.file.Path;

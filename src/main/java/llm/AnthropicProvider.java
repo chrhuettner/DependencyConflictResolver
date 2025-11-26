@@ -1,7 +1,7 @@
-package provider;
+package llm;
 
 import okhttp3.Request;
-import provider.prompt.*;
+import llm.prompt.*;
 
 public class AnthropicProvider extends BaseLLMProvider {
     private final String model;

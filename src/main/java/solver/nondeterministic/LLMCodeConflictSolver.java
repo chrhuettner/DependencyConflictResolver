@@ -10,9 +10,9 @@ import dto.*;
 import japicmp.model.JApiConstructor;
 import japicmp.model.JApiMethod;
 import japicmp.model.JApiParameter;
-import provider.LLMProvider;
-import provider.AIProviderException;
-import solver.CodeConflictSolver;
+import llm.LLMProvider;
+import llm.AIProviderException;
+import llm.WordSimilarityModel;
 import solver.ContextAwareSolver;
 
 import java.io.*;
