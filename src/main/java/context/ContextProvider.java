@@ -7,18 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class ContextProvider {
-    protected Context context;
+public interface ContextProvider {
+    boolean errorIsTargetedByProvider(LogParser.CompileError compileError, BrokenCode brokenCode);
 
-    public ContextProvider(Context context) {
-        this.context = context;
-    }
+    ErrorLocation getErrorLocation(LogParser.CompileError compileError, BrokenCode brokenCode);
 
-    public Context getContext() {
-        return context;
-    }
-
-    public static List<ContextProvider> getContextProviders(Context context) {
+    static List<ContextProvider> getContextProviders(Context context) {
         List<ContextProvider> contextProviders = new ArrayList<>();
         contextProviders.add(new CannotFindSymbolProvider(context));
         contextProviders.add(new ConstructorTypeProvider(context));
@@ -30,8 +24,4 @@ public abstract class ContextProvider {
 
         return contextProviders;
     }
-
-    public abstract boolean errorIsTargetedByProvider(LogParser.CompileError compileError, BrokenCode brokenCode);
-
-    public abstract ErrorLocation getErrorLocation(LogParser.CompileError compileError, BrokenCode brokenCode);
 }

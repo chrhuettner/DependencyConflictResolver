@@ -5,8 +5,9 @@ import context.Context;
 import dto.BrokenCode;
 import dto.ErrorLocation;
 import dto.ProposedChange;
+import solver.ContextAwareSolver;
 
-public class OverrideSolver extends DeterministicCodeConflictSolver{
+public class OverrideSolver extends ContextAwareSolver {
     public OverrideSolver(Context context) {
         super(context);
     }

@@ -13,20 +13,14 @@ import solver.nondeterministic.LLMCodeConflictSolver;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class CodeConflictSolver {
+public interface CodeConflictSolver {
+    boolean errorIsFixableBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation);
 
-    protected Context context;
+    boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation);
 
+    ProposedChange solveConflict(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation);
 
-    public CodeConflictSolver(Context context) {
-        this.context = context;
-    }
-
-    public Context getContext() {
-        return context;
-    }
-
-    public static List<CodeConflictSolver> getCodeConflictSolvers(Context context) {
+    static List<CodeConflictSolver> getCodeConflictSolvers(Context context) {
         List<CodeConflictSolver> solvers = new ArrayList<>();
         solvers.add(new ImportSolver(context));
         solvers.add(new OverrideSolver(context));
@@ -34,10 +28,4 @@ public abstract class CodeConflictSolver {
         solvers.add(new LLMCodeConflictSolver(context, context.getActiveProvider()));
         return solvers;
     }
-
-    public abstract boolean errorIsFixableBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation);
-
-    public abstract boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation);
-
-    public abstract ProposedChange solveConflict(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation);
 }

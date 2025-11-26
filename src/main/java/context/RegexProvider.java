@@ -2,15 +2,22 @@ package context;
 
 import dto.BrokenCode;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class RegexProvider extends ContextProvider {
+public abstract class RegexProvider implements ContextProvider {
+    protected Context context;
     protected final Pattern pattern;
 
     protected RegexProvider(Context context, Pattern pattern) {
-        super(context);
+        this.context = context;
         this.pattern = pattern;
+    }
+
+    public Context getContext() {
+        return context;
     }
 
     public Pattern getPattern() {

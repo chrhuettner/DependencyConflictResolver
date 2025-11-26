@@ -5,11 +5,12 @@ import context.Context;
 import dto.BrokenCode;
 import dto.ErrorLocation;
 import dto.ProposedChange;
+import solver.ContextAwareSolver;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FinalClassSolver extends DeterministicCodeConflictSolver {
+public class FinalClassSolver extends ContextAwareSolver {
 
     public FinalClassSolver(Context context) {
         super(context);

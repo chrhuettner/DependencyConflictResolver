@@ -6,8 +6,9 @@ import context.Context;
 import dto.BrokenCode;
 import dto.ErrorLocation;
 import dto.ProposedChange;
+import solver.ContextAwareSolver;
 
-public class ImportSolver extends DeterministicCodeConflictSolver {
+public class ImportSolver extends ContextAwareSolver {
 
     public ImportSolver(Context context) {
         super(context);

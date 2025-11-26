@@ -13,6 +13,7 @@ import japicmp.model.JApiParameter;
 import provider.LLMProvider;
 import provider.AIProviderException;
 import solver.CodeConflictSolver;
+import solver.ContextAwareSolver;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -22,7 +23,7 @@ import java.util.List;
 
 import static core.BumpRunner.usePromptCaching;
 
-public class LLMCodeConflictSolver extends CodeConflictSolver {
+public class LLMCodeConflictSolver extends ContextAwareSolver {
 
     static String systemContext = """
             You are a software engineer assistant specialized in resolving dependency conflicts by modifying source code.
