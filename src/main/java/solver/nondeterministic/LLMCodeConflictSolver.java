@@ -462,12 +462,18 @@ public class LLMCodeConflictSolver extends CodeConflictSolver {
             }
 
 
-            while (result == null) {
+            for (int i = 0; result == null && i<5; i++) {
                 try {
                     result = sendAndPrintCode(prompt);
                 } catch (AIProviderException e) {
                     e.printStackTrace();
+                    try {
+                        Thread.sleep(10000);
+                    } catch (InterruptedException e2) {
+                        throw new RuntimeException(e2);
+                    }
                 }
+
             }
 
 
