@@ -526,8 +526,9 @@ public class JarDiffUtil {
         return null;
     }
 
-    public List<JApiMethod> getMethodsOfClass(JApiClass jApiClass, String methodName, String[] parameters) {
+    public JApiMethod getMethodOfClass(JApiClass jApiClass, String methodName, String[] parameters) {
         List<JApiMethod> methods = jApiClass.getMethods();
+        List<JApiMethod> methodsWithSameNameAndParameterCount = new ArrayList<>();
         outerloop: for (JApiMethod jApiMethod : jApiClass.getMethods()) {
             if (jApiMethod.getName().equals(methodName)) {
                 if (parameters == null) {
@@ -536,16 +537,42 @@ public class JarDiffUtil {
                     if(parameters.length != jApiMethod.getParameters().size()){
                         continue;
                     }
+                    CtMethod oldMethod = jApiMethod.getOldMethod().orElse(jApiMethod.getNewMethod().orElse(null));
                     for (int i = 0; i < parameters.length; i++) {
-                        if (!SourceCodeAnalyzer.parameterIsCompatibleWithType(parameters[i], jApiMethod.getParameters().get(i).getType())) {
-                            continue outerloop;
+                        try {
+                            if (!SourceCodeAnalyzer.parameterIsCompatibleWithType(parameters[i], oldMethod.getParameterTypes()[i].getName())) {
+                                methodsWithSameNameAndParameterCount.add(jApiMethod);
+                                continue outerloop;
+                            }
+                        } catch (NotFoundException e) {
+                            throw new RuntimeException(e);
                         }
                     }
-                    methods.add(jApiMethod);
+                   return jApiMethod;
                 }
             }
         }
-        return methods;
+
+        for(JApiImplementedInterface jApiImplementedInterface : jApiClass.getInterfaces()) {
+            if (jApiImplementedInterface.getCorrespondingJApiClass().isPresent()) {
+                JApiMethod recursiveResult = getMethodOfClass(jApiImplementedInterface.getCorrespondingJApiClass().get(), methodName, parameters);
+                if(recursiveResult != null) {
+                    return recursiveResult;
+                }
+            }
+        }
+
+        if(!methodsWithSameNameAndParameterCount.isEmpty()){
+            if(methodsWithSameNameAndParameterCount.size() == 1){
+                return methodsWithSameNameAndParameterCount.get(0);
+            }
+            for(JApiMethod jApiMethod : methodsWithSameNameAndParameterCount){
+                if(jApiMethod.getChangeStatus() != JApiChangeStatus.REMOVED){
+                    return jApiMethod;
+                }
+            }
+        }
+        return null;
     }
 
     public ClassSearchResult getClassesByName(String className) {
@@ -559,6 +586,15 @@ public class JarDiffUtil {
             }
         }
         return new ClassSearchResult(exactClassMatches, suffixClassMatches);
+    }
+
+    public JApiClass getClassByName(String className) {
+        for (JApiClass jApiClass : jApiClasses) {
+            if (jApiClass.getFullyQualifiedName().equals(className)) {
+                return jApiClass;
+            }
+        }
+        return null;
     }
 
     public String getMethodReturnType(String className, String methodName) {

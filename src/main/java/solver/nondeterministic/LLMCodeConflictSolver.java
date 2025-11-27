@@ -14,6 +14,7 @@ import llm.LLMProvider;
 import llm.AIProviderException;
 import llm.WordSimilarityModel;
 import solver.ContextAwareSolver;
+import type.ConflictType;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -440,7 +441,7 @@ public class LLMCodeConflictSolver extends ContextAwareSolver {
     }
 
     @Override
-    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
+    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation, List<ConflictType> conflictTypes) {
         return true;
     }
 
@@ -476,6 +477,8 @@ public class LLMCodeConflictSolver extends ContextAwareSolver {
                 }
 
             }
+
+            context.getLlmRequests().incrementAndGet();
 
 
             try {

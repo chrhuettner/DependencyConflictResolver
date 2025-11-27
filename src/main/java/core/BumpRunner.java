@@ -19,6 +19,8 @@ import dto.PathComponents;
 import dto.ProposedChange;
 import llm.*;
 import solver.CodeConflictSolver;
+import type.ConflictType;
+import type.TypeProvider;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -35,7 +37,6 @@ import static context.LogParser.projectIsFixableThroughCodeModification;
 
 public class BumpRunner {
 
-    public static boolean useContainerExtraction = true;
     public static boolean usePromptCaching = false;
 
     // for example: GitHub.connect().getRepository(ghc.owner + '/' + ghc.repo).getCompare(branch, ghc.hash).status;
@@ -100,42 +101,10 @@ public class BumpRunner {
 
         File outputDirClasses = new File(targetDirectoryClasses);
 
-
-        /*AIProvider chatgptProvider = new OpenAiProvider();
-        AIProvider claudeProvider = new AnthropicProvider();
-        AIProvider codeLama7bProvider = new OllamaProvider("codellama:7b");
-        AIProvider codeLama13bProvider = new OllamaProvider("codellama:13b");
-        AIProvider codeGemma7bProvider = new OllamaProvider("codegemma:7b");
-        AIProvider deepseekCoder6b7Provider = new OllamaProvider("deepseek-coder:6.7b");
-        AIProvider starCoder2_7bProvider = new OllamaProvider("starcoder2:7b");
-        AIProvider deepSeekR1b5 = new OllamaProvider("deepseek-r1:1.5b");
-        AIProvider qwen3_8b = new OllamaProvider("qwen3:8b");
-        AIProvider starCoder2_15bProvider = new OllamaProvider("starcoder2:15b");
-        AIProvider nomicEmbedTextProvider = new OllamaProvider("nomic-embed-text");
-        AIProvider cogito8bProvider = new OllamaProvider("cogito:8b");
-        AIProvider deepseekR1_7b = new OllamaProvider("deepseek-r1:7b");
-        AIProvider gptOss20b = new OllamaProvider("gpt-oss:20b");
-        AIProvider gptOss120bCloud = new OllamaProvider("gpt-oss:120b-cloud");
-        AIProvider qwen3_coder480b_cloud = new OllamaProvider("qwen3-coder:480b-cloud");*/
-
         LLMProvider activeProvider = BaseLLMProvider.getProviderByNames(bumpConfig.getLlmProvider(), bumpConfig.getLlmName(), bumpConfig.getOllamaUri(), bumpConfig.getLlmApiKey());
 
         WordSimilarityModel wordSimilarityModel = new WordSimilarityModel(bumpConfig.getWordSimilarityModel(), bumpConfig.getOllamaUri());
-        //List<LLMProvider> providers = new ArrayList<>();
 
-
-        //providers.add(chatgptProvider);
-        //providers.add(claudeProvider);
-        //providers.add(codeLama7bProvider);
-        //providers.add(codeLama13bProvider);
-        //providers.add(codeGemma7bProvider);   //Unpromising
-        //providers.add(deepseekCoder6b7Provider);    //Unpromising
-        //providers.add(starCoder2_7bProvider);       //Unpromising
-        //providers.add(deepSeekR1b5);                //Unpromising
-        // providers.add(qwen3_8b);
-        //providers.add(gptOss20b);
-
-        // Edit docker desktop to expose this port
         DockerClientConfig config = DefaultDockerClientConfig.createDefaultConfigBuilder()
                 .withDockerHost(bumpConfig.getDockerHostUri())
                 .withRegistryUrl(bumpConfig.getDockerRegistryUri())
@@ -165,6 +134,7 @@ public class BumpRunner {
         AtomicInteger successfulFixes = new AtomicInteger();
         AtomicInteger fixableProjects = new AtomicInteger();
         AtomicInteger imposterProjects = new AtomicInteger();
+        AtomicInteger llmRequests = new AtomicInteger();
 
 
         int limit = bumpConfig.getThreads();
@@ -229,25 +199,17 @@ public class BumpRunner {
                     //TODO: Check this: 0abf7148300f40a1da0538ab060552bca4a2f1d8
 
                     /*
-38c9915f0cfdf0c1a2b17c3c6f283c23a0aac0cf
-java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/prompts/iteration_1/38c9915f0cfdf0c1a2b17c3c6f283c23a0aac0cf_260_org.cactoos.iterable.Filtered<io.zold.api.Transaction>_qwen3coder480bcloud.txt
-	at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:204)
-	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:175)
-	at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
-	at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
-	at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:203)
-	at java.base/java.nio.file.Path.of(Path.java:148)
-	at solver.nondeterministic.LLMCodeConflictSolver.solveConflict(LLMCodeConflictSolver.java:451)
-	at core.BumpRunner.fixError(BumpRunner.java:627)
-                     */
-
-                    // f6659d758a437f8b676481fe70671a68a6ee1cde
 
                     //TODO: 4aab2869639226035c999c282f31efba15648ea3 className is null
                     /*if (!file.getName().equals("10d7545c5771b03dd9f6122bd5973a759eb2cd03.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }*/
+
+                    if (!file.getName().equals("0abf7148300f40a1da0538ab060552bca4a2f1d8.json")) {
+                        activeThreadCount.decrementAndGet();
+                        return;
+                    }
 
                     String strippedFileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 
@@ -321,7 +283,7 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
                         Context context = new Context(project, previousVersion, newVersion, dependencyArtifactID, strippedFileName, outputDirClasses, brokenUpdateImage,
                                 targetPathOld, targetPathNew, targetDirectoryClasses, outputDirSrcFiles, activeProvider, dockerClient, errorSet, proposedChanges, null,
                                 targetDirectoryLLMResponses, targetDirectoryPrompts, targetDirectoryFixedClasses, targetDirectoryFixedLogs, null,
-                                bumpConfig, wordSimilarityModel, targetDirectoryResult);
+                                bumpConfig, wordSimilarityModel, targetDirectoryResult, llmRequests);
 
                         List<Object> errors = parseLog(Path.of(bumpConfig.getPathToOutput() + "/brokenLogs" + "/" + strippedFileName + "_" + project));
 
@@ -366,9 +328,16 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
                                     //bumpConfig.getPathToOutput() + "/correctedLogs" + "/" + strippedFileName + "_" + project
 
                                     //E:\master\DependencyConflictResolver\testFiles\correctedLogs\iteration_0
-                                    errors = parseLog(Path.of(bumpConfig.getPathToOutput() + "/correctedLogs" + "/iteration_" + context.getPreviousIteration() + "/" + strippedFileName + "_" + project));
+                                    List<Object> newErrors = parseLog(Path.of(bumpConfig.getPathToOutput() + "/correctedLogs" + "/iteration_" + context.getPreviousIteration() + "/" + strippedFileName + "_" + project));
 
-                                    reduceErrors(errors, context);
+                                    reduceErrors(newErrors, context);
+
+                                    if(!errorsHaveChanged(errors, newErrors)){
+                                        System.out.println("Stopped iteration due to unchanged errors.");
+                                        continue outerloop;
+                                    }
+
+                                    errors = newErrors;
 
                                     System.out.println(project + " contains " + errors.size() + " errors (previous iteration had " + initialSize + " errors)");
                                     initialSize = errors.size();
@@ -378,10 +347,10 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
                             } catch (Exception e) {
                                 System.err.println(context.getStrippedFileName());
                                 e.printStackTrace();
-                            } finally {
+                            } //finally {
                                 //context.getErrorSet().clear();
                                 //context.getProposedChanges().clear();
-                            }
+                            //}
                         }
                     }
 
@@ -417,6 +386,7 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
         System.out.println(satisfiedConflictPairs.get() + " out of " + totalPairs.get() + " project pairs have accessible dependencies");
         System.out.println(fixableProjects.get() + " projects are fixable");
         System.out.println("Fixed " + successfulFixes.get() + " out of " + satisfiedConflictPairs.get() + " projects (" + failedFixes.get() + " were not fixed)");
+        System.out.println("Number of llm requests "+llmRequests.get());
         try {
             objectMapper.writeValue(new File(bumpConfig.getPathToOutput() + "/downloaded/validEntries.json"), validEntryNames);
         } catch (IOException e) {
@@ -495,6 +465,23 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
     public static void reduceErrors(List<Object> errors, Context context) {
         removeDuplicatedLogErrorEntries(errors);
         removeErrorsCausedByImportError(errors, context);
+    }
+
+    public static boolean errorsHaveChanged(List<Object> oldErrors, List<Object> newErrors) {
+       int sameErrors = 0;
+        for (Object oldError : oldErrors) {
+            if(oldError instanceof LogParser.CompileError oldCompileError) {
+                for (Object newError : newErrors) {
+                    if(newError instanceof LogParser.CompileError newCompileError) {
+                        if (oldCompileError.message.equals(newCompileError.message) && oldCompileError.line == newCompileError.line) {
+                            sameErrors++;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return sameErrors < oldErrors.size();
     }
 
     public static void removeErrorsCausedByImportError(List<Object> errors, Context context) {
@@ -595,11 +582,16 @@ java.nio.file.InvalidPathException: Illegal char <<> at index 104: testFiles/pro
             System.out.println("UNCATEGORIZED " + brokenCode.code());
         }
 
+        List<ConflictType> conflictTypes = TypeProvider.getConflictTypes(brokenCode, errorLocation, context.getCompileError(), context);
+        for (ConflictType conflictType : conflictTypes) {
+            System.out.println("Conflict type " + conflictType);
+        }
+
         
 
 
         for (CodeConflictSolver codeConflictSolver : codeConflictSolvers) {
-            if (codeConflictSolver.errorIsTargetedBySolver(context.getCompileError(), brokenCode, errorLocation)) {
+            if (codeConflictSolver.errorIsTargetedBySolver(context.getCompileError(), brokenCode, errorLocation, conflictTypes)) {
                 if (codeConflictSolver.errorIsFixableBySolver(context.getCompileError(), brokenCode, errorLocation)) {
                     ProposedChange proposedChange = codeConflictSolver.solveConflict(context.getCompileError(), brokenCode, errorLocation);
                     System.out.println(codeConflictSolver.getClass().getName() + " proposed " + proposedChange.code());

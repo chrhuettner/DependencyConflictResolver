@@ -11,6 +11,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Context {
     private String project;
@@ -50,13 +51,15 @@ public class Context {
 
     private String targetDirectoryResult;
 
+    private AtomicInteger llmRequests;
+
 
     public Context(String project, String previousVersion, String newVersion, String dependencyArtifactId, String strippedFileName,
                    File outputDirClasses, String brokenUpdateImage, Path targetPathOld, Path targetPathNew, String targetDirectoryClasses,
                    File outputDirSrcFiles, LLMProvider activeProvider, DockerClient dockerClient, HashMap<String, ProposedChange> errorSet,
                    List<ProposedChange> proposedChanges, LogParser.CompileError compileError, String targetDirectoryLLMResponses,
                    String targetDirectoryPrompts, String targetDirectoryFixedClasses, String targetDirectoryFixedLogs, String strippedClassName,
-                   BumpConfig config, WordSimilarityModel wordSimilarityModel, String targetDirectoryResult) {
+                   BumpConfig config, WordSimilarityModel wordSimilarityModel, String targetDirectoryResult, AtomicInteger llmRequests) {
         this.project = project;
         this.previousVersion = previousVersion;
         this.newVersion = newVersion;
@@ -83,6 +86,7 @@ public class Context {
         this.iteration = 0;
         this.fixedClassesFromPastIterations = new HashMap<>();
         this.targetDirectoryResult = targetDirectoryResult;
+        this.llmRequests = llmRequests;
     }
 
     public String getStrippedClassName() {
@@ -295,5 +299,13 @@ public class Context {
 
     public void setTargetDirectoryResult(String targetDirectoryResult) {
         this.targetDirectoryResult = targetDirectoryResult;
+    }
+
+    public AtomicInteger getLlmRequests() {
+        return llmRequests;
+    }
+
+    public void setLlmRequests(AtomicInteger llmRequests) {
+        this.llmRequests = llmRequests;
     }
 }

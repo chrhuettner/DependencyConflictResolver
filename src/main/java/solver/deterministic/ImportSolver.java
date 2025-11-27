@@ -7,6 +7,9 @@ import dto.BrokenCode;
 import dto.ErrorLocation;
 import dto.ProposedChange;
 import solver.ContextAwareSolver;
+import type.ConflictType;
+
+import java.util.List;
 
 public class ImportSolver extends ContextAwareSolver {
 
@@ -30,8 +33,8 @@ public class ImportSolver extends ContextAwareSolver {
     }
 
     @Override
-    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
-        return brokenCode.code().startsWith("import") && !brokenCode.code().trim().endsWith("*;");
+    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation, List<ConflictType> conflictTypes) {
+        return conflictTypes.contains(ConflictType.CLASS_MOVED) && brokenCode.code().startsWith("import") && !brokenCode.code().trim().endsWith("*;");
     }
 
     // Only call after errorIsFixableBySolver is true

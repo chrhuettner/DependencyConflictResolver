@@ -39,6 +39,25 @@ public class ContextUtil {
         return -1;
     }
 
+    public static List<Integer> getOuterParameterSeparators(String s, int start) {
+        int openBrackets = 0;
+        int closedBrackets = 0;
+        List<Integer> parameterSeparators = new ArrayList<>();
+        for (int i = start; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') {
+                openBrackets++;
+            } else if (c == ')') {
+                closedBrackets++;
+            }
+
+            if (openBrackets == closedBrackets && c == ',') {
+                parameterSeparators.add(i);
+            }
+        }
+        return parameterSeparators;
+    }
+
     public static String getTypeOfField(SourceCodeAnalyzer sourceCodeAnalyzer, String callerVariable, String fieldChain, File srcDirectory, Path classLookup, int lineNumber) {
 
         if (fieldChain.equals("class")) {
@@ -304,5 +323,20 @@ public static String getClassNameOfVariable(String variableName, Path path, int 
             default:
                 return parameter;
         }
+    }
+
+    public static boolean parameterIsPrimitiveNumber(String parameterClassName){
+        String classWrapper = primitiveClassNameToWrapperName(parameterClassName);
+        switch (classWrapper){
+            case "java.lang.Double":
+            case "java.lang.Float":
+            case "java.lang.Long":
+            case "java.lang.Integer":
+            case "java.lang.Character":
+            case "java.lang.Short":
+            case "java.lang.Byte":
+                return true;
+        }
+        return false;
     }
 }

@@ -1,5 +1,5 @@
 {
-  "pathToBUMPFolder": "testFiles/BonoSubsetPart2",
+  "pathToBUMPFolder": "testFiles/BUMPSubset",
   "threads": 4,
   "maxIterations": 3,
   "maxRetries": 0,

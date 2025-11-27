@@ -21,6 +21,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContainerUtil {
@@ -42,6 +43,33 @@ public class ContainerUtil {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    public static List<String> getAllExtensionsAndImplementations(Path path) {
+        String regex = ".*class .* extends .*";
+        List<String> classNames = new ArrayList<>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(path.toFile()));
+
+            String line = null;
+            int lineNumber = 1;
+            while ((line = br.readLine()) != null) {
+                if (line.matches(regex)) {
+                    classNames.add(line.substring(line.indexOf("extends ") + "extends ".length(), line.indexOf("{")).trim());
+                    int implementsIndex = line.indexOf("implements ");
+                    if (implementsIndex != -1) {
+                        String interfaces = line.substring(implementsIndex + "implements ".length(), line.indexOf("{")).trim();
+                        String[] interfacesArray = interfaces.split(",");
+                        for (String interfaceName : interfacesArray) {
+                            classNames.add(interfaceName);
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return classNames;
     }
 
     public static Path getPathSuffixWithRespectToIteration(String fileName, String className, int iteration, boolean usePreviousIteration) {

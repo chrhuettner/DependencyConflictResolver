@@ -6,6 +6,9 @@ import dto.BrokenCode;
 import dto.ErrorLocation;
 import dto.ProposedChange;
 import solver.ContextAwareSolver;
+import type.ConflictType;
+
+import java.util.List;
 
 public class OverrideSolver extends ContextAwareSolver {
     public OverrideSolver(Context context) {
@@ -18,8 +21,8 @@ public class OverrideSolver extends ContextAwareSolver {
     }
 
     @Override
-    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
-        return brokenCode.code().trim().startsWith("@Override");
+    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation, List<ConflictType> conflictTypes) {
+        return conflictTypes.contains(ConflictType.METHOD_NO_LONGER_OVERRIDES) && brokenCode.code().trim().startsWith("@Override");
     }
 
     @Override

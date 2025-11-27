@@ -6,7 +6,9 @@ import dto.BrokenCode;
 import dto.ErrorLocation;
 import dto.ProposedChange;
 import solver.ContextAwareSolver;
+import type.ConflictType;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,8 +24,8 @@ public class FinalClassSolver extends ContextAwareSolver {
     }
 
     @Override
-    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
-        return getMatcher(compileError).find();
+    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation, List<ConflictType> conflictTypes) {
+        return conflictTypes.contains(ConflictType.PARENT_CLASS_SEALED) && getMatcher(compileError).find();
     }
 
     @Override
