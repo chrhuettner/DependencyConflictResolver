@@ -27,7 +27,12 @@ public class MethodParameterSolver extends ContextAwareSolver {
     }
 
     @Override
-    public boolean errorIsFixableBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
+    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation, List<ConflictType> conflictTypes) {
+        return conflictTypes.contains(ConflictType.METHOD_PARAMETERS_ADDED) || conflictTypes.contains(ConflictType.METHOD_PARAMETERS_REMOVED) || conflictTypes.contains(ConflictType.METHOD_PARAMETER_TYPES_CHANGED);
+    }
+
+    @Override
+    public ProposedChange solveConflict(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
         JarDiffUtil jarDiffUtil = JarDiffUtil.getInstance(context.getTargetPathOld().toString(), context.getTargetPathNew().toString());
 
         JApiClass jApiClass = jarDiffUtil.getClassByName(errorLocation.className());
@@ -55,7 +60,7 @@ public class MethodParameterSolver extends ContextAwareSolver {
 
                 }
             } else {
-                if(errorLocation.targetMethodParameterClassNames().length > i) {
+                if (errorLocation.targetMethodParameterClassNames().length > i) {
                     if (!SourceCodeAnalyzer.parameterIsCompatibleWithType(errorLocation.targetMethodParameterClassNames()[i], jApiParameter.getType())) {
                         parametersToCast.put(i, new String[]{errorLocation.targetMethodParameterClassNames()[i], jApiParameter.getType()});
                     }
@@ -74,38 +79,67 @@ public class MethodParameterSolver extends ContextAwareSolver {
             throw new RuntimeException(errorLocation.methodName() + " has no closing brace in " + brokenCode.code());
         }
 
-        String methodInvocation = methodChain.substring(methodInvocationStart + errorLocation.methodName().length() + 1, methodInvocationEnd);
+        int parameterStart = methodInvocationStart + errorLocation.methodName().length() + 1;
+        String methodInvocation = methodChain.substring(parameterStart, methodInvocationEnd);
         List<Integer> separationIndices = ContextUtil.getOuterParameterSeparators(methodInvocation, 0);
-        String[] parameters = new String[separationIndices.size() + 1];
+        List<String> parameters = new ArrayList<>();
         int lastIndex = 0;
         for (int j = 0; j < separationIndices.size(); j++) {
-            parameters[j] = methodInvocation.substring(lastIndex, separationIndices.get(j));
+            parameters.add(methodInvocation.substring(lastIndex, separationIndices.get(j)));
             lastIndex = separationIndices.get(j) + 1;
         }
-        parameters[separationIndices.size()] = methodInvocation.substring(lastIndex);
-
-       for(int key : parametersToCast.keySet()) {
-           String[] castFromTo = parametersToCast.get(key);
-           if(!ContextUtil.parameterIsPrimitiveNumber(castFromTo[0]) && ContextUtil.parameterIsPrimitiveNumber(castFromTo[1])){
-               return false;
-           }
-       }
-
-       //TODO: ADD OTHERS
+        parameters.add(methodInvocation.substring(lastIndex));
 
 
+        for (int index : parametersToRemove) {
+            parameters.set(index, null);
+        }
 
-        return false;
+        for (int key : parametersToAdd.keySet()) {
+            String parameterTypeToAdd = parametersToAdd.get(key);
+            if (!ContextUtil.parameterIsPrimitiveNumber(parameterTypeToAdd)) {
+                if (parameterTypeToAdd.equals("String")) {
+                    parameters.set(key, "");
+                } else {
+                    return null;
+                }
+            } else {
+                parameters.add(key, "(" + ContextUtil.wrapperNameToPrimitiveInstance(parameterTypeToAdd) + ")" + parameters.get(key));
+            }
+        }
+
+        for (int key : parametersToCast.keySet()) {
+            String[] castFromTo = parametersToCast.get(key);
+            if (!ContextUtil.parameterIsPrimitiveNumber(castFromTo[0]) && ContextUtil.parameterIsPrimitiveNumber(castFromTo[1])) {
+                return null;
+            }
+
+            parameters.set(key, "(" + ContextUtil.wrapperNameToPrimitiveClassName(castFromTo[1]) + ")" + parameters.get(key));
+        }
+
+        for (int i = parameters.size() - 1; i >= 0; i--) {
+            if(parameters.get(i) == null) {
+                parameters.remove(i);
+            }
+        }
+
+
+        //TODO: ADD OTHERS, ALSO, THIS ARCHITECTURE IS SHIT, USE ONE METHOD INSTEAD OF REPLICATING EVERYTHING IN errorisFixableBySolver and errorIsTargetedBySolver
+
+
+        return new ProposedChange(context.getStrippedClassName(), reconstructMethodChain(methodChain, parameterStart, methodInvocationEnd, parameters.toArray(new String[]{})), context.getCompileError().file, brokenCode.start(), brokenCode.end());
     }
 
+    public String reconstructMethodChain(String originalChain, int invocationStart, int invocationEnd, String[] parameters) {
+        String newMethodChain = originalChain.substring(0, invocationStart);
+        for (int i = 0; i < parameters.length; i++) {
+            newMethodChain = newMethodChain + parameters[i];
+            if (i != parameters.length - 1) {
+                newMethodChain = newMethodChain + ", ";
+            }
+        }
+        newMethodChain = newMethodChain + originalChain.substring(invocationEnd);
 
-    @Override
-    public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation, List<ConflictType> conflictTypes) {
-        return conflictTypes.contains(ConflictType.METHOD_PARAMETERS_ADDED) || conflictTypes.contains(ConflictType.METHOD_PARAMETERS_REMOVED) || conflictTypes.contains(ConflictType.METHOD_PARAMETER_TYPES_CHANGED);
-    }
-
-    @Override
-    public ProposedChange solveConflict(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
-        return null;
+        return newMethodChain;
     }
 }

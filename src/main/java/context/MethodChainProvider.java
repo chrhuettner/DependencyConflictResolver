@@ -33,7 +33,9 @@ public class MethodChainProvider extends BrokenCodeRegexProvider {
         int errorIndex = Math.min(compileErrorColumn, brokenCode.length() - 1);
         Path classLookupPath = ContainerUtil.getPathWithRespectToIteration(targetDirectoryClasses, strippedFileName, strippedClassName, iteration, true);
 
+        //System.out.println("Trying to create source code analyser");
         SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(srcDirectory);
+        //System.out.println("Sourcecodeanalyzer created!!");
         if (brokenCode.contains("=")) {
             brokenCode = brokenCode.substring(brokenCode.indexOf("=") + 1).trim();
         }
@@ -63,6 +65,9 @@ public class MethodChainProvider extends BrokenCodeRegexProvider {
                 break;
             }
             int closingBraceIndex = ContextUtil.getClosingBraceIndex(brokenCode, openBraceIndex);
+            if(closingBraceIndex == -1){
+                continue;
+            }
             String potentialInnerChain = brokenCode.substring(openBraceIndex + 1, closingBraceIndex);
             if (!potentialInnerChain.contains("(")) {
                 index = closingBraceIndex + 1;

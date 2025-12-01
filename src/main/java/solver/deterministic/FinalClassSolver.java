@@ -19,13 +19,8 @@ public class FinalClassSolver extends ContextAwareSolver {
     }
 
     @Override
-    public boolean errorIsFixableBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
-        return getClassIndex(brokenCode) != -1;
-    }
-
-    @Override
     public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation, List<ConflictType> conflictTypes) {
-        return conflictTypes.contains(ConflictType.PARENT_CLASS_SEALED) && getMatcher(compileError).find();
+        return conflictTypes.contains(ConflictType.PARENT_CLASS_SEALED) && getMatcher(compileError).find() &&  getClassIndex(brokenCode) != -1;
     }
 
     @Override
@@ -35,9 +30,7 @@ public class FinalClassSolver extends ContextAwareSolver {
         String proposedCode = brokenCode.code();
         proposedCode = proposedCode.substring(0, classIndex) + " final " + proposedCode.substring(classIndex + 1);
 
-        ProposedChange proposedChange = new ProposedChange(context.getStrippedClassName(), proposedCode, context.getCompileError().file, brokenCode.start(), brokenCode.end());
-
-        return proposedChange;
+        return new ProposedChange(context.getStrippedClassName(), proposedCode, context.getCompileError().file, brokenCode.start(), brokenCode.end());
     }
 
     private Matcher getMatcher(LogParser.CompileError compileError) {

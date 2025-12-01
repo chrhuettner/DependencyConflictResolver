@@ -28,6 +28,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,6 +39,10 @@ import static context.LogParser.projectIsFixableThroughCodeModification;
 public class BumpRunner {
 
     public static boolean usePromptCaching = false;
+
+    public static ConcurrentHashMap<ConflictType, AtomicInteger> conflicts = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, AtomicInteger> errorsAssignedToSolvers = new ConcurrentHashMap<>();
+
 
     // for example: GitHub.connect().getRepository(ghc.owner + '/' + ghc.repo).getCompare(branch, ghc.hash).status;
     // public static final Pattern METHOD_CHAIN_PATTERN = Pattern.compile(
@@ -206,10 +211,10 @@ public class BumpRunner {
                         return;
                     }*/
 
-                    if (!file.getName().equals("0abf7148300f40a1da0538ab060552bca4a2f1d8.json")) {
+                    /*if (!file.getName().equals("9a8b6fc7847a0782ae4c48d0e4f7056507c0397d.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
-                    }
+                    }*/
 
                     String strippedFileName = file.getName().substring(0, file.getName().lastIndexOf("."));
 
@@ -235,7 +240,7 @@ public class BumpRunner {
 
                     if (!Files.exists(ContainerUtil.getPath(outputDirSrcFiles.getPath(), dependencyArtifactID, strippedFileName))) {
                         CreateContainerResponse oldContainer = ContainerUtil.pullImageAndCreateContainer(dockerClient, oldUpdateImage);
-                        if (ContainerUtil.logFromContainerContainsError(dockerClient, oldContainer, Path.of(directoryOldContainerLogs + "/"+ strippedFileName + "_" + project))) {
+                        if (ContainerUtil.logFromContainerContainsError(dockerClient, oldContainer, Path.of(directoryOldContainerLogs + "/" + strippedFileName + "_" + project))) {
                             System.out.println(strippedFileName + "_" + project + " is not working despite being in the pre set!!!!");
                             imposterProjects.incrementAndGet();
                             activeThreadCount.decrementAndGet();
@@ -277,7 +282,8 @@ public class BumpRunner {
                     boolean errorsWereFixed = false;
                     int amountOfIterations = 0;
                     int amountOfRetries = 0;
-                    outerloop: for (; amountOfRetries <= bumpConfig.getMaxRetries(); amountOfRetries++) {
+                    outerloop:
+                    for (; amountOfRetries <= bumpConfig.getMaxRetries(); amountOfRetries++) {
                         List<ProposedChange> proposedChanges = new ArrayList<>();
                         HashMap<String, ProposedChange> errorSet = new HashMap<>();
                         Context context = new Context(project, previousVersion, newVersion, dependencyArtifactID, strippedFileName, outputDirClasses, brokenUpdateImage,
@@ -295,7 +301,6 @@ public class BumpRunner {
 
                         List<ErrorLocationProvider> errorLocationProviders = ErrorLocationProvider.getContextProviders(context);
                         List<CodeConflictSolver> codeConflictSolvers = CodeConflictSolver.getCodeConflictSolvers(context);
-
 
 
                         // boolean wasImportRelated = false;
@@ -332,7 +337,7 @@ public class BumpRunner {
 
                                     reduceErrors(newErrors, context);
 
-                                    if(!errorsHaveChanged(errors, newErrors)){
+                                    if (!errorsHaveChanged(errors, newErrors)) {
                                         System.out.println("Stopped iteration due to unchanged errors.");
                                         continue outerloop;
                                     }
@@ -348,8 +353,8 @@ public class BumpRunner {
                                 System.err.println(context.getStrippedFileName());
                                 e.printStackTrace();
                             } //finally {
-                                //context.getErrorSet().clear();
-                                //context.getProposedChanges().clear();
+                            //context.getErrorSet().clear();
+                            //context.getProposedChanges().clear();
                             //}
                         }
                     }
@@ -357,7 +362,7 @@ public class BumpRunner {
                     JarDiffUtil.removeCachedJarDiffsForThread();
 
                     if (errorsWereFixed) {
-                        System.out.println("Fixed "+strippedFileName+" (Retries: "+amountOfRetries+", Iteration: "+amountOfIterations+")");
+                        System.out.println("Fixed " + strippedFileName + " (Retries: " + amountOfRetries + ", Iteration: " + amountOfIterations + ")");
                         successfulFixes.getAndIncrement();
                     } else {
                         System.out.println("Could not fix " + strippedFileName);
@@ -386,7 +391,14 @@ public class BumpRunner {
         System.out.println(satisfiedConflictPairs.get() + " out of " + totalPairs.get() + " project pairs have accessible dependencies");
         System.out.println(fixableProjects.get() + " projects are fixable");
         System.out.println("Fixed " + successfulFixes.get() + " out of " + satisfiedConflictPairs.get() + " projects (" + failedFixes.get() + " were not fixed)");
-        System.out.println("Number of llm requests "+llmRequests.get());
+        System.out.println("Number of llm requests " + llmRequests.get());
+        for (ConflictType conflictType : conflicts.keySet()) {
+            System.out.println("Detected "+conflicts.get(conflictType).get()+" "+conflictType+" conflicts");
+        }
+
+        for (String solverName : errorsAssignedToSolvers.keySet()) {
+            System.out.println("Assigned "+errorsAssignedToSolvers.get(solverName).get()+" errors to "+solverName+"");
+        }
         try {
             objectMapper.writeValue(new File(bumpConfig.getPathToOutput() + "/downloaded/validEntries.json"), validEntryNames);
         } catch (IOException e) {
@@ -419,12 +431,12 @@ public class BumpRunner {
 
         // Classes from past iterations
         for (String className : classesToReplace) {
-            System.out.println("Also replaced "+className);
+            System.out.println("Also replaced " + className);
             PathComponents pathComponents = context.getFixedClassesFromPastIterations().get(className);
             ContainerUtil.replaceFileInContainer(context.getDockerClient(), container, pathComponents.path(), pathComponents.fileNameInContainer());
         }
 
-        for(String className : groupedChangesByClassName.keySet()) {
+        for (String className : groupedChangesByClassName.keySet()) {
             context.getFixedClassesFromPastIterations().put(className,
                     new PathComponents(ContainerUtil.getPathWithIteration(context.getTargetDirectoryFixedClasses(), context.getStrippedFileName(), className, context.getIteration()), groupedChangesByClassName.get(className).get(0).file()));
         }
@@ -433,11 +445,11 @@ public class BumpRunner {
     }
 
     public static void safeResult(Context context) {
-        File resultFolderForProject = new File(context.getTargetDirectoryResult()+"/"+context.getStrippedFileName()+"_"+context.getProject());
+        File resultFolderForProject = new File(context.getTargetDirectoryResult() + "/" + context.getStrippedFileName() + "_" + context.getProject());
         resultFolderForProject.mkdirs();
 
         for (String className : context.getFixedClassesFromPastIterations().keySet()) {
-            System.out.println("Saving fixed "+className+" to "+resultFolderForProject.toPath().resolve(Path.of(className)));
+            System.out.println("Saving fixed " + className + " to " + resultFolderForProject.toPath().resolve(Path.of(className)));
             try {
                 Files.copy(context.getFixedClassesFromPastIterations().get(className).path(), resultFolderForProject.toPath().resolve(Path.of(className)), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
@@ -468,11 +480,11 @@ public class BumpRunner {
     }
 
     public static boolean errorsHaveChanged(List<Object> oldErrors, List<Object> newErrors) {
-       int sameErrors = 0;
+        int sameErrors = 0;
         for (Object oldError : oldErrors) {
-            if(oldError instanceof LogParser.CompileError oldCompileError) {
+            if (oldError instanceof LogParser.CompileError oldCompileError) {
                 for (Object newError : newErrors) {
-                    if(newError instanceof LogParser.CompileError newCompileError) {
+                    if (newError instanceof LogParser.CompileError newCompileError) {
                         if (oldCompileError.message.equals(newCompileError.message) && oldCompileError.line == newCompileError.line) {
                             sameErrors++;
                             break;
@@ -552,21 +564,21 @@ public class BumpRunner {
         String trimmedBrokenCode = brokenCode.code().trim();
         Matcher nonReducableErrorMatcher = Pattern.compile("^\\s*[}{)( ;]+\\s*$").matcher(trimmedBrokenCode);
 
-        if(nonReducableErrorMatcher.find()) {
-            System.out.println(trimmedBrokenCode+" is not reducible");
-        }else {
+        if (nonReducableErrorMatcher.find()) {
+            System.out.println(trimmedBrokenCode + " is not reducible");
+        } else {
             if (context.getErrorSet().containsKey(trimmedBrokenCode)) {
                 int offset = context.getCompileError().line - context.getErrorSet().get(trimmedBrokenCode).start();
                 context.getProposedChanges().add(new ProposedChange(context.getStrippedClassName(), context.getErrorSet().get(trimmedBrokenCode).code(), context.getCompileError().file,
                         offset + context.getErrorSet().get(trimmedBrokenCode).start(), offset + context.getErrorSet().get(trimmedBrokenCode).end()));
-                System.out.println("Similar error in proposed changes. Changed " + trimmedBrokenCode + " to "+context.getErrorSet().get(trimmedBrokenCode).code()+". Added past fix with position adjustment");
+                System.out.println("Similar error in proposed changes. Changed " + trimmedBrokenCode + " to " + context.getErrorSet().get(trimmedBrokenCode).code() + ". Added past fix with position adjustment");
                 return;
             }
         }
 
         System.out.println(context.getCompileError().file + " " + context.getCompileError().line + " " + context.getCompileError().column);
         ErrorLocation errorLocation = new ErrorLocation("", "", new String[0]);
-        
+
         boolean errorGetsTargetByAtLeastOneProvider = false;
         for (ErrorLocationProvider errorLocationProvider : errorLocationProviders) {
             if (errorLocationProvider.errorIsTargetedByProvider(context.getCompileError(), brokenCode)) {
@@ -587,15 +599,14 @@ public class BumpRunner {
             System.out.println("Conflict type " + conflictType);
         }
 
-        
-
+        updateConflicts(conflictTypes);
 
         for (CodeConflictSolver codeConflictSolver : codeConflictSolvers) {
             if (codeConflictSolver.errorIsTargetedBySolver(context.getCompileError(), brokenCode, errorLocation, conflictTypes)) {
-                if (codeConflictSolver.errorIsFixableBySolver(context.getCompileError(), brokenCode, errorLocation)) {
-                    ProposedChange proposedChange = codeConflictSolver.solveConflict(context.getCompileError(), brokenCode, errorLocation);
+                ProposedChange proposedChange = codeConflictSolver.solveConflict(context.getCompileError(), brokenCode, errorLocation);
+                if(proposedChange != null) {
                     System.out.println(codeConflictSolver.getClass().getName() + " proposed " + proposedChange.code());
-
+                    updateSolvers(codeConflictSolver.getClass().getName());
                     context.getProposedChanges().add(proposedChange);
                     context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
                     return;
@@ -612,6 +623,20 @@ public class BumpRunner {
             return null;
         }
         return str.substring(1, str.length() - 1);
+    }
+
+    public static void updateConflicts(List<ConflictType> types){
+        for (ConflictType conflictType : types) {
+            conflicts.putIfAbsent(conflictType, new AtomicInteger());
+
+            conflicts.get(conflictType).incrementAndGet();
+        }
+    }
+
+    public static void updateSolvers(String solverName){
+        errorsAssignedToSolvers.putIfAbsent(solverName, new AtomicInteger());
+
+        errorsAssignedToSolvers.get(solverName).incrementAndGet();
     }
 
 }

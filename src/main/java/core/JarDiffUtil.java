@@ -38,10 +38,10 @@ public class JarDiffUtil {
 
     public static void removeCachedJarDiffsForThread() {
         long id = Thread.currentThread().threadId();
-        System.out.println("THREAD WITH ID "+id+" REMOVES CACHE");
-        System.out.println("SIZE BEFORE "+concurrentJarDiffUtils.keySet().size());
+        System.out.println("THREAD WITH ID "+id+" RELEASES JARDIFF CACHE");
+        System.out.println("GLOBAL JARDIFF CACHE SIZE BEFORE: "+concurrentJarDiffUtils.keySet().size());
         concurrentJarDiffUtils.remove(id);
-        System.out.println("SIZE AFTER "+concurrentJarDiffUtils.keySet().size());
+        System.out.println("GLOBAL JARDIFF CACHE SIZE AFTER: "+concurrentJarDiffUtils.keySet().size());
     }
 
     private static JarDiffUtil getLazyLoadedInstance(String file1, String file2) {

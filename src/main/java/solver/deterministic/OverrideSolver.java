@@ -16,13 +16,10 @@ public class OverrideSolver extends ContextAwareSolver {
     }
 
     @Override
-    public boolean errorIsFixableBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation) {
-        return context.getCompileError().message.startsWith("method does not override or implement a method from a supertype");
-    }
-
-    @Override
     public boolean errorIsTargetedBySolver(LogParser.CompileError compileError, BrokenCode brokenCode, ErrorLocation errorLocation, List<ConflictType> conflictTypes) {
-        return conflictTypes.contains(ConflictType.METHOD_NO_LONGER_OVERRIDES) && brokenCode.code().trim().startsWith("@Override");
+        return conflictTypes.contains(ConflictType.METHOD_NO_LONGER_OVERRIDES) &&
+                brokenCode.code().trim().startsWith("@Override") &&
+                context.getCompileError().message.startsWith("method does not override or implement a method from a supertype");
     }
 
     @Override

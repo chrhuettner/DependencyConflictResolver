@@ -19,6 +19,7 @@ public class ContextUtil {
 
     private static final Logger log = LoggerFactory.getLogger(ContextUtil.class);
 
+    //TODO: Improve this regex so it only allows primitives (and Strings), currently it also allows variables inside the expressions
     private static final Pattern EXPRESSION_PATTERN =  Pattern.compile(".*[+\\-*/%&|^~<>].*");
 
     public static int getClosingBraceIndex(String s, int start) {
@@ -322,6 +323,35 @@ public static String getClassNameOfVariable(String variableName, Path path, int 
                 return String.class.getName();
             default:
                 return parameter;
+        }
+    }
+
+    public static String wrapperNameToPrimitiveClassName(String parameter) {
+
+        switch (parameter) {
+            case "java.lang.Double": return "double";
+            case "java.lang.Float": return "float";
+            case "java.lang.Long": return "long";
+            case "java.lang.Integer": return "int";
+            case "java.lang.Character": return "char";
+            case "java.lang.Short": return "short";
+            case "java.lang.Byte": return "byte";
+            default:
+                return parameter;
+        }
+    }
+
+    public static Object wrapperNameToPrimitiveInstance(String parameter) {
+        switch (parameter) {
+            case "java.lang.Double": return 0d;
+            case "java.lang.Float": return 0f;
+            case "java.lang.Long": return 0l;
+            case "java.lang.Integer": return 0;
+            case "java.lang.Character": return ' ';
+            case "java.lang.Short": return (short)0;
+            case "java.lang.Byte": return (byte)0;
+            default:
+                throw new RuntimeException("Unknown primitive type: " + parameter);
         }
     }
 
