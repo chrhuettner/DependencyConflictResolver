@@ -56,7 +56,7 @@ public class CannotFindSymbolProvider extends CompileErrorRegexProvider {
                         if (parentPath != null) {
                             targetClass = ContextUtil.getClassNameOfVariable(variableName, parentPath, Integer.MAX_VALUE);
                         } else {
-                            SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(srcDir);
+                            SourceCodeAnalyzer sourceCodeAnalyzer = SourceCodeAnalyzer.getInstance(srcDir);
                             targetClass = sourceCodeAnalyzer.getTypeOfFieldInClass(new File(srcDir + "/tmp/dependencies"), parent, variableName);
                         }
                     }

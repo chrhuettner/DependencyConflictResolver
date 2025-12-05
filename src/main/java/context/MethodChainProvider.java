@@ -34,7 +34,7 @@ public class MethodChainProvider extends BrokenCodeRegexProvider {
         Path classLookupPath = ContainerUtil.getPathWithRespectToIteration(targetDirectoryClasses, strippedFileName, strippedClassName, iteration, true);
 
         //System.out.println("Trying to create source code analyser");
-        SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(srcDirectory);
+        SourceCodeAnalyzer sourceCodeAnalyzer = SourceCodeAnalyzer.getInstance(srcDirectory);
         //System.out.println("Sourcecodeanalyzer created!!");
         if (brokenCode.contains("=")) {
             brokenCode = brokenCode.substring(brokenCode.indexOf("=") + 1).trim();

@@ -23,7 +23,6 @@ import static type.ConflictType.*;
 public class TypeProvider {
 
     public static List<ConflictType> getConflictTypes(BrokenCode brokenCode, ErrorLocation errorLocation, LogParser.CompileError compileError, Context context) {
-        String code = brokenCode.code().trim();
         List<ConflictType> conflictTypes = new ArrayList<>();
 
         if (compileError.message.startsWith("method does not override or implement a method from a supertype")) {
@@ -66,7 +65,7 @@ public class TypeProvider {
         if (errorLocation.className() != null && errorLocation.methodName() != null) {
             JarDiffUtil jarDiffUtil = JarDiffUtil.getInstance(context.getTargetPathOld().toString(), context.getTargetPathNew().toString());
             String srcDir = context.getOutputDirSrcFiles().toPath().resolve(Path.of(context.getDependencyArtifactId() + "_" + context.getStrippedFileName())).toString();
-            SourceCodeAnalyzer sourceCodeAnalyzer = new SourceCodeAnalyzer(srcDir);
+            SourceCodeAnalyzer sourceCodeAnalyzer = SourceCodeAnalyzer.getInstance(srcDir);
             JApiClass jApiClass = jarDiffUtil.getClassByName(errorLocation.className());
 
             if (jApiClass == null) {

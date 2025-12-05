@@ -1,5 +1,6 @@
 package context;
 
+import core.JarDiffUtil;
 import dto.FileSearchResult;
 import org.objectweb.asm.*;
 import spoon.Launcher;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
@@ -22,7 +24,42 @@ public class SourceCodeAnalyzer {
     private Launcher launcher;
     private CtModel model;
 
-    public SourceCodeAnalyzer(String sourceDirectory) {
+    private static ConcurrentHashMap<Long, ConcurrentHashMap<String, SourceCodeAnalyzer>> concurrentInstances;
+
+    static {
+        concurrentInstances = new ConcurrentHashMap<>();
+    }
+
+    public static SourceCodeAnalyzer getInstance(String sourceDirectory) {
+        return getLazyLoadedInstance(sourceDirectory);
+    }
+
+    public static void removeCachedJarDiffsForThread() {
+        long id = Thread.currentThread().threadId();
+        System.out.println("THREAD WITH ID "+id+" RELEASES SOURCECODEANALYZER CACHE");
+        System.out.println("GLOBAL SOURCECODEANALYZER CACHE SIZE BEFORE: "+concurrentInstances.keySet().size());
+        concurrentInstances.remove(id);
+        System.out.println("GLOBAL SOURCECODEANALYZER CACHE SIZE AFTER: "+concurrentInstances.keySet().size());
+    }
+
+    private static SourceCodeAnalyzer getLazyLoadedInstance(String sourceDirectory) {
+        long id = Thread.currentThread().threadId();
+
+        if (!concurrentInstances.containsKey(id)) {
+            ConcurrentHashMap<String, SourceCodeAnalyzer> innerMap = new ConcurrentHashMap<>();
+            concurrentInstances.put(id, innerMap);
+        }
+
+        if (!concurrentInstances.get(id).containsKey(sourceDirectory)) {
+            SourceCodeAnalyzer instance = new SourceCodeAnalyzer(sourceDirectory);
+            concurrentInstances.get(id).put(sourceDirectory, instance);
+        }
+
+        return concurrentInstances.get(id).get(sourceDirectory);
+
+    }
+
+    private SourceCodeAnalyzer(String sourceDirectory) {
         try {
             this.sourceDirectory = sourceDirectory;
             Launcher launcher = new Launcher();

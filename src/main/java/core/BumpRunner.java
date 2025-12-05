@@ -601,18 +601,18 @@ public class BumpRunner {
 
         updateConflicts(conflictTypes);
 
-        for (CodeConflictSolver codeConflictSolver : codeConflictSolvers) {
-            if (codeConflictSolver.errorIsTargetedBySolver(context.getCompileError(), brokenCode, errorLocation, conflictTypes)) {
-                ProposedChange proposedChange = codeConflictSolver.solveConflict(context.getCompileError(), brokenCode, errorLocation);
-                if(proposedChange != null) {
-                    System.out.println(codeConflictSolver.getClass().getName() + " proposed " + proposedChange.code());
-                    updateSolvers(codeConflictSolver.getClass().getName());
-                    context.getProposedChanges().add(proposedChange);
-                    context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
-                    return;
-                }
-            }
+for (CodeConflictSolver codeConflictSolver : codeConflictSolvers) {
+    if (codeConflictSolver.errorIsTargetedBySolver(context.getCompileError(), brokenCode, errorLocation, conflictTypes)) {
+        ProposedChange proposedChange = codeConflictSolver.solveConflict(context.getCompileError(), brokenCode, errorLocation);
+        if(proposedChange != null) {
+            System.out.println(codeConflictSolver.getClass().getName() + " proposed " + proposedChange.code());
+            updateSolvers(codeConflictSolver.getClass().getName());
+            context.getProposedChanges().add(proposedChange);
+            context.getErrorSet().put(brokenCode.code().trim(), proposedChange);
+            return;
         }
+    }
+}
 
         System.out.println("Target class: " + errorLocation.className());
         System.out.println("Target method: " + errorLocation.methodName());
