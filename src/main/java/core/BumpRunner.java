@@ -205,13 +205,48 @@ public class BumpRunner {
 
                     /*
 
+                    2b4d49d68112941b8abb818549389709d8327963
+japicmp.exception.JApiCmpException: Failed to load archive from file: zip END header not found
+	at japicmp.cmp.JarArchiveComparator.toCtClassStream(JarArchiveComparator.java:229)
+	at japicmp.cmp.JarArchiveComparator.lambda$createListOfCtClasses$0(JarArchiveComparator.java:215)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:289)
+	at java.base/java.util.Collections$2.tryAdvance(Collections.java:5075)
+	at java.base/java.util.Collections$2.forEachRemaining(Collections.java:5083)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:727)
+	at japicmp.cmp.JarArchiveComparator.createListOfCtClasses(JarArchiveComparator.java:216)
+	at japicmp.cmp.JarArchiveComparator.createAndCompareClassLists(JarArchiveComparator.java:179)
+	at japicmp.cmp.JarArchiveComparator.compare(JarArchiveComparator.java:90)
+	at japicmp.cmp.JarArchiveComparator.compare(JarArchiveComparator.java:78)
+	at core.JarDiffUtil.compareJars(JarDiffUtil.java:142)
+	at core.JarDiffUtil.<init>(JarDiffUtil.java:71)
+	at core.JarDiffUtil.getLazyLoadedInstance(JarDiffUtil.java:61)
+	at core.JarDiffUtil.getInstance(JarDiffUtil.java:36)
+	at type.TypeProvider.getConflictTypes(TypeProvider.java:39)
+	at core.BumpRunner.fixError(BumpRunner.java:597)
+	at core.BumpRunner.lambda$runBUMP$1(BumpRunner.java:318)
+	at java.base/java.lang.VirtualThread.run(VirtualThread.java:466)
+Caused by: java.util.zip.ZipException: zip END header not found
+	at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1648)
+	at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1656)
+	at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1497)
+	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1460)
+	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:671)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:201)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:148)
+	at java.base/java.util.jar.JarFile.<init>(JarFile.java:333)
+                     */
+
                     //TODO: 4aab2869639226035c999c282f31efba15648ea3 className is null
                     /*if (!file.getName().equals("10d7545c5771b03dd9f6122bd5973a759eb2cd03.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }*/
 
-                    /*if (!file.getName().equals("9a8b6fc7847a0782ae4c48d0e4f7056507c0397d.json")) {
+                    /*if (!file.getName().equals("4a3efad6e00824e5814b9c8f571c9c98aad40281.json")) {
                         activeThreadCount.decrementAndGet();
                         return;
                     }*/

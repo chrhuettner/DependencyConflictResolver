@@ -279,6 +279,9 @@ public class LLMCodeConflictSolver extends ContextAwareSolver {
 
         for (int i = 0; i < parameters1.size(); i++) {
             JApiParameter parameter = parameters1.get(i);
+            if(parameters2[i] == null){
+                return false;
+            }
             if (!ContextUtil.primitiveClassNameToWrapperName(parameter.getType()).endsWith(ContextUtil.primitiveClassNameToWrapperName(parameters2[i])) && !parameters2[i].equals("java.lang.Object")) {
                 return false;
             }
