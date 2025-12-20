@@ -67,7 +67,7 @@ Finally, run the docker container:
 docker run --rm -v <pathToWorkFolder>:/app/<workFolder> chrhuettner/dependencyconflictresolver:latest bump /app/<workFolder>/<jsonConfig>
 ```
 
-The program will automatically generate folders for caching and intermediary results. The fixed classes will be located inside the ``correctedClasses`` folder, further subdivided into iterations. If the same class is in multiple iteration folders, take the file inside the highest iteration (the others are just intermediary results and still erroneous).
+The program will automatically generate folders for caching and intermediary results. The fixed classes will be located inside the ``result`` folder, further subdivided into the projects.
 
 
 If you want to execute BUMP projects, you may copy the ``downloaded``, ``oldContainerLogs``, ``projectSources`` and ``brokenClasses`` folders to your ``workFolder`` beforehand. This will speed up the execution.  

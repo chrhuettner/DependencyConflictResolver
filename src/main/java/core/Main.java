@@ -8,8 +8,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         if(args.length < 1) {
-            System.err.println("Usage: <dockerImageIdPreDependencyUpdate> <dockerImageIdPostDependencyUpdate> <outputDir>");
-            System.err.println("Or: bump <pathToConfigFile>");
+            System.err.println("Usage: bump <pathToConfigFile>");
         }else if(args[0].equalsIgnoreCase("bump")) {
             if(args.length > 2) {
                 System.out.println("Input after folder path gets ignored!");
