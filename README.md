@@ -1,6 +1,6 @@
 # Resolving Dependency Conflicts via Source Code Modification
 
-This project is part of my Master's thesis focused on resolving dependency conflicts in software projects by analyzing and modifying the source code directly. The goal is to automate the resolution of library version clashes between dependencies by modifying the source code of the broken dependency.
+This project is part of my Master's thesis focused on resolving dependency conflicts in software projects by analyzing and modifying the source code directly. The goal is to automate the resolution of library version clashes between dependencies by modifying the source code of the project.
 
 ## Approach
 1. Extract dependencies using `mavenSourceLinkPre` and `mavenSourceLinkBreaking`.
@@ -50,7 +50,7 @@ Inside the `jsonConfig`, specify the following:
   "threads": <amount of concurrent threads>,
   "llmRetries": <amount of times the llm may iterate over errors>,
   "pathToOutput": <path to output>,
-  "llmProvider": "<ollama|openai|anthropic",
+  "llmProvider": "<ollama|openai>",
   "ollamaUri": "<uri to access ollama (usually http://localhost:11434 or http://host.docker.internal:11434)>",
   "llmName": "<name of the llm (for example qwen3-coder:480b-cloud)>",
   "dockerHostUri": "uri to access docker (usually tcp://localhost:2375 or tcp://host.docker.internal:2375)>",
@@ -58,7 +58,7 @@ Inside the `jsonConfig`, specify the following:
   "dockerPassword": "<optional docker password>",
   "dockerRegistryUri": "<optional docker registry>",
   "wordSimilarityModel": "<name of encoder model (for example nomic-embed-text)>",
-  "llmApiKey": "<api key if llmProvider is openai or anthropic>"
+  "llmApiKey": "<api key if llmProvider is openai>"
 }
 ```
 
@@ -76,4 +76,4 @@ If you want to execute BUMP projects, you may copy the ``downloaded``, ``oldCont
 ## Attribution
 This project uses [japicmp](https://github.com/siom79/japicmp) to calculate the differences between dependency versions.
 Source code analysis is done using [Spoon](https://spoon.gforge.inria.fr/), compiled dependency and JRE analysis with [ASM](https://asm.ow2.io/).
-Furthermore, it is benchmarked with [BUMP](https://github.com/chains-project/bump) and uses a modified form of its json format.
+Furthermore, it is benchmarked with [BUMP](https://github.com/chains-project/bump) and uses a modified form of its JSON format.
