@@ -39,6 +39,7 @@ public class DependencyAnalyser {
         Long embeddingEndTime = System.currentTimeMillis();
         System.out.println("Computing embeddings took " + (embeddingEndTime - embeddingStartTime) + " ms");
         System.out.println("Computing similarity among class methods: ");
+
         Map<String, Double> innerSimilarities = jarDiffUtil.getClassMethodsSimilarity(embeddings);
         Map<String, Double> cleanedSimilarities = new HashMap<>();
         for (Map.Entry<String, Double> entry : innerSimilarities.entrySet()) {
@@ -52,6 +53,10 @@ public class DependencyAnalyser {
         }
 
         List<Double> statistics = new ArrayList<>();
+
+        if(cleanedSimilarities.isEmpty()) {
+            return statistics;
+        }
 
 
         DoubleSummaryStatistics stats = cleanedSimilarities.values().stream()

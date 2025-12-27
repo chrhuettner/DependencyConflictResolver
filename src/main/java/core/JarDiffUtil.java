@@ -480,6 +480,10 @@ public class JarDiffUtil {
             }
         }
 
+        if(methods.isEmpty()) {
+            return embeddings;
+        }
+
         System.out.println("Generating embeddings of " + methods.size() + " methods");
         int amountOfThreads = Math.min(maxThreads, (int) Math.ceil((double) methods.size() / methodsPerThread));
         System.out.println("Splitting work into " + amountOfThreads + " thread(s)");
