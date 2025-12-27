@@ -16,16 +16,19 @@ import llm.WordSimilarityModel;
 import solver.nondeterministic.LLMCodeConflictSolver;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class JarDiffUtil {
 
     private JarArchiveComparator comparator;
-    private List<JApiClass> jApiClasses;
+    public List<JApiClass> jApiClasses;
     public static final int SIMILARITY_LIMIT = 10;
+
+    public static int methodsPerThread = 500;
+    public static int maxThreads = 6;
     private static ConcurrentHashMap<Long, ConcurrentHashMap<String, ConcurrentHashMap<String, JarDiffUtil>>> concurrentJarDiffUtils;
 
     static {
@@ -38,10 +41,10 @@ public class JarDiffUtil {
 
     public static void removeCachedJarDiffsForThread() {
         long id = Thread.currentThread().threadId();
-        System.out.println("THREAD WITH ID "+id+" RELEASES JARDIFF CACHE");
-        System.out.println("GLOBAL JARDIFF CACHE SIZE BEFORE: "+concurrentJarDiffUtils.keySet().size());
+        System.out.println("THREAD WITH ID " + id + " RELEASES JARDIFF CACHE");
+        System.out.println("GLOBAL JARDIFF CACHE SIZE BEFORE: " + concurrentJarDiffUtils.keySet().size());
         concurrentJarDiffUtils.remove(id);
-        System.out.println("GLOBAL JARDIFF CACHE SIZE AFTER: "+concurrentJarDiffUtils.keySet().size());
+        System.out.println("GLOBAL JARDIFF CACHE SIZE AFTER: " + concurrentJarDiffUtils.keySet().size());
     }
 
     private static JarDiffUtil getLazyLoadedInstance(String file1, String file2) {
@@ -463,6 +466,118 @@ public class JarDiffUtil {
         return similarityResults;
     }
 
+    private static String getMethodSignatureFromUnChangedMethod(JApiMethod method) {
+        return getFullMethodSignature(method.getOldMethod().get().toString(), method.getReturnType().getOldReturnType().toString(), true, method.getParameters());
+    }
+
+    public ConcurrentHashMap<String, List<double[]>> getMethodEmbeddingsOfDependency(WordSimilarityModel wordSimilarityModel) {
+        ConcurrentHashMap<String, List<double[]>> embeddings = new ConcurrentHashMap<>();
+
+        List<JApiMethod> methods = new ArrayList<>();
+        for (JApiClass jApiClass : jApiClasses) {
+            for (JApiMethod method : jApiClass.getMethods()) {
+                methods.add(method);
+            }
+        }
+
+        System.out.println("Generating embeddings of " + methods.size() + " methods");
+        int amountOfThreads = Math.min(maxThreads, (int) Math.ceil((double) methods.size() / methodsPerThread));
+        System.out.println("Splitting work into " + amountOfThreads + " thread(s)");
+
+        List<Thread> threads = new ArrayList<>();
+        List<AtomicInteger> finishedMethods = Collections.synchronizedList(new ArrayList<>());
+        int workSplit = methods.size() / amountOfThreads;
+        for (int i = 0; i < amountOfThreads; i++) {
+            int finalI = i;
+            Thread virtualThread = Thread.ofVirtual().start(() -> {
+                AtomicInteger finishedMethodCounter = new AtomicInteger();
+                finishedMethods.add(finishedMethodCounter);
+                for (int j = workSplit * finalI; j < Math.min(workSplit * (finalI + 1), methods.size()); j++) {
+                    JApiMethod method = methods.get(j);
+
+                    embeddings.compute(
+                            method.getjApiClass().getFullyQualifiedName(),
+                            (key, list) -> {
+                                if (list == null) {
+                                    list = new ArrayList<>();
+                                }
+                                list.add(wordSimilarityModel.getEmbedding(getMethodSignatureFromUnChangedMethod(method)));
+                                return list;
+                            }
+                    );
+
+                    finishedMethodCounter.incrementAndGet();
+                }
+            });
+            threads.add(virtualThread);
+        }
+        AtomicBoolean finished = new AtomicBoolean();
+
+        Thread.ofVirtual().start(() -> {
+            while (!finished.get()) {
+                int sum = 0;
+                StringBuilder line = new StringBuilder("Finished methods per worker: [");
+
+                for (int i = 0; i < finishedMethods.size(); i++) {
+                    int count = finishedMethods.get(i).get();
+                    sum += count;
+
+                    line.append(count);
+                    if (i < finishedMethods.size() - 1) {
+                        line.append(", ");
+                    }
+                }
+
+                line.append("] | Total: ").append(sum).append("/").append(methods.size());
+
+                System.out.println(line);
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+        });
+
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        finished.set(true);
+
+        return embeddings;
+    }
+
+    public static Map<String, Double> getClassMethodsSimilarity(ConcurrentHashMap<String, List<double[]>> embeddings) {
+       HashMap<String, Double> classMethodsSimilarity = new HashMap<>();
+        for (Map.Entry<String, List<double[]>> entry : embeddings.entrySet()) {
+            List<double[]> embeddingsOfClass = entry.getValue();
+            double sumOfSimilarities = 0;
+            double comparedMethods = 0;
+            for (int i = 0; i < embeddingsOfClass.size(); i++) {
+                double[] baseVec = embeddingsOfClass.get(i);
+                for (int j = 0; j < embeddingsOfClass.size(); j++) {
+                    if (i == j) {
+                        continue;
+                    }
+                    double[] compareVec = embeddingsOfClass.get(j);
+                    double similarity = WordSimilarityModel.cosineSimilarity(baseVec, compareVec);
+                    sumOfSimilarities += similarity;
+                    comparedMethods++;
+                }
+            }
+            classMethodsSimilarity.put(entry.getKey(), sumOfSimilarities / comparedMethods);
+        }
+
+        return classMethodsSimilarity;
+    }
+
 
     public static String getFullMethodSignature(String methodString, String returnType, boolean addReturnType, List<JApiParameter> parameters) {
         String result = methodString;
@@ -529,12 +644,13 @@ public class JarDiffUtil {
     public JApiMethod getMethodOfClass(JApiClass jApiClass, String methodName, String[] parameters) {
         List<JApiMethod> methods = jApiClass.getMethods();
         List<JApiMethod> methodsWithSameNameAndParameterCount = new ArrayList<>();
-        outerloop: for (JApiMethod jApiMethod : jApiClass.getMethods()) {
+        outerloop:
+        for (JApiMethod jApiMethod : jApiClass.getMethods()) {
             if (jApiMethod.getName().equals(methodName)) {
                 if (parameters == null) {
                     methods.add(jApiMethod);
                 } else {
-                    if(parameters.length != jApiMethod.getParameters().size()){
+                    if (parameters.length != jApiMethod.getParameters().size()) {
                         continue;
                     }
                     CtMethod oldMethod = jApiMethod.getOldMethod().orElse(jApiMethod.getNewMethod().orElse(null));
@@ -548,26 +664,26 @@ public class JarDiffUtil {
                             throw new RuntimeException(e);
                         }
                     }
-                   return jApiMethod;
+                    return jApiMethod;
                 }
             }
         }
 
-        for(JApiImplementedInterface jApiImplementedInterface : jApiClass.getInterfaces()) {
+        for (JApiImplementedInterface jApiImplementedInterface : jApiClass.getInterfaces()) {
             if (jApiImplementedInterface.getCorrespondingJApiClass().isPresent()) {
                 JApiMethod recursiveResult = getMethodOfClass(jApiImplementedInterface.getCorrespondingJApiClass().get(), methodName, parameters);
-                if(recursiveResult != null) {
+                if (recursiveResult != null) {
                     return recursiveResult;
                 }
             }
         }
 
-        if(!methodsWithSameNameAndParameterCount.isEmpty()){
-            if(methodsWithSameNameAndParameterCount.size() == 1){
+        if (!methodsWithSameNameAndParameterCount.isEmpty()) {
+            if (methodsWithSameNameAndParameterCount.size() == 1) {
                 return methodsWithSameNameAndParameterCount.get(0);
             }
-            for(JApiMethod jApiMethod : methodsWithSameNameAndParameterCount){
-                if(jApiMethod.getChangeStatus() != JApiChangeStatus.REMOVED){
+            for (JApiMethod jApiMethod : methodsWithSameNameAndParameterCount) {
+                if (jApiMethod.getChangeStatus() != JApiChangeStatus.REMOVED) {
                     return jApiMethod;
                 }
             }

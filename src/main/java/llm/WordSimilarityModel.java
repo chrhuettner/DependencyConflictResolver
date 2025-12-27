@@ -3,6 +3,8 @@ package llm;
 import java.io.IOException;
 import java.net.http.*;
 import java.net.URI;
+import java.util.concurrent.Semaphore;
+
 import com.fasterxml.jackson.databind.*;
 
 public class WordSimilarityModel {
@@ -11,14 +13,25 @@ public class WordSimilarityModel {
     private static final String OLLAMA_URL_SUFFIX = "/api/embeddings";
     private String ollamaUrl;
 
+    private static final HttpClient CLIENT =
+            HttpClient.newBuilder()
+                    .version(HttpClient.Version.HTTP_1_1)
+                    .build();
+
+    private static final Semaphore HTTP_LIMITER = new Semaphore(8);
+    private static final ObjectMapper MAPPER = new ObjectMapper();
+
     public WordSimilarityModel(String model, String ollamaUrl) {
         this.model = model;
         this.ollamaUrl = ollamaUrl+OLLAMA_URL_SUFFIX;
     }
 
     public double[] getEmbedding(String word)  {
-        HttpClient client = HttpClient.newHttpClient();
-        String json = String.format("{\"model\": \"%s\", \"prompt\": \"%s\"}", model, word);
+        String json = String.format(
+                "{\"model\":\"%s\",\"prompt\":\"%s\"}",
+                model,
+                word
+        );
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(ollamaUrl))
@@ -26,16 +39,24 @@ public class WordSimilarityModel {
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
 
-        HttpResponse<String> response;
-        JsonNode root;
+        JsonNode root = null;
         try {
-            response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            ObjectMapper mapper = new ObjectMapper();
-            root = mapper.readTree(response.body());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            HTTP_LIMITER.acquire();
+
+            HttpResponse<String> response =
+                    CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+
+            root = MAPPER.readTree(response.body());
+
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            Thread.currentThread().interrupt();
+            throw new RuntimeException("HTTP call interrupted", e);
+
+        } catch (IOException e) {
+            throw new RuntimeException("HTTP call failed", e);
+
+        } finally {
+            HTTP_LIMITER.release();
         }
 
 

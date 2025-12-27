@@ -1,14 +1,15 @@
 package core;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dependencysimilarity.DependencyAnalyser;
 
 import java.io.File;
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        if(args.length < 1) {
-            System.err.println("Usage: bump <pathToConfigFile>");
+        if(args.length < 2) {
+            printGuide();
         }else if(args[0].equalsIgnoreCase("bump")) {
             if(args.length > 2) {
                 System.out.println("Input after folder path gets ignored!");
@@ -40,7 +41,23 @@ public class Main {
 
             BumpRunner.runBUMP(config);
 
-        }
+        } else if(args[0].equalsIgnoreCase("dependency")) {
+            if(args.length < 4) {
+                printGuide();
+                return;
+            }
 
+            String dependencyUri = args[1];
+            String ollamaUri = args[2];
+            String model = args[3];
+            DependencyAnalyser.analyseDependencySimilarity(dependencyUri, ollamaUri, model);
+
+        }else{
+            printGuide();
+        }
+    }
+
+    private static void printGuide(){
+        System.err.println("Usage: bump <pathToConfigFile>");
     }
 }
