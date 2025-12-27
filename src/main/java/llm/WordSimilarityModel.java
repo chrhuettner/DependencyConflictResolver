@@ -32,12 +32,16 @@ public class WordSimilarityModel {
                 model,
                 word
         );
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(ollamaUrl))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(json))
-                .build();
+        HttpRequest request;
+        try {
+            request = HttpRequest.newBuilder()
+                    .uri(URI.create(ollamaUrl))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+        }catch (IllegalArgumentException e){
+            throw new RuntimeException(e);
+        }
 
         JsonNode root = null;
         try {
