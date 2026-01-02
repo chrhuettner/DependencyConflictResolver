@@ -31,6 +31,7 @@ public class DependencyAnalyser {
             pathToDependency = downloadDependency(dependencyUri, dependencyDirectory);
         }
 
+
         JarDiffUtil jarDiffUtil = JarDiffUtil.getInstance(pathToDependency.toString(), pathToDependency.toString());
         System.out.println("Similarity of methods inside of the classes: ");
 

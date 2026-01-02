@@ -15,7 +15,9 @@ import javassist.*;
 import llm.WordSimilarityModel;
 import solver.nondeterministic.LLMCodeConflictSolver;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -29,6 +31,8 @@ public class JarDiffUtil {
 
     public static int methodsPerThread = 500;
     public static int maxThreads = 6;
+    private String file1;
+    private String file2;
     private static ConcurrentHashMap<Long, ConcurrentHashMap<String, ConcurrentHashMap<String, JarDiffUtil>>> concurrentJarDiffUtils;
 
     static {
@@ -71,6 +75,8 @@ public class JarDiffUtil {
 
     private JarDiffUtil(String file1, String file2) {
         this.comparator = createComparator();
+        this.file1 = file1;
+        this.file2 = file2;
         this.jApiClasses = compareJars(this.comparator, file1, file2);
     }
 
@@ -473,6 +479,28 @@ public class JarDiffUtil {
     public ConcurrentHashMap<String, List<double[]>> getMethodEmbeddingsOfDependency(WordSimilarityModel wordSimilarityModel) {
         ConcurrentHashMap<String, List<double[]>> embeddings = new ConcurrentHashMap<>();
 
+        String strippedFileName = this.file1;
+        if(strippedFileName.contains("/")){
+            strippedFileName = strippedFileName.substring(strippedFileName.lastIndexOf("/")+1);
+        }
+        if(strippedFileName.contains("\\")){
+            strippedFileName = strippedFileName.substring(strippedFileName.lastIndexOf("\\")+1);
+        }
+
+        if(strippedFileName.endsWith(".jar")){
+            strippedFileName = strippedFileName.substring(0, strippedFileName.lastIndexOf("."));
+        }
+
+        Path cachePath = Path.of("embeddings/"+ strippedFileName);
+        if(Files.exists(cachePath)){
+            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(cachePath.toFile()))) {
+                System.out.println("Loading "+strippedFileName+" from cache");
+                return (ConcurrentHashMap) in.readObject();
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
         List<JApiMethod> methods = new ArrayList<>();
         for (JApiClass jApiClass : jApiClasses) {
             for (JApiMethod method : jApiClass.getMethods()) {
@@ -483,7 +511,8 @@ public class JarDiffUtil {
         if(methods.isEmpty()) {
             return embeddings;
         }
-
+        System.out.println("Creating embeddings folder for caching");
+        new File("embeddings").mkdirs();
         System.out.println("Generating embeddings of " + methods.size() + " methods");
         int amountOfThreads = Math.min(maxThreads, (int) Math.ceil((double) methods.size() / methodsPerThread));
         System.out.println("Splitting work into " + amountOfThreads + " thread(s)");
@@ -499,13 +528,16 @@ public class JarDiffUtil {
                 for (int j = workSplit * finalI; j < Math.min(workSplit * (finalI + 1), methods.size()); j++) {
                     JApiMethod method = methods.get(j);
 
+                    int finalJ = j;
                     embeddings.compute(
                             method.getjApiClass().getFullyQualifiedName(),
                             (key, list) -> {
                                 if (list == null) {
                                     list = new ArrayList<>();
                                 }
-                                list.add(wordSimilarityModel.getEmbedding(getMethodSignatureFromUnChangedMethod(method)));
+                                double[] methodEmbedding = wordSimilarityModel.getEmbedding(getMethodSignatureFromUnChangedMethod(method));
+
+                                list.add(methodEmbedding);
                                 return list;
                             }
                     );
@@ -554,6 +586,12 @@ public class JarDiffUtil {
         }
 
         finished.set(true);
+
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(cachePath.toFile()))) {
+            out.writeObject(embeddings);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return embeddings;
     }

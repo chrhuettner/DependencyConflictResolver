@@ -1,0 +1,3274 @@
+C:\Users\Chrisi\.jdks\openjdk-24\bin\java.exe "-javaagent:E:\intellij\IntelliJ IDEA 2025.1.3\lib\idea_rt.jar=59817" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 @E:\Temp\idea_arg_file863840282 core.SimilarityExperiment
+Similarity of methods inside of the classes:
+Loading acceptance-test-harness-5504.v485694f31cdf from cache
+Computing embeddings took 65 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7705089639490645
+Min: 0.42860547085862205
+Max: 1.0000000000000002
+Count: 255
+Median: 0.7525473741927319
+25th percentile: 0.6730792333418939
+75th percentile: 0.8902372440852043
+Variance: 0.02039755977159391
+Standard Deviation: 0.14282002580728625
+Skipping file acceptance-test-harness (acceptance-test-harness-5523.vd392288d2b_22.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5527.vf5d62a_388c39.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5528.v806749710b_83.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5534.vcb_64728b_649b_.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5536.vf6d8a_73d1122.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5537.v26d6599fdc59.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5539.vcea_872b_fdb_29.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5540.v09dd001c54d7.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5541.va_c0a_36b_b_f825.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5588.vd13b_52985008.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5623.v3e1d330b_89e0.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5625.ve5cd418e32fe.jar)
+Skipping file acceptance-test-harness (acceptance-test-harness-5631.v2dcb_f66e58f7.jar)
+Similarity of methods inside of the classes:
+Loading antlr4-runtime-4.10.1 from cache
+Computing embeddings took 40 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7622273659815568
+Min: 0.5726486979391842
+Max: 0.9963362678229593
+Count: 137
+Median: 0.7445401410192732
+25th percentile: 0.6809992171726095
+75th percentile: 0.8333990446285922
+Variance: 0.010729391996393221
+Standard Deviation: 0.10358277847399741
+Skipping file antlr4-runtime (antlr4-runtime-4.10.jar)
+Skipping file antlr4-runtime (antlr4-runtime-4.11.1.jar)
+Skipping file antlr4-runtime (antlr4-runtime-4.12.0.jar)
+Skipping file antlr4-runtime (antlr4-runtime-4.7.2.jar)
+Skipping file antlr4-runtime (antlr4-runtime-4.9.3.jar)
+Similarity of methods inside of the classes:
+Loading api-common-2.2.2 from cache
+Computing embeddings took 9 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7696881216878171
+Min: 0.662385826508744
+Max: 1.0
+Count: 18
+Median: 0.7232921544666824
+25th percentile: 0.6835792784742408
+75th percentile: 0.7809765525791875
+Variance: 0.012180682462476269
+Standard Deviation: 0.1103661291451153
+Skipping file api-common (api-common-2.6.2.jar)
+Similarity of methods inside of the classes:
+Loading arrow-memory-netty-7.0.0 from cache
+Computing embeddings took 11 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7559190211661551
+Min: 0.5767765364410852
+Max: 0.8880679607906518
+Count: 8
+Median: 0.778124253808812
+25th percentile: 0.695726213858885
+75th percentile: 0.7836532454322422
+Variance: 0.006999690425086083
+Standard Deviation: 0.0836641525689831
+Skipping file arrow-memory-netty (arrow-memory-netty-8.0.0.jar)
+Similarity of methods inside of the classes:
+Loading arrow-vector-7.0.0 from cache
+Computing embeddings took 864 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7583834457512909
+Min: 0.4940274427374044
+Max: 1.0000000000000002
+Count: 515
+Median: 0.7577945207845889
+25th percentile: 0.6951801995713428
+75th percentile: 0.8256593566912417
+Variance: 0.009229876550795222
+Standard Deviation: 0.0960722465168543
+Skipping file arrow-vector (arrow-vector-8.0.0.jar)
+Similarity of methods inside of the classes:
+Loading assertj-core-3.18.1 from cache
+Computing embeddings took 396 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.76303871992499
+Min: 0.4796019785228781
+Max: 1.0000000000000002
+Count: 2289
+Median: 0.7546751740466032
+25th percentile: 0.6544049898567036
+75th percentile: 0.8617736078818695
+Variance: 0.014711636990648176
+Standard Deviation: 0.12129153717654079
+Skipping file assertj-core (assertj-core-3.22.0.jar)
+Skipping file assertj-core (assertj-core-3.23.0.jar)
+Skipping file assertj-core (assertj-core-3.23.1.jar)
+Skipping file assertj-core (assertj-core-3.24.0.jar)
+Skipping file assertj-core (assertj-core-3.24.1.jar)
+Similarity of methods inside of the classes:
+Loading asto-core-v1.13.0 from cache
+Computing embeddings took 9 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7633401141395023
+Min: 0.4739104083125467
+Max: 0.9594168233831682
+Count: 47
+Median: 0.7999663352668348
+25th percentile: 0.7201233506918587
+75th percentile: 0.836637797668575
+Variance: 0.012395747686313163
+Standard Deviation: 0.11133619216729644
+Skipping file asto-core (asto-core-v1.14.0.jar)
+Skipping file asto-core (asto-core-v1.14.1.jar)
+Skipping file asto-core (asto-core-v1.15.0.jar)
+Skipping file asto-core (asto-core-v1.15.1.jar)
+Skipping file asto-core (asto-core-v1.15.3.jar)
+Skipping file asto-core (asto-core-v1.15.4.jar)
+Similarity of methods inside of the classes:
+Loading asto-v1.10.0 from cache
+Computing embeddings took 9 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.776858585254427
+Min: 0.4739104083125467
+Max: 0.9594168233831682
+Count: 40
+Median: 0.8011873439842471
+25th percentile: 0.746904567175514
+75th percentile: 0.836637797668575
+Variance: 0.011204202790163596
+Standard Deviation: 0.10584990689728355
+Skipping file asto (asto-v1.11.0.jar)
+Skipping file asto (asto-v1.12.0.jar)
+Skipping file asto (asto-v1.8.0.jar)
+Skipping file asto (asto-v1.9.0.jar)
+Similarity of methods inside of the classes:
+Loading bcprov-jdk15on-1.51 from cache
+Computing embeddings took 190 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8013715448268437
+Min: 0.44057215118829707
+Max: 1.0000000000000002
+Count: 1239
+Median: 0.7980107424402678
+25th percentile: 0.7279280355683448
+75th percentile: 0.8930427636749447
+Variance: 0.011442475900057248
+Standard Deviation: 0.10696950920733089
+Skipping file bcprov-jdk15on (bcprov-jdk15on-1.67.jar)
+Similarity of methods inside of the classes:
+Loading cactoos-0.35 from cache
+Computing embeddings took 13 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7500188839972113
+Min: 0.5228073689067875
+Max: 0.9123870086941219
+Count: 72
+Median: 0.7416589238912601
+25th percentile: 0.6869129053574325
+75th percentile: 0.8845783055077221
+Variance: 0.01493252936550394
+Standard Deviation: 0.12219872898481367
+Skipping file cactoos (cactoos-0.55.0.jar)
+Similarity of methods inside of the classes:
+Loading checkstyle-10.1 from cache
+Computing embeddings took 152 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7678193584926684
+Min: 0.5261384352889786
+Max: 1.0000000000000002
+Count: 665
+Median: 0.7645583700852201
+25th percentile: 0.728711123935591
+75th percentile: 0.8122902640561271
+Variance: 0.005859058169244506
+Standard Deviation: 0.07654448490416867
+Skipping file checkstyle (checkstyle-10.12.1.jar)
+Skipping file checkstyle (checkstyle-10.12.2.jar)
+Skipping file checkstyle (checkstyle-10.2.jar)
+Skipping file checkstyle (checkstyle-7.2.jar)
+Skipping file checkstyle (checkstyle-8.29.jar)
+Similarity of methods inside of the classes:
+Loading commons-io-2.11.0 from cache
+Computing embeddings took 31 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7135696992484056
+Min: 0.47086995744223165
+Max: 1.0000000000000002
+Count: 156
+Median: 0.7213385659459234
+25th percentile: 0.6174492380164895
+75th percentile: 0.7894882234348214
+Variance: 0.012784975270027267
+Standard Deviation: 0.11307066494023667
+Skipping file commons-io (commons-io-2.13.0.jar)
+Skipping file commons-io (commons-io-2.7.jar)
+Skipping file commons-io (commons-io-20030203.000550.jar)
+Similarity of methods inside of the classes:
+Loading commons-net-3.3 from cache
+Computing embeddings took 26 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8236883460800924
+Min: 0.44057215118829707
+Max: 1.0
+Count: 122
+Median: 0.8333955231050505
+25th percentile: 0.7348946922763621
+75th percentile: 0.9112815157709468
+Variance: 0.011892446665399356
+Standard Deviation: 0.10905249499850683
+Skipping file commons-net (commons-net-3.9.0.jar)
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Skipping file commons-text-api-1.10.0 (commons-text-api-1.10.0-36.vc008c8fcda_7b_.jar)
+Similarity of methods inside of the classes:
+Loading datafaker-1.3.0 from cache
+Computing embeddings took 38 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8028062663744584
+Min: 0.5328679140737302
+Max: 1.0000000000000002
+Count: 225
+Median: 0.7728963197184162
+25th percentile: 0.7342186529386182
+75th percentile: 0.8750115614470694
+Variance: 0.009762701369894464
+Standard Deviation: 0.09880638324467941
+Skipping file datafaker (datafaker-1.4.0.jar)
+Similarity of methods inside of the classes:
+Loading derby-10.15.2.0 from cache
+Computing embeddings took 233 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7662454725536694
+Min: 0.4494070548028861
+Max: 1.0000000000000002
+Count: 817
+Median: 0.7545843595372532
+25th percentile: 0.7073675184482945
+75th percentile: 0.8193643659140656
+Variance: 0.008766082767418085
+Standard Deviation: 0.09362736121144334
+Skipping file derby (derby-10.16.1.1.jar)
+Similarity of methods inside of the classes:
+Loading docker-commons-1.21 from cache
+Computing embeddings took 4 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7261977496927323
+Min: 0.43780110964767394
+Max: 0.9527963410458067
+Count: 30
+Median: 0.7228688776886307
+25th percentile: 0.6458491567028934
+75th percentile: 0.8262513230332977
+Variance: 0.0173844482813988
+Standard Deviation: 0.1318500977678773
+Skipping file docker-commons (docker-commons-422.v9d1a_89cede51.jar)
+Similarity of methods inside of the classes:
+Loading doxia-site-renderer-1.0 from cache
+Computing embeddings took 3 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7643708341904311
+Min: 0.6474001548033
+Max: 0.8902452961287356
+Count: 6
+Median: 0.7776790077711284
+25th percentile: 0.6583017028523764
+75th percentile: 0.8303901197664932
+Variance: 0.008610913313565121
+Standard Deviation: 0.09279500694307384
+Skipping file doxia-site-renderer (doxia-site-renderer-1.11.1.jar)
+Similarity of methods inside of the classes:
+Loading dropwizard-client-2.1.5 from cache
+Computing embeddings took 4 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7992157559326717
+Min: 0.606684633800984
+Max: 0.9420669660027352
+Count: 10
+Median: 0.8234438254029914
+25th percentile: 0.7637542379106079
+75th percentile: 0.8373745473882349
+Variance: 0.007518663113928306
+Standard Deviation: 0.08671022496757984
+Skipping file dropwizard-client (dropwizard-client-4.0.0.jar)
+Similarity of methods inside of the classes:
+Loading dropwizard-core-2.1.5 from cache
+Computing embeddings took 6 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7219932670038672
+Min: 0.4778627815799513
+Max: 0.9279035541994833
+Count: 22
+Median: 0.7314681879526654
+25th percentile: 0.6596979969760312
+75th percentile: 0.8183909760246119
+Variance: 0.013469207801642518
+Standard Deviation: 0.11605691621632258
+Skipping file dropwizard-core (dropwizard-core-4.0.0.jar)
+Similarity of methods inside of the classes:
+Loading dropwizard-sentry-2.0.22 from cache
+Computing embeddings took 3 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8505633986549167
+Min: 0.7184801291950885
+Max: 0.9602774766992301
+Count: 6
+Median: 0.881589304514921
+25th percentile: 0.7519253857204085
+75th percentile: 0.8997535595168827
+Variance: 0.00754557648275982
+Standard Deviation: 0.08686527777403247
+Similarity of methods inside of the classes:
+Loading dropwizard-sentry-2.0.25-2 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.9032795523312577
+Min: 0.847241726942133
+Max: 0.9530781387667091
+Count: 3
+Median: 0.909518791284931
+25th percentile: 0.847241726942133
+75th percentile: 0.909518791284931
+Variance: 0.0018863550626773973
+Standard Deviation: 0.04343218924573567
+Similarity of methods inside of the classes:
+Loading dropwizard-sentry-2.0.26-3 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.9032795523312577
+Min: 0.847241726942133
+Max: 0.9530781387667091
+Count: 3
+Median: 0.909518791284931
+25th percentile: 0.847241726942133
+75th percentile: 0.909518791284931
+Variance: 0.0018863550626773973
+Standard Deviation: 0.04343218924573567
+Similarity of methods inside of the classes:
+Loading dropwizard-sentry-2.0.28-3 from cache
+Computing embeddings took 1 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.9032795523312577
+Min: 0.847241726942133
+Max: 0.9530781387667091
+Count: 3
+Median: 0.909518791284931
+25th percentile: 0.847241726942133
+75th percentile: 0.909518791284931
+Variance: 0.0018863550626773973
+Standard Deviation: 0.04343218924573567
+Skipping file dropwizard-sentry-2.0.28 (dropwizard-sentry-2.0.28-4.jar)
+Skipping file dropwizard-sentry-2.0.28 (dropwizard-sentry-2.0.28-8.jar)
+Similarity of methods inside of the classes:
+Loading dropwizard-sentry-2.1.2-4 from cache
+Computing embeddings took 1 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.9032795523312577
+Min: 0.847241726942133
+Max: 0.9530781387667091
+Count: 3
+Median: 0.909518791284931
+25th percentile: 0.847241726942133
+75th percentile: 0.909518791284931
+Variance: 0.0018863550626773973
+Standard Deviation: 0.04343218924573567
+Skipping file dropwizard-sentry (dropwizard-sentry-4.0.0.jar)
+Similarity of methods inside of the classes:
+Loading dropwizard-sentry-4.0.1-2 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.9032795523312577
+Min: 0.847241726942133
+Max: 0.9530781387667091
+Count: 3
+Median: 0.909518791284931
+25th percentile: 0.847241726942133
+75th percentile: 0.909518791284931
+Variance: 0.0018863550626773973
+Standard Deviation: 0.04343218924573567
+Skipping file dropwizard-sentry-4.0.1 (dropwizard-sentry-4.0.1-3.jar)
+Similarity of methods inside of the classes:
+Loading dss-pades-5.10.2 from cache
+Computing embeddings took 16 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.807191536682585
+Min: 0.5177305341889838
+Max: 1.0000000000000002
+Count: 76
+Median: 0.7941496030370513
+25th percentile: 0.7355147616533332
+75th percentile: 0.8677201116047296
+Variance: 0.010519702039545914
+Standard Deviation: 0.1025655987139251
+Skipping file dss-pades (dss-pades-5.9.jar)
+Similarity of methods inside of the classes:
+Loading dss-pades-pdfbox-5.10.2 from cache
+Computing embeddings took 3 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.818241646412764
+Min: 0.5643741078067428
+Max: 1.0
+Count: 14
+Median: 0.8629991334024807
+25th percentile: 0.6825075633769161
+75th percentile: 0.9238859634509969
+Variance: 0.023295780371878957
+Standard Deviation: 0.1526295527474249
+Skipping file dss-pades-pdfbox (dss-pades-pdfbox-5.9.jar)
+Similarity of methods inside of the classes:
+Loading dubbo-2.7.21 from cache
+Computing embeddings took 217 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7868322658042248
+Min: 0.44425950456211977
+Max: 1.0000000000000002
+Count: 946
+Median: 0.7874842377194173
+25th percentile: 0.7060249911464274
+75th percentile: 0.8701211737984598
+Variance: 0.011898644280265087
+Standard Deviation: 0.109080907038148
+Skipping file dubbo (dubbo-2.7.3.jar)
+Similarity of methods inside of the classes:
+Loading echarts-api-5.1.2-3 from cache
+Computing embeddings took 4 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7564232681229837
+Min: 0.5738481935676921
+Max: 0.9067693958230677
+Count: 21
+Median: 0.7771834598351368
+25th percentile: 0.6924461106622332
+75th percentile: 0.8041690936945285
+Variance: 0.008191810720609313
+Standard Deviation: 0.09050862235505142
+Similarity of methods inside of the classes:
+Loading echarts-api-5.2.2-1 from cache
+Computing embeddings took 4 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7535931807451751
+Min: 0.5738481935676921
+Max: 0.9067693958230677
+Count: 23
+Median: 0.7426700749790011
+25th percentile: 0.6924461106622332
+75th percentile: 0.8029720665598975
+Variance: 0.007563211613084066
+Standard Deviation: 0.08696672704594595
+Skipping file echarts-api-5.2.2 (echarts-api-5.2.2-2.jar)
+Similarity of methods inside of the classes:
+Loading echarts-api-5.3.0-2 from cache
+Computing embeddings took 4 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7535931807451751
+Min: 0.5738481935676921
+Max: 0.9067693958230677
+Count: 23
+Median: 0.7426700749790011
+25th percentile: 0.6924461106622332
+75th percentile: 0.8029720665598975
+Variance: 0.007563211613084066
+Standard Deviation: 0.08696672704594595
+Similarity of methods inside of the classes:
+Loading echarts-api-5.3.2-1 from cache
+Computing embeddings took 5 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7535931807451751
+Min: 0.5738481935676921
+Max: 0.9067693958230677
+Count: 23
+Median: 0.7426700749790011
+25th percentile: 0.6924461106622332
+75th percentile: 0.8029720665598975
+Variance: 0.007563211613084066
+Standard Deviation: 0.08696672704594595
+Skipping file echarts-api-5.3.2 (echarts-api-5.3.2-2.jar)
+Similarity of methods inside of the classes:
+Loading echarts-api-5.4.0-4 from cache
+Computing embeddings took 7 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7579200186346524
+Min: 0.5738481935676921
+Max: 0.9067693958230677
+Count: 38
+Median: 0.7602826939575684
+25th percentile: 0.692409049526961
+75th percentile: 0.8041690936945285
+Variance: 0.007542479583816943
+Standard Deviation: 0.08684745007089698
+Skipping file echarts-api-5.4.0 (echarts-api-5.4.0-5.jar)
+Similarity of methods inside of the classes:
+Loading ecj-3.33.0 from cache
+Computing embeddings took 174 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7654011165139094
+Min: 0.558657743068015
+Max: 1.0000000000000002
+Count: 488
+Median: 0.7561284622368114
+25th percentile: 0.7140292559279414
+75th percentile: 0.8096400214351911
+Variance: 0.007620281559152759
+Standard Deviation: 0.0872942240881535
+Skipping file ecj (ecj-3.34.0.jar)
+Similarity of methods inside of the classes:
+Loading flyway-core-3.2.1 from cache
+Computing embeddings took 20 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7813515820343585
+Min: 0.5478714120477907
+Max: 1.0
+Count: 102
+Median: 0.7600719203294644
+25th percentile: 0.7401083906020922
+75th percentile: 0.8554056461403844
+Variance: 0.007901766239506086
+Standard Deviation: 0.08889187949135785
+Skipping file flyway-core (flyway-core-9.10.2.jar)
+Skipping file flyway-core (flyway-core-9.11.0.jar)
+Skipping file flyway-core (flyway-core-9.15.0.jar)
+Skipping file flyway-core (flyway-core-9.15.1.jar)
+Skipping file flyway-core (flyway-core-9.15.2.jar)
+Skipping file flyway-core (flyway-core-9.16.3.jar)
+Skipping file flyway-core (flyway-core-9.17.0.jar)
+Skipping file flyway-core (flyway-core-9.18.0.jar)
+Skipping file flyway-core (flyway-core-9.19.1.jar)
+Skipping file flyway-core (flyway-core-9.19.4.jar)
+Skipping file flyway-core (flyway-core-9.20.1.jar)
+Skipping file flyway-core (flyway-core-9.21.0.jar)
+Skipping file flyway-core (flyway-core-9.21.1.jar)
+Skipping file flyway-core (flyway-core-9.8.3.jar)
+Similarity of methods inside of the classes:
+Loading fop-1.0 from cache
+Computing embeddings took 192 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7621837925020247
+Min: 0.46280789569764713
+Max: 1.0000000000000002
+Count: 1050
+Median: 0.7467898871227525
+25th percentile: 0.7017429087603044
+75th percentile: 0.8097404886521423
+Variance: 0.009667025269208608
+Standard Deviation: 0.09832103167282476
+Skipping file fop (fop-2.2.jar)
+Similarity of methods inside of the classes:
+Loading gax-2.16.0 from cache
+Computing embeddings took 31 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7830603177618438
+Min: 0.5657540487276512
+Max: 1.0
+Count: 143
+Median: 0.7784664295063115
+25th percentile: 0.7043185024765931
+75th percentile: 0.846698645187718
+Variance: 0.010667840994157326
+Standard Deviation: 0.1032852409309158
+Skipping file gax (gax-2.30.0.jar)
+Similarity of methods inside of the classes:
+Loading geoip2-2.16.1 from cache
+Computing embeddings took 5 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8736047647306643
+Min: 0.6805480155164394
+Max: 1.0000000000000002
+Count: 25
+Median: 0.8621356248686353
+25th percentile: 0.8256506811339434
+75th percentile: 1.0
+Variance: 0.00948178374726362
+Standard Deviation: 0.09737445120391498
+Skipping file geoip2 (geoip2-3.0.0.jar)
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Skipping file github-api-1.303 (github-api-1.303-417.ve35d9dd78549.jar)
+Skipping file github-api (github-api-1.313.jar)
+Skipping file github-api (github-api-1.314.jar)
+Skipping file github-api (github-api-1.93.jar)
+Similarity of methods inside of the classes:
+Loading github-branch-source-1577.v83564088883f from cache
+Computing embeddings took 14 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7857022076514124
+Min: 0.5530782379373522
+Max: 1.0000000000000002
+Count: 70
+Median: 0.7909913917215378
+25th percentile: 0.7140076985175983
+75th percentile: 0.8579138395204599
+Variance: 0.013240952300911329
+Standard Deviation: 0.11506933692739925
+Skipping file github-branch-source (github-branch-source-1583.v18d333ef7379.jar)
+Skipping file github-branch-source (github-branch-source-1598.v91207e9f9b_4a_.jar)
+Skipping file github-branch-source (github-branch-source-1599.v9fb_798a_a_7c4f.jar)
+Skipping file github-branch-source (github-branch-source-1628.vb_2f51293cb_78.jar)
+Skipping file github-branch-source (github-branch-source-1637.vd833b_7ca_7654.jar)
+Skipping file github-branch-source (github-branch-source-1656.v77eddb_b_e95df.jar)
+Skipping file github-branch-source (github-branch-source-1677.v731f745ea_0cf.jar)
+Skipping file github-branch-source (github-branch-source-1687.v7618247e672d.jar)
+Skipping file github-branch-source (github-branch-source-1694.vd46793a_c4a_57.jar)
+Skipping file github-branch-source (github-branch-source-1695.v88de84e9f6b_9.jar)
+Skipping file github-branch-source (github-branch-source-1696.v3a_7603564d04.jar)
+Skipping file github-branch-source (github-branch-source-2.11.4.jar)
+Similarity of methods inside of the classes:
+Loading google-api-services-cloudresourcemanager-v1-rev20220807-2.0.0 from cache
+Computing embeddings took 40 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7993557210697594
+Min: 0.7066892937452887
+Max: 0.9999999999999999
+Count: 112
+Median: 0.7553986927891537
+25th percentile: 0.7261610289937072
+75th percentile: 0.9007340360655195
+Variance: 0.006672748465435968
+Standard Deviation: 0.08168689286192717
+Similarity of methods inside of the classes:
+Loading google-api-services-cloudresourcemanager-v3-rev20220807-2.0.0 from cache
+Computing embeddings took 50 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.80789755778814
+Min: 0.715821366036146
+Max: 0.9175742150639002
+Count: 129
+Median: 0.8043653397896414
+25th percentile: 0.7293383653065547
+75th percentile: 0.8831002543731495
+Variance: 0.005558906175411963
+Standard Deviation: 0.074558072503331
+Similarity of methods inside of the classes:
+Loading google-api-services-dns-v1-rev20220804-2.0.0 from cache
+Computing embeddings took 48 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7921631744556356
+Min: 0.718089074764377
+Max: 0.901952499626056
+Count: 116
+Median: 0.7523685490873071
+25th percentile: 0.725977322403077
+75th percentile: 0.8628760565348614
+Variance: 0.0045459091142488525
+Standard Deviation: 0.0674233573344494
+Similarity of methods inside of the classes:
+Loading google-api-services-dns-v2-rev20220505-1.32.1 from cache
+Computing embeddings took 46 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7926317278135144
+Min: 0.718089074764377
+Max: 0.8780451003755203
+Count: 101
+Median: 0.770918263961987
+25th percentile: 0.7296090329523995
+75th percentile: 0.8560175505097347
+Variance: 0.003977547296659574
+Standard Deviation: 0.06306779920577199
+Similarity of methods inside of the classes:
+Loading google-api-services-storage-v1-rev20220705-1.32.1 from cache
+Computing embeddings took 50 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8072764424873848
+Min: 0.724942510950058
+Max: 1.0
+Count: 107
+Median: 0.8387815680691354
+25th percentile: 0.7335580802758461
+75th percentile: 0.8570554265729545
+Variance: 0.003789613861514033
+Standard Deviation: 0.06155983968070444
+Skipping file google-api-services-storage-v1-rev20220705 (google-api-services-storage-v1-rev20220705-2.0.0.jar)
+Similarity of methods inside of the classes:
+Loading google-api-services-translate-v2-rev20170525-1.32.1 from cache
+Computing embeddings took 9 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7959067924556759
+Min: 0.727564968591452
+Max: 0.927217986908321
+Count: 20
+Median: 0.7718639393797819
+25th percentile: 0.7294257658616498
+75th percentile: 0.8473506344351406
+Variance: 0.004969595518881181
+Standard Deviation: 0.07049535813712263
+Skipping file google-api-services-translate-v2-rev20170525 (google-api-services-translate-v2-rev20170525-2.0.0.jar)
+Similarity of methods inside of the classes:
+Loading google-api-services-translate-v3-rev20220805-2.0.0 from cache
+Computing embeddings took 28 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7992900355981276
+Min: 0.6178295725871457
+Max: 0.9053446268076836
+Count: 75
+Median: 0.7592301599792968
+25th percentile: 0.7293684119642088
+75th percentile: 0.8793848247237155
+Variance: 0.005829996941969194
+Standard Deviation: 0.07635441665004844
+Similarity of methods inside of the classes:
+Loading google-auth-library-oauth2-http-1.10.0 from cache
+Computing embeddings took 12 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8044127912348603
+Min: 0.6516043818799377
+Max: 0.9792742954260198
+Count: 56
+Median: 0.7991840513875927
+25th percentile: 0.7490534388691351
+75th percentile: 0.8617370959036603
+Variance: 0.007017386045071851
+Standard Deviation: 0.08376983971019553
+Skipping file google-auth-library-oauth2-http (google-auth-library-oauth2-http-1.11.0.jar)
+Skipping file google-auth-library-oauth2-http (google-auth-library-oauth2-http-1.12.0.jar)
+Skipping file google-auth-library-oauth2-http (google-auth-library-oauth2-http-1.12.1.jar)
+Skipping file google-auth-library-oauth2-http (google-auth-library-oauth2-http-1.16.0.jar)
+Similarity of methods inside of the classes:
+Loading google-cloud-bigquerystorage-2.13.0 from cache
+Computing embeddings took 20 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7614849802469222
+Min: 0.45967167252986224
+Max: 0.9858474272251221
+Count: 86
+Median: 0.7645713159627492
+25th percentile: 0.6752400697968594
+75th percentile: 0.7973034106839365
+Variance: 0.013557904672730072
+Standard Deviation: 0.11643841579448799
+Skipping file google-cloud-bigquerystorage (google-cloud-bigquerystorage-2.8.3.jar)
+Similarity of methods inside of the classes:
+Loading google-cloud-pubsublite-0.18.0 from cache
+Computing embeddings took 27 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7644011954849906
+Min: 0.42679445729248766
+Max: 1.0000000000000002
+Count: 155
+Median: 0.7709807205289639
+25th percentile: 0.6790289018201447
+75th percentile: 0.8532410015635676
+Variance: 0.014994586310286731
+Standard Deviation: 0.12245238384893424
+Skipping file google-cloud-pubsublite (google-cloud-pubsublite-0.6.0.jar)
+Skipping file google-cloud-pubsublite (google-cloud-pubsublite-1.6.3.jar)
+Similarity of methods inside of the classes:
+Loading google-cloud-storage-2.10.0 from cache
+Computing embeddings took 23 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.821215997453925
+Min: 0.6093325409379252
+Max: 1.0000000000000002
+Count: 111
+Median: 0.8318850656245591
+25th percentile: 0.7422983480735762
+75th percentile: 0.8959821668911836
+Variance: 0.009024953494550094
+Standard Deviation: 0.09499975523415886
+Skipping file google-cloud-storage (google-cloud-storage-2.11.0.jar)
+Skipping file google-cloud-storage (google-cloud-storage-2.14.0.jar)
+Skipping file google-cloud-storage (google-cloud-storage-2.15.0.jar)
+Skipping file google-cloud-storage (google-cloud-storage-2.16.0.jar)
+Skipping file google-cloud-storage (google-cloud-storage-2.17.0.jar)
+Skipping file google-cloud-storage (google-cloud-storage-2.22.5.jar)
+Skipping file google-cloud-storage (google-cloud-storage-2.23.0.jar)
+Similarity of methods inside of the classes:
+Loading google-extensions-0.6 from cache
+Computing embeddings took 1 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8771006064383675
+Min: 0.8771006064383675
+Max: 0.8771006064383675
+Count: 1
+Median: 0.8771006064383675
+25th percentile: 0.8771006064383675
+75th percentile: 0.8771006064383675
+Variance: 0.0
+Standard Deviation: 0.0
+Skipping file google-extensions (google-extensions-0.7.1.jar)
+Similarity of methods inside of the classes:
+Loading graphql-java-servlet-14.0.0 from cache
+Computing embeddings took 6 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8532546726712337
+Min: 0.674118723873095
+Max: 0.9928654395706055
+Count: 35
+Median: 0.8877362678150562
+25th percentile: 0.7434321686729145
+75th percentile: 0.9317393609144519
+Variance: 0.009053607814556821
+Standard Deviation: 0.09515044831505956
+Skipping file graphql-java-servlet (graphql-java-servlet-15.0.0.jar)
+Similarity of methods inside of the classes:
+Loading grpc-google-cloud-pubsublite-v1-1.11.1 from cache
+Computing embeddings took 7 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8442756316918573
+Min: 0.7277035314320411
+Max: 0.9747047434887796
+Count: 30
+Median: 0.818873044703241
+25th percentile: 0.7847331890836441
+75th percentile: 0.9044305150885407
+Variance: 0.004634173660451681
+Standard Deviation: 0.0680747652250941
+Skipping file grpc-google-cloud-pubsublite-v1 (grpc-google-cloud-pubsublite-v1-1.12.10.jar)
+Skipping file grpc-google-cloud-pubsublite-v1 (grpc-google-cloud-pubsublite-v1-1.12.8.jar)
+Similarity of methods inside of the classes:
+Loading guava-31.0.1-jre from cache
+Computing embeddings took 96 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7798854363203561
+Min: 0.47077157809477044
+Max: 1.0000000000000002
+Count: 356
+Median: 0.765601363072896
+25th percentile: 0.7120931529591242
+75th percentile: 0.8552380952183052
+Variance: 0.008742161126604284
+Standard Deviation: 0.09349952473999151
+Similarity of methods inside of the classes:
+Loading guava-31.1-android from cache
+Computing embeddings took 93 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7814458901731561
+Min: 0.47077157809477044
+Max: 1.0000000000000002
+Count: 353
+Median: 0.765643300973462
+25th percentile: 0.7153640056733404
+75th percentile: 0.8592930007664573
+Variance: 0.009052096898675937
+Standard Deviation: 0.09514250836863582
+Skipping file guava-31.1 (guava-31.1-jre.jar)
+Similarity of methods inside of the classes:
+Loading guava-32.0.0-android from cache
+Computing embeddings took 106 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7808803442907872
+Min: 0.47077157809477044
+Max: 1.0000000000000002
+Count: 352
+Median: 0.7653638667251557
+25th percentile: 0.7138344810335191
+75th percentile: 0.8586983696716233
+Variance: 0.009063967190969108
+Standard Deviation: 0.09520486957592615
+Skipping file guava-32.0.0 (guava-32.0.0-jre.jar)
+Similarity of methods inside of the classes:
+Loading guice-5.1.0 from cache
+Computing embeddings took 54 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8100111935348676
+Min: 0.49121241303239055
+Max: 1.0000000000000002
+Count: 138
+Median: 0.7945396172231782
+25th percentile: 0.7593554140971973
+75th percentile: 0.868978303681354
+Variance: 0.00712450064861502
+Standard Deviation: 0.08440675712651813
+Skipping file guice (guice-7.0.0.jar)
+Similarity of methods inside of the classes:
+Loading h2-1.3.175 from cache
+Computing embeddings took 126 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7194540566811781
+Min: 0.5432347976536173
+Max: 1.0
+Count: 443
+Median: 0.7037854570934868
+25th percentile: 0.6694635218349704
+75th percentile: 0.7593671014138833
+Variance: 0.006207789789614226
+Standard Deviation: 0.07878952842614446
+Skipping file h2 (h2-2.0.206.jar)
+Skipping file h2 (h2-2.1.210.jar)
+Similarity of methods inside of the classes:
+Loading hamcrest-library-1.3 from cache
+Computing embeddings took 7 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7645915668103155
+Min: 0.6626106708192832
+Max: 0.954295816966301
+Count: 30
+Median: 0.7494108682141886
+25th percentile: 0.7234345930351223
+75th percentile: 0.7948797174901706
+Variance: 0.003804833654580203
+Standard Deviation: 0.0616833336856902
+Skipping file hamcrest-library (hamcrest-library-2.2.jar)
+Similarity of methods inside of the classes:
+Loading hazelcast-3.12.5 from cache
+Computing embeddings took 773 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7558766764996661
+Min: 0.4312635854221223
+Max: 1.0000000000000002
+Count: 3953
+Median: 0.7341405652843707
+25th percentile: 0.6705259763000255
+75th percentile: 0.850724865476628
+Variance: 0.013341514094131103
+Standard Deviation: 0.11550547213933678
+Skipping file hazelcast (hazelcast-4.0.5.jar)
+Skipping file hazelcast (hazelcast-5.1.jar)
+Similarity of methods inside of the classes:
+Loading hibernate-core-4.0.1.Final from cache
+Computing embeddings took 405 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8010279910871063
+Min: 0.5125515324865573
+Max: 1.0000000000000002
+Count: 1715
+Median: 0.7874927220221285
+25th percentile: 0.7338136922607768
+75th percentile: 0.8737781433413497
+Variance: 0.010060039240137828
+Standard Deviation: 0.10029974695949052
+Skipping file hibernate-core (hibernate-core-5.4.24.Final.jar)
+Similarity of methods inside of the classes:
+Loading hibernate-entitymanager-4.3.11.Final from cache
+Computing embeddings took 62 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7973782059753546
+Min: 0.510249233150646
+Max: 1.0000000000000002
+Count: 237
+Median: 0.7889249338342578
+25th percentile: 0.7375713822350639
+75th percentile: 0.8601736697006085
+Variance: 0.010996210458000373
+Standard Deviation: 0.1048628173281663
+Skipping file hibernate-entitymanager (hibernate-entitymanager-5.6.14.Final.jar)
+Skipping file hibernate-entitymanager (hibernate-entitymanager-5.6.15.Final.jar)
+Similarity of methods inside of the classes:
+Loading hibernate-validator-5.4.3.Final from cache
+Computing embeddings took 54 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7872350609185876
+Min: 0.5973879455152354
+Max: 1.0000000000000002
+Count: 289
+Median: 0.7605802433121913
+25th percentile: 0.7126502531514847
+75th percentile: 0.8741662372166187
+Variance: 0.00936439314176333
+Standard Deviation: 0.09676979457332402
+Skipping file hibernate-validator (hibernate-validator-6.1.7.Final.jar)
+Skipping file hibernate-validator (hibernate-validator-6.2.4.Final.jar)
+Skipping file hibernate-validator (hibernate-validator-6.2.5.Final.jar)
+Skipping file hibernate-validator (hibernate-validator-7.0.2.Final.jar)
+Skipping file hibernate-validator (hibernate-validator-7.0.3.Final.jar)
+Skipping file hibernate-validator (hibernate-validator-7.0.4.Final.jar)
+Skipping file hibernate-validator (hibernate-validator-8.0.0.Final.jar)
+Skipping file hibernate-validator (hibernate-validator-8.0.1.Final.jar)
+Similarity of methods inside of the classes:
+Loading http-v0.25 from cache
+Computing embeddings took 7 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7116901920322279
+Min: 0.4739104083125467
+Max: 1.0000000000000002
+Count: 42
+Median: 0.7007298743050514
+25th percentile: 0.6343695205381172
+75th percentile: 0.7604360740760417
+Variance: 0.013006365939511237
+Standard Deviation: 0.11404545558465377
+Skipping file http (http-v0.26.1.jar)
+Skipping file http (http-v1.0.1.jar)
+Skipping file http (http-v1.1.0.jar)
+Skipping file http (http-v1.1.1.jar)
+Similarity of methods inside of the classes:
+Loading http-v1.1.2-d from cache
+Computing embeddings took 8 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7202320784973449
+Min: 0.4739104083125467
+Max: 1.0000000000000002
+Count: 46
+Median: 0.7071037956278461
+25th percentile: 0.6343695205381172
+75th percentile: 0.7647047264260104
+Variance: 0.013464758261671423
+Standard Deviation: 0.11603774498701457
+Skipping file http (http-v1.1.3.jar)
+Skipping file http (http-v1.1.4.jar)
+Skipping file http (http-v1.2.1.jar)
+Similarity of methods inside of the classes:
+Loading httpclient-4.5.1 from cache
+Computing embeddings took 44 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7804300087253956
+Min: 0.5584066495969451
+Max: 1.0000000000000002
+Count: 245
+Median: 0.7748078452314141
+25th percentile: 0.6960475622274778
+75th percentile: 0.8569168518293607
+Variance: 0.00987782443038181
+Standard Deviation: 0.09938724480727801
+Skipping file httpclient (httpclient-4.5.13.jar)
+Similarity of methods inside of the classes:
+Loading jackson-core-2.13.3 from cache
+Computing embeddings took 45 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7601748793793626
+Min: 0.5615176422274034
+Max: 1.0000000000000002
+Count: 110
+Median: 0.7397545019106022
+25th percentile: 0.7026220051274382
+75th percentile: 0.8124523337777843
+Variance: 0.009555750042312025
+Standard Deviation: 0.09775351677720871
+Skipping file jackson-core (jackson-core-2.4.2.jar)
+Similarity of methods inside of the classes:
+Loading jackson-databind-2.10.0 from cache
+Computing embeddings took 123 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8127256121658846
+Min: 0.5577102431125556
+Max: 1.0000000000000002
+Count: 458
+Median: 0.808730988316942
+25th percentile: 0.7435873447437364
+75th percentile: 0.8732471698192461
+Variance: 0.008434513631961182
+Standard Deviation: 0.0918396081871062
+Skipping file jackson-databind (jackson-databind-2.10.5.1.jar)
+Skipping file jackson-databind (jackson-databind-2.11.0.jar)
+Skipping file jackson-databind (jackson-databind-2.12.6.1.jar)
+Skipping file jackson-databind (jackson-databind-2.12.7.1.jar)
+Skipping file jackson-databind (jackson-databind-2.13.0.jar)
+Skipping file jackson-databind (jackson-databind-2.13.1.jar)
+Skipping file jackson-databind (jackson-databind-2.13.2.1.jar)
+Skipping file jackson-databind (jackson-databind-2.13.2.2.jar)
+Skipping file jackson-databind (jackson-databind-2.13.2.jar)
+Skipping file jackson-databind (jackson-databind-2.13.3.jar)
+Skipping file jackson-databind (jackson-databind-2.13.4.1.jar)
+Skipping file jackson-databind (jackson-databind-2.13.4.2.jar)
+Skipping file jackson-databind (jackson-databind-2.13.4.jar)
+Skipping file jackson-databind (jackson-databind-2.14.0.jar)
+Skipping file jackson-databind (jackson-databind-2.14.1.jar)
+Skipping file jackson-databind (jackson-databind-2.14.2.jar)
+Skipping file jackson-databind (jackson-databind-2.15.2.jar)
+Skipping file jackson-databind (jackson-databind-2.3.3.jar)
+Skipping file jackson-databind (jackson-databind-2.4.2.jar)
+Skipping file jackson-databind (jackson-databind-2.9.10.3.jar)
+Skipping file jackson-databind (jackson-databind-2.9.10.5.jar)
+Skipping file jackson-databind (jackson-databind-2.9.10.8.jar)
+Similarity of methods inside of the classes:
+Loading jackson-dataformat-cbor-2.13.3 from cache
+Computing embeddings took 7 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.734505342867222
+Min: 0.649720079482524
+Max: 0.8788063208281874
+Count: 12
+Median: 0.7057250799598074
+25th percentile: 0.6959482181521682
+75th percentile: 0.7712536158796995
+Variance: 0.003761863486320733
+Standard Deviation: 0.061334032040301516
+Skipping file jackson-dataformat-cbor (jackson-dataformat-cbor-2.4.0.jar)
+Similarity of methods inside of the classes:
+Loading jakarta.annotation-api-1.3.5 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7826640532908653
+Min: 0.7142994294073921
+Max: 0.893945954823095
+Count: 4
+Median: 0.761205414466487
+25th percentile: 0.7142994294073921
+75th percentile: 0.7966986994190157
+Variance: 0.0051244690802976665
+Standard Deviation: 0.07158539711629507
+Skipping file jakarta.annotation-api (jakarta.annotation-api-2.0.0.jar)
+Similarity of methods inside of the classes:
+Loading jakarta.interceptor-api-1.2.5 from cache
+Computing embeddings took 1 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8537165810910949
+Min: 0.8537165810910949
+Max: 0.8537165810910949
+Count: 1
+Median: 0.8537165810910949
+25th percentile: 0.8537165810910949
+75th percentile: 0.8537165810910949
+Variance: 0.0
+Standard Deviation: 0.0
+Skipping file jakarta.interceptor-api (jakarta.interceptor-api-2.0.0.jar)
+Similarity of methods inside of the classes:
+Loading jakarta.jws-api-2.1.0 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.811843373693454
+Min: 0.6522091839322132
+Max: 0.9421156770554471
+Count: 12
+Median: 0.8244276059110944
+25th percentile: 0.7436420121055992
+75th percentile: 0.8816463898368688
+Variance: 0.007300069030767759
+Standard Deviation: 0.08544044142423282
+Skipping file jakarta.jws-api (jakarta.jws-api-3.0.0.jar)
+Similarity of methods inside of the classes:
+Loading jakarta.mvc-api-1.1.0 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8805968146150095
+Min: 0.6815166937871106
+Max: 1.0
+Count: 15
+Median: 0.8776990232345144
+25th percentile: 0.8280027832159395
+75th percentile: 0.893845405670655
+Variance: 0.00793029134157356
+Standard Deviation: 0.08905218324989882
+Skipping file jakarta.mvc-api (jakarta.mvc-api-2.0.1.jar)
+Similarity of methods inside of the classes:
+Loading jakarta.servlet-api-4.0.4 from cache
+Computing embeddings took 14 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8627041111756075
+Min: 0.5518074694200896
+Max: 1.0000000000000002
+Count: 69
+Median: 0.8617321261131867
+25th percentile: 0.8030737923643391
+75th percentile: 0.9445494718567783
+Variance: 0.011075098142614339
+Standard Deviation: 0.10523829218784549
+Skipping file jakarta.servlet-api (jakarta.servlet-api-5.0.0.jar)
+Skipping file jakarta.servlet-api (jakarta.servlet-api-6.0.0.jar)
+Similarity of methods inside of the classes:
+Loading jakarta.validation-api-2.0.2 from cache
+Computing embeddings took 10 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8503386928648463
+Min: 0.6126291080047995
+Max: 1.0000000000000002
+Count: 75
+Median: 0.8438341119731286
+25th percentile: 0.7604328367883916
+75th percentile: 0.9728529513385206
+Variance: 0.01346491849089069
+Standard Deviation: 0.11603843540349332
+Skipping file jakarta.validation-api (jakarta.validation-api-3.0.1.jar)
+Skipping file jakarta.validation-api (jakarta.validation-api-3.0.2.jar)
+Similarity of methods inside of the classes:
+Loading jakarta.xml.bind-api-2.3.2 from cache
+Computing embeddings took 10 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8010626653627096
+Min: 0.567250945557185
+Max: 1.0
+Count: 45
+Median: 0.806394457252957
+25th percentile: 0.7376690234635945
+75th percentile: 0.8575666372171614
+Variance: 0.008990530445428113
+Standard Deviation: 0.09481840773514451
+Skipping file jakarta.xml.bind-api (jakarta.xml.bind-api-2.3.3.jar)
+Skipping file jakarta.xml.bind-api (jakarta.xml.bind-api-3.0.1.jar)
+Skipping file jakarta.xml.bind-api (jakarta.xml.bind-api-4.0.0.jar)
+Similarity of methods inside of the classes:
+Loading jasperreports-6.18.1 from cache
+Computing embeddings took 436 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7901671670043225
+Min: 0.4551371345157941
+Max: 1.0000000000000002
+Count: 2308
+Median: 0.7857953701454166
+25th percentile: 0.7235671165914771
+75th percentile: 0.864016608483511
+Variance: 0.012135019137309806
+Standard Deviation: 0.11015906289230046
+Skipping file jasperreports (jasperreports-6.19.1.jar)
+Similarity of methods inside of the classes:
+Loading jasypt-1.8 from cache
+Computing embeddings took 17 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8168793636535249
+Min: 0.6090598870794941
+Max: 1.0000000000000002
+Count: 100
+Median: 0.8070761154217512
+25th percentile: 0.7320291653085639
+75th percentile: 0.8960205043432286
+Variance: 0.009597078248565687
+Standard Deviation: 0.09796467857634039
+Skipping file jasypt (jasypt-1.9.2.jar)
+Similarity of methods inside of the classes:
+Loading javaee-api-7.0 from cache
+Computing embeddings took 228 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.829161285205704
+Min: 0.4272206794397912
+Max: 1.0000000000000002
+Count: 1250
+Median: 0.8307062704812177
+25th percentile: 0.7544602221038776
+75th percentile: 0.904415208974382
+Variance: 0.010712200241593695
+Standard Deviation: 0.10349975962094644
+Skipping file javaee-api (javaee-api-8.0.1.jar)
+Similarity of methods inside of the classes:
+Loading javaparser-core-3.18.0 from cache
+Computing embeddings took 150 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7740484866052398
+Min: 0.5163027523034481
+Max: 1.0000000000000002
+Count: 330
+Median: 0.7546142581635191
+25th percentile: 0.7090578744649497
+75th percentile: 0.8257650989745564
+Variance: 0.0072762253205958536
+Standard Deviation: 0.08530079320027366
+Skipping file javaparser-core (javaparser-core-3.24.0.jar)
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Skipping file jaxb-2.3.6 (jaxb-2.3.6-2.jar)
+Similarity of methods inside of the classes:
+Loading jaxb-impl-2.3.3 from cache
+Computing embeddings took 48 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7909783515998882
+Min: 0.5129495960733825
+Max: 1.0000000000000002
+Count: 258
+Median: 0.7775014894490379
+25th percentile: 0.7369458711305227
+75th percentile: 0.8452177252586912
+Variance: 0.008496783093967147
+Standard Deviation: 0.09217799679949194
+Skipping file jaxb-impl (jaxb-impl-4.0.0.jar)
+Skipping file jaxb-impl (jaxb-impl-4.0.1.jar)
+Skipping file jaxb-impl (jaxb-impl-4.0.2.jar)
+Similarity of methods inside of the classes:
+Loading jaxb2-basics-runtime-0.13.1 from cache
+Computing embeddings took 33 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8283308753970543
+Min: 0.5978758076400551
+Max: 1.0000000000000002
+Count: 100
+Median: 0.8380417584804283
+25th percentile: 0.7477381617875212
+75th percentile: 0.9140106270718085
+Variance: 0.013551791389004406
+Standard Deviation: 0.11641216168856416
+Similarity of methods inside of the classes:
+Loading jaxb2-basics-runtime-1.11.1-PUBLISHED-BY-MISTAKE from cache
+Computing embeddings took 32 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8318947652668788
+Min: 0.5978758076400551
+Max: 1.0000000000000002
+Count: 99
+Median: 0.835495802968653
+25th percentile: 0.7477381617875212
+75th percentile: 0.9380831633242406
+Variance: 0.014391494086370367
+Standard Deviation: 0.11996455345797094
+Skipping file jaxb2-basics-runtime (jaxb2-basics-runtime-1.11.1.jar)
+Similarity of methods inside of the classes:
+Loading jcabi-aspects-0.24.1 from cache
+Computing embeddings took 4 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.6574872370375746
+Min: 0.5313443262276973
+Max: 0.7545921841544103
+Count: 18
+Median: 0.6343358061668064
+25th percentile: 0.6236560643974386
+75th percentile: 0.7039757864859802
+Variance: 0.004070407875122585
+Standard Deviation: 0.06379974823714107
+Skipping file jcabi-aspects (jcabi-aspects-0.25.1.jar)
+Similarity of methods inside of the classes:
+Loading jedis-3.9.0 from cache
+Computing embeddings took 112 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7836172492270563
+Min: 0.6099385358115539
+Max: 1.0
+Count: 143
+Median: 0.7649470462206465
+25th percentile: 0.7312878226407188
+75th percentile: 0.8408256475424236
+Variance: 0.0062430556221943784
+Standard Deviation: 0.07901300919591898
+Skipping file jedis (jedis-4.3.2.jar)
+Similarity of methods inside of the classes:
+Loading jersey-server-2.32 from cache
+Computing embeddings took 62 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8073610617842728
+Min: 0.5455174908271255
+Max: 1.0000000000000002
+Count: 200
+Median: 0.7979824501153824
+25th percentile: 0.7237108952012695
+75th percentile: 0.9070851449147499
+Variance: 0.013223070122000673
+Standard Deviation: 0.11499160891995848
+Skipping file jersey-server (jersey-server-2.35.jar)
+Skipping file jersey-server (jersey-server-2.36.jar)
+Skipping file jersey-server (jersey-server-2.37.jar)
+Skipping file jersey-server (jersey-server-2.38.jar)
+Skipping file jersey-server (jersey-server-2.39.1.jar)
+Skipping file jersey-server (jersey-server-2.39.jar)
+Similarity of methods inside of the classes:
+Loading jetty-server-10.0.10 from cache
+Computing embeddings took 53 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7589805795473487
+Min: 0.49115410094631984
+Max: 1.0000000000000002
+Count: 174
+Median: 0.7408491244550779
+25th percentile: 0.6938597173224607
+75th percentile: 0.8253287944657796
+Variance: 0.00974069224490491
+Standard Deviation: 0.09869494538680747
+Skipping file jetty-server (jetty-server-10.0.14.jar)
+Skipping file jetty-server (jetty-server-11.0.10.jar)
+Skipping file jetty-server (jetty-server-11.0.11.jar)
+Skipping file jetty-server (jetty-server-11.0.12.jar)
+Skipping file jetty-server (jetty-server-11.0.13.jar)
+Skipping file jetty-server (jetty-server-11.0.14.jar)
+Skipping file jetty-server (jetty-server-11.0.7.jar)
+Skipping file jetty-server (jetty-server-11.0.8.jar)
+Skipping file jetty-server (jetty-server-11.0.9.jar)
+Skipping file jetty-server (jetty-server-8.1.11.v20130520.jar)
+Skipping file jetty-server (jetty-server-9.4.35.v20201120.jar)
+Skipping file jetty-server (jetty-server-9.4.41.v20210516.jar)
+Skipping file jetty-server (jetty-server-9.4.46.v20220331.jar)
+Skipping file jetty-server (jetty-server-9.4.47.v20220610.jar)
+Skipping file jetty-server (jetty-server-9.4.48.v20220622.jar)
+Skipping file jetty-server (jetty-server-9.4.49.v20220914.jar)
+Skipping file jetty-server (jetty-server-9.4.50.v20221201.jar)
+Similarity of methods inside of the classes:
+Loading joda-time-2.1 from cache
+Computing embeddings took 73 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8034075406443969
+Min: 0.49841644785576406
+Max: 1.0000000000000002
+Count: 134
+Median: 0.8076339244881612
+25th percentile: 0.7286374259440589
+75th percentile: 0.8735869276837773
+Variance: 0.00918285111033857
+Standard Deviation: 0.09582719400221719
+Skipping file joda-time (joda-time-2.12.5.jar)
+Similarity of methods inside of the classes:
+Loading jooq-meta-3.16.6 from cache
+Computing embeddings took 93 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7697018227532822
+Min: 0.5166456830550049
+Max: 1.0000000000000002
+Count: 233
+Median: 0.7418602897548175
+25th percentile: 0.7174842037513618
+75th percentile: 0.8088825768977032
+Variance: 0.006290906679657142
+Standard Deviation: 0.07931523611297606
+Skipping file jooq-meta (jooq-meta-3.17.0.jar)
+Skipping file jooq-meta (jooq-meta-3.17.1.jar)
+Skipping file jooq-meta (jooq-meta-3.17.2.jar)
+Skipping file jooq-meta (jooq-meta-3.17.3.jar)
+Skipping file jooq-meta (jooq-meta-3.17.4.jar)
+Skipping file jooq-meta (jooq-meta-3.17.5.jar)
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Skipping file jquery3-api-3.6.0 (jquery3-api-3.6.0-3.jar)
+Skipping file jquery3-api-3.6.0 (jquery3-api-3.6.0-4.jar)
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Similarity of methods inside of the classes:
+Loading js-scriptengine-22.0.0 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7416768276635853
+Min: 0.6656813472654246
+Max: 0.8176723080617461
+Count: 2
+Median: 0.7416768276635853
+25th percentile: 0.6656813472654246
+75th percentile: 0.6656813472654246
+Variance: 0.0057753130409472315
+Standard Deviation: 0.07599548039816073
+Skipping file js-scriptengine (js-scriptengine-22.1.0.jar)
+Skipping file js-scriptengine (js-scriptengine-22.3.2.jar)
+Skipping file js-scriptengine (js-scriptengine-23.0.0.jar)
+Skipping file js-scriptengine (js-scriptengine-23.0.1.jar)
+Similarity of methods inside of the classes:
+Loading json-20090211 from cache
+Computing embeddings took 6 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8615068502342423
+Min: 0.6864489280527956
+Max: 0.9860756598439261
+Count: 11
+Median: 0.8601320481951786
+25th percentile: 0.7471320111415646
+75th percentile: 0.9630025620640227
+Variance: 0.01103552047540331
+Standard Deviation: 0.10505008555638264
+Skipping file json (json-20230227.jar)
+Similarity of methods inside of the classes:
+Loading json-smart-2.4.8 from cache
+Computing embeddings took 11 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8105890672463284
+Min: 0.5796556301550774
+Max: 0.9876626905886277
+Count: 29
+Median: 0.798935005480386
+25th percentile: 0.7774901992350843
+75th percentile: 0.8336743425194039
+Variance: 0.005154980691394738
+Standard Deviation: 0.07179819420706024
+Skipping file json-smart (json-smart-2.4.9.jar)
+Similarity of methods inside of the classes:
+Loading jsoup-1.11.1 from cache
+Computing embeddings took 27 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7045747806681988
+Min: 0.5438281893898693
+Max: 1.0000000000000002
+Count: 87
+Median: 0.7164162127118008
+25th percentile: 0.5480427383487462
+75th percentile: 0.7991474364482988
+Variance: 0.01559781058247302
+Standard Deviation: 0.12489119497575887
+Skipping file jsoup (jsoup-1.14.2.jar)
+Skipping file jsoup (jsoup-1.15.3.jar)
+Similarity of methods inside of the classes:
+Loading junit-jupiter-engine-5.10.0 from cache
+Computing embeddings took 9 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8096849023280404
+Min: 0.6272657126760228
+Max: 1.0000000000000002
+Count: 32
+Median: 0.7868821812996174
+25th percentile: 0.7349854089440528
+75th percentile: 0.8963738536986534
+Variance: 0.010064496613212258
+Standard Deviation: 0.1003219647595294
+Skipping file junit-jupiter-engine (junit-jupiter-engine-5.8.1.jar)
+Similarity of methods inside of the classes:
+Loading junit-jupiter-params-5.10.0 from cache
+Computing embeddings took 68 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8090269000264572
+Min: 0.562401240955458
+Max: 1.0000000000000002
+Count: 190
+Median: 0.7907484446264035
+25th percentile: 0.7344566089200079
+75th percentile: 0.8747656843128243
+Variance: 0.009643671730229167
+Standard Deviation: 0.09820219819448629
+Skipping file junit-jupiter-params (junit-jupiter-params-5.9.1.jar)
+Skipping file junit-jupiter-params (junit-jupiter-params-5.9.2.jar)
+Skipping file junit-jupiter-params (junit-jupiter-params-5.9.3.jar)
+Similarity of methods inside of the classes:
+Loading junit-platform-surefire-provider-1.0.3 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.6173848791649994
+Min: 0.6173848791649994
+Max: 0.6173848791649994
+Count: 1
+Median: 0.6173848791649994
+25th percentile: 0.6173848791649994
+75th percentile: 0.6173848791649994
+Variance: 0.0
+Standard Deviation: 0.0
+Skipping file junit-platform-surefire-provider (junit-platform-surefire-provider-1.3.2.jar)
+Similarity of methods inside of the classes:
+Loading kotlin-stdlib-1.3.31 from cache
+Computing embeddings took 67 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7716115431390668
+Min: 0.5659021890472448
+Max: 1.0000000000000002
+Count: 284
+Median: 0.7535009262983412
+25th percentile: 0.6892407367955184
+75th percentile: 0.8580686127991014
+Variance: 0.011651770926142517
+Standard Deviation: 0.10794336906981604
+Skipping file kotlin-stdlib (kotlin-stdlib-1.6.0.jar)
+Similarity of methods inside of the classes:
+Loading libthrift-0.12.0 from cache
+Computing embeddings took 21 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7156264163732972
+Min: 0.49698940929056246
+Max: 0.9999999999999999
+Count: 103
+Median: 0.7082573961420381
+25th percentile: 0.6183042740457475
+75th percentile: 0.7941676339125745
+Variance: 0.01421344269421669
+Standard Deviation: 0.1192201438273612
+Skipping file libthrift (libthrift-0.16.0.jar)
+Similarity of methods inside of the classes:
+Loading liquibase-core-3.4.2 from cache
+Computing embeddings took 167 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.806873315444278
+Min: 0.49298801712613843
+Max: 1.0000000000000002
+Count: 693
+Median: 0.806497149063279
+25th percentile: 0.7476438057206858
+75th percentile: 0.8646529308328039
+Variance: 0.006779994334979665
+Standard Deviation: 0.08234072100109195
+Skipping file liquibase-core (liquibase-core-4.8.0.jar)
+Similarity of methods inside of the classes:
+Loading log4j-api-2.16.0 from cache
+Computing embeddings took 37 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8205768133069341
+Min: 0.5143992486985683
+Max: 1.0
+Count: 108
+Median: 0.8134938984252909
+25th percentile: 0.7413930820239022
+75th percentile: 0.9202148285860625
+Variance: 0.011124829346774225
+Standard Deviation: 0.10547430657166808
+Skipping file log4j-api (log4j-api-2.17.2.jar)
+Skipping file log4j-api (log4j-api-2.18.0.jar)
+Skipping file log4j-api (log4j-api-2.19.0.jar)
+Skipping file log4j-api (log4j-api-2.20.0.jar)
+Similarity of methods inside of the classes:
+Loading log4j-core-2.11.1 from cache
+Computing embeddings took 100 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7718441300905333
+Min: 0.460519269201462
+Max: 1.0000000000000002
+Count: 526
+Median: 0.7767398117681602
+25th percentile: 0.7061230520691185
+75th percentile: 0.8439289618540662
+Variance: 0.011230138414152687
+Standard Deviation: 0.10597234740323858
+Skipping file log4j-core (log4j-core-2.12.1.jar)
+Skipping file log4j-core (log4j-core-2.15.0.jar)
+Skipping file log4j-core (log4j-core-2.16.0.jar)
+Skipping file log4j-core (log4j-core-2.17.2.jar)
+Skipping file log4j-core (log4j-core-2.18.0.jar)
+Skipping file log4j-core (log4j-core-2.19.0.jar)
+Skipping file log4j-core (log4j-core-2.20.0.jar)
+Similarity of methods inside of the classes:
+Loading logback-classic-1.2.11 from cache
+Computing embeddings took 17 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7611381335958248
+Min: 0.531771803217827
+Max: 1.0000000000000002
+Count: 124
+Median: 0.7759231720782116
+25th percentile: 0.688768314025815
+75th percentile: 0.8092702026307974
+Variance: 0.010741361599636401
+Standard Deviation: 0.10364054032875553
+Skipping file logback-classic (logback-classic-1.4.0.jar)
+Skipping file logback-classic (logback-classic-1.4.1.jar)
+Skipping file logback-classic (logback-classic-1.4.3.jar)
+Skipping file logback-classic (logback-classic-1.4.4.jar)
+Skipping file logback-classic (logback-classic-1.4.5.jar)
+Skipping file logback-classic (logback-classic-1.4.6.jar)
+Skipping file logback-classic (logback-classic-1.4.8.jar)
+Similarity of methods inside of the classes:
+Loading logback-core-1.1.11 from cache
+Computing embeddings took 45 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.769171185915222
+Min: 0.453780491535074
+Max: 1.0000000000000002
+Count: 213
+Median: 0.7602284130429058
+25th percentile: 0.6926159704539626
+75th percentile: 0.8391848541318249
+Variance: 0.012078043445013125
+Standard Deviation: 0.10990015216100989
+Skipping file logback-core (logback-core-1.2.9.jar)
+Similarity of methods inside of the classes:
+Loading lombok-1.18.0 from cache
+Computing embeddings took 5 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7927957568566303
+Min: 0.5387571929127646
+Max: 0.9862918784318085
+Count: 31
+Median: 0.7827789186234753
+25th percentile: 0.7351467117610713
+75th percentile: 0.8788836695860928
+Variance: 0.011642577845368849
+Standard Deviation: 0.10790077777925815
+Similarity of methods inside of the classes:
+Loading mapstruct-processor-1.4.2.Final from cache
+Computing embeddings took 84 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7905876119460504
+Min: 0.5199051744463538
+Max: 1.0000000000000002
+Count: 392
+Median: 0.7645145495065965
+25th percentile: 0.7197105872646417
+75th percentile: 0.8691523048299523
+Variance: 0.011786475179554246
+Standard Deviation: 0.10856553403154358
+Skipping file mapstruct-processor (mapstruct-processor-1.5.0.Final.jar)
+Similarity of methods inside of the classes:
+Loading matrix-project-772.v494f19991984 from cache
+Computing embeddings took 8 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7373006126410436
+Min: 0.6318320926261053
+Max: 0.8578980477677483
+Count: 33
+Median: 0.7323799983744198
+25th percentile: 0.6860111342642927
+75th percentile: 0.7958209641347491
+Variance: 0.004958038668657616
+Standard Deviation: 0.07041334155298708
+Skipping file matrix-project (matrix-project-785.v06b_7f47b_c631.jar)
+Similarity of methods inside of the classes:
+Loading maven-aether-provider-3.0.3 from cache
+Computing embeddings took 1 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7819826922125815
+Min: 0.7167599502026835
+Max: 0.8815375525763259
+Count: 6
+Median: 0.7873599780288674
+25th percentile: 0.7167599502026835
+75th percentile: 0.7873599780288674
+Variance: 0.0031470788948694075
+Standard Deviation: 0.05609883149290552
+Skipping file maven-aether-provider (maven-aether-provider-3.3.9.jar)
+Similarity of methods inside of the classes:
+Loading maven-archiver-3.5.2 from cache
+Computing embeddings took 3 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.806557983899282
+Min: 0.7507374301254477
+Max: 0.8449421906595104
+Count: 4
+Median: 0.815276157406085
+25th percentile: 0.7507374301254477
+75th percentile: 0.8424681320373629
+Variance: 0.0015550254048787653
+Standard Deviation: 0.03943381042809286
+Skipping file maven-archiver (maven-archiver-3.6.0.jar)
+Similarity of methods inside of the classes:
+Loading maven-artifact-3.8.3 from cache
+Computing embeddings took 7 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8429276630485361
+Min: 0.7111560245229249
+Max: 1.0000000000000002
+Count: 18
+Median: 0.8129965606451564
+25th percentile: 0.7671938611470566
+75th percentile: 0.900299511993071
+Variance: 0.007459123205868914
+Standard Deviation: 0.08636621565096454
+Skipping file maven-artifact (maven-artifact-3.8.4.jar)
+Skipping file maven-artifact (maven-artifact-3.9.0.jar)
+Skipping file maven-artifact (maven-artifact-3.9.3.jar)
+Similarity of methods inside of the classes:
+Loading maven-core-3.8.3 from cache
+Computing embeddings took 57 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8240036745800355
+Min: 0.5759332802095954
+Max: 1.0000000000000002
+Count: 234
+Median: 0.8127006676689796
+25th percentile: 0.7431979618265729
+75th percentile: 0.909085063951539
+Variance: 0.012701144795837654
+Standard Deviation: 0.1126993557915823
+Skipping file maven-core (maven-core-3.8.4.jar)
+Similarity of methods inside of the classes:
+Loading maven-dependency-tree-2.2 from cache
+Computing embeddings took 7 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7978200800833727
+Min: 0.5137266338586467
+Max: 1.0
+Count: 31
+Median: 0.8556649793871195
+25th percentile: 0.6362087757952481
+75th percentile: 0.8985847921288621
+Variance: 0.026381911034562507
+Standard Deviation: 0.16242509361106278
+Skipping file maven-dependency-tree (maven-dependency-tree-3.1.0.jar)
+Skipping file maven-dependency-tree (maven-dependency-tree-3.1.1.jar)
+Skipping file maven-dependency-tree (maven-dependency-tree-3.2.0.jar)
+Skipping file maven-dependency-tree (maven-dependency-tree-3.2.1.jar)
+Similarity of methods inside of the classes:
+Loading maven-model-3.8.3 from cache
+Computing embeddings took 21 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7797112804279621
+Min: 0.7085873438211749
+Max: 0.980482551376912
+Count: 51
+Median: 0.7728966093142942
+25th percentile: 0.7557899500029841
+75th percentile: 0.7945437381783484
+Variance: 0.002330094643589101
+Standard Deviation: 0.048271053889355896
+Skipping file maven-model (maven-model-3.8.4.jar)
+Skipping file maven-model (maven-model-3.8.5.jar)
+Similarity of methods inside of the classes:
+Loading maven-plugin-annotations-3.6.1 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.6860092245512774
+Min: 0.6282165695853331
+Max: 0.7462673568672158
+Count: 7
+Median: 0.6858355368028306
+25th percentile: 0.6744444172452951
+75th percentile: 0.6858355368028306
+Variance: 0.0010282029591274834
+Standard Deviation: 0.03206560398819089
+Skipping file maven-plugin-annotations (maven-plugin-annotations-3.6.2.jar)
+Skipping file maven-plugin-annotations (maven-plugin-annotations-3.6.4.jar)
+Similarity of methods inside of the classes:
+Loading maven-plugin-api-3.8.4 from cache
+Computing embeddings took 6 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7893033531875389
+Min: 0.6374257212250087
+Max: 1.0000000000000002
+Count: 19
+Median: 0.7790517777947865
+25th percentile: 0.731228760923664
+75th percentile: 0.8011143364574006
+Variance: 0.00654385885060019
+Standard Deviation: 0.08089412123634318
+Skipping file maven-plugin-api (maven-plugin-api-3.8.5.jar)
+Similarity of methods inside of the classes:
+Loading maven-surefire-common-3.0.0-M5 from cache
+Computing embeddings took 24 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7539523970403171
+Min: 0.5705846837336008
+Max: 1.0
+Count: 65
+Median: 0.7441288863298445
+25th percentile: 0.6863748370332577
+75th percentile: 0.8046667131930121
+Variance: 0.008637279661051192
+Standard Deviation: 0.09293696606330117
+Skipping file maven-surefire-common-3.0.0 (maven-surefire-common-3.0.0-M7.jar)
+Similarity of methods inside of the classes:
+Loading metadata-qa-api-0.8.1 from cache
+Computing embeddings took 35 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7846252242171436
+Min: 0.5144306789917186
+Max: 1.0000000000000002
+Count: 91
+Median: 0.7851137219632011
+25th percentile: 0.7312632458359525
+75th percentile: 0.8572146706696183
+Variance: 0.012335750094428015
+Standard Deviation: 0.11106642199345405
+Skipping file metadata-qa-api (metadata-qa-api-0.9.0.jar)
+Similarity of methods inside of the classes:
+Loading mina-core-2.1.5 from cache
+Computing embeddings took 67 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7695169367221458
+Min: 0.4905668650544694
+Max: 1.0
+Count: 224
+Median: 0.7675768144392463
+25th percentile: 0.6989806191705578
+75th percentile: 0.8254130614746984
+Variance: 0.009657663260067563
+Standard Deviation: 0.09827341074811417
+Skipping file mina-core (mina-core-2.2.1.jar)
+Similarity of methods inside of the classes:
+Loading mockito-core-1.10.19 from cache
+Computing embeddings took 62 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7617626045744685
+Min: 0.4772472084105662
+Max: 1.0000000000000002
+Count: 311
+Median: 0.7571384762461978
+25th percentile: 0.7060021939545068
+75th percentile: 0.8320020910776714
+Variance: 0.01266035914151275
+Standard Deviation: 0.11251826136904512
+Skipping file mockito-core (mockito-core-3.12.4.jar)
+Skipping file mockito-core (mockito-core-4.1.0.jar)
+Skipping file mockito-core (mockito-core-4.11.0.jar)
+Skipping file mockito-core (mockito-core-5.1.0.jar)
+Skipping file mockito-core (mockito-core-5.1.1.jar)
+Skipping file mockito-core (mockito-core-5.2.0.jar)
+Skipping file mockito-core (mockito-core-5.3.1.jar)
+Skipping file mockito-core (mockito-core-5.4.0.jar)
+Similarity of methods inside of the classes:
+Loading mybatis-spring-2.0.7 from cache
+Computing embeddings took 8 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7921387216181168
+Min: 0.5744375368689874
+Max: 1.0000000000000002
+Count: 21
+Median: 0.7904785825458593
+25th percentile: 0.7233483128694349
+75th percentile: 0.8926290248504478
+Variance: 0.012090490041665094
+Standard Deviation: 0.10995676441977134
+Skipping file mybatis-spring (mybatis-spring-3.0.1.jar)
+Similarity of methods inside of the classes:
+Loading mysql-connector-java-5.1.49 from cache
+Computing embeddings took 139 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7825441463626893
+Min: 0.5231962781357801
+Max: 1.0000000000000002
+Count: 199
+Median: 0.7865846733428978
+25th percentile: 0.7245779715166152
+75th percentile: 0.8502505363179717
+Variance: 0.009352354483469964
+Standard Deviation: 0.09670757200690111
+Skipping file mysql-connector-java (mysql-connector-java-8.0.28.jar)
+Similarity of methods inside of the classes:
+Loading okhttp-3.14.9 from cache
+Computing embeddings took 23 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7553832385369739
+Min: 0.5544047160854937
+Max: 0.9999999999999999
+Count: 87
+Median: 0.7396958939179235
+25th percentile: 0.681268236321752
+75th percentile: 0.8247715767123388
+Variance: 0.010366457293840075
+Standard Deviation: 0.1018158008063585
+Skipping file okhttp (okhttp-3.3.1.jar)
+Similarity of methods inside of the classes:
+Loading okio-2.1.0 from cache
+Computing embeddings took 19 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7228557069699377
+Min: 0.5255622928365811
+Max: 1.0000000000000002
+Count: 52
+Median: 0.7029735932235273
+25th percentile: 0.5975049610844885
+75th percentile: 0.8161376311173835
+Variance: 0.01686624311688171
+Standard Deviation: 0.1298701009350563
+Skipping file okio (okio-3.4.0.jar)
+Similarity of methods inside of the classes:
+Loading opennlp-tools-2.2.0 from cache
+Computing embeddings took 73 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7508322203293785
+Min: 0.5618640219183865
+Max: 1.0000000000000002
+Count: 552
+Median: 0.7479290803786786
+25th percentile: 0.6551375735929033
+75th percentile: 0.8458327345900827
+Variance: 0.01277412833369538
+Standard Deviation: 0.11302268946408672
+Skipping file opennlp-tools (opennlp-tools-2.3.0.jar)
+Similarity of methods inside of the classes:
+Loading org.eclipse.persistence.moxy-3.0.2 from cache
+Computing embeddings took 79 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8165083026834588
+Min: 0.5816189891919069
+Max: 1.0000000000000002
+Count: 176
+Median: 0.798821330162183
+25th percentile: 0.7643378302900987
+75th percentile: 0.8860645016039206
+Variance: 0.0064851882959395535
+Standard Deviation: 0.08053066680426503
+Skipping file org.eclipse.persistence.moxy (org.eclipse.persistence.moxy-4.0.1.jar)
+Similarity of methods inside of the classes:
+Loading p4-1.11.5 from cache
+Computing embeddings took 28 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7535769378578429
+Min: 0.506817378554654
+Max: 1.0000000000000002
+Count: 179
+Median: 0.7489827554631269
+25th percentile: 0.6930879732752855
+75th percentile: 0.8138549725573545
+Variance: 0.008727370189945004
+Standard Deviation: 0.0934203949357152
+Skipping file p4 (p4-1.3.8.jar)
+Similarity of methods inside of the classes:
+Loading PeyangSuperLibrary-114.191.9 from cache
+Computing embeddings took 3 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8420992105933154
+Min: 0.7135333346915094
+Max: 1.0
+Count: 10
+Median: 0.8204287883219261
+25th percentile: 0.7982690033173946
+75th percentile: 0.8409920753667265
+Variance: 0.007415809314623904
+Standard Deviation: 0.08611509341935306
+Skipping file PeyangSuperLibrary (PeyangSuperLibrary-114.191.98.10.jar)
+Similarity of methods inside of the classes:
+Loading pitest-entry-1.10.0 from cache
+Computing embeddings took 49 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.713706712650901
+Min: 0.46877886205251934
+Max: 1.0000000000000002
+Count: 240
+Median: 0.7249220891890797
+25th percentile: 0.6156274023505469
+75th percentile: 0.794108590378304
+Variance: 0.01248315766720423
+Standard Deviation: 0.11172805228412527
+Skipping file pitest-entry (pitest-entry-1.9.11.jar)
+Similarity of methods inside of the classes:
+Loading plexus-archiver-4.2.7 from cache
+Computing embeddings took 22 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7434687556001224
+Min: 0.5590337414913304
+Max: 0.9999999999999999
+Count: 77
+Median: 0.7527364630122237
+25th percentile: 0.6675371689424312
+75th percentile: 0.7919486813998929
+Variance: 0.008637166909713782
+Standard Deviation: 0.09293635946019073
+Skipping file plexus-archiver (plexus-archiver-4.4.0.jar)
+Similarity of methods inside of the classes:
+Loading plexus-container-default-1.0-alpha-30 from cache
+Computing embeddings took 24 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8065457793894603
+Min: 0.6291740601734314
+Max: 1.0000000000000002
+Count: 115
+Median: 0.8000780077709602
+25th percentile: 0.7349204957495181
+75th percentile: 0.875328952230867
+Variance: 0.00852258822572259
+Standard Deviation: 0.09231786514929052
+Similarity of methods inside of the classes:
+Loading plexus-container-default-2.1.1 from cache
+Computing embeddings took 31 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8083965760570314
+Min: 0.556917375546554
+Max: 1.0000000000000002
+Count: 111
+Median: 0.8031725311123915
+25th percentile: 0.7273084058766085
+75th percentile: 0.875328952230867
+Variance: 0.010788704501963352
+Standard Deviation: 0.10386868874672171
+Similarity of methods inside of the classes:
+Loading plexus-io-3.2.0 from cache
+Computing embeddings took 9 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8264201441210022
+Min: 0.5693785323950893
+Max: 0.9785271672320666
+Count: 29
+Median: 0.8390134210379937
+25th percentile: 0.7558256965071427
+75th percentile: 0.9018426145577906
+Variance: 0.009317251521892764
+Standard Deviation: 0.09652591114251532
+Skipping file plexus-io (plexus-io-3.3.0.jar)
+Similarity of methods inside of the classes:
+Loading plexus-utils-3.5.0 from cache
+Computing embeddings took 21 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8120277080979715
+Min: 0.5327998484180549
+Max: 1.0
+Count: 69
+Median: 0.8297863362250646
+25th percentile: 0.7592364647576851
+75th percentile: 0.8849345700485663
+Variance: 0.013136576160934367
+Standard Deviation: 0.11461490374700127
+Skipping file plexus-utils (plexus-utils-3.5.1.jar)
+Skipping file plexus-utils (plexus-utils-4.0.0.jar)
+Similarity of methods inside of the classes:
+Loading pm-wicket-utils-4.4 from cache
+Computing embeddings took 9 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7636478549729637
+Min: 0.5555617647964538
+Max: 0.9550448286563364
+Count: 42
+Median: 0.7591487183263892
+25th percentile: 0.692558477512998
+75th percentile: 0.816906800619253
+Variance: 0.010913740461124543
+Standard Deviation: 0.10446884923806016
+Skipping file pm-wicket-utils (pm-wicket-utils-5.0.jar)
+Similarity of methods inside of the classes:
+Loading poi-4.1.2 from cache
+Computing embeddings took 333 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7630124147516096
+Min: 0.46550018904335316
+Max: 1.0000000000000002
+Count: 1044
+Median: 0.744416394780489
+25th percentile: 0.676022472576242
+75th percentile: 0.8406936086238803
+Variance: 0.01135167391351254
+Standard Deviation: 0.10654423453905208
+Skipping file poi (poi-5.0.0.jar)
+Skipping file poi (poi-5.2.0.jar)
+Skipping file poi (poi-5.2.1.jar)
+Skipping file poi (poi-5.2.2.jar)
+Similarity of methods inside of the classes:
+Loading poi-ooxml-4.1.2 from cache
+Computing embeddings took 135 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7733867354295995
+Min: 0.483696416715005
+Max: 1.0000000000000002
+Count: 530
+Median: 0.7585748593181836
+25th percentile: 0.7040644032677387
+75th percentile: 0.8678685471569252
+Variance: 0.009737324603452002
+Standard Deviation: 0.09867788305112753
+Skipping file poi-ooxml (poi-ooxml-5.0.0.jar)
+Skipping file poi-ooxml (poi-ooxml-5.1.0.jar)
+Skipping file poi-ooxml (poi-ooxml-5.2.0.jar)
+Skipping file poi-ooxml (poi-ooxml-5.2.1.jar)
+Skipping file poi-ooxml (poi-ooxml-5.2.2.jar)
+Similarity of methods inside of the classes:
+Loading poi-scratchpad-4.1.2 from cache
+Computing embeddings took 292 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7319874862543282
+Min: 0.523427567091331
+Max: 1.0000000000000002
+Count: 720
+Median: 0.7181575285733681
+25th percentile: 0.6515535240821635
+75th percentile: 0.7985746043794955
+Variance: 0.010219699003242768
+Standard Deviation: 0.10109252694063378
+Skipping file poi-scratchpad (poi-scratchpad-5.0.0.jar)
+Skipping file poi-scratchpad (poi-scratchpad-5.1.0.jar)
+Skipping file poi-scratchpad (poi-scratchpad-5.2.0.jar)
+Skipping file poi-scratchpad (poi-scratchpad-5.2.1.jar)
+Skipping file poi-scratchpad (poi-scratchpad-5.2.2.jar)
+Similarity of methods inside of the classes:
+Loading proto-google-cloud-pubsub-v1-1.102.18 from cache
+Computing embeddings took 191 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7863769003343573
+Min: 0.7092443245427451
+Max: 1.0000000000000002
+Count: 201
+Median: 0.7848175414032973
+25th percentile: 0.7724801120137295
+75th percentile: 0.7983961214122627
+Variance: 0.0010842668405318951
+Standard Deviation: 0.032928207368939706
+Skipping file proto-google-cloud-pubsub-v1 (proto-google-cloud-pubsub-v1-1.102.24.jar)
+Skipping file proto-google-cloud-pubsub-v1 (proto-google-cloud-pubsub-v1-1.102.25.jar)
+Skipping file proto-google-cloud-pubsub-v1 (proto-google-cloud-pubsub-v1-1.105.4.jar)
+Similarity of methods inside of the classes:
+Loading pubnub-gson-4.31.3 from cache
+Computing embeddings took 49 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7552311246047501
+Min: 0.5223525864530888
+Max: 1.0000000000000002
+Count: 235
+Median: 0.7271126324742776
+25th percentile: 0.6722978216041833
+75th percentile: 0.8325186709408127
+Variance: 0.013930179816452828
+Standard Deviation: 0.11802618275811867
+Skipping file pubnub-gson (pubnub-gson-6.3.2.jar)
+Similarity of methods inside of the classes:
+Loading pubsublite-kafka-1.0.1 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7858047649660312
+Min: 0.6696291766442874
+Max: 0.9088777137250259
+Count: 4
+Median: 0.7823560847474058
+25th percentile: 0.6696291766442874
+75th percentile: 0.8743059700122578
+Variance: 0.011394266907269246
+Standard Deviation: 0.1067439314774814
+Skipping file pubsublite-kafka (pubsublite-kafka-1.0.2.jar)
+Skipping file pubsublite-kafka (pubsublite-kafka-1.1.2.jar)
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Skipping file quarkus-google-cloud-common-grpc (quarkus-google-cloud-common-grpc-2.2.0.jar)
+Similarity of methods inside of the classes:
+Loading reflections-0.10.2 from cache
+Computing embeddings took 11 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7979655205944377
+Min: 0.5997796247598136
+Max: 1.0000000000000002
+Count: 41
+Median: 0.786134409143773
+25th percentile: 0.7321878014771698
+75th percentile: 0.8749073531637952
+Variance: 0.008934029159979854
+Standard Deviation: 0.09451999344043488
+Skipping file reflections (reflections-0.9.9.jar)
+Similarity of methods inside of the classes:
+Loading relaxng-datatype-2.3.6 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8547701985333243
+Min: 0.7216454057640798
+Max: 1.0
+Count: 7
+Median: 0.891361137891042
+25th percentile: 0.7712174510123738
+75th percentile: 0.8974227127304957
+Variance: 0.008004013837762626
+Standard Deviation: 0.08946515432145985
+Skipping file relaxng-datatype (relaxng-datatype-3.0.2.jar)
+Skipping file relaxng-datatype (relaxng-datatype-4.0.0.jar)
+Similarity of methods inside of the classes:
+Loading rngom-2.3.6 from cache
+Computing embeddings took 28 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7803841337395474
+Min: 0.5104663708161706
+Max: 1.0000000000000002
+Count: 94
+Median: 0.8256387620747871
+25th percentile: 0.6600235006885564
+75th percentile: 0.8701239321833701
+Variance: 0.018146108673027843
+Standard Deviation: 0.13470749300995785
+Skipping file rngom (rngom-4.0.0.jar)
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Skipping file select2-api-4.0.13 (select2-api-4.0.13-8.jar)
+Similarity of methods inside of the classes:
+Loading slf4j-api-1.7.30 from cache
+Computing embeddings took 13 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7772733822346236
+Min: 0.674759234543453
+Max: 0.9777878058211545
+Count: 24
+Median: 0.753354151961786
+25th percentile: 0.715307187712272
+75th percentile: 0.7938666505042878
+Variance: 0.0072600845130947915
+Standard Deviation: 0.08520612955119362
+Skipping file slf4j-api (slf4j-api-1.7.32.jar)
+Skipping file slf4j-api (slf4j-api-1.7.36.jar)
+Skipping file slf4j-api (slf4j-api-2.0.0.jar)
+Skipping file slf4j-api (slf4j-api-2.0.1.jar)
+Skipping file slf4j-api (slf4j-api-2.0.2.jar)
+Skipping file slf4j-api (slf4j-api-2.0.3.jar)
+Skipping file slf4j-api (slf4j-api-2.0.4.jar)
+Skipping file slf4j-api (slf4j-api-2.0.5.jar)
+Skipping file slf4j-api (slf4j-api-2.0.6.jar)
+Skipping file slf4j-api (slf4j-api-2.0.7.jar)
+Similarity of methods inside of the classes:
+Loading snakeyaml-1.13 from cache
+Computing embeddings took 20 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8002229513780271
+Min: 0.5328679140737302
+Max: 1.0000000000000002
+Count: 76
+Median: 0.7732824382255377
+25th percentile: 0.750916255077641
+75th percentile: 0.8656310234875464
+Variance: 0.009233384813842302
+Standard Deviation: 0.0960905032448176
+Skipping file snakeyaml (snakeyaml-1.17.jar)
+Skipping file snakeyaml (snakeyaml-1.24.jar)
+Skipping file snakeyaml (snakeyaml-1.31.jar)
+Skipping file snakeyaml (snakeyaml-1.32.jar)
+Skipping file snakeyaml (snakeyaml-1.33.jar)
+Skipping file snakeyaml (snakeyaml-2.0.jar)
+Skipping file snakeyaml (snakeyaml-2.1.jar)
+Similarity of methods inside of the classes:
+Loading snmp4j-agent-3.0.3 from cache
+Computing embeddings took 73 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8080876595412843
+Min: 0.5730335068970588
+Max: 1.0000000000000002
+Count: 234
+Median: 0.7988214687410111
+25th percentile: 0.7375842884088947
+75th percentile: 0.8761104525625393
+Variance: 0.008818866381223518
+Standard Deviation: 0.09390881950713424
+Skipping file snmp4j-agent (snmp4j-agent-3.6.5.jar)
+Skipping file snmp4j-agent (snmp4j-agent-3.6.6.jar)
+Similarity of methods inside of the classes:
+Loading sonarlint-core-8.15.0.65216 from cache
+Computing embeddings took 1113 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7860962587882526
+Min: 0.4579591708537436
+Max: 1.0000000000000002
+Count: 2848
+Median: 0.7811451359549861
+25th percentile: 0.7242737057488161
+75th percentile: 0.8503109161396906
+Variance: 0.01020650504687073
+Standard Deviation: 0.10102724903149017
+Skipping file sonarlint-core (sonarlint-core-8.19.0.72745.jar)
+Skipping file sonarlint-core (sonarlint-core-9.1.0.74321.jar)
+Skipping file sonarlint-core (sonarlint-core-9.1.1.74346.jar)
+Similarity of methods inside of the classes:
+Loading spongeapi-7.4.0 from cache
+Computing embeddings took 170 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8154031380154528
+Min: 0.4343889616279354
+Max: 1.0000000000000002
+Count: 904
+Median: 0.8127564917855771
+25th percentile: 0.7468866102816705
+75th percentile: 0.8783483762307576
+Variance: 0.008938075946620808
+Standard Deviation: 0.09454139805725748
+Skipping file spongeapi (spongeapi-8.0.0.jar)
+Similarity of methods inside of the classes:
+Loading spring-boot-autoconfigure-1.0.0.RELEASE from cache
+Computing embeddings took 9 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.754355310662879
+Min: 0.5048845625084989
+Max: 0.9704267220002909
+Count: 60
+Median: 0.749714119843322
+25th percentile: 0.6858033190063462
+75th percentile: 0.8259614425180525
+Variance: 0.011636207843729233
+Standard Deviation: 0.10787125587351448
+Skipping file spring-boot-autoconfigure (spring-boot-autoconfigure-2.5.15.jar)
+Similarity of methods inside of the classes:
+Computing embeddings took 0 ms
+Computing similarity among class methods:
+Skipping file spring-boot-starter (spring-boot-starter-3.0.0.jar)
+Skipping file spring-boot-starter (spring-boot-starter-3.0.1.jar)
+Skipping file spring-boot-starter (spring-boot-starter-3.0.2.jar)
+Skipping file spring-boot-starter (spring-boot-starter-3.0.3.jar)
+Skipping file spring-boot-starter (spring-boot-starter-3.0.4.jar)
+Skipping file spring-boot-starter (spring-boot-starter-3.0.5.jar)
+Skipping file spring-boot-starter (spring-boot-starter-3.0.6.jar)
+Similarity of methods inside of the classes:
+Loading spring-cloud-stream-3.0.7.RELEASE from cache
+Computing embeddings took 14 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8049449481231218
+Min: 0.5642361012989244
+Max: 1.0
+Count: 76
+Median: 0.7901791002416921
+25th percentile: 0.7247847368496197
+75th percentile: 0.874261251168291
+Variance: 0.010126162934804919
+Standard Deviation: 0.1006288374910737
+Skipping file spring-cloud-stream (spring-cloud-stream-4.0.0.jar)
+Skipping file spring-cloud-stream (spring-cloud-stream-4.0.1.jar)
+Skipping file spring-cloud-stream (spring-cloud-stream-4.0.2.jar)
+Similarity of methods inside of the classes:
+Loading spring-context-5.3.23 from cache
+Computing embeddings took 74 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7990877257718766
+Min: 0.531771803217827
+Max: 1.0000000000000002
+Count: 387
+Median: 0.7896160822041017
+25th percentile: 0.7394002516911238
+75th percentile: 0.8590088876341158
+Variance: 0.007577673034155537
+Standard Deviation: 0.08704983075316998
+Skipping file spring-context (spring-context-5.3.25.jar)
+Skipping file spring-context (spring-context-6.0.0.jar)
+Skipping file spring-context (spring-context-6.0.1.jar)
+Skipping file spring-context (spring-context-6.0.10.jar)
+Skipping file spring-context (spring-context-6.0.11.jar)
+Skipping file spring-context (spring-context-6.0.2.jar)
+Skipping file spring-context (spring-context-6.0.3.jar)
+Skipping file spring-context (spring-context-6.0.4.jar)
+Skipping file spring-context (spring-context-6.0.5.jar)
+Skipping file spring-context (spring-context-6.0.6.jar)
+Skipping file spring-context (spring-context-6.0.7.jar)
+Skipping file spring-context (spring-context-6.0.8.jar)
+Skipping file spring-context (spring-context-6.0.9.jar)
+Similarity of methods inside of the classes:
+Loading spring-core-5.3.19 from cache
+Computing embeddings took 84 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7967701007720479
+Min: 0.5054137043818564
+Max: 1.0000000000000002
+Count: 368
+Median: 0.7910195649934351
+25th percentile: 0.7378637411783503
+75th percentile: 0.8607127840591694
+Variance: 0.009060947995072965
+Standard Deviation: 0.09518901194503998
+Skipping file spring-core (spring-core-5.3.23.jar)
+Skipping file spring-core (spring-core-5.3.24.jar)
+Skipping file spring-core (spring-core-5.3.27.jar)
+Skipping file spring-core (spring-core-6.0.0.jar)
+Skipping file spring-core (spring-core-6.0.1.jar)
+Skipping file spring-core (spring-core-6.0.10.jar)
+Skipping file spring-core (spring-core-6.0.11.jar)
+Skipping file spring-core (spring-core-6.0.2.jar)
+Skipping file spring-core (spring-core-6.0.3.jar)
+Skipping file spring-core (spring-core-6.0.4.jar)
+Skipping file spring-core (spring-core-6.0.5.jar)
+Skipping file spring-core (spring-core-6.0.6.jar)
+Skipping file spring-core (spring-core-6.0.7.jar)
+Skipping file spring-core (spring-core-6.0.8.jar)
+Skipping file spring-core (spring-core-6.0.9.jar)
+Similarity of methods inside of the classes:
+Loading spring-data-jpa-2.7.6 from cache
+Computing embeddings took 15 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7969385188141054
+Min: 0.5919756627145643
+Max: 1.0000000000000002
+Count: 79
+Median: 0.7965900696351889
+25th percentile: 0.7490245897726855
+75th percentile: 0.8402422018375753
+Variance: 0.007589310863264218
+Standard Deviation: 0.08711665089559066
+Skipping file spring-data-jpa (spring-data-jpa-3.0.0.jar)
+Similarity of methods inside of the classes:
+Loading spring-tx-5.3.24 from cache
+Computing embeddings took 28 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7737400955803891
+Min: 0.5458182628380328
+Max: 1.0000000000000002
+Count: 114
+Median: 0.7666395794487698
+25th percentile: 0.6964273732614809
+75th percentile: 0.8331163929708121
+Variance: 0.0101766164597313
+Standard Deviation: 0.10087921718437004
+Skipping file spring-tx (spring-tx-6.0.0.jar)
+Skipping file spring-tx (spring-tx-6.0.1.jar)
+Skipping file spring-tx (spring-tx-6.0.2.jar)
+Skipping file spring-tx (spring-tx-6.0.3.jar)
+Skipping file spring-tx (spring-tx-6.0.4.jar)
+Skipping file spring-tx (spring-tx-6.0.5.jar)
+Skipping file spring-tx (spring-tx-6.0.6.jar)
+Skipping file spring-tx (spring-tx-6.0.8.jar)
+Similarity of methods inside of the classes:
+Loading spring-web-4.1.6.RELEASE from cache
+Computing embeddings took 49 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8077511871999442
+Min: 0.5149558679701598
+Max: 1.0000000000000002
+Count: 260
+Median: 0.7930210152782149
+25th percentile: 0.7500248575610107
+75th percentile: 0.8600202526469272
+Variance: 0.008335654276697907
+Standard Deviation: 0.09129980436286765
+Skipping file spring-web (spring-web-5.3.24.jar)
+Skipping file spring-web (spring-web-6.0.0.jar)
+Skipping file spring-web (spring-web-6.0.1.jar)
+Skipping file spring-web (spring-web-6.0.2.jar)
+Skipping file spring-web (spring-web-6.0.3.jar)
+Skipping file spring-web (spring-web-6.0.4.jar)
+Skipping file spring-web (spring-web-6.0.5.jar)
+Skipping file spring-web (spring-web-6.0.6.jar)
+Skipping file spring-web (spring-web-6.0.7.jar)
+Skipping file spring-web (spring-web-6.0.8.jar)
+Similarity of methods inside of the classes:
+Loading spring-webmvc-4.1.6.RELEASE from cache
+Computing embeddings took 51 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.794008319820637
+Min: 0.6121685382768303
+Max: 0.9999999999999999
+Count: 271
+Median: 0.784865617962362
+25th percentile: 0.7426195962448129
+75th percentile: 0.8325749076223966
+Variance: 0.00591910025908779
+Standard Deviation: 0.07693568911167165
+Skipping file spring-webmvc (spring-webmvc-5.3.18.jar)
+Skipping file spring-webmvc (spring-webmvc-5.3.24.jar)
+Skipping file spring-webmvc (spring-webmvc-6.0.0.jar)
+Skipping file spring-webmvc (spring-webmvc-6.0.1.jar)
+Skipping file spring-webmvc (spring-webmvc-6.0.2.jar)
+Skipping file spring-webmvc (spring-webmvc-6.0.3.jar)
+Skipping file spring-webmvc (spring-webmvc-6.0.4.jar)
+Skipping file spring-webmvc (spring-webmvc-6.0.5.jar)
+Skipping file spring-webmvc (spring-webmvc-6.0.6.jar)
+Skipping file spring-webmvc (spring-webmvc-6.0.7.jar)
+Skipping file spring-webmvc (spring-webmvc-6.0.8.jar)
+Similarity of methods inside of the classes:
+Loading sshd-common-2.10.0 from cache
+Computing embeddings took 107 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7832570943510156
+Min: 0.513735272590298
+Max: 1.0000000000000002
+Count: 348
+Median: 0.7837802113888444
+25th percentile: 0.725287740093352
+75th percentile: 0.8409091559813652
+Variance: 0.009734232748572044
+Standard Deviation: 0.0986622154047437
+Skipping file sshd-common (sshd-common-2.9.2.jar)
+Similarity of methods inside of the classes:
+Loading sshd-core-2.10.0 from cache
+Computing embeddings took 64 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7810811146511802
+Min: 0.4755043934704922
+Max: 0.9999999999999999
+Count: 297
+Median: 0.7664302989502135
+25th percentile: 0.698961210917799
+75th percentile: 0.8917564911837413
+Variance: 0.013982833077429587
+Standard Deviation: 0.11824902992172742
+Skipping file sshd-core (sshd-core-2.9.2.jar)
+Similarity of methods inside of the classes:
+Loading struts2-core-2.3.37 from cache
+Computing embeddings took 73 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7486541939108106
+Min: 0.5061596921282558
+Max: 1.0000000000000002
+Count: 303
+Median: 0.7652980718795832
+25th percentile: 0.6753137916003139
+75th percentile: 0.823779385646993
+Variance: 0.014991480307602629
+Standard Deviation: 0.12243970070039631
+Skipping file struts2-core (struts2-core-2.5.22.jar)
+Skipping file struts2-core (struts2-core-2.5.26.jar)
+Skipping file struts2-core (struts2-core-2.5.30.jar)
+Similarity of methods inside of the classes:
+Loading surefire-junit4-3.0.0-M5 from cache
+Computing embeddings took 2 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.6230020569939658
+Min: 0.6230020569939658
+Max: 0.6230020569939658
+Count: 1
+Median: 0.6230020569939658
+25th percentile: 0.6230020569939658
+75th percentile: 0.6230020569939658
+Variance: 0.0
+Standard Deviation: 0.0
+Skipping file surefire-junit4-3.0.0 (surefire-junit4-3.0.0-M6.jar)
+Similarity of methods inside of the classes:
+Loading surefire-junit47-3.0.0-M5 from cache
+Computing embeddings took 4 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8010708697048758
+Min: 0.6135469402813104
+Max: 0.9999999999999999
+Count: 16
+Median: 0.8162539369069589
+25th percentile: 0.6696713615960093
+75th percentile: 0.8871965692999709
+Variance: 0.01763703075432365
+Standard Deviation: 0.13280448318608695
+Skipping file surefire-junit47-3.0.0 (surefire-junit47-3.0.0-M6.jar)
+Similarity of methods inside of the classes:
+Loading testng-7.0.0 from cache
+Computing embeddings took 75 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8160280482816432
+Min: 0.48075333510213997
+Max: 1.0000000000000002
+Count: 283
+Median: 0.8142127891003296
+25th percentile: 0.7517352808321603
+75th percentile: 0.8804538198040232
+Variance: 0.010790284804529354
+Standard Deviation: 0.10387629568159115
+Skipping file testng (testng-7.4.0.jar)
+Skipping file testng (testng-7.5.jar)
+Skipping file testng (testng-7.7.0.jar)
+Similarity of methods inside of the classes:
+Loading tinspin-indexes-1.7.1 from cache
+Computing embeddings took 16 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.6565243938286629
+Min: 0.4830988064323234
+Max: 0.9024367142132071
+Count: 80
+Median: 0.648999824619613
+25th percentile: 0.5664721202771823
+75th percentile: 0.6962430663812673
+Variance: 0.010762462572070041
+Standard Deviation: 0.10374228921741625
+Skipping file tinspin-indexes (tinspin-indexes-1.8.0.jar)
+Skipping file tinspin-indexes (tinspin-indexes-2.0.0.jar)
+Skipping file tinspin-indexes (tinspin-indexes-2.0.1.jar)
+japicmp.exception.JApiCmpException: Failed to load archive from file: zip END header not found
+	at japicmp.cmp.JarArchiveComparator.toCtClassStream(JarArchiveComparator.java:229)
+	at japicmp.cmp.JarArchiveComparator.lambda$createListOfCtClasses$0(JarArchiveComparator.java:215)
+	at java.base/java.util.stream.ReferencePipeline$7$1FlatMap.accept(ReferencePipeline.java:289)
+	at java.base/java.util.Collections$2.tryAdvance(Collections.java:5075)
+	at java.base/java.util.Collections$2.forEachRemaining(Collections.java:5083)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:727)
+	at japicmp.cmp.JarArchiveComparator.createListOfCtClasses(JarArchiveComparator.java:216)
+	at japicmp.cmp.JarArchiveComparator.createAndCompareClassLists(JarArchiveComparator.java:178)
+	at japicmp.cmp.JarArchiveComparator.compare(JarArchiveComparator.java:90)
+	at japicmp.cmp.JarArchiveComparator.compare(JarArchiveComparator.java:78)
+	at core.JarDiffUtil.compareJars(JarDiffUtil.java:151)
+	at core.JarDiffUtil.<init>(JarDiffUtil.java:80)
+	at core.JarDiffUtil.getLazyLoadedInstance(JarDiffUtil.java:68)
+	at core.JarDiffUtil.getInstance(JarDiffUtil.java:43)
+	at dependencysimilarity.DependencyAnalyser.analyseDependencySimilarity(DependencyAnalyser.java:35)
+	at core.SimilarityExperiment.main(SimilarityExperiment.java:31)
+Caused by: java.util.zip.ZipException: zip END header not found
+	at java.base/java.util.zip.ZipFile$Source.findEND(ZipFile.java:1648)
+	at java.base/java.util.zip.ZipFile$Source.initCEN(ZipFile.java:1656)
+	at java.base/java.util.zip.ZipFile$Source.<init>(ZipFile.java:1497)
+	at java.base/java.util.zip.ZipFile$Source.get(ZipFile.java:1460)
+	at java.base/java.util.zip.ZipFile$CleanableResource.<init>(ZipFile.java:671)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:201)
+	at java.base/java.util.zip.ZipFile.<init>(ZipFile.java:148)
+	at java.base/java.util.jar.JarFile.<init>(JarFile.java:333)
+	at java.base/java.util.jar.JarFile.<init>(JarFile.java:306)
+	at java.base/java.util.jar.JarFile.<init>(JarFile.java:276)
+	at japicmp.cmp.JarArchiveComparator.toCtClassStream(JarArchiveComparator.java:223)
+	... 19 more
+Similarity of methods inside of the classes:
+Creating embeddings folder for caching
+Generating embeddings of 230 methods
+Splitting work into 1 thread(s)
+Finished methods per worker: [0] | Total: 0/230
+Finished methods per worker: [0] | Total: 0/230
+Finished methods per worker: [0] | Total: 0/230
+Finished methods per worker: [49] | Total: 49/230
+Finished methods per worker: [178] | Total: 178/230
+Computing embeddings took 8825 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7134593364183507
+Min: 0.5193303041816582
+Max: 1.0000000000000002
+Count: 37
+Median: 0.7348807640606766
+25th percentile: 0.5766919004379127
+75th percentile: 0.7858181992707295
+Variance: 0.016801264934343942
+Standard Deviation: 0.12961969346647886
+Skipping file versions-maven-plugin (versions-maven-plugin-2.16.0.jar)
+Similarity of methods inside of the classes:
+Creating embeddings folder for caching
+Generating embeddings of 4953 methods
+Splitting work into 6 thread(s)
+Finished methods per worker: [0, 0, 0, 0, 0, 0] | Total: 0/4953
+Finished methods per worker: [47, 46, 19, 91, 54, 61] | Total: 318/4953
+Finished methods per worker: [124, 74, 19, 122, 127, 136] | Total: 602/4953
+Finished methods per worker: [164, 91, 19, 174, 179, 154] | Total: 781/4953
+Finished methods per worker: [221, 135, 19, 228, 267, 218] | Total: 1088/4953
+Finished methods per worker: [282, 183, 19, 252, 378, 246] | Total: 1360/4953
+Finished methods per worker: [353, 193, 76, 317, 452, 302] | Total: 1693/4953
+Finished methods per worker: [409, 247, 131, 372, 507, 343] | Total: 2009/4953
+Finished methods per worker: [460, 298, 182, 423, 558, 394] | Total: 2315/4953
+Finished methods per worker: [509, 348, 232, 473, 608, 444] | Total: 2614/4953
+Finished methods per worker: [563, 401, 286, 526, 662, 488] | Total: 2926/4953
+Finished methods per worker: [621, 460, 344, 560, 720, 546] | Total: 3251/4953
+Finished methods per worker: [679, 517, 402, 603, 777, 604] | Total: 3582/4953
+Finished methods per worker: [735, 573, 458, 659, 825, 660] | Total: 3910/4953
+Finished methods per worker: [802, 640, 524, 722, 825, 726] | Total: 4239/4953
+Finished methods per worker: [825, 714, 599, 796, 825, 801] | Total: 4560/4953
+Finished methods per worker: [825, 825, 711, 825, 825, 825] | Total: 4836/4953
+Computing embeddings took 34005 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7852130524867027
+Min: 0.5176007357244085
+Max: 1.0000000000000002
+Count: 525
+Median: 0.7636224142655499
+25th percentile: 0.7145175095477175
+75th percentile: 0.8570650495686368
+Variance: 0.010648640632460366
+Standard Deviation: 0.10319225083532371
+Skipping file woodstox-core (woodstox-core-6.4.0.jar)
+Similarity of methods inside of the classes:
+Creating embeddings folder for caching
+Generating embeddings of 389 methods
+Splitting work into 1 thread(s)
+Finished methods per worker: [0] | Total: 0/389
+Finished methods per worker: [131] | Total: 131/389
+Finished methods per worker: [261] | Total: 261/389
+Computing embeddings took 6001 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7861038856949403
+Min: 0.49830215555032836
+Max: 1.0000000000000002
+Count: 60
+Median: 0.7923942850599773
+25th percentile: 0.6774352299481384
+75th percentile: 0.8811215080933935
+Variance: 0.01618772708182349
+Standard Deviation: 0.12723099890287545
+Skipping file workflow-api (workflow-api-1165.v02c3db_a_6b_e36.jar)
+Skipping file workflow-api (workflow-api-1182.v41475e53ea_43.jar)
+Similarity of methods inside of the classes:
+Creating embeddings folder for caching
+Generating embeddings of 317 methods
+Splitting work into 1 thread(s)
+Finished methods per worker: [0] | Total: 0/317
+Finished methods per worker: [126] | Total: 126/317
+Finished methods per worker: [256] | Total: 256/317
+Computing embeddings took 4963 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.7523230493033626
+Min: 0.5087928417926513
+Max: 0.9345812525371414
+Count: 26
+Median: 0.7461457527610823
+25th percentile: 0.686677254960082
+75th percentile: 0.8155167235336765
+Variance: 0.008731853010340324
+Standard Deviation: 0.09344438458430941
+Skipping file XSeries (XSeries-8.6.0.jar)
+Similarity of methods inside of the classes:
+Creating embeddings folder for caching
+Generating embeddings of 1701 methods
+Splitting work into 4 thread(s)
+Finished methods per worker: [0, 0, 0, 0] | Total: 0/1701
+Finished methods per worker: [53, 85, 80, 89] | Total: 307/1701
+Finished methods per worker: [108, 160, 155, 160] | Total: 583/1701
+Finished methods per worker: [166, 236, 231, 237] | Total: 870/1701
+Finished methods per worker: [242, 325, 320, 325] | Total: 1212/1701
+Finished methods per worker: [326, 409, 403, 409] | Total: 1547/1701
+Computing embeddings took 11914 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8116069826268193
+Min: 0.48633373268397595
+Max: 1.0000000000000002
+Count: 295
+Median: 0.8204039739429927
+25th percentile: 0.7295546536295904
+75th percentile: 0.8934254831785152
+Variance: 0.013157826351023938
+Standard Deviation: 0.11470756884802301
+Skipping file xstream (xstream-1.4.19.jar)
+Similarity of methods inside of the classes:
+Creating embeddings folder for caching
+Generating embeddings of 561 methods
+Splitting work into 2 thread(s)
+Finished methods per worker: [0, 0] | Total: 0/561
+Finished methods per worker: [118, 112] | Total: 230/561
+Finished methods per worker: [235, 244] | Total: 479/561
+Computing embeddings took 5141 ms
+Computing similarity among class methods:
+
+Class statistics:
+Average: 0.8006485748463382
+Min: 0.5285802879986555
+Max: 0.987820394032833
+Count: 47
+Median: 0.8157911531202648
+25th percentile: 0.7412430971928706
+75th percentile: 0.8680739007780618
+Variance: 0.013100597518460643
+Standard Deviation: 0.11445784166434662
+Skipping file zip4j (zip4j-2.10.0.jar)
+Skipping file zip4j (zip4j-2.11.0.jar)
+Skipping file zip4j (zip4j-2.11.1.jar)
+
+Summary:
+google-cloud-pubsublite-0.18.0.jar | Avg: 0,7644 | Min: 0,4268 | Max: 1,0000 | Count: 155 | Median: 0,7710 | 25%: 0,6790 | 75%: 0,8532 | Variance: 0,0150 | StdDev: 0,1225
+assertj-core-3.18.1.jar | Avg: 0,7630 | Min: 0,4796 | Max: 1,0000 | Count: 2289 | Median: 0,7547 | 25%: 0,6544 | 75%: 0,8618 | Variance: 0,0147 | StdDev: 0,1213
+guava-31.1-android.jar | Avg: 0,7814 | Min: 0,4708 | Max: 1,0000 | Count: 353 | Median: 0,7656 | 25%: 0,7154 | 75%: 0,8593 | Variance: 0,0091 | StdDev: 0,0951
+doxia-site-renderer-1.0.jar | Avg: 0,7644 | Min: 0,6474 | Max: 0,8902 | Count: 6 | Median: 0,7777 | 25%: 0,6583 | 75%: 0,8304 | Variance: 0,0086 | StdDev: 0,0928
+antlr4-runtime-4.10.1.jar | Avg: 0,7622 | Min: 0,5726 | Max: 0,9963 | Count: 137 | Median: 0,7445 | 25%: 0,6810 | 75%: 0,8334 | Variance: 0,0107 | StdDev: 0,1036
+geoip2-2.16.1.jar | Avg: 0,8736 | Min: 0,6805 | Max: 1,0000 | Count: 25 | Median: 0,8621 | 25%: 0,8257 | 75%: 1,0000 | Variance: 0,0095 | StdDev: 0,0974
+matrix-project-772.v494f19991984.jar | Avg: 0,7373 | Min: 0,6318 | Max: 0,8579 | Count: 33 | Median: 0,7324 | 25%: 0,6860 | 75%: 0,7958 | Variance: 0,0050 | StdDev: 0,0704
+quarkus-google-cloud-common-grpc-1.4.0.jar: No data
+jakarta.mvc-api-1.1.0.jar | Avg: 0,8806 | Min: 0,6815 | Max: 1,0000 | Count: 15 | Median: 0,8777 | 25%: 0,8280 | 75%: 0,8938 | Variance: 0,0079 | StdDev: 0,0891
+arrow-vector-7.0.0.jar | Avg: 0,7584 | Min: 0,4940 | Max: 1,0000 | Count: 515 | Median: 0,7578 | 25%: 0,6952 | 75%: 0,8257 | Variance: 0,0092 | StdDev: 0,0961
+github-api-1.303-400.v35c2d8258028.jar: No data
+opennlp-tools-2.2.0.jar | Avg: 0,7508 | Min: 0,5619 | Max: 1,0000 | Count: 552 | Median: 0,7479 | 25%: 0,6551 | 75%: 0,8458 | Variance: 0,0128 | StdDev: 0,1130
+spring-boot-starter-2.7.5.jar: No data
+log4j-api-2.16.0.jar | Avg: 0,8206 | Min: 0,5144 | Max: 1,0000 | Count: 108 | Median: 0,8135 | 25%: 0,7414 | 75%: 0,9202 | Variance: 0,0111 | StdDev: 0,1055
+arrow-memory-netty-7.0.0.jar | Avg: 0,7559 | Min: 0,5768 | Max: 0,8881 | Count: 8 | Median: 0,7781 | 25%: 0,6957 | 75%: 0,7837 | Variance: 0,0070 | StdDev: 0,0837
+mysql-connector-java-5.1.49.jar | Avg: 0,7825 | Min: 0,5232 | Max: 1,0000 | Count: 199 | Median: 0,7866 | 25%: 0,7246 | 75%: 0,8503 | Variance: 0,0094 | StdDev: 0,0967
+dropwizard-sentry-4.0.1-2.jar | Avg: 0,9033 | Min: 0,8472 | Max: 0,9531 | Count: 3 | Median: 0,9095 | 25%: 0,8472 | 75%: 0,9095 | Variance: 0,0019 | StdDev: 0,0434
+jquery3-api-3.6.0-2.jar: No data
+httpclient-4.5.1.jar | Avg: 0,7804 | Min: 0,5584 | Max: 1,0000 | Count: 245 | Median: 0,7748 | 25%: 0,6960 | 75%: 0,8569 | Variance: 0,0099 | StdDev: 0,0994
+jooq-meta-3.16.6.jar | Avg: 0,7697 | Min: 0,5166 | Max: 1,0000 | Count: 233 | Median: 0,7419 | 25%: 0,7175 | 75%: 0,8089 | Variance: 0,0063 | StdDev: 0,0793
+maven-archiver-3.5.2.jar | Avg: 0,8066 | Min: 0,7507 | Max: 0,8449 | Count: 4 | Median: 0,8153 | 25%: 0,7507 | 75%: 0,8425 | Variance: 0,0016 | StdDev: 0,0394
+google-auth-library-oauth2-http-1.10.0.jar | Avg: 0,8044 | Min: 0,6516 | Max: 0,9793 | Count: 56 | Median: 0,7992 | 25%: 0,7491 | 75%: 0,8617 | Variance: 0,0070 | StdDev: 0,0838
+hazelcast-3.12.5.jar | Avg: 0,7559 | Min: 0,4313 | Max: 1,0000 | Count: 3953 | Median: 0,7341 | 25%: 0,6705 | 75%: 0,8507 | Variance: 0,0133 | StdDev: 0,1155
+plexus-archiver-4.2.7.jar | Avg: 0,7435 | Min: 0,5590 | Max: 1,0000 | Count: 77 | Median: 0,7527 | 25%: 0,6675 | 75%: 0,7919 | Variance: 0,0086 | StdDev: 0,0929
+jsoup-1.11.1.jar | Avg: 0,7046 | Min: 0,5438 | Max: 1,0000 | Count: 87 | Median: 0,7164 | 25%: 0,5480 | 75%: 0,7991 | Variance: 0,0156 | StdDev: 0,1249
+mybatis-spring-2.0.7.jar | Avg: 0,7921 | Min: 0,5744 | Max: 1,0000 | Count: 21 | Median: 0,7905 | 25%: 0,7233 | 75%: 0,8926 | Variance: 0,0121 | StdDev: 0,1100
+h2-1.3.175.jar | Avg: 0,7195 | Min: 0,5432 | Max: 1,0000 | Count: 443 | Median: 0,7038 | 25%: 0,6695 | 75%: 0,7594 | Variance: 0,0062 | StdDev: 0,0788
+pubnub-gson-4.31.3.jar | Avg: 0,7552 | Min: 0,5224 | Max: 1,0000 | Count: 235 | Median: 0,7271 | 25%: 0,6723 | 75%: 0,8325 | Variance: 0,0139 | StdDev: 0,1180
+junit-platform-surefire-provider-1.0.3.jar | Avg: 0,6174 | Min: 0,6174 | Max: 0,6174 | Count: 1 | Median: 0,6174 | 25%: 0,6174 | 75%: 0,6174 | Variance: 0,0000 | StdDev: 0,0000
+dropwizard-sentry-2.0.28-3.jar | Avg: 0,9033 | Min: 0,8472 | Max: 0,9531 | Count: 3 | Median: 0,9095 | 25%: 0,8472 | 75%: 0,9095 | Variance: 0,0019 | StdDev: 0,0434
+maven-plugin-annotations-3.6.1.jar | Avg: 0,6860 | Min: 0,6282 | Max: 0,7463 | Count: 7 | Median: 0,6858 | 25%: 0,6744 | 75%: 0,6858 | Variance: 0,0010 | StdDev: 0,0321
+dropwizard-client-2.1.5.jar | Avg: 0,7992 | Min: 0,6067 | Max: 0,9421 | Count: 10 | Median: 0,8234 | 25%: 0,7638 | 75%: 0,8374 | Variance: 0,0075 | StdDev: 0,0867
+guava-31.0.1-jre.jar | Avg: 0,7799 | Min: 0,4708 | Max: 1,0000 | Count: 356 | Median: 0,7656 | 25%: 0,7121 | 75%: 0,8552 | Variance: 0,0087 | StdDev: 0,0935
+poi-4.1.2.jar | Avg: 0,7630 | Min: 0,4655 | Max: 1,0000 | Count: 1044 | Median: 0,7444 | 25%: 0,6760 | 75%: 0,8407 | Variance: 0,0114 | StdDev: 0,1065
+mapstruct-processor-1.4.2.Final.jar | Avg: 0,7906 | Min: 0,5199 | Max: 1,0000 | Count: 392 | Median: 0,7645 | 25%: 0,7197 | 75%: 0,8692 | Variance: 0,0118 | StdDev: 0,1086
+plexus-utils-3.5.0.jar | Avg: 0,8120 | Min: 0,5328 | Max: 1,0000 | Count: 69 | Median: 0,8298 | 25%: 0,7592 | 75%: 0,8849 | Variance: 0,0131 | StdDev: 0,1146
+spring-web-4.1.6.RELEASE.jar | Avg: 0,8078 | Min: 0,5150 | Max: 1,0000 | Count: 260 | Median: 0,7930 | 25%: 0,7500 | 75%: 0,8600 | Variance: 0,0083 | StdDev: 0,0913
+asto-core-v1.13.0.jar | Avg: 0,7633 | Min: 0,4739 | Max: 0,9594 | Count: 47 | Median: 0,8000 | 25%: 0,7201 | 75%: 0,8366 | Variance: 0,0124 | StdDev: 0,1113
+gax-2.16.0.jar | Avg: 0,7831 | Min: 0,5658 | Max: 1,0000 | Count: 143 | Median: 0,7785 | 25%: 0,7043 | 75%: 0,8467 | Variance: 0,0107 | StdDev: 0,1033
+maven-artifact-3.8.3.jar | Avg: 0,8429 | Min: 0,7112 | Max: 1,0000 | Count: 18 | Median: 0,8130 | 25%: 0,7672 | 75%: 0,9003 | Variance: 0,0075 | StdDev: 0,0864
+tinspin-indexes-1.7.1.jar | Avg: 0,6565 | Min: 0,4831 | Max: 0,9024 | Count: 80 | Median: 0,6490 | 25%: 0,5665 | 75%: 0,6962 | Variance: 0,0108 | StdDev: 0,1037
+zip4j-1.3.2.jar | Avg: 0,8006 | Min: 0,5286 | Max: 0,9878 | Count: 47 | Median: 0,8158 | 25%: 0,7412 | 75%: 0,8681 | Variance: 0,0131 | StdDev: 0,1145
+acceptance-test-harness-5504.v485694f31cdf.jar | Avg: 0,7705 | Min: 0,4286 | Max: 1,0000 | Count: 255 | Median: 0,7525 | 25%: 0,6731 | 75%: 0,8902 | Variance: 0,0204 | StdDev: 0,1428
+docker-commons-1.21.jar | Avg: 0,7262 | Min: 0,4378 | Max: 0,9528 | Count: 30 | Median: 0,7229 | 25%: 0,6458 | 75%: 0,8263 | Variance: 0,0174 | StdDev: 0,1319
+PeyangSuperLibrary-114.191.9.jar | Avg: 0,8421 | Min: 0,7135 | Max: 1,0000 | Count: 10 | Median: 0,8204 | 25%: 0,7983 | 75%: 0,8410 | Variance: 0,0074 | StdDev: 0,0861
+pm-wicket-utils-4.4.jar | Avg: 0,7636 | Min: 0,5556 | Max: 0,9550 | Count: 42 | Median: 0,7591 | 25%: 0,6926 | 75%: 0,8169 | Variance: 0,0109 | StdDev: 0,1045
+ecj-3.33.0.jar | Avg: 0,7654 | Min: 0,5587 | Max: 1,0000 | Count: 488 | Median: 0,7561 | 25%: 0,7140 | 75%: 0,8096 | Variance: 0,0076 | StdDev: 0,0873
+google-api-services-dns-v2-rev20220505-1.32.1.jar | Avg: 0,7926 | Min: 0,7181 | Max: 0,8780 | Count: 101 | Median: 0,7709 | 25%: 0,7296 | 75%: 0,8560 | Variance: 0,0040 | StdDev: 0,0631
+commons-text-api-1.10.0-27.vb_fa_3896786a_7.jar: No data
+jackson-dataformat-cbor-2.13.3.jar | Avg: 0,7345 | Min: 0,6497 | Max: 0,8788 | Count: 12 | Median: 0,7057 | 25%: 0,6959 | 75%: 0,7713 | Variance: 0,0038 | StdDev: 0,0613
+plexus-container-default-2.1.1.jar | Avg: 0,8084 | Min: 0,5569 | Max: 1,0000 | Count: 111 | Median: 0,8032 | 25%: 0,7273 | 75%: 0,8753 | Variance: 0,0108 | StdDev: 0,1039
+spring-cloud-stream-3.0.7.RELEASE.jar | Avg: 0,8049 | Min: 0,5642 | Max: 1,0000 | Count: 76 | Median: 0,7902 | 25%: 0,7248 | 75%: 0,8743 | Variance: 0,0101 | StdDev: 0,1006
+spring-boot-autoconfigure-1.0.0.RELEASE.jar | Avg: 0,7544 | Min: 0,5049 | Max: 0,9704 | Count: 60 | Median: 0,7497 | 25%: 0,6858 | 75%: 0,8260 | Variance: 0,0116 | StdDev: 0,1079
+joda-time-2.1.jar | Avg: 0,8034 | Min: 0,4984 | Max: 1,0000 | Count: 134 | Median: 0,8076 | 25%: 0,7286 | 75%: 0,8736 | Variance: 0,0092 | StdDev: 0,0958
+maven-model-3.8.3.jar | Avg: 0,7797 | Min: 0,7086 | Max: 0,9805 | Count: 51 | Median: 0,7729 | 25%: 0,7558 | 75%: 0,7945 | Variance: 0,0023 | StdDev: 0,0483
+pitest-entry-1.10.0.jar | Avg: 0,7137 | Min: 0,4688 | Max: 1,0000 | Count: 240 | Median: 0,7249 | 25%: 0,6156 | 75%: 0,7941 | Variance: 0,0125 | StdDev: 0,1117
+dropwizard-sentry-2.0.22.jar | Avg: 0,8506 | Min: 0,7185 | Max: 0,9603 | Count: 6 | Median: 0,8816 | 25%: 0,7519 | 75%: 0,8998 | Variance: 0,0075 | StdDev: 0,0869
+snakeyaml-1.13.jar | Avg: 0,8002 | Min: 0,5329 | Max: 1,0000 | Count: 76 | Median: 0,7733 | 25%: 0,7509 | 75%: 0,8656 | Variance: 0,0092 | StdDev: 0,0961
+logback-classic-1.2.11.jar | Avg: 0,7611 | Min: 0,5318 | Max: 1,0000 | Count: 124 | Median: 0,7759 | 25%: 0,6888 | 75%: 0,8093 | Variance: 0,0107 | StdDev: 0,1036
+cactoos-0.35.jar | Avg: 0,7500 | Min: 0,5228 | Max: 0,9124 | Count: 72 | Median: 0,7417 | 25%: 0,6869 | 75%: 0,8846 | Variance: 0,0149 | StdDev: 0,1222
+liquibase-core-3.4.2.jar | Avg: 0,8069 | Min: 0,4930 | Max: 1,0000 | Count: 693 | Median: 0,8065 | 25%: 0,7476 | 75%: 0,8647 | Variance: 0,0068 | StdDev: 0,0823
+google-api-services-dns-v1-rev20220804-2.0.0.jar | Avg: 0,7922 | Min: 0,7181 | Max: 0,9020 | Count: 116 | Median: 0,7524 | 25%: 0,7260 | 75%: 0,8629 | Variance: 0,0045 | StdDev: 0,0674
+dropwizard-sentry-2.0.26-3.jar | Avg: 0,9033 | Min: 0,8472 | Max: 0,9531 | Count: 3 | Median: 0,9095 | 25%: 0,8472 | 75%: 0,9095 | Variance: 0,0019 | StdDev: 0,0434
+org.eclipse.persistence.moxy-3.0.2.jar | Avg: 0,8165 | Min: 0,5816 | Max: 1,0000 | Count: 176 | Median: 0,7988 | 25%: 0,7643 | 75%: 0,8861 | Variance: 0,0065 | StdDev: 0,0805
+maven-plugin-api-3.8.4.jar | Avg: 0,7893 | Min: 0,6374 | Max: 1,0000 | Count: 19 | Median: 0,7791 | 25%: 0,7312 | 75%: 0,8011 | Variance: 0,0065 | StdDev: 0,0809
+google-api-services-translate-v3-rev20220805-2.0.0.jar | Avg: 0,7993 | Min: 0,6178 | Max: 0,9053 | Count: 75 | Median: 0,7592 | 25%: 0,7294 | 75%: 0,8794 | Variance: 0,0058 | StdDev: 0,0764
+poi-scratchpad-4.1.2.jar | Avg: 0,7320 | Min: 0,5234 | Max: 1,0000 | Count: 720 | Median: 0,7182 | 25%: 0,6516 | 75%: 0,7986 | Variance: 0,0102 | StdDev: 0,1011
+jaxb-2.3.6-1.jar: No data
+jakarta.xml.bind-api-2.3.2.jar | Avg: 0,8011 | Min: 0,5673 | Max: 1,0000 | Count: 45 | Median: 0,8064 | 25%: 0,7377 | 75%: 0,8576 | Variance: 0,0090 | StdDev: 0,0948
+rngom-2.3.6.jar | Avg: 0,7804 | Min: 0,5105 | Max: 1,0000 | Count: 94 | Median: 0,8256 | 25%: 0,6600 | 75%: 0,8701 | Variance: 0,0181 | StdDev: 0,1347
+google-api-services-translate-v2-rev20170525-1.32.1.jar | Avg: 0,7959 | Min: 0,7276 | Max: 0,9272 | Count: 20 | Median: 0,7719 | 25%: 0,7294 | 75%: 0,8474 | Variance: 0,0050 | StdDev: 0,0705
+jquery3-api-3.6.4-1.jar: No data
+junit-jupiter-params-5.10.0.jar | Avg: 0,8090 | Min: 0,5624 | Max: 1,0000 | Count: 190 | Median: 0,7907 | 25%: 0,7345 | 75%: 0,8748 | Variance: 0,0096 | StdDev: 0,0982
+maven-core-3.8.3.jar | Avg: 0,8240 | Min: 0,5759 | Max: 1,0000 | Count: 234 | Median: 0,8127 | 25%: 0,7432 | 75%: 0,9091 | Variance: 0,0127 | StdDev: 0,1127
+okio-2.1.0.jar | Avg: 0,7229 | Min: 0,5256 | Max: 1,0000 | Count: 52 | Median: 0,7030 | 25%: 0,5975 | 75%: 0,8161 | Variance: 0,0169 | StdDev: 0,1299
+relaxng-datatype-2.3.6.jar | Avg: 0,8548 | Min: 0,7216 | Max: 1,0000 | Count: 7 | Median: 0,8914 | 25%: 0,7712 | 75%: 0,8974 | Variance: 0,0080 | StdDev: 0,0895
+spongeapi-7.4.0.jar | Avg: 0,8154 | Min: 0,4344 | Max: 1,0000 | Count: 904 | Median: 0,8128 | 25%: 0,7469 | 75%: 0,8783 | Variance: 0,0089 | StdDev: 0,0945
+XSeries-8.5.0.1.jar | Avg: 0,7523 | Min: 0,5088 | Max: 0,9346 | Count: 26 | Median: 0,7461 | 25%: 0,6867 | 75%: 0,8155 | Variance: 0,0087 | StdDev: 0,0934
+versions-maven-plugin-2.15.0.jar | Avg: 0,7135 | Min: 0,5193 | Max: 1,0000 | Count: 37 | Median: 0,7349 | 25%: 0,5767 | 75%: 0,7858 | Variance: 0,0168 | StdDev: 0,1296
+github-branch-source-1577.v83564088883f.jar | Avg: 0,7857 | Min: 0,5531 | Max: 1,0000 | Count: 70 | Median: 0,7910 | 25%: 0,7140 | 75%: 0,8579 | Variance: 0,0132 | StdDev: 0,1151
+api-common-2.2.2.jar | Avg: 0,7697 | Min: 0,6624 | Max: 1,0000 | Count: 18 | Median: 0,7233 | 25%: 0,6836 | 75%: 0,7810 | Variance: 0,0122 | StdDev: 0,1104
+jaxb2-basics-runtime-0.13.1.jar | Avg: 0,8283 | Min: 0,5979 | Max: 1,0000 | Count: 100 | Median: 0,8380 | 25%: 0,7477 | 75%: 0,9140 | Variance: 0,0136 | StdDev: 0,1164
+jedis-3.9.0.jar | Avg: 0,7836 | Min: 0,6099 | Max: 1,0000 | Count: 143 | Median: 0,7649 | 25%: 0,7313 | 75%: 0,8408 | Variance: 0,0062 | StdDev: 0,0790
+maven-surefire-common-3.0.0-M5.jar | Avg: 0,7540 | Min: 0,5706 | Max: 1,0000 | Count: 65 | Median: 0,7441 | 25%: 0,6864 | 75%: 0,8047 | Variance: 0,0086 | StdDev: 0,0929
+jakarta.jws-api-2.1.0.jar | Avg: 0,8118 | Min: 0,6522 | Max: 0,9421 | Count: 12 | Median: 0,8244 | 25%: 0,7436 | 75%: 0,8816 | Variance: 0,0073 | StdDev: 0,0854
+echarts-api-5.3.0-2.jar | Avg: 0,7536 | Min: 0,5738 | Max: 0,9068 | Count: 23 | Median: 0,7427 | 25%: 0,6924 | 75%: 0,8030 | Variance: 0,0076 | StdDev: 0,0870
+json-smart-2.4.8.jar | Avg: 0,8106 | Min: 0,5797 | Max: 0,9877 | Count: 29 | Median: 0,7989 | 25%: 0,7775 | 75%: 0,8337 | Variance: 0,0052 | StdDev: 0,0718
+jquery3-api-3.6.1-2.jar: No data
+maven-dependency-tree-2.2.jar | Avg: 0,7978 | Min: 0,5137 | Max: 1,0000 | Count: 31 | Median: 0,8557 | 25%: 0,6362 | 75%: 0,8986 | Variance: 0,0264 | StdDev: 0,1624
+log4j-core-2.11.1.jar | Avg: 0,7718 | Min: 0,4605 | Max: 1,0000 | Count: 526 | Median: 0,7767 | 25%: 0,7061 | 75%: 0,8439 | Variance: 0,0112 | StdDev: 0,1060
+dropwizard-core-2.1.5.jar | Avg: 0,7220 | Min: 0,4779 | Max: 0,9279 | Count: 22 | Median: 0,7315 | 25%: 0,6597 | 75%: 0,8184 | Variance: 0,0135 | StdDev: 0,1161
+jersey-server-2.32.jar | Avg: 0,8074 | Min: 0,5455 | Max: 1,0000 | Count: 200 | Median: 0,7980 | 25%: 0,7237 | 75%: 0,9071 | Variance: 0,0132 | StdDev: 0,1150
+jakarta.validation-api-2.0.2.jar | Avg: 0,8503 | Min: 0,6126 | Max: 1,0000 | Count: 75 | Median: 0,8438 | 25%: 0,7604 | 75%: 0,9729 | Variance: 0,0135 | StdDev: 0,1160
+derby-10.15.2.0.jar | Avg: 0,7662 | Min: 0,4494 | Max: 1,0000 | Count: 817 | Median: 0,7546 | 25%: 0,7074 | 75%: 0,8194 | Variance: 0,0088 | StdDev: 0,0936
+jackson-databind-2.10.0.jar | Avg: 0,8127 | Min: 0,5577 | Max: 1,0000 | Count: 458 | Median: 0,8087 | 25%: 0,7436 | 75%: 0,8732 | Variance: 0,0084 | StdDev: 0,0918
+guava-32.0.0-android.jar | Avg: 0,7809 | Min: 0,4708 | Max: 1,0000 | Count: 352 | Median: 0,7654 | 25%: 0,7138 | 75%: 0,8587 | Variance: 0,0091 | StdDev: 0,0952
+jaxb2-basics-runtime-1.11.1-PUBLISHED-BY-MISTAKE.jar | Avg: 0,8319 | Min: 0,5979 | Max: 1,0000 | Count: 99 | Median: 0,8355 | 25%: 0,7477 | 75%: 0,9381 | Variance: 0,0144 | StdDev: 0,1200
+workflow-api-1153.vb_912c0e47fb_a_.jar | Avg: 0,7861 | Min: 0,4983 | Max: 1,0000 | Count: 60 | Median: 0,7924 | 25%: 0,6774 | 75%: 0,8811 | Variance: 0,0162 | StdDev: 0,1272
+jakarta.interceptor-api-1.2.5.jar | Avg: 0,8537 | Min: 0,8537 | Max: 0,8537 | Count: 1 | Median: 0,8537 | 25%: 0,8537 | 75%: 0,8537 | Variance: 0,0000 | StdDev: 0,0000
+plexus-container-default-1.0-alpha-30.jar | Avg: 0,8065 | Min: 0,6292 | Max: 1,0000 | Count: 115 | Median: 0,8001 | 25%: 0,7349 | 75%: 0,8753 | Variance: 0,0085 | StdDev: 0,0923
+guice-5.1.0.jar | Avg: 0,8100 | Min: 0,4912 | Max: 1,0000 | Count: 138 | Median: 0,7945 | 25%: 0,7594 | 75%: 0,8690 | Variance: 0,0071 | StdDev: 0,0844
+dss-pades-5.10.2.jar | Avg: 0,8072 | Min: 0,5177 | Max: 1,0000 | Count: 76 | Median: 0,7941 | 25%: 0,7355 | 75%: 0,8677 | Variance: 0,0105 | StdDev: 0,1026
+jakarta.servlet-api-4.0.4.jar | Avg: 0,8627 | Min: 0,5518 | Max: 1,0000 | Count: 69 | Median: 0,8617 | 25%: 0,8031 | 75%: 0,9445 | Variance: 0,0111 | StdDev: 0,1052
+spring-data-jpa-2.7.6.jar | Avg: 0,7969 | Min: 0,5920 | Max: 1,0000 | Count: 79 | Median: 0,7966 | 25%: 0,7490 | 75%: 0,8402 | Variance: 0,0076 | StdDev: 0,0871
+dropwizard-sentry-2.0.25-2.jar | Avg: 0,9033 | Min: 0,8472 | Max: 0,9531 | Count: 3 | Median: 0,9095 | 25%: 0,8472 | 75%: 0,9095 | Variance: 0,0019 | StdDev: 0,0434
+google-api-services-storage-v1-rev20220705-1.32.1.jar | Avg: 0,8073 | Min: 0,7249 | Max: 1,0000 | Count: 107 | Median: 0,8388 | 25%: 0,7336 | 75%: 0,8571 | Variance: 0,0038 | StdDev: 0,0616
+sonarlint-core-8.15.0.65216.jar | Avg: 0,7861 | Min: 0,4580 | Max: 1,0000 | Count: 2848 | Median: 0,7811 | 25%: 0,7243 | 75%: 0,8503 | Variance: 0,0102 | StdDev: 0,1010
+struts2-core-2.3.37.jar | Avg: 0,7487 | Min: 0,5062 | Max: 1,0000 | Count: 303 | Median: 0,7653 | 25%: 0,6753 | 75%: 0,8238 | Variance: 0,0150 | StdDev: 0,1224
+flyway-core-3.2.1.jar | Avg: 0,7814 | Min: 0,5479 | Max: 1,0000 | Count: 102 | Median: 0,7601 | 25%: 0,7401 | 75%: 0,8554 | Variance: 0,0079 | StdDev: 0,0889
+spring-context-5.3.23.jar | Avg: 0,7991 | Min: 0,5318 | Max: 1,0000 | Count: 387 | Median: 0,7896 | 25%: 0,7394 | 75%: 0,8590 | Variance: 0,0076 | StdDev: 0,0870
+hibernate-entitymanager-4.3.11.Final.jar | Avg: 0,7974 | Min: 0,5102 | Max: 1,0000 | Count: 237 | Median: 0,7889 | 25%: 0,7376 | 75%: 0,8602 | Variance: 0,0110 | StdDev: 0,1049
+javaee-api-7.0.jar | Avg: 0,8292 | Min: 0,4272 | Max: 1,0000 | Count: 1250 | Median: 0,8307 | 25%: 0,7545 | 75%: 0,9044 | Variance: 0,0107 | StdDev: 0,1035
+metadata-qa-api-0.8.1.jar | Avg: 0,7846 | Min: 0,5144 | Max: 1,0000 | Count: 91 | Median: 0,7851 | 25%: 0,7313 | 75%: 0,8572 | Variance: 0,0123 | StdDev: 0,1111
+github-api-1.117.jar: No data
+plexus-io-3.2.0.jar | Avg: 0,8264 | Min: 0,5694 | Max: 0,9785 | Count: 29 | Median: 0,8390 | 25%: 0,7558 | 75%: 0,9018 | Variance: 0,0093 | StdDev: 0,0965
+testng-7.0.0.jar | Avg: 0,8160 | Min: 0,4808 | Max: 1,0000 | Count: 283 | Median: 0,8142 | 25%: 0,7517 | 75%: 0,8805 | Variance: 0,0108 | StdDev: 0,1039
+fop-1.0.jar | Avg: 0,7622 | Min: 0,4628 | Max: 1,0000 | Count: 1050 | Median: 0,7468 | 25%: 0,7017 | 75%: 0,8097 | Variance: 0,0097 | StdDev: 0,0983
+maven-aether-provider-3.0.3.jar | Avg: 0,7820 | Min: 0,7168 | Max: 0,8815 | Count: 6 | Median: 0,7874 | 25%: 0,7168 | 75%: 0,7874 | Variance: 0,0031 | StdDev: 0,0561
+proto-google-cloud-pubsub-v1-1.102.18.jar | Avg: 0,7864 | Min: 0,7092 | Max: 1,0000 | Count: 201 | Median: 0,7848 | 25%: 0,7725 | 75%: 0,7984 | Variance: 0,0011 | StdDev: 0,0329
+google-cloud-storage-2.10.0.jar | Avg: 0,8212 | Min: 0,6093 | Max: 1,0000 | Count: 111 | Median: 0,8319 | 25%: 0,7423 | 75%: 0,8960 | Variance: 0,0090 | StdDev: 0,0950
+dss-pades-pdfbox-5.10.2.jar | Avg: 0,8182 | Min: 0,5644 | Max: 1,0000 | Count: 14 | Median: 0,8630 | 25%: 0,6825 | 75%: 0,9239 | Variance: 0,0233 | StdDev: 0,1526
+lombok-1.18.0.jar | Avg: 0,7928 | Min: 0,5388 | Max: 0,9863 | Count: 31 | Median: 0,7828 | 25%: 0,7351 | 75%: 0,8789 | Variance: 0,0116 | StdDev: 0,1079
+kotlin-stdlib-1.3.31.jar | Avg: 0,7716 | Min: 0,5659 | Max: 1,0000 | Count: 284 | Median: 0,7535 | 25%: 0,6892 | 75%: 0,8581 | Variance: 0,0117 | StdDev: 0,1079
+graphql-java-servlet-14.0.0.jar | Avg: 0,8533 | Min: 0,6741 | Max: 0,9929 | Count: 35 | Median: 0,8877 | 25%: 0,7434 | 75%: 0,9317 | Variance: 0,0091 | StdDev: 0,0952
+okhttp-3.14.9.jar | Avg: 0,7554 | Min: 0,5544 | Max: 1,0000 | Count: 87 | Median: 0,7397 | 25%: 0,6813 | 75%: 0,8248 | Variance: 0,0104 | StdDev: 0,1018
+poi-ooxml-4.1.2.jar | Avg: 0,7734 | Min: 0,4837 | Max: 1,0000 | Count: 530 | Median: 0,7586 | 25%: 0,7041 | 75%: 0,8679 | Variance: 0,0097 | StdDev: 0,0987
+reflections-0.10.2.jar | Avg: 0,7980 | Min: 0,5998 | Max: 1,0000 | Count: 41 | Median: 0,7861 | 25%: 0,7322 | 75%: 0,8749 | Variance: 0,0089 | StdDev: 0,0945
+google-api-services-cloudresourcemanager-v3-rev20220807-2.0.0.jar | Avg: 0,8079 | Min: 0,7158 | Max: 0,9176 | Count: 129 | Median: 0,8044 | 25%: 0,7293 | 75%: 0,8831 | Variance: 0,0056 | StdDev: 0,0746
+google-api-services-cloudresourcemanager-v1-rev20220807-2.0.0.jar | Avg: 0,7994 | Min: 0,7067 | Max: 1,0000 | Count: 112 | Median: 0,7554 | 25%: 0,7262 | 75%: 0,9007 | Variance: 0,0067 | StdDev: 0,0817
+http-v1.1.2-d.jar | Avg: 0,7202 | Min: 0,4739 | Max: 1,0000 | Count: 46 | Median: 0,7071 | 25%: 0,6344 | 75%: 0,7647 | Variance: 0,0135 | StdDev: 0,1160
+google-cloud-bigquerystorage-2.13.0.jar | Avg: 0,7615 | Min: 0,4597 | Max: 0,9858 | Count: 86 | Median: 0,7646 | 25%: 0,6752 | 75%: 0,7973 | Variance: 0,0136 | StdDev: 0,1164
+surefire-junit47-3.0.0-M5.jar | Avg: 0,8011 | Min: 0,6135 | Max: 1,0000 | Count: 16 | Median: 0,8163 | 25%: 0,6697 | 75%: 0,8872 | Variance: 0,0176 | StdDev: 0,1328
+snmp4j-agent-3.0.3.jar | Avg: 0,8081 | Min: 0,5730 | Max: 1,0000 | Count: 234 | Median: 0,7988 | 25%: 0,7376 | 75%: 0,8761 | Variance: 0,0088 | StdDev: 0,0939
+echarts-api-5.3.2-1.jar | Avg: 0,7536 | Min: 0,5738 | Max: 0,9068 | Count: 23 | Median: 0,7427 | 25%: 0,6924 | 75%: 0,8030 | Variance: 0,0076 | StdDev: 0,0870
+jcabi-aspects-0.24.1.jar | Avg: 0,6575 | Min: 0,5313 | Max: 0,7546 | Count: 18 | Median: 0,6343 | 25%: 0,6237 | 75%: 0,7040 | Variance: 0,0041 | StdDev: 0,0638
+surefire-junit4-3.0.0-M5.jar | Avg: 0,6230 | Min: 0,6230 | Max: 0,6230 | Count: 1 | Median: 0,6230 | 25%: 0,6230 | 75%: 0,6230 | Variance: 0,0000 | StdDev: 0,0000
+checkstyle-10.1.jar | Avg: 0,7678 | Min: 0,5261 | Max: 1,0000 | Count: 665 | Median: 0,7646 | 25%: 0,7287 | 75%: 0,8123 | Variance: 0,0059 | StdDev: 0,0765
+jquery3-api-3.6.3-1.jar: No data
+http-v0.25.jar | Avg: 0,7117 | Min: 0,4739 | Max: 1,0000 | Count: 42 | Median: 0,7007 | 25%: 0,6344 | 75%: 0,7604 | Variance: 0,0130 | StdDev: 0,1140
+jakarta.annotation-api-1.3.5.jar | Avg: 0,7827 | Min: 0,7143 | Max: 0,8939 | Count: 4 | Median: 0,7612 | 25%: 0,7143 | 75%: 0,7967 | Variance: 0,0051 | StdDev: 0,0716
+junit-jupiter-engine-5.10.0.jar | Avg: 0,8097 | Min: 0,6273 | Max: 1,0000 | Count: 32 | Median: 0,7869 | 25%: 0,7350 | 75%: 0,8964 | Variance: 0,0101 | StdDev: 0,1003
+spring-webmvc-4.1.6.RELEASE.jar | Avg: 0,7940 | Min: 0,6122 | Max: 1,0000 | Count: 271 | Median: 0,7849 | 25%: 0,7426 | 75%: 0,8326 | Variance: 0,0059 | StdDev: 0,0769
+jquery3-api-3.7.0-1.jar: No data
+slf4j-api-1.7.30.jar | Avg: 0,7773 | Min: 0,6748 | Max: 0,9778 | Count: 24 | Median: 0,7534 | 25%: 0,7153 | 75%: 0,7939 | Variance: 0,0073 | StdDev: 0,0852
+sshd-core-2.10.0.jar | Avg: 0,7811 | Min: 0,4755 | Max: 1,0000 | Count: 297 | Median: 0,7664 | 25%: 0,6990 | 75%: 0,8918 | Variance: 0,0140 | StdDev: 0,1182
+mockito-core-1.10.19.jar | Avg: 0,7618 | Min: 0,4772 | Max: 1,0000 | Count: 311 | Median: 0,7571 | 25%: 0,7060 | 75%: 0,8320 | Variance: 0,0127 | StdDev: 0,1125
+hibernate-validator-5.4.3.Final.jar | Avg: 0,7872 | Min: 0,5974 | Max: 1,0000 | Count: 289 | Median: 0,7606 | 25%: 0,7127 | 75%: 0,8742 | Variance: 0,0094 | StdDev: 0,0968
+dropwizard-sentry-2.1.2-4.jar | Avg: 0,9033 | Min: 0,8472 | Max: 0,9531 | Count: 3 | Median: 0,9095 | 25%: 0,8472 | 75%: 0,9095 | Variance: 0,0019 | StdDev: 0,0434
+echarts-api-5.4.0-4.jar | Avg: 0,7579 | Min: 0,5738 | Max: 0,9068 | Count: 38 | Median: 0,7603 | 25%: 0,6924 | 75%: 0,8042 | Variance: 0,0075 | StdDev: 0,0868
+hibernate-core-4.0.1.Final.jar | Avg: 0,8010 | Min: 0,5126 | Max: 1,0000 | Count: 1715 | Median: 0,7875 | 25%: 0,7338 | 75%: 0,8738 | Variance: 0,0101 | StdDev: 0,1003
+libthrift-0.12.0.jar | Avg: 0,7156 | Min: 0,4970 | Max: 1,0000 | Count: 103 | Median: 0,7083 | 25%: 0,6183 | 75%: 0,7942 | Variance: 0,0142 | StdDev: 0,1192
+jackson-core-2.13.3.jar | Avg: 0,7602 | Min: 0,5615 | Max: 1,0000 | Count: 110 | Median: 0,7398 | 25%: 0,7026 | 75%: 0,8125 | Variance: 0,0096 | StdDev: 0,0978
+mina-core-2.1.5.jar | Avg: 0,7695 | Min: 0,4906 | Max: 1,0000 | Count: 224 | Median: 0,7676 | 25%: 0,6990 | 75%: 0,8254 | Variance: 0,0097 | StdDev: 0,0983
+hamcrest-library-1.3.jar | Avg: 0,7646 | Min: 0,6626 | Max: 0,9543 | Count: 30 | Median: 0,7494 | 25%: 0,7234 | 75%: 0,7949 | Variance: 0,0038 | StdDev: 0,0617
+echarts-api-5.1.2-3.jar | Avg: 0,7564 | Min: 0,5738 | Max: 0,9068 | Count: 21 | Median: 0,7772 | 25%: 0,6924 | 75%: 0,8042 | Variance: 0,0082 | StdDev: 0,0905
+json-20090211.jar | Avg: 0,8615 | Min: 0,6864 | Max: 0,9861 | Count: 11 | Median: 0,8601 | 25%: 0,7471 | 75%: 0,9630 | Variance: 0,0110 | StdDev: 0,1051
+jasperreports-6.18.1.jar | Avg: 0,7902 | Min: 0,4551 | Max: 1,0000 | Count: 2308 | Median: 0,7858 | 25%: 0,7236 | 75%: 0,8640 | Variance: 0,0121 | StdDev: 0,1102
+js-scriptengine-22.0.0.jar | Avg: 0,7417 | Min: 0,6657 | Max: 0,8177 | Count: 2 | Median: 0,7417 | 25%: 0,6657 | 75%: 0,6657 | Variance: 0,0058 | StdDev: 0,0760
+commons-net-3.3.jar | Avg: 0,8237 | Min: 0,4406 | Max: 1,0000 | Count: 122 | Median: 0,8334 | 25%: 0,7349 | 75%: 0,9113 | Variance: 0,0119 | StdDev: 0,1091
+google-extensions-0.6.jar | Avg: 0,8771 | Min: 0,8771 | Max: 0,8771 | Count: 1 | Median: 0,8771 | 25%: 0,8771 | 75%: 0,8771 | Variance: 0,0000 | StdDev: 0,0000
+spring-core-5.3.19.jar | Avg: 0,7968 | Min: 0,5054 | Max: 1,0000 | Count: 368 | Median: 0,7910 | 25%: 0,7379 | 75%: 0,8607 | Variance: 0,0091 | StdDev: 0,0952
+datafaker-1.3.0.jar | Avg: 0,8028 | Min: 0,5329 | Max: 1,0000 | Count: 225 | Median: 0,7729 | 25%: 0,7342 | 75%: 0,8750 | Variance: 0,0098 | StdDev: 0,0988
+asto-v1.10.0.jar | Avg: 0,7769 | Min: 0,4739 | Max: 0,9594 | Count: 40 | Median: 0,8012 | 25%: 0,7469 | 75%: 0,8366 | Variance: 0,0112 | StdDev: 0,1058
+woodstox-core-6.3.1.jar | Avg: 0,7852 | Min: 0,5176 | Max: 1,0000 | Count: 525 | Median: 0,7636 | 25%: 0,7145 | 75%: 0,8571 | Variance: 0,0106 | StdDev: 0,1032
+dubbo-2.7.21.jar | Avg: 0,7868 | Min: 0,4443 | Max: 1,0000 | Count: 946 | Median: 0,7875 | 25%: 0,7060 | 75%: 0,8701 | Variance: 0,0119 | StdDev: 0,1091
+bcprov-jdk15on-1.51.jar | Avg: 0,8014 | Min: 0,4406 | Max: 1,0000 | Count: 1239 | Median: 0,7980 | 25%: 0,7279 | 75%: 0,8930 | Variance: 0,0114 | StdDev: 0,1070
+pubsublite-kafka-1.0.1.jar | Avg: 0,7858 | Min: 0,6696 | Max: 0,9089 | Count: 4 | Median: 0,7824 | 25%: 0,6696 | 75%: 0,8743 | Variance: 0,0114 | StdDev: 0,1067
+spring-tx-5.3.24.jar | Avg: 0,7737 | Min: 0,5458 | Max: 1,0000 | Count: 114 | Median: 0,7666 | 25%: 0,6964 | 75%: 0,8331 | Variance: 0,0102 | StdDev: 0,1009
+jaxb-impl-2.3.3.jar | Avg: 0,7910 | Min: 0,5129 | Max: 1,0000 | Count: 258 | Median: 0,7775 | 25%: 0,7369 | 75%: 0,8452 | Variance: 0,0085 | StdDev: 0,0922
+jasypt-1.8.jar | Avg: 0,8169 | Min: 0,6091 | Max: 1,0000 | Count: 100 | Median: 0,8071 | 25%: 0,7320 | 75%: 0,8960 | Variance: 0,0096 | StdDev: 0,0980
+javaparser-core-3.18.0.jar | Avg: 0,7740 | Min: 0,5163 | Max: 1,0000 | Count: 330 | Median: 0,7546 | 25%: 0,7091 | 75%: 0,8258 | Variance: 0,0073 | StdDev: 0,0853
+echarts-api-5.2.2-1.jar | Avg: 0,7536 | Min: 0,5738 | Max: 0,9068 | Count: 23 | Median: 0,7427 | 25%: 0,6924 | 75%: 0,8030 | Variance: 0,0076 | StdDev: 0,0870
+jetty-server-10.0.10.jar | Avg: 0,7590 | Min: 0,4912 | Max: 1,0000 | Count: 174 | Median: 0,7408 | 25%: 0,6939 | 75%: 0,8253 | Variance: 0,0097 | StdDev: 0,0987
+commons-io-2.11.0.jar | Avg: 0,7136 | Min: 0,4709 | Max: 1,0000 | Count: 156 | Median: 0,7213 | 25%: 0,6174 | 75%: 0,7895 | Variance: 0,0128 | StdDev: 0,1131
+xstream-1.4.17.jar | Avg: 0,8116 | Min: 0,4863 | Max: 1,0000 | Count: 295 | Median: 0,8204 | 25%: 0,7296 | 75%: 0,8934 | Variance: 0,0132 | StdDev: 0,1147
+grpc-google-cloud-pubsublite-v1-1.11.1.jar | Avg: 0,8443 | Min: 0,7277 | Max: 0,9747 | Count: 30 | Median: 0,8189 | 25%: 0,7847 | 75%: 0,9044 | Variance: 0,0046 | StdDev: 0,0681
+logback-core-1.1.11.jar | Avg: 0,7692 | Min: 0,4538 | Max: 1,0000 | Count: 213 | Median: 0,7602 | 25%: 0,6926 | 75%: 0,8392 | Variance: 0,0121 | StdDev: 0,1099
+select2-api-4.0.13-7.jar: No data
+sshd-common-2.10.0.jar | Avg: 0,7833 | Min: 0,5137 | Max: 1,0000 | Count: 348 | Median: 0,7838 | 25%: 0,7253 | 75%: 0,8409 | Variance: 0,0097 | StdDev: 0,0987
+p4-1.11.5.jar | Avg: 0,7536 | Min: 0,5068 | Max: 1,0000 | Count: 179 | Median: 0,7490 | 25%: 0,6931 | 75%: 0,8139 | Variance: 0,0087 | StdDev: 0,0934
+Statistics of the statistics:
+Statistic of Avg: Avg=0,7853 | Min=0,6174 | Max=0,9033 | Count=168 | StdDev=0,0463
+Statistic of Min: Avg=0,5713 | Min=0,4268 | Max=0,8771 | Count=168 | StdDev=0,0987
+Statistic of Max: Avg=0,9717 | Min=0,6174 | Max=1,0000 | Count=168 | StdDev=0,0605
+Statistic of Count: Avg=249,9464 | Min=1,0000 | Max=3953,0000 | Count=168 | StdDev=494,9011
+Statistic of Median: Avg=0,7809 | Min=0,6174 | Max=0,9095 | Count=168 | StdDev=0,0509
+Statistic of 25%: Avg=0,7160 | Min=0,5480 | Max=0,8771 | Count=168 | StdDev=0,0526
+Statistic of 75%: Avg=0,8472 | Min=0,6174 | Max=1,0000 | Count=168 | StdDev=0,0553
+Statistic of Variance: Avg=0,0095 | Min=0,0000 | Max=0,0264 | Count=168 | StdDev=0,0042
+Statistic of StdDev: Avg=0,0937 | Min=0,0000 | Max=0,1624 | Count=168 | StdDev=0,0259
+
+Process finished with exit code 0

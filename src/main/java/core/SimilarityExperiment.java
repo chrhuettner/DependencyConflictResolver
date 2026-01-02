@@ -26,8 +26,14 @@ public class SimilarityExperiment {
                 System.out.println("Skipping file " + strippedFileName + " ("+file.getName()+")");
                 continue;
             }
+
+            try {
+                dependencyStatistics.put(file.getName(), DependencyAnalyser.analyseDependencySimilarity(file.getPath(), "http://localhost:11434", "nomic-embed-text"));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
             alreadyComputed.add(strippedFileName);
-            dependencyStatistics.put(file.getName(), DependencyAnalyser.analyseDependencySimilarity(file.getPath(), "http://localhost:11434", "nomic-embed-text"));
             //iteration ++;
         }
         System.out.println();
