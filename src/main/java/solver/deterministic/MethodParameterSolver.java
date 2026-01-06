@@ -124,9 +124,6 @@ public class MethodParameterSolver extends ContextAwareSolver {
         }
 
 
-        //TODO: ADD OTHERS, ALSO, THIS ARCHITECTURE IS SHIT, USE ONE METHOD INSTEAD OF REPLICATING EVERYTHING IN errorisFixableBySolver and errorIsTargetedBySolver
-
-
         return new ProposedChange(context.getStrippedClassName(), reconstructMethodChain(methodChain, parameterStart, methodInvocationEnd, parameters.toArray(new String[]{})), context.getCompileError().file, brokenCode.start(), brokenCode.end());
     }
 

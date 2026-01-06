@@ -1,5 +1,8 @@
 package core;
 
+import java.util.Map;
+import java.util.Set;
+
 public class BumpConfig {
     private String pathToBUMPFolder;
     private int threads;
@@ -15,6 +18,7 @@ public class BumpConfig {
     private String dockerRegistryUri;
     private String wordSimilarityModel;
     private String llmApiKey;
+    private Set<String> disabledPromptComponents;
 
     public String getPathToBUMPFolder() {
         return pathToBUMPFolder;
@@ -126,5 +130,13 @@ public class BumpConfig {
 
     public void setLlmApiKey(String llmApiKey) {
         this.llmApiKey = llmApiKey;
+    }
+
+    public Set<String> getDisabledPromptComponents() {
+        return disabledPromptComponents;
+    }
+
+    public void setDisabledPromptComponents(Set<String> disabledPromptComponents) {
+        this.disabledPromptComponents = disabledPromptComponents;
     }
 }

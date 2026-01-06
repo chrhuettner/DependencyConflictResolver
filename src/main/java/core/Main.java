@@ -5,6 +5,7 @@ import dependencysimilarity.DependencyAnalyser;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,8 +37,15 @@ public class Main {
             System.out.println("Docker host: " + config.getDockerHostUri());
             System.out.println("Docker registry: " + config.getDockerRegistryUri());
             System.out.println("Word Similarity Model: " + config.getWordSimilarityModel());
+            if(config.getDisabledPromptComponents() == null){
+                config.setDisabledPromptComponents(new HashSet<>());
+            }
+            System.out.println("Disabled Prompt Components: " + config.getDisabledPromptComponents());
+
             System.out.println("------------------------------");
             System.out.println("Executing BUMP solver:");
+
+
 
             BumpRunner.runBUMP(config);
 

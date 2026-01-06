@@ -21,6 +21,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import static core.BumpRunner.usePromptCaching;
 
@@ -31,9 +32,6 @@ public class LLMCodeConflictSolver extends ContextAwareSolver {
             Given code diffs between different versions of a shared dependency and client library code that breaks because of API changes, you suggest minimal, safe code adaptations so the client library works correctly with the target dependency version.
             Focus on clear, maintainable code changes and explain your reasoning if needed.
             """;
-
-    public static String codeStart = "---BEGIN UPDATED java CODE---";
-    public static String codeEnd = "---END UPDATED java CODE---";
 
     static String promptTemplatePrefix = """
             You are a software migration assistant.
@@ -172,11 +170,11 @@ public class LLMCodeConflictSolver extends ContextAwareSolver {
         }
 
         return assemblePrompt(context.getDependencyArtifactId(), context.getPreviousVersion(), context.getNewVersion(), context.getTargetPathOld().toString(), context.getTargetPathNew().toString(),
-                errorLocation.className(), errorLocation.methodName(), brokenCode.code(), errorLocation.targetMethodParameterClassNames(), errorPrompt, erroneousClassLinesList.toString(), erroneousScope, context.getWordSimilarityModel());
+                errorLocation.className(), errorLocation.methodName(), brokenCode.code(), errorLocation.targetMethodParameterClassNames(), errorPrompt, erroneousClassLinesList.toString(), erroneousScope, context.getWordSimilarityModel(), context.getConfig().getDisabledPromptComponents());
     }
 
     public String assemblePrompt(String libraryName, String oldVersion, String newVersion, String pathToOldLibraryJar, String pathToNewLibraryJar, String brokenClassName,
-                                 String brokenMethodName, String brokenCode, String[] parameterTypeNames, String error, String erroneousClass, String erroneousScope, WordSimilarityModel wordSimilarityModel) {
+                                 String brokenMethodName, String brokenCode, String[] parameterTypeNames, String error, String erroneousClass, String erroneousScope, WordSimilarityModel wordSimilarityModel, Set<String> disabledPromptComponents) {
         JarDiffUtil jarDiffUtil;
         if (brokenClassName != null && brokenClassName.startsWith("java.")) {
             jarDiffUtil = JarDiffUtil.getInstance("Java_Src/rt.jar", "Java_Src/rt.jar");
@@ -238,11 +236,11 @@ public class LLMCodeConflictSolver extends ContextAwareSolver {
 
         assembledPrompt.append(String.format(promptTemplatePrefix, libraryName, oldVersion, newVersion));
 
-        if (!methodChange.isEmpty()) {
+        if (!methodChange.isEmpty() && !disabledPromptComponents.contains("methodchange")) {
             assembledPrompt.append(String.format(promptTemplateMethodDiff, methodChange));
         }
 
-        if (classDiffResult != null && !classDiffResult.classDiff().isEmpty()) {
+        if (classDiffResult != null && !classDiffResult.classDiff().isEmpty() && !disabledPromptComponents.contains("classdiff")) {
             assembledPrompt.append(String.format(promptTemplateFullDiff, newVersion, oldVersion, classDiffResult.classDiff()));
         }
 
@@ -250,19 +248,19 @@ public class LLMCodeConflictSolver extends ContextAwareSolver {
             //assembledPrompt.append(String.format(promptTemplateErroneousClass,  newVersion, erroneousClass));
         }
 
-        if (!erroneousScope.isEmpty()) {
+        if (!erroneousScope.isEmpty() && !disabledPromptComponents.contains("scope")) {
             assembledPrompt.append(String.format(promptTemplateErroneousScope, erroneousScope));
         }
 
-        if (!brokenCode.isEmpty()) {
+        if (!brokenCode.isEmpty() && !disabledPromptComponents.contains("brokencode")) {
             assembledPrompt.append(String.format(promptTemplateCodeLine, newVersion, brokenCode));
         }
 
-        if (!methodSimilarityString.isEmpty()) {
+        if (!methodSimilarityString.isEmpty() && !disabledPromptComponents.contains("methodsimilarity")) {
             assembledPrompt.append(String.format(promptTemplateSimilarity, methodSimilarityString));
         }
 
-        if (!error.isEmpty()) {
+        if (!error.isEmpty() && !disabledPromptComponents.contains("error")) {
             assembledPrompt.append(String.format(promptTemplateError, error));
         }
 
