@@ -22,10 +22,10 @@ public interface CodeConflictSolver {
 
     static List<CodeConflictSolver> getCodeConflictSolvers(Context context) {
         List<CodeConflictSolver> solvers = new ArrayList<>();
-        solvers.add(new ImportSolver(context));
-        solvers.add(new OverrideSolver(context));
-        solvers.add(new FinalClassSolver(context));
-        solvers.add(new MethodParameterSolver(context));
+        //solvers.add(new ImportSolver(context));
+        //solvers.add(new OverrideSolver(context));
+        //solvers.add(new FinalClassSolver(context));
+        //solvers.add(new MethodParameterSolver(context));
         solvers.add(new LLMCodeConflictSolver(context, context.getActiveProvider()));
         return solvers;
     }
