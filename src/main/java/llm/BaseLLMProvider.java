@@ -93,6 +93,19 @@ public abstract class BaseLLMProvider implements LLMProvider {
     public abstract Request.Builder addHeadersToBuilder(Request.Builder builder);
 
     public static LLMProvider getProviderByNames(String providerName, String modelName, String ollamaUrl, String apiKey) {
+        return getProviderByNames(providerName, modelName, ollamaUrl, apiKey, "high", "low", true);
+    }
+
+    public static LLMProvider getProviderByNames(String providerName, String modelName, String ollamaUrl, String apiKey,
+                                                 String reasoningEffort, String verbosity,
+                                                 boolean optimizedFormulaOutput) {
+        return getProviderByNames(providerName, modelName, ollamaUrl, apiKey, reasoningEffort, verbosity,
+                optimizedFormulaOutput, "http://localhost:8080/promptAI");
+    }
+
+    public static LLMProvider getProviderByNames(String providerName, String modelName, String ollamaUrl, String apiKey,
+                                                 String reasoningEffort, String verbosity,
+                                                 boolean optimizedFormulaOutput, String academicAiUrl) {
         switch (providerName) {
             case "ollama":
                 return new OllamaProvider(modelName, ollamaUrl + "/api/chat");
@@ -100,8 +113,11 @@ public abstract class BaseLLMProvider implements LLMProvider {
                 return new OpenAiProvider(modelName, apiKey);
             case "anthropic":
                 return new AnthropicProvider(modelName, apiKey);
+            case "academicai":
+                return new AcademicAiProvider(modelName, academicAiUrl, reasoningEffort, verbosity,
+                        optimizedFormulaOutput);
             default:
-                throw new IllegalArgumentException("Unknown provider name: " + providerName + ". Valid options: ollama, openai, anthropic");
+                throw new IllegalArgumentException("Unknown provider name: " + providerName + ". Valid options: ollama, openai, anthropic, academicai");
         }
     }
 }

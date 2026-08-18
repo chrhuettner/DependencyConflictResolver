@@ -35,6 +35,9 @@ public class Main {
             System.out.println("LLM provider: " + config.getLlmProvider());
             System.out.println("LLM name: " + config.getLlmName());
             System.out.println("LLM temperature: " + config.getTemperature());
+            if ("academicai".equalsIgnoreCase(config.getLlmProvider())) {
+                System.out.println("Academic AI URL: " + config.getAcademicAiUrl());
+            }
             System.out.println("Docker host: " + config.getDockerHostUri());
             System.out.println("Docker registry: " + config.getDockerRegistryUri());
             System.out.println("Word Similarity Model: " + config.getWordSimilarityModel());

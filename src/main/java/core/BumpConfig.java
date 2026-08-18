@@ -21,6 +21,10 @@ public class BumpConfig {
     private Set<String> disabledPromptComponents;
     private double temperature;
     private double top_k;
+    private String academicAiReasoningEffort = "high";
+    private String academicAiVerbosity = "low";
+    private boolean academicAiOptimizedFormulaOutput = true;
+    private String academicAiUrl = "http://localhost:8080/promptAI";
 
 
     public String getPathToBUMPFolder() {
@@ -157,5 +161,37 @@ public class BumpConfig {
 
     public void setTop_k(double top_k) {
         this.top_k = top_k;
+    }
+
+    public String getAcademicAiReasoningEffort() {
+        return academicAiReasoningEffort;
+    }
+
+    public void setAcademicAiReasoningEffort(String academicAiReasoningEffort) {
+        this.academicAiReasoningEffort = academicAiReasoningEffort;
+    }
+
+    public String getAcademicAiVerbosity() {
+        return academicAiVerbosity;
+    }
+
+    public void setAcademicAiVerbosity(String academicAiVerbosity) {
+        this.academicAiVerbosity = academicAiVerbosity;
+    }
+
+    public boolean isAcademicAiOptimizedFormulaOutput() {
+        return academicAiOptimizedFormulaOutput;
+    }
+
+    public void setAcademicAiOptimizedFormulaOutput(boolean academicAiOptimizedFormulaOutput) {
+        this.academicAiOptimizedFormulaOutput = academicAiOptimizedFormulaOutput;
+    }
+
+    public String getAcademicAiUrl() {
+        return academicAiUrl;
+    }
+
+    public void setAcademicAiUrl(String academicAiUrl) {
+        this.academicAiUrl = academicAiUrl;
     }
 }

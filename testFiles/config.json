@@ -1,17 +1,21 @@
 {
-  "pathToBUMPFolder": "testFiles/BUMPSubset",
-  "threads": 1,
+  "pathToBUMPFolder": "testFiles/filtered_BUMP",
+  "threads": 3,
   "maxIterations": 4,
-  "maxRetries": 5,
+  "maxRetries": 0,
   "pathToOutput": "testFiles",
-  "llmProvider": "ollama",
+  "llmProvider": "academicai",
   "ollamaUri": "http://localhost:11434",
-  "llmName": "gpt-oss:120b-cloud",
+  "llmName": "gpt-5-nano",
   "dockerHostUri": "tcp://localhost:2375",
   "dockerUsername": "",
   "dockerPassword": "",
   "dockerRegistryUri": "",
   "wordSimilarityModel": "nomic-embed-text",
   "llmApiKey": "",
-  "temperature": 0
+  "temperature": 0,
+  "academicAiReasoningEffort": "high",
+  "academicAiVerbosity": "low",
+  "academicAiOptimizedFormulaOutput": false,
+  "academicAiUrl": "http://localhost:8080/promptAI"
 }

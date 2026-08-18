@@ -12,5 +12,9 @@
   "dockerPassword": "",
   "dockerRegistryUri": "",
   "wordSimilarityModel": "nomic-embed-text",
-  "llmApiKey": ""
+  "llmApiKey": "",
+  "academicAiReasoningEffort": "high",
+  "academicAiVerbosity": "low",
+  "academicAiOptimizedFormulaOutput": false,
+  "academicAiUrl": "http://host.docker.internal:8080/promptAI"
 }

@@ -1,6 +1,6 @@
 [INFO] Using jgitver configuration file: /pdb/.mvn/jgitver.config.xml
 [INFO] Using jgitver-maven-plugin [1.9.0] (sha1: 410af24b23bf392ebb2810475800189c6d881817)
-[INFO]     version '0.0.0-NOT_A_GIT_REPOSITORY' computed in 433 ms
+[INFO]     version '0.0.0-NOT_A_GIT_REPOSITORY' computed in 422 ms
 [INFO] 
 [INFO] Scanning for projects...
 [INFO] jgitver-maven-plugin is about to change project(s) version(s)
@@ -38,8 +38,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  32.275 s
-[INFO] Finished at: 2025-09-30T16:54:14Z
+[INFO] Total time:  21.355 s
+[INFO] Finished at: 2026-08-18T08:32:57Z
 [INFO] ------------------------------------------------------------------------
 [WARNING] 
 [WARNING] Plugin validation issues were detected in 3 plugin(s)

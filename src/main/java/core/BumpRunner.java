@@ -104,7 +104,10 @@ public class BumpRunner {
 
         File outputDirClasses = new File(targetDirectoryClasses);
 
-        LLMProvider activeProvider = BaseLLMProvider.getProviderByNames(bumpConfig.getLlmProvider(), bumpConfig.getLlmName(), bumpConfig.getOllamaUri(), bumpConfig.getLlmApiKey());
+        LLMProvider activeProvider = BaseLLMProvider.getProviderByNames(bumpConfig.getLlmProvider(), bumpConfig.getLlmName(),
+                bumpConfig.getOllamaUri(), bumpConfig.getLlmApiKey(), bumpConfig.getAcademicAiReasoningEffort(),
+                bumpConfig.getAcademicAiVerbosity(), bumpConfig.isAcademicAiOptimizedFormulaOutput(),
+                bumpConfig.getAcademicAiUrl());
 
         WordSimilarityModel wordSimilarityModel = new WordSimilarityModel(bumpConfig.getWordSimilarityModel(), bumpConfig.getOllamaUri());
 

@@ -74,7 +74,7 @@ In `jsonConfig`, specify:
     "maxIterations": <maximum amount of iterations before pruning a branch>,
     "maxRetries": <maximum amount of retries>,
     "pathToOutput": <path to output folder>,
-    "llmProvider": <ollama|openai>,
+    "llmProvider": <ollama|openai|anthropic|academicai>,
     "ollamaUri": <uri to access ollama, for example: http://localhost:11434>,
     "llmName": <llm name, for example: qwen3-coder:480b-cloud>,
     "dockerHostUri": <uri to access docker, for example: tcp://localhost:2375>,
@@ -84,7 +84,11 @@ In `jsonConfig`, specify:
     "wordSimilarityModel": <text encoder model, for example: nomic-embed-text>,
     "llmApiKey": "<api key if llm provider is openai>",
     "disabledPromptComponents": <Set of disabled LLM prompt components>,
-    "temperature": <LLM temperature from 0 to 1>
+    "temperature": <LLM temperature from 0 to 1>,
+    "academicAiReasoningEffort": <Academic AI reasoning effort, for example: high>,
+    "academicAiVerbosity": <Academic AI verbosity, for example: low>,
+    "academicAiOptimizedFormulaOutput": <whether Academic AI should optimize formula output>,
+    "academicAiUrl": <Academic AI endpoint, for example: http://localhost:8080/promptAI>
 }
 ```
 
